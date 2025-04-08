@@ -18,15 +18,25 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="3.0594656"
-     inkscape:cx="891.33213"
-     inkscape:cy="629.19485"
+     inkscape:zoom="8.9351783"
+     inkscape:cx="1406.4633"
+     inkscape:cy="307.99609"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="952"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="Layer_1" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1323.6596,336.73465 h 40.8345 v -21.12833 l 153.3836,0.20316 0.2032,20.72202 85.7323,0.20315"
+     id="path43"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1324.0865,337.0704 h 40.2251 l 0.6095,20.11255 153.3836,0.20316 v -20.51886 l 86.7481,0.20315"
+     id="path44"
+     sodipodi:nodetypes="cccccc" />
   <path
      style="fill:none;stroke:#000000"
      d="m 808.48487,704.29955 -151.68892,0.4133"
@@ -42,16 +52,6 @@
      d="m 1239.572,656.63177 35.8235,-0.13609 0.067,20.85796 64.7399,-0.0683"
      id="path45-3"
      sodipodi:nodetypes="cccc" />
-  <path
-     style="fill:none;stroke:#ffffff"
-     d="m 1323.9746,335.61548 h 40.2251 l 0.6095,20.11255 153.3836,0.20316 0,-20.51886 86.7481,0.20315"
-     id="path44"
-     sodipodi:nodetypes="cccccc" />
-  <path
-     style="fill:none;stroke:#ffffff"
-     d="m 1323.7715,335.61548 40.8345,0 0,-21.12833 153.3836,0.20316 0.2032,20.72202 85.7323,0.20315"
-     id="path43"
-     sodipodi:nodetypes="cccccc" />
   <path
      style="fill:none;stroke:#ffffff"
      d="m 1003.3041,551.88306 0.2194,47.16011 -44.52798,0.21935 -0.21935,105.06836 -150.47368,-0.21935"
@@ -1065,30 +1065,6 @@
      rx="7.5"
      ry="7.5"
      id="rect110" />
-  <g
-     id="g114">
-    <rect
-       class="st26"
-       x="788.01"
-       y="156.98"
-       width="38.1"
-       height="47.62"
-       id="rect113" />
-    <rect
-       class="st29"
-       x="785.63"
-       y="176.03"
-       width="42.86"
-       height="19.05"
-       id="rect114" />
-    <text
-       class="st37"
-       transform="translate(795.39 189.25)"
-       id="text114"><tspan
-         x="0"
-         y="0"
-         id="tspan114">bam</tspan></text>
-  </g>
   <text
      class="st38"
      transform="translate(728.7 205.53)"
@@ -4337,5 +4313,29 @@
          x="0"
          y="0"
          id="tspan260">vcf</tspan></text>
+  </g>
+  <g
+     id="g114">
+    <rect
+       class="st26"
+       x="788.01"
+       y="156.98"
+       width="38.1"
+       height="47.62"
+       id="rect113" />
+    <rect
+       class="st29"
+       x="785.63"
+       y="176.03"
+       width="42.86"
+       height="19.05"
+       id="rect114" />
+    <text
+       class="st37"
+       transform="translate(795.39 189.25)"
+       id="text114"><tspan
+         x="0"
+         y="0"
+         id="tspan114">bam</tspan></text>
   </g>
 </svg>
