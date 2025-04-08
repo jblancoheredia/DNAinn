@@ -1,0 +1,8 @@
+name: 'standardize_svs'
+command: 'nextflow run ./modules/local/standardize_svs -entry test_standardize_svs -c ./tests/config/nextflow.config'
+tags:
+  - 'standardize_svs'
+files:
+  - path: 'results/CDWV23.manta.standard.vcf'
+  - path: 'results/CDWV23.manta.summary.tsv'
+

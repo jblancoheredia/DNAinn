@@ -1,0 +1,4037 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   version="1.1"
+   viewBox="0 0 1724 792"
+   sodipodi:docname="DNAinn.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview318"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="36.123716"
+     inkscape:cx="1316.9741"
+     inkscape:cy="341.13323"
+     inkscape:window-width="3088"
+     inkscape:window-height="1285"
+     inkscape:window-x="952"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 808.48487,704.29955 -151.68892,0.4133"
+     id="path46"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1239.5292,656.33232 35.8235,0.13609 0.067,-20.85796 64.7399,0.0683"
+     id="path45"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1239.572,656.63177 35.8235,-0.13609 0.067,20.85796 64.7399,-0.0683"
+     id="path45-3"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1323.9746,335.61548 h 40.2251 l 0.6095,20.11255 153.3836,0.20316 0,-20.51886 86.7481,0.20315"
+     id="path44"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1323.7715,335.61548 40.8345,0 0,-21.12833 153.3836,0.20316 0.2032,20.72202 85.7323,0.20315"
+     id="path43"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.3041,551.88306 0.2194,47.16011 -44.52798,0.21935 -0.21935,105.06836 -150.47368,-0.21935"
+     id="path42"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.5234,552.5411 v 46.50207 h -44.74723 v 69.53376 l -149.81563,-0.21935 -0.21935,36.19265"
+     id="path41"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.3041,552.5411 0.4387,46.50207 h -44.96663 l -0.21935,33.34111 -149.81563,-0.4387 0.21935,72.16595"
+     id="path40" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.3041,550.12826 0.2193,49.13426 h -44.52788 l 0,-40.79898 -55.0567,-0.65805 v 20.83819 l -41.67638,-0.4387 -0.21935,-20.39949 -53.08255,0.4387 -0.21935,145.64799"
+     id="path39"
+     sodipodi:nodetypes="cccccccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.3041,551.66371 v 47.37946 l -44.52793,0 0.21935,-41.01833 -54.83735,0 0,-21.05754 -42.11508,0.21935 0,20.61884 -53.08255,0 0,146.08669"
+     id="path38"
+     sodipodi:nodetypes="cccccccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1198.3057,445.4986 0.2193,33.77981 41.2377,-0.21935 10e-5,177.673"
+     id="path37"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1198.3057,445.27925 0.4386,76.11424 40.7991,0 0.4387,135.33857"
+     id="path36"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1198.7444,445.27925 -0.4387,118.00997 h 41.2377 l 0.4387,93.44284"
+     id="path33" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1198.5047,445.51102 0.1596,159.77718 40.9884,0.13731 0.1596,50.80284"
+     id="path32"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1202.0862,337.04451 38.9752,-0.13079 -0.2615,19.88 82.5282,-0.26158 0.2615,-20.27236"
+     id="path31"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1201.6938,336.91372 38.9753,0.13079 0.1307,-22.62658 82.659,0.13079 0,21.1879"
+     id="path30"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1202.0719,336.81647 38.8621,0.21518 -0.038,60.78462 82.3885,-0.13079 0.2848,-62.30768"
+     id="path29-0"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1201.7872,337.01321 39.1237,0.0464 0.093,-63.79278 82.3885,0.13079 0.2848,62.30768"
+     id="path29"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.1109,180.61368 146.4874,0.41108 -0.082,265.87787 48.8703,-0.32877"
+     id="path28"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.4466,180.61367 146.3709,-0.33571 -0.3357,156.77804 51.0284,-0.33571"
+     id="path27"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="M 1003.4466,180.94939 1003.1109,548.891"
+     id="path26" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1004.1159,180.77868 131.0456,0.1891 6.2403,1.32369 80.7453,0.7564 5.2948,0.3782 178.1313,0"
+     id="path25"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 1003.5486,180.77868 134.2603,-0.1891 V 71.479437 l -135.0167,0.189099"
+     id="path24" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="M 1003.2324,180.87509 1003.347,71.708552"
+     id="path23" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 806.77848,180.64598 124.74539,0.11455 0.2291,-21.30637 41.5818,-0.11455 0.57275,21.65003 h 29.21038"
+     id="path22" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 806.72916,180.90866 h 124.86258 l 0.35197,20.1801 20.53206,0.23741"
+     id="path21"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 592.37495,401.94689 -215.95093,-10e-6 v 20.63226 l -59.60429,0.15283"
+     id="path20"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 592.22212,402.25255 -215.64527,-10e-6 -0.15283,-21.54924 -56.242,-0.15283"
+     id="path19"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 758.96131,401.79405 h -47.68344 l 0.15283,83.14035 -82.22335,-0.30566 0,-82.68186 -36.83239,0.15284"
+     id="path18"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 759.57263,401.94689 -48.29476,0.15282 0.15283,40.65319 -82.37618,0 -0.15283,-40.80601 -35.91541,0.15283"
+     id="path17"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 759.4198,402.09972 -47.5306,0.30566 -0.30566,-83.9045 -82.37619,-0.15283 -0.15283,83.9045 h -36.3739"
+     id="path16"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 760.33679,402.09972 -48.75326,0.45849 10e-6,-43.09849 -82.52902,10e-6 -0.15283,42.79282 -36.52673,0.15283"
+     id="path15"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="M 758.99502,402.20788 593.43639,401.90223"
+     id="path12"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 806.98291,180.82641 h 54.2669 l 0.18974,199.99059 -52.74894,0.18975 0.18975,21.25137 -50.09252,0.18974"
+     id="path10"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 807.20624,181.12381 124.5088,-0.22116 0.22115,-22.11523 41.57665,0.22116 0.22116,21.89408 153.7009,-1e-5 0,159.89319 -16.3653,0.44231 -0.2211,106.8166 -249.45992,-0.22115 -13.9326,-24.32676 -38.70167,-0.44231 -0.22115,-20.78832 -49.31699,0.4423"
+     id="path11"
+     sodipodi:nodetypes="cccccccccccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="M 807.17265,181.77513 807.36239,71.913125 1002.9889,71.723381"
+     id="path7"
+     sodipodi:nodetypes="ccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 438.2386,184.33308 96.66601,-0.0968 16.44967,-3.3867 256.61487,-0.19352"
+     id="path5" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 290.57861,184.23632 148.33732,-0.0968"
+     id="path2"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 290.38508,184.23632 57.28356,-0.0967 -0.0968,-20.41695 41.89828,-0.19352 0.19352,20.61046 48.86521,0.0968"
+     id="path3"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 126.95275,184.33307 59.31558,0.19353 0,-21.38457 41.89828,0.0968 0.19352,21.19105 62.1217,0.0968"
+     id="path1"
+     sodipodi:nodetypes="cccccc" />
+  <!-- Generator: Adobe Illustrator 29.2.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 116)  -->
+  <path
+     style="fill:none;stroke:#ffffff"
+     d="m 126.96536,184.17899 59.31558,0.29028 0.0968,20.70723 41.89828,-4e-5 0.0968,-20.61047 61.54112,-0.0968"
+     id="path1-9"
+     sodipodi:nodetypes="cccccc" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .st0 {
+        fill: #929497;
+        font-size: 19px;
+      }
+
+      .st1 {
+        letter-spacing: 0em;
+      }
+
+      .st2 {
+        stroke-dasharray: 3.77 3.77;
+      }
+
+      .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st14, .st15, .st16, .st17, .st18, .st19, .st20, .st21, .st22, .st23 {
+        stroke-miterlimit: 10;
+      }
+
+      .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st15, .st16, .st17, .st18, .st19, .st20, .st21, .st22, .st23 {
+        fill: none;
+      }
+
+      .st2, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st15, .st16, .st17, .st18, .st19, .st20, .st21, .st22, .st23 {
+        stroke-width: 6px;
+      }
+
+      .st2, .st6, .st22 {
+        stroke: #7a809d;
+      }
+
+      .st3, .st14 {
+        stroke: #1e1c1c;
+      }
+
+      .st24 {
+        fill: #7a809d;
+      }
+
+      .st25 {
+        fill: #626465;
+      }
+
+      .st25, .st26, .st27, .st28, .st29, .st30 {
+        stroke: #000;
+      }
+
+      .st4 {
+        stroke-dasharray: 3.94 3.94;
+      }
+
+      .st4, .st5, .st7, .st8, .st9, .st12, .st13, .st16, .st17, .st19 {
+        stroke: blue;
+      }
+
+      .st5 {
+        stroke-dasharray: 3.96 3.96;
+      }
+
+      .st31, .st32 {
+        font-family: MavenPro-SemiBold, 'Maven Pro';
+        font-weight: 600;
+      }
+
+      .st33 {
+        fill: #21c863;
+      }
+
+      .st6 {
+        stroke-dasharray: 3.93 3.93;
+      }
+
+      .st34 {
+        font-size: 50px;
+      }
+
+      .st34, .st35, .st36 {
+        font-family: MavenPro-Bold, 'Maven Pro';
+        font-weight: 700;
+      }
+
+      .st37 {
+        font-family: Helvetica, Helvetica;
+      }
+
+      .st37, .st35, .st38, .st32 {
+        font-size: 12px;
+      }
+
+      .st37, .st26, .st14 {
+        fill: #fff;
+      }
+
+      .st39 {
+        fill: blue;
+      }
+
+      .st40 {
+        font-family: KGMissSpeechyIPA, 'KG Miss Speechy IPA';
+      }
+
+      .st8 {
+        stroke-dasharray: 3.96 3.96;
+      }
+
+      .st9 {
+        stroke-dasharray: 4 4;
+      }
+
+      .st10 {
+        stroke: #ff0;
+      }
+
+      .st41 {
+        fill: orange;
+      }
+
+      .st11 {
+        stroke: orange;
+      }
+
+      .st12 {
+        stroke-dasharray: 4.08 4.08;
+      }
+
+      .st42 {
+        fill: #ff0;
+      }
+
+      .st27 {
+        fill: #39383a;
+      }
+
+      .st13 {
+        stroke-dasharray: 4.2 4.2;
+      }
+
+      .st43 {
+        fill: #66ffb2;
+      }
+
+      .st15 {
+        stroke: #66ffb2;
+      }
+
+      .st44, .st45, .st46 {
+        font-family: MavenPro-Regular, 'Maven Pro';
+      }
+
+      .st16 {
+        stroke-dasharray: 4.03 4.03;
+      }
+
+      .st17 {
+        stroke-dasharray: 4 4;
+      }
+
+      .st28 {
+        fill: #1e1c1c;
+      }
+
+      .st18 {
+        stroke: #2f663f;
+      }
+
+      .st19 {
+        stroke-dasharray: 3.86 3.86;
+      }
+
+      .st47 {
+        fill: red;
+      }
+
+      .st20 {
+        stroke-dasharray: 4 4;
+      }
+
+      .st20, .st21 {
+        stroke: red;
+      }
+
+      .st45 {
+        letter-spacing: 0em;
+      }
+
+      .st30 {
+        fill: #4f4f51;
+      }
+
+      .st46 {
+        letter-spacing: 0em;
+      }
+
+      .st48 {
+        fill: #bc13fe;
+      }
+
+      .st23 {
+        stroke: #bc13fe;
+      }
+    </style>
+  </defs>
+  <rect
+     class="st43"
+     x="93.300003"
+     y="653.59003"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect1" />
+  <text
+     class="st35"
+     id="text1"
+     x="120.78"
+     y="688.07001"><tspan
+       x="120.78"
+       y="688.07001"
+       id="tspan1">SVtorm (SV Calling)</tspan></text>
+  <text
+     class="st35"
+     id="text2"
+     x="120.78"
+     y="708.35999"><tspan
+       x="120.78"
+       y="708.35999"
+       id="tspan2">Copy Number Alterations</tspan></text>
+  <text
+     class="st34"
+     transform="translate(77 572.03)"
+     id="text4"><tspan
+       class="st33"
+       x="0"
+       y="0"
+       id="tspan3">DNA</tspan><tspan
+       class="st1"
+       x="106.3"
+       y="0"
+       id="tspan4">inn</tspan></text>
+  <g
+     id="g5">
+    <line
+       class="st7"
+       x1="1203.77"
+       y1="182.75"
+       x2="1201.77"
+       y2="182.75"
+       id="line4" />
+    <path
+       class="st19"
+       d="M1197.91,182.75h-51.33c-.67,0-1.21-.09-1.21-.21v-7.24"
+       id="path4" />
+    <line
+       class="st7"
+       x1="1145.38"
+       y1="173.37"
+       x2="1145.38"
+       y2="171.37"
+       id="line5" />
+    <polygon
+       class="st39"
+       points="1191.82 172.58 1202 182.75 1191.82 192.92 1200.46 192.92 1210.63 182.75 1200.46 172.58 1191.82 172.58"
+       id="polygon5" />
+  </g>
+  <g
+     id="g7">
+    <line
+       class="st7"
+       x1="983.73"
+       y1="71.89"
+       x2="981.73"
+       y2="71.89"
+       id="line6" />
+    <path
+       class="st16"
+       d="M977.7,71.89h-167.24c-1.88,0-3.4.95-3.4,2.12v108.32"
+       id="path6" />
+    <line
+       class="st7"
+       x1="807.06"
+       y1="184.35"
+       x2="807.06"
+       y2="186.35"
+       id="line7" />
+    <polygon
+       class="st39"
+       points="971.78 61.72 981.96 71.89 971.78 82.06 980.42 82.06 990.59 71.89 980.42 61.72 971.78 61.72"
+       id="polygon7" />
+  </g>
+  <g
+     id="g9">
+    <line
+       class="st7"
+       x1="1022.57"
+       y1="71.89"
+       x2="1024.57"
+       y2="71.89"
+       id="line8" />
+    <path
+       class="st4"
+       d="M1028.51,71.89h106.85c1.25,0,2.26.95,2.26,2.12v108.36"
+       id="path8" />
+    <line
+       class="st7"
+       x1="1137.63"
+       y1="184.35"
+       x2="1137.63"
+       y2="186.35"
+       id="line9" />
+    <polygon
+       class="st39"
+       points="1034.52 82.06 1024.35 71.89 1034.52 61.72 1025.89 61.72 1015.71 71.89 1025.89 82.06 1034.52 82.06"
+       id="polygon9" />
+  </g>
+  <path
+     class="st7"
+     d="M1127.3,336.86v-156.07s0,156.07,0,156.07Z"
+     id="path9" />
+  <path
+     class="st22"
+     d="M438.67,184.24h-210.49,210.49Z"
+     id="path13" />
+  <g
+     id="g14">
+    <polyline
+       class="st22"
+       points="499.6 184.24 501.6 184.24 499.6 184.24"
+       id="polyline13" />
+    <line
+       class="st6"
+       x1="495.67"
+       y1="184.24"
+       x2="442.64"
+       y2="184.24"
+       id="line13" />
+    <polyline
+       class="st22"
+       points="440.67 184.24 438.67 184.24 440.67 184.24"
+       id="polyline14" />
+    <line
+       class="st6"
+       x1="444.6"
+       y1="184.24"
+       x2="497.63"
+       y2="184.24"
+       id="line14" />
+    <polygon
+       class="st24"
+       points="490.01 174.07 500.19 184.24 490.01 194.41 498.64 194.41 508.82 184.24 498.64 174.07 490.01 174.07"
+       id="polygon14" />
+  </g>
+  <path
+     class="st22"
+     d="M186.18,184.24h-67.78,67.78Z"
+     id="path14" />
+  <text
+     class="st38"
+     transform="translate(198.39 133.14)"
+     id="text30"><tspan
+       class="st31"
+       id="tspan28"><tspan
+         x="0"
+         y="0"
+         id="tspan27">cat</tspan></tspan><tspan
+       class="st44"
+       id="tspan30"><tspan
+         x="-7"
+         y="14.4"
+         id="tspan29">FastQ</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(187.01 228.33)"
+     id="text34"><tspan
+       class="st31"
+       id="tspan32"><tspan
+         x="0"
+         y="0"
+         id="tspan31">FastQC</tspan></tspan><tspan
+       class="st44"
+       id="tspan34"><tspan
+         x="-.83"
+         y="14.4"
+         id="tspan33">Original</tspan></tspan></text>
+  <path
+     class="st22"
+     d="M186.94,163.22h40.48c.42,0,.76.34.76.76v40.47c0,.42-.34.76-.76.76h-40.48c-.42,0-.76-.34-.76-.76v-40.48c0-.42.34-.76.76-.76Z"
+     id="path34" />
+  <path
+     class="st22"
+     d="M347.51,184.24v-20.24c0-.21.34-.38.76-.38h40.48c.42,0,.76.17.76.38v20.24"
+     id="path35" />
+  <g
+     id="g37">
+    <polyline
+       class="st22"
+       points="368.51 151.43 368.51 153.43 368.51 151.43"
+       id="polyline36" />
+    <line
+       class="st2"
+       x1="368.51"
+       y1="147.66"
+       x2="368.51"
+       y2="126.91"
+       id="line36" />
+    <polyline
+       class="st22"
+       points="368.51 125.02 368.51 123.02 368.51 125.02"
+       id="polyline37" />
+    <line
+       class="st2"
+       x1="368.51"
+       y1="128.79"
+       x2="368.51"
+       y2="149.55"
+       id="line37" />
+    <polygon
+       class="st24"
+       points="378.68 141.84 368.51 152.02 358.34 141.84 358.34 150.48 368.51 160.65 378.68 150.48 378.68 141.84"
+       id="polygon37" />
+  </g>
+  <text
+     class="st38"
+     transform="translate(337.84 103.89)"
+     id="text40"><tspan
+       class="st31"
+       id="tspan38"><tspan
+         x="0"
+         y="0"
+         id="tspan37">NumReads</tspan></tspan><tspan
+       class="st44"
+       id="tspan40"><tspan
+         x=".49"
+         y="14.4"
+         id="tspan39">PreDefined</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(326.73 205.22)"
+     id="text44"><tspan
+       class="st31"
+       id="tspan42"><tspan
+         x="0"
+         y="0"
+         id="tspan41">Downsampling</tspan></tspan><tspan
+       class="st44"
+       id="tspan44"><tspan
+         x="22.84"
+         y="14.4"
+         id="tspan43">Counts</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(396.89 155.74)"
+     id="text48"><tspan
+       class="st31"
+       id="tspan46"><tspan
+         x="0"
+         y="0"
+         id="tspan45">Downsampling</tspan></tspan><tspan
+       class="st44"
+       id="tspan48"><tspan
+         x="26.51"
+         y="14.4"
+         id="tspan47">Seqtk</tspan></tspan></text>
+  <g
+     id="g49">
+    <polyline
+       class="st7"
+       points="1003.37 93.99 1003.37 91.99 1003.37 93.99"
+       id="polyline48" />
+    <line
+       class="st9"
+       x1="1003.37"
+       y1="97.99"
+       x2="1003.37"
+       y2="175.92"
+       id="line48" />
+    <polyline
+       class="st7"
+       points="1003.37 177.92 1003.37 179.92 1003.37 177.92"
+       id="polyline49" />
+    <line
+       class="st9"
+       x1="1003.37"
+       y1="173.92"
+       x2="1003.37"
+       y2="95.99"
+       id="line49" />
+    <polygon
+       class="st39"
+       points="993.2 103.58 1003.37 93.4 1013.55 103.58 1013.55 94.94 1003.37 84.77 993.2 94.94 993.2 103.58"
+       id="polygon49" />
+  </g>
+  <path
+     class="st7"
+     d="M1127.3,180.79h-151,151Z"
+     id="path49" />
+  <path
+     class="st7"
+     d="M931.64,180.79h-383.83,383.83Z"
+     id="path50" />
+  <path
+     class="st7"
+     d="M861.32,181.37v95.85s0-95.85,0-95.85Z"
+     id="path51" />
+  <text
+     class="st38"
+     transform="translate(885.24 205.53)"
+     id="text60"><tspan
+       class="st36"
+       id="tspan52"><tspan
+         x="0"
+         y="0"
+         id="tspan51">fgbio</tspan></tspan><tspan
+       class="st44"
+       id="tspan54"><tspan
+         x="-1.9"
+         y="14.4"
+         id="tspan53">Group</tspan></tspan><tspan
+       class="st44"
+       id="tspan56"><tspan
+         x="-2.54"
+         y="28.8"
+         id="tspan55">ByUMI</tspan></tspan><tspan
+       class="st44"
+       id="tspan58"><tspan
+         x="11.48"
+         y="43.2"
+         id="tspan57">+</tspan></tspan><tspan
+       class="st44"
+       id="tspan60"><tspan
+         x="-.81"
+         y="57.6"
+         id="tspan59">MDup</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(937.86 226.33)"
+     id="text66"><tspan
+       class="st36"
+       id="tspan62"><tspan
+         x="0"
+         y="0"
+         id="tspan61">fgbio</tspan></tspan><tspan
+       class="st44"
+       id="tspan64"><tspan
+         x="-3.97"
+         y="14.4"
+         id="tspan63">Duplex</tspan></tspan><tspan
+       class="st44"
+       id="tspan66"><tspan
+         x="-4.78"
+         y="28.8"
+         id="tspan65">Metrics</tspan></tspan></text>
+  <text
+     class="st35"
+     transform="translate(828.61 164.37)"
+     id="text67"><tspan
+       x="0"
+       y="0"
+       id="tspan67">SAMblaster</tspan></text>
+  <text
+     class="st38"
+     transform="translate(1064.19 226.01)"
+     id="text73"><tspan
+       class="st36"
+       id="tspan69"><tspan
+         x="0"
+         y="0"
+         id="tspan68">Samtools</tspan></tspan><tspan
+       class="st44"
+       id="tspan71"><tspan
+         x="8.59"
+         y="14.4"
+         id="tspan70">collate</tspan></tspan><tspan
+       class="st44"
+       id="tspan73"><tspan
+         x="5.33"
+         y="28.8"
+         id="tspan72">bam2fq</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(937.86 113.19)"
+     id="text79"><tspan
+       class="st36"
+       id="tspan75"><tspan
+         x="0"
+         y="0"
+         id="tspan74">fgbio</tspan></tspan><tspan
+       class="st44"
+       id="tspan77"><tspan
+         x="-3.97"
+         y="14.4"
+         id="tspan76">Duplex</tspan></tspan><tspan
+       class="st44"
+       id="tspan79"><tspan
+         x="1.49"
+         y="28.8"
+         id="tspan78">Cons</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(953.99 336.86)"
+     id="text81"><tspan
+       class="st31"
+       x="0"
+       y="0"
+       id="tspan80">Du</tspan><tspan
+       class="st44"
+       x="15.53"
+       y="0"
+       id="tspan81">plex</tspan></text>
+  <text
+     class="st38"
+     transform="translate(1074.57 278.37)"
+     id="text85"><tspan
+       class="st36"
+       id="tspan83"><tspan
+         x="0"
+         y="0"
+         id="tspan82">FastQC</tspan></tspan><tspan
+       class="st44"
+       id="tspan85"><tspan
+         x="7.62"
+         y="14.4"
+         id="tspan84">Final</tspan></tspan></text>
+  <text
+     class="st32"
+     transform="translate(804.63 231.91)"
+     id="text86"><tspan
+       x="0"
+       y="0"
+       id="tspan86">Spades</tspan></text>
+  <text
+     class="st32"
+     transform="translate(756 279.74)"
+     id="text87"><tspan
+       x="0"
+       y="0"
+       id="tspan87">FilterContigs.py</tspan></text>
+  <g
+     id="g88">
+    <polyline
+       class="st7"
+       points="861.32 322.07 861.32 324.07 861.32 322.07"
+       id="polyline87" />
+    <line
+       class="st13"
+       x1="861.32"
+       y1="317.87"
+       x2="861.32"
+       y2="286.39"
+       id="line87" />
+    <polyline
+       class="st7"
+       points="861.32 284.29 861.32 282.29 861.32 284.29"
+       id="polyline88" />
+    <line
+       class="st13"
+       x1="861.32"
+       y1="288.49"
+       x2="861.32"
+       y2="319.97"
+       id="line88" />
+    <polygon
+       class="st39"
+       points="871.49 312.48 861.32 322.66 851.15 312.48 851.15 321.12 861.32 331.29 871.49 321.12 871.49 312.48"
+       id="polygon88" />
+  </g>
+  <text
+     class="st38"
+     transform="translate(566.48 150.04)"
+     id="text91"><tspan
+       class="st36"
+       id="tspan89"><tspan
+         x="0"
+         y="0"
+         id="tspan88">fgbio</tspan></tspan><tspan
+       class="st44"
+       id="tspan91"><tspan
+         x="-8.59"
+         y="14.4"
+         id="tspan90">FQ2BAM</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(703.11 135.64)"
+     id="text97"><tspan
+       class="st36"
+       id="tspan93"><tspan
+         x="0"
+         y="0"
+         id="tspan92">fgbio</tspan></tspan><tspan
+       class="st44"
+       id="tspan95"><tspan
+         x="-5.3"
+         y="14.4"
+         id="tspan94">Correct</tspan></tspan><tspan
+       class="st44"
+       id="tspan97"><tspan
+         x="1.73"
+         y="28.8"
+         id="tspan96">UMIs</tspan></tspan></text>
+  <rect
+     class="st14"
+     x="853.82"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect104" />
+  <text
+     class="st38"
+     transform="translate(652.27 205.53)"
+     id="text108"><tspan
+       class="st36"
+       id="tspan106"><tspan
+         x="0"
+         y="0"
+         id="tspan105">AlignBAM</tspan></tspan><tspan
+       class="st44"
+       id="tspan108"><tspan
+         x="16.12"
+         y="14.4"
+         id="tspan107">Raw</tspan></tspan></text>
+  <rect
+     class="st14"
+     x="892.53"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect108" />
+  <path
+     class="st7"
+     d="M952.64,201.03h-20.24c-.42,0-.76-.34-.76-.76v-40.48c0-.42.34-.76.76-.76h40.48c.42,0,.76.34.76.76v7.49"
+     id="path108" />
+  <rect
+     class="st14"
+     x="945.14"
+     y="152.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect110" />
+  <g
+     id="g114">
+    <rect
+       class="st26"
+       x="788.01"
+       y="156.98"
+       width="38.1"
+       height="47.62"
+       id="rect113" />
+    <rect
+       class="st29"
+       x="785.63"
+       y="176.03"
+       width="42.86"
+       height="19.05"
+       id="rect114" />
+    <text
+       class="st37"
+       transform="translate(795.39 189.25)"
+       id="text114"><tspan
+         x="0"
+         y="0"
+         id="tspan114">bam</tspan></text>
+  </g>
+  <text
+     class="st38"
+     transform="translate(728.7 205.53)"
+     id="text120"><tspan
+       class="st36"
+       id="tspan116"><tspan
+         x="0"
+         y="0"
+         id="tspan115">SAMtools</tspan></tspan><tspan
+       class="st44"
+       id="tspan118"><tspan
+         x="16.22"
+         y="14.4"
+         id="tspan117">sort</tspan></tspan><tspan
+       class="st44"
+       id="tspan120"><tspan
+         x="12.07"
+         y="28.8"
+         id="tspan119">index</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(1022.01 203.53) scale(.91 1)"
+     id="text124"><tspan
+       class="st36"
+       id="tspan122"><tspan
+         x="0"
+         y="0"
+         id="tspan121">AlignBAM</tspan></tspan><tspan
+       class="st44"
+       id="tspan124"><tspan
+         x="15.2"
+         y="14.4"
+         id="tspan123">Final</tspan></tspan></text>
+  <g
+     id="g131">
+    <rect
+       class="st26"
+       x="953.99"
+       y="269.78"
+       width="38.1"
+       height="47.62"
+       id="rect130" />
+    <rect
+       class="st29"
+       x="951.61"
+       y="288.83"
+       width="42.86"
+       height="19.05"
+       id="rect131" />
+    <text
+       class="st37"
+       transform="translate(961.36 302.05)"
+       id="text131"><tspan
+         x="0"
+         y="0"
+         id="tspan131">bam</tspan></text>
+  </g>
+  <g
+     id="g133">
+    <rect
+       class="st26"
+       x="1014.67"
+       y="269.78"
+       width="38.1"
+       height="47.62"
+       id="rect132" />
+    <rect
+       class="st29"
+       x="1012.29"
+       y="288.83"
+       width="42.86"
+       height="19.05"
+       id="rect133" />
+    <text
+       class="st37"
+       transform="translate(1022.04 302.05)"
+       id="text133"><tspan
+         x="0"
+         y="0"
+         id="tspan133">bam</tspan></text>
+  </g>
+  <text
+     class="st38"
+     transform="translate(1011.93 336.86)"
+     id="text135"><tspan
+       class="st31"
+       x="0"
+       y="0"
+       id="tspan134">Sim</tspan><tspan
+       class="st46"
+       x="21.01"
+       y="0"
+       id="tspan135">plex</tspan></text>
+  <text
+     class="st35"
+     transform="translate(983.55 38.58)"
+     id="text137"><tspan
+       x="0"
+       y="0"
+       id="tspan136">Collect</tspan><tspan
+       x="-1.57"
+       y="14.4"
+       id="tspan137">Metrics</tspan></text>
+  <path
+     class="st7"
+     d="M994.64,180.79h-20.24c-.42,0-.76-.11-.76-.25v-13.25"
+     id="path138" />
+  <path
+     class="st11"
+     d="M335.32,422.67h40.47c.42,0,.76-.34.76-.76v-40.48c0-.42-.34-.76-.76-.76h-40.48"
+     id="path144" />
+  <path
+     class="st11"
+     d="M376.56,402.12h431.97s-431.97,0-431.97,0Z"
+     id="path148" />
+  <path
+     class="st11"
+     d="M711.41,459.93v24.36c0,.25-.67.46-1.49.46h-79.48c-.83,0-1.5-.21-1.5-.46v-24.36"
+     id="path149" />
+  <path
+     class="st11"
+     d="M711.41,359.51v-40.48c0-.42-.67-.76-1.49-.76h-79.48c-.83,0-1.5.34-1.5.76v40.47"
+     id="path150" />
+  <path
+     class="st11"
+     d="M849.99,381.12h-40.48c-.42,0-.76.34-.76.76v40.47c0,.42.34.76.76.76h40.48"
+     id="path151" />
+  <text
+     class="st38"
+     transform="translate(524.91 371.9)"
+     id="text155"><tspan
+       class="st31"
+       id="tspan153"><tspan
+         x="0"
+         y="0"
+         id="tspan152">Survivor</tspan></tspan><tspan
+       class="st44"
+       id="tspan155"><tspan
+         x="7.42"
+         y="14.4"
+         id="tspan154">Merge</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(745.57 350.75)"
+     id="text167"><tspan
+       class="st31"
+       id="tspan165"><tspan
+         x="0"
+         y="0"
+         id="tspan164">BWA</tspan></tspan><tspan
+       class="st44"
+       id="tspan167"><tspan
+         x="-3.34"
+         y="14.4"
+         id="tspan166">mem2</tspan></tspan></text>
+  <text
+     class="st32"
+     transform="translate(653.81 342.5)"
+     id="text172"><tspan
+       x="0"
+       y="0"
+       id="tspan172">Tiddit</tspan></text>
+  <text
+     class="st32"
+     transform="translate(655.97 300.9)"
+     id="text173"><tspan
+       x="0"
+       y="0"
+       id="tspan173">Delly</tspan></text>
+  <text
+     class="st32"
+     transform="translate(652.55 384.1)"
+     id="text174"><tspan
+       x="0"
+       y="0"
+       id="tspan174">Gridss</tspan></text>
+  <text
+     class="st32"
+     transform="translate(652.88 467.3)"
+     id="text175"><tspan
+       x="0"
+       y="0"
+       id="tspan175">Svaba</tspan></text>
+  <text
+     class="st32"
+     transform="translate(652.41 425.7)"
+     id="text176"><tspan
+       x="0"
+       y="0"
+       id="tspan176">Manta</tspan></text>
+  <text
+     class="st38"
+     transform="translate(488.26 430.18)"
+     id="text180"><tspan
+       class="st31"
+       id="tspan178"><tspan
+         x="0"
+         y="0"
+         id="tspan177">ReCall</tspan></tspan><tspan
+       class="st44"
+       id="tspan180"><tspan
+         x="1.12"
+         y="14.4"
+         id="tspan179">Gridss</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(438.73 371.9)"
+     id="text184"><tspan
+       class="st31"
+       id="tspan182"><tspan
+         x="0"
+         y="0"
+         id="tspan181">Survivor</tspan></tspan><tspan
+       class="st44"
+       id="tspan184"><tspan
+         x="2.31"
+         y="14.4"
+         id="tspan183">Filtering</tspan></tspan></text>
+  <text
+     class="st35"
+     transform="translate(350.57 364.32)"
+     id="text185"><tspan
+       x="0"
+       y="0"
+       id="tspan185">DrawSVs</tspan></text>
+  <path
+     class="st11"
+     d="M711.41,400.75v-40.48c0-.42-.67-.76-1.49-.76h-79.48c-.83,0-1.5.34-1.5.76v40.47"
+     id="path185" />
+  <path
+     class="st11"
+     d="M711.41,442.75v-40.48c0-.42-.67-.76-1.49-.76h-79.48c-.83,0-1.5.34-1.5.76v40.47"
+     id="path186" />
+  <path
+     class="st11"
+     d="M711.41,467.43v-24.36c0-.25-.67-.46-1.49-.46h-79.48c-.83,0-1.5.21-1.5.46v24.36"
+     id="path187" />
+  <text
+     class="st38"
+     transform="translate(562.29 430.18)"
+     id="text196"><tspan
+       class="st31"
+       id="tspan194"><tspan
+         x="0"
+         y="0"
+         id="tspan193">Standarize</tspan></tspan><tspan
+       class="st44"
+       id="tspan196"><tspan
+         x="17.59"
+         y="14.4"
+         id="tspan195">Calls</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(393.45 430.18)"
+     id="text200"><tspan
+       class="st31"
+       id="tspan198"><tspan
+         x="0"
+         y="0"
+         id="tspan197">Annotate</tspan></tspan><tspan
+       class="st44"
+       id="tspan200"><tspan
+         x="23.38"
+         y="14.4"
+         id="tspan199">?</tspan></tspan></text>
+  <g
+     id="g202">
+    <line
+       class="st7"
+       x1="899.14"
+       y1="447.64"
+       x2="901.14"
+       y2="447.64"
+       id="line201" />
+    <path
+       class="st8"
+       d="M905.1,447.64h201.58c2.24,0,4.05-.75,4.05-1.67v-84.58"
+       id="path201" />
+    <line
+       class="st7"
+       x1="1110.72"
+       y1="359.41"
+       x2="1110.72"
+       y2="357.41"
+       id="line202" />
+    <polygon
+       class="st39"
+       points="911.09 457.81 900.91 447.64 911.09 437.47 902.45 437.47 892.28 447.64 902.45 457.81 911.09 457.81"
+       id="polygon202" />
+  </g>
+  <path
+     class="st21"
+     d="M808.81,670.23v-111.03s0,111.03,0,111.03Z"
+     id="path202" />
+  <g
+     id="g203">
+    <line
+       class="st20"
+       x1="695.65"
+       y1="704.35"
+       x2="750.97"
+       y2="704.35"
+       id="line203" />
+    <polygon
+       class="st47"
+       points="707.61 714.52 697.43 704.35 707.61 694.18 698.97 694.18 688.8 704.35 698.97 714.52 707.61 714.52"
+       id="polygon203" />
+  </g>
+  <path
+     class="st21"
+     d="M904.14,557.96h53.36c.65,0,1.18.31,1.18.69v36.91s-.09,1.24.12,1.24"
+     id="path203" />
+  <path
+     class="st18"
+     d="M753.62,652.55"
+     id="path204" />
+  <text
+     class="st32"
+     transform="translate(853.6 690.92)"
+     id="text204"><tspan
+       x="0"
+       y="0"
+       id="tspan204">FreeBayes</tspan></text>
+  <text
+     class="st32"
+     transform="translate(931.01 540.75)"
+     id="text205"><tspan
+       x="0"
+       y="0"
+       id="tspan205">Mutect2</tspan></text>
+  <path
+     class="st21"
+     d="M903.38,536.96h-40.48c-.42,0-.76.34-.76.76v40.47c0,.42.34.76.76.76h40.48c.42,0,.76-.34.76-.76v-40.48c0-.42-.34-.76-.76-.76Z"
+     id="path205" />
+  <text
+     class="st38"
+     transform="translate(863.3 602.75)"
+     id="text209"><tspan
+       class="st31"
+       id="tspan207"><tspan
+         x="0"
+         y="0"
+         id="tspan206">GATK4</tspan></tspan><tspan
+       class="st44"
+       id="tspan209"><tspan
+         x="4.1"
+         y="14.4"
+         id="tspan208">GPUS</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(863.3 500.7)"
+     id="text213"><tspan
+       class="st31"
+       id="tspan211"><tspan
+         x="0"
+         y="0"
+         id="tspan210">GATK4</tspan></tspan><tspan
+       class="st44"
+       id="tspan213"><tspan
+         x="3.44"
+         y="14.4"
+         id="tspan212">LROM</tspan></tspan></text>
+  <text
+     class="st38"
+     transform="translate(788.93 529.44)"
+     id="text217"><tspan
+       class="st31"
+       id="tspan215"><tspan
+         x="0"
+         y="0"
+         id="tspan214">GATK4</tspan></tspan><tspan
+       class="st44"
+       id="tspan217"><tspan
+         x="-10.42"
+         y="14.4"
+         id="tspan216">CalContam</tspan></tspan></text>
+  <path
+     class="st21"
+     d="M808.81,557.96h53.33-53.33Z"
+     id="path217" />
+  <text
+     class="st38"
+     transform="translate(735.99 599.04)"
+     id="text221"><tspan
+       class="st31"
+       id="tspan219"><tspan
+         x="0"
+         y="0"
+         id="tspan218">GATK4</tspan></tspan><tspan
+       class="st44"
+       id="tspan221"><tspan
+         x="-16.66"
+         y="14.4"
+         id="tspan220">FilterMutect2</tspan></tspan></text>
+  <path
+     class="st21"
+     d="m 958.73129,593.12123 v 38.57114 c 0,0.39481 -1.23884,0.72382 -2.76742,0.72382 H 808.39153"
+     id="path221" />
+  <text
+     class="st38"
+     transform="translate(725.07 675.95)"
+     id="text225"><tspan
+       class="st31"
+       id="tspan223"><tspan
+         x="0"
+         y="0"
+         id="tspan222">VCF2TSV</tspan></tspan><tspan
+       class="st44"
+       id="tspan225"><tspan
+         x="-11.81"
+         y="14.4"
+         id="tspan224">Merge/Report</tspan></tspan></text>
+  <text
+     class="st32"
+     transform="translate(863.15 726.25)"
+     id="text226"><tspan
+       x="0"
+       y="0"
+       id="tspan226">LoFreq</tspan></text>
+  <path
+     class="st21"
+     d="M959.03,599.04h44.43-44.43Z"
+     id="path226" />
+  <text
+     class="st38"
+     transform="translate(988.68 625.13)"
+     id="text234"><tspan
+       class="st31"
+       id="tspan232"><tspan
+         x="0"
+         y="0"
+         id="tspan231">fgbio</tspan></tspan><tspan
+       class="st44"
+       id="tspan234"><tspan
+         x="-7.77"
+         y="14.4"
+         id="tspan233">ClipBAM</tspan></tspan></text>
+  <text
+     class="st32"
+     transform="translate(848.21 654.18)"
+     id="text235"><tspan
+       x="0"
+       y="0"
+       id="tspan235">VarDictJava</tspan></text>
+  <path
+     class="st21"
+     d="M958.8,632.63v35.17c0,.36-1.24.66-2.77.66h-147.71"
+     id="path235" />
+  <path
+     class="st23"
+     d="M1239.58,656.36h35.83s-35.83,0-35.83,0Z"
+     id="path236" />
+  <path
+     class="st23"
+     d="M1198.34,479.46v-34.21s0,34.21,0,34.21Z"
+     id="path237" />
+  <path
+     class="st23"
+     d="M1239.58,479.14v177.22s0-177.22,0-177.22Z"
+     id="path238" />
+  <text
+     class="st32"
+     transform="translate(1251.28 607.83)"
+     id="text238"><tspan
+       x="0"
+       y="0"
+       id="tspan238">Sequenza</tspan></text>
+  <text
+     class="st32"
+     transform="translate(1251.02 481.58)"
+     id="text239"><tspan
+       x="0"
+       y="0"
+       id="tspan239">Controlfreec</tspan></text>
+  <text
+     class="st38"
+     transform="translate(1175.61 413.8)"
+     id="text243"><tspan
+       class="st31"
+       id="tspan241"><tspan
+         x="0"
+         y="0"
+         id="tspan240">bcftools</tspan></tspan><tspan
+       class="st44"
+       id="tspan243"><tspan
+         x="1.02"
+         y="14.4"
+         id="tspan242">mpileup</tspan></tspan></text>
+  <text
+     class="st32"
+     transform="translate(1251.28 523.73)"
+     id="text244"><tspan
+       x="0"
+       y="0"
+       id="tspan244">CNVkit</tspan></text>
+  <g
+     id="g249">
+    <path
+       class="st23"
+       d="M1198.34,480.12c0-.42.34-.76.76-.76h40.48"
+       id="path244" />
+    <line
+       class="st23"
+       x1="1239.58"
+       y1="521.36"
+       x2="1199.1"
+       y2="521.36"
+       id="line244" />
+    <line
+       class="st23"
+       x1="1199.1"
+       y1="521.36"
+       x2="1239.58"
+       y2="521.36"
+       id="line245" />
+    <line
+       class="st23"
+       x1="1239.58"
+       y1="563.36"
+       x2="1199.1"
+       y2="563.36"
+       id="line246" />
+    <line
+       class="st23"
+       x1="1199.1"
+       y1="563.36"
+       x2="1239.58"
+       y2="563.36"
+       id="line247" />
+    <path
+       class="st23"
+       d="M1239.58,605.36h-40.48c-.42,0-.76-.34-.76-.76"
+       id="path247" />
+    <line
+       class="st23"
+       x1="1198.34"
+       y1="479.74"
+       x2="1198.34"
+       y2="604.97"
+       id="line248" />
+    <line
+       class="st23"
+       x1="1198.34"
+       y1="604.98"
+       x2="1198.34"
+       y2="479.75"
+       id="line249" />
+  </g>
+  <path
+     class="st23"
+     d="m 1324.751,677.46602 h -48.0916 c -0.499,0 -0.9029,-0.33718 -0.9029,-0.7537 v -40.14464 c 0,-0.41652 0.4039,-0.7537 0.9029,-0.7537 h 48.0797"
+     id="path252" />
+  <text
+     class="st32"
+     transform="translate(1250.8 565.78)"
+     id="text261"><tspan
+       x="0"
+       y="0"
+       id="tspan261">FACETS</tspan></text>
+  <text
+     class="st38"
+     transform="translate(1214.64 681.34)"
+     id="text265"><tspan
+       class="st31"
+       id="tspan263"><tspan
+         x="0"
+         y="0"
+         id="tspan262">BCFtools</tspan></tspan><tspan
+       class="st44"
+       id="tspan265"><tspan
+         x="7.99"
+         y="14.4"
+         id="tspan264">Merge</tspan></tspan></text>
+  <path
+     class="st10"
+     d="M1240.85,337.01h-42.51,42.51Z"
+     id="path265" />
+  <path
+     class="st10"
+     d="M1518.09,334.97v20.73c0,.22-.34.39-.76.39h-40.48"
+     id="path266" />
+  <text
+     class="st32"
+     transform="translate(1259.39 296.57)"
+     id="text266"><tspan
+       x="0"
+       y="0"
+       id="tspan266">HLA-HD</tspan></text>
+  <path
+     class="st10"
+     d="M1476.85,314.48h40.48c.42,0,.76.17.76.39v20.61"
+     id="path267" />
+  <path
+     class="st10"
+     d="M1551.69,335.48h-30.55,30.55Z"
+     id="path268" />
+  <text
+     class="st32"
+     transform="translate(1381.67 296.57)"
+     id="text268"><tspan
+       x="0"
+       y="0"
+       id="tspan268">LOHHLA</tspan></text>
+  <text
+     class="st32"
+     transform="translate(1458.65 296.57)"
+     id="text269"><tspan
+       x="0"
+       y="0"
+       id="tspan269">MHC-I</tspan></text>
+  <text
+     class="st32"
+     transform="translate(1456.92 382.75)"
+     id="text270"><tspan
+       x="0"
+       y="0"
+       id="tspan270">MHC-II</tspan></text>
+  <path
+     class="st10"
+     d="M1240.85,372.77v24.36c0,.25.67.46,1.49.46h79.48c.83,0,1.5-.21,1.5-.46v-24.36"
+     id="path270" />
+  <path
+     class="st10"
+     d="M1240.85,314.35v-40.48c0-.42.67-.76,1.49-.76h79.48c.83,0,1.5.34,1.5.76v40.47"
+     id="path271" />
+  <path
+     class="st10"
+     d="M1240.85,355.59v-40.48c0-.42.67-.76,1.49-.76h79.48c.83,0,1.5.34,1.5.76v40.47"
+     id="path272" />
+  <path
+     class="st10"
+     d="M1240.85,379.39v-22.61c0-.23.67-.42,1.49-.42h79.48c.83,0,1.5.19,1.5.43v22.61"
+     id="path273" />
+  <path
+     class="st10"
+     d="M1405.64,356.48h-40.48c-.42,0-.76-.34-.76-.76v-40.48c0-.42.34-.76.76-.76h40.48"
+     id="path274" />
+  <path
+     class="st10"
+     d="M1362.91,335.48h-36.76,36.76Z"
+     id="path275" />
+  <path
+     class="st10"
+     d="M1476.09,314.38h-70.45,70.45Z"
+     id="path276" />
+  <text
+     class="st35"
+     transform="translate(1256.86 380.26)"
+     id="text281"><tspan
+       x="0"
+       y="0"
+       id="tspan281">Optitype</tspan></text>
+  <text
+     class="st35"
+     transform="translate(1260.42 338.37)"
+     id="text282"><tspan
+       x="0"
+       y="0"
+       id="tspan282">HLA*LA</tspan></text>
+  <text
+     class="st35"
+     transform="translate(1251.9 422.16)"
+     id="text283"><tspan
+       x="0"
+       y="0"
+       id="tspan283">Polysolver</tspan></text>
+  <path
+     class="st10"
+     d="M1476.09,356.2h-70.45,70.45Z"
+     id="path283" />
+  <text
+     class="st35"
+     transform="translate(1372.91 382.75)"
+     id="text284"><tspan
+       x="0"
+       y="0"
+       id="tspan284">LOH-HLA-II</tspan></text>
+  <text
+     class="st35"
+     transform="translate(1187.51 305.24)"
+     id="text286"><tspan
+       x="0"
+       y="0"
+       id="tspan285">Chr6</tspan><tspan
+       x="-2.06"
+       y="14.4"
+       id="tspan286">Fastq</tspan></text>
+  <path
+     class="st10"
+     d="M1592.97,335.48h-41.28,41.28Z"
+     id="path286" />
+  <text
+     class="st35"
+     transform="translate(1535.42 320.4)"
+     id="text290"><tspan
+       x="0"
+       y="0"
+       id="tspan290">Noah</tspan></text>
+  <g
+     id="g292">
+    <line
+       class="st7"
+       x1="1178.98"
+       y1="336.86"
+       x2="1176.98"
+       y2="336.86"
+       id="line291" />
+    <path
+       class="st17"
+       d="M1172.98,336.86h-22.85c-.37,0-.67-1.09-.67-2.43v-124.53"
+       id="path291" />
+    <line
+       class="st7"
+       x1="1149.46"
+       y1="207.91"
+       x2="1149.46"
+       y2="205.91"
+       id="line292" />
+    <polygon
+       class="st39"
+       points="1167.03 326.69 1177.21 336.86 1167.03 347.03 1175.67 347.03 1185.84 336.86 1175.67 326.69 1167.03 326.69"
+       id="polygon292" />
+  </g>
+  <g
+     id="g294">
+    <line
+       class="st7"
+       x1="1178.98"
+       y1="446.75"
+       x2="1176.98"
+       y2="446.75"
+       id="line293" />
+    <path
+       class="st12"
+       d="M1172.91,446.75h-22.77c-.37,0-.67-.91-.67-2.03v-103.44"
+       id="path293" />
+    <line
+       class="st7"
+       x1="1149.46"
+       y1="339.24"
+       x2="1149.46"
+       y2="337.24"
+       id="line294" />
+    <polygon
+       class="st39"
+       points="1167.03 436.58 1177.21 446.75 1167.03 456.92 1175.67 456.92 1185.84 446.75 1175.67 436.58 1167.03 436.58"
+       id="polygon294" />
+  </g>
+  <path
+     class="st15"
+     d="M1405.07,183.63h-180.8,180.8Z"
+     id="path294" />
+  <text
+     class="st32"
+     transform="translate(1196.23 156.98)"
+     id="text295"><tspan
+       x="0"
+       y="0"
+       id="tspan295">TelHunter</tspan></text>
+  <text
+     class="st32"
+     transform="translate(1252.39 214.44)"
+     id="text296"><tspan
+       x="0"
+       y="0"
+       id="tspan296">TelFusion</tspan></text>
+  <text
+     class="st32"
+     transform="translate(1306.59 156.98)"
+     id="text297"><tspan
+       x="0"
+       y="0"
+       id="tspan297">TelReport</tspan></text>
+  <rect
+     class="st24"
+     x="93.3"
+     y="589.64"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect301" />
+  <text
+     class="st35"
+     transform="translate(120.78 622.5)"
+     id="text301"><tspan
+       x="0"
+       y="0"
+       id="tspan301">UMI Processing</tspan></text>
+  <text
+     class="st35"
+     transform="translate(120.78 600.64)"
+     id="text302"><tspan
+       x="0"
+       y="0"
+       id="tspan302">Preprocessing</tspan></text>
+  <text
+     class="st35"
+     id="text303"
+     x="120.78"
+     y="729.92999"><tspan
+       x="120.78"
+       y="729.92999"
+       id="tspan303">HLAinn (ImmunOncology)</tspan></text>
+  <text
+     class="st35"
+     id="text304"
+     x="120.78"
+     y="665.59003"><tspan
+       x="120.78"
+       y="665.59003"
+       id="tspan304">Tempus (Telomers)</tspan></text>
+  <text
+     class="st35"
+     id="text305"
+     x="120.78"
+     y="644.21997"><tspan
+       x="120.78"
+       y="644.21997"
+       id="tspan305">Mutation Calling</tspan></text>
+  <rect
+     class="st48"
+     x="93.300003"
+     y="696.95001"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect305" />
+  <rect
+     class="st39"
+     x="93.3"
+     y="611.3"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect306" />
+  <rect
+     class="st47"
+     x="93.300003"
+     y="632.60999"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect307" />
+  <rect
+     class="st41"
+     x="93.300003"
+     y="676.27002"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect308" />
+  <rect
+     class="st42"
+     x="93.300003"
+     y="717.92999"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect309" />
+  <path
+     class="st21"
+     d="M958.8,668.45v35.24c0,.36-1.21.66-2.71.66h-144.54c-1.51,0-2.73-.3-2.73-.67v-35.23"
+     id="path309" />
+  <g
+     id="g312">
+    <polyline
+       class="st7"
+       points="1003.37 504.99 1003.37 506.99 1003.37 504.99"
+       id="polyline311" />
+    <line
+       class="st5"
+       x1="1003.37"
+       y1="501.03"
+       x2="1003.37"
+       y2="241.92"
+       id="line311" />
+    <polyline
+       class="st7"
+       points="1003.37 239.94 1003.37 237.94 1003.37 239.94"
+       id="polyline312" />
+    <line
+       class="st5"
+       x1="1003.37"
+       y1="243.9"
+       x2="1003.37"
+       y2="503.01"
+       id="line312" />
+    <polygon
+       class="st39"
+       points="1013.55 495.4 1003.37 505.57 993.2 495.4 993.2 504.03 1003.37 514.2 1013.55 504.03 1013.55 495.4"
+       id="polygon312" />
+  </g>
+  <path
+     class="st21"
+     d="M750.97,704.35h61.71-61.71Z"
+     id="path312" />
+  <path
+     class="st21"
+     d="M1003.35,599.19v-41.23s0,41.23,0,41.23Z"
+     id="path313" />
+  <text
+     class="st0"
+     transform="translate(267.04 570.2)"
+     id="text318"><tspan
+       class="st44"
+       x="0"
+       y="0"
+       id="tspan316">[de</tspan><tspan
+       class="st40"
+       x="28.48"
+       y="0"
+       id="tspan317">ɪ</tspan><tspan
+       class="st45"
+       x="36.01"
+       y="0"
+       id="tspan318">n]</tspan></text>
+  <circle
+     id="circle1"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="0s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1"
+       keyTimes="0;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path1" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle1-9"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="0s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1"
+       keyTimes="0;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path1-9" />
+    </animateMotion>
+  </circle>
+  <g
+     id="g23">
+    <rect
+       class="st26"
+       x="97.89"
+       y="155.67"
+       width="38.1"
+       height="47.62"
+       id="rect14" />
+    <rect
+       class="st25"
+       x="96.44"
+       y="172.12"
+       width="42.86"
+       height="19.05"
+       id="rect15" />
+    <rect
+       class="st26"
+       x="100.59"
+       y="158.65"
+       width="38.1"
+       height="47.62"
+       id="rect16" />
+    <rect
+       class="st30"
+       x="98.89"
+       y="174.56"
+       width="42.86"
+       height="19.05"
+       id="rect17" />
+    <rect
+       class="st26"
+       x="103.22"
+       y="161.85"
+       width="38.1"
+       height="47.62"
+       id="rect18" />
+    <rect
+       class="st27"
+       x="101.48"
+       y="177.02"
+       width="42.86"
+       height="19.05"
+       id="rect19" />
+    <g
+       id="g22">
+      <rect
+         class="st26"
+         x="106.35"
+         y="165.19"
+         width="38.1"
+         height="47.62"
+         id="rect20" />
+      <g
+         id="g21">
+        <rect
+           class="st28"
+           x="103.97"
+           y="179.48"
+           width="42.86"
+           height="19.05"
+           id="rect21" />
+        <text
+           class="st37"
+           transform="translate(113.86 192.55)"
+           id="text21"><tspan
+             x="0"
+             y="0"
+             id="tspan21">fastq</tspan></text>
+      </g>
+    </g>
+  </g>
+  <rect
+     class="st14"
+     x="199.68"
+     y="155.74"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect35" />
+  <rect
+     class="st14"
+     x="199.68"
+     y="197.74"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect34" />
+  <circle
+     id="circle2"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="3s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1"
+       keyTimes="0;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path2" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle3"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="3s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1"
+       keyTimes="0;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path3" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle5"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="6s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1"
+       keyTimes="0;0.75;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path5" />
+    </animateMotion>
+  </circle>
+  <g
+     id="g27">
+    <g
+       id="g26">
+      <rect
+         class="st26"
+         x="267.91"
+         y="159.24"
+         width="38.1"
+         height="47.62"
+         id="rect23" />
+      <rect
+         class="st27"
+         x="265.53"
+         y="178.29"
+         width="42.86"
+         height="19.05"
+         id="rect24" />
+      <rect
+         class="st26"
+         x="270.3"
+         y="161.62"
+         width="38.1"
+         height="47.62"
+         id="rect25" />
+      <rect
+         class="st28"
+         x="267.91"
+         y="180.67"
+         width="42.86"
+         height="19.05"
+         id="rect26" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(277.8 193.74)"
+       id="text26"><tspan
+         x="0"
+         y="0"
+         id="tspan26">fastq</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="361.01"
+     y="176.74"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect36" />
+  <rect
+     class="st14"
+     x="431.17"
+     y="176.72"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect44" />
+  <g
+     id="g103">
+    <g
+       id="g102">
+      <rect
+         class="st26"
+         x="512.38"
+         y="155.79"
+         width="38.1"
+         height="47.62"
+         id="rect99" />
+      <rect
+         class="st27"
+         x="510"
+         y="174.84"
+         width="42.86"
+         height="19.05"
+         id="rect100" />
+      <rect
+         class="st26"
+         x="514.76"
+         y="158.17"
+         width="38.1"
+         height="47.62"
+         id="rect101" />
+      <rect
+         class="st28"
+         x="512.38"
+         y="177.22"
+         width="42.86"
+         height="19.05"
+         id="rect102" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(522.27 190.29)"
+       id="text102"><tspan
+         x="0"
+         y="0"
+         id="tspan102">fastq</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="573.77"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect111" />
+  <g
+     id="g98">
+    <rect
+       class="st26"
+       x="609.68"
+       y="156.98"
+       width="38.1"
+       height="47.62"
+       id="rect97" />
+    <rect
+       class="st29"
+       x="607.3"
+       y="176.03"
+       width="42.86"
+       height="19.05"
+       id="rect98" />
+    <text
+       class="st37"
+       transform="translate(613.72 189.25)"
+       id="text98"><tspan
+         x="0"
+         y="0"
+         id="tspan98">ubam</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="672.77"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect105" />
+  <rect
+     class="st14"
+     x="710.39"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect112" />
+  <rect
+     class="st14"
+     x="748.01"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect103" />
+  <circle
+     id="circle7"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="11s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path7" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle10"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="11s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.75;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path10" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle11"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="11s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.75;0.75;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path11" />
+    </animateMotion>
+  </circle>
+  <g
+     id="g160">
+    <g
+       id="g159">
+      <rect
+         class="st26"
+         x="841.18"
+         y="337.24"
+         width="38.1"
+         height="47.62"
+         id="rect156" />
+      <rect
+         class="st27"
+         x="838.8"
+         y="356.28"
+         width="42.86"
+         height="19.05"
+         id="rect157" />
+      <rect
+         class="st26"
+         x="843.56"
+         y="339.62"
+         width="38.1"
+         height="47.62"
+         id="rect158" />
+      <rect
+         class="st28"
+         x="841.18"
+         y="358.66"
+         width="42.86"
+         height="19.05"
+         id="rect159" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(851.07 371.74)"
+       id="text159"><tspan
+         x="0"
+         y="0"
+         id="tspan159">fastq</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="853.82"
+     y="267.71"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(586.1 1136.53) rotate(-90)"
+     id="rect88" />
+  <rect
+     class="st14"
+     x="853.82"
+     y="220.48"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect86" />
+  <rect
+     class="st14"
+     x="1119.8"
+     y="229.11"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1363.91 -890.69) rotate(90)"
+     id="rect201" />
+  <rect
+     class="st14"
+     x="1119.8"
+     y="268.36"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1403.16 -851.43) rotate(90)"
+     id="rect200" />
+  <g
+     id="g13">
+    <g
+       id="g12">
+      <rect
+         class="st26"
+         x="1096.06"
+         y="305.24"
+         width="38.1"
+         height="47.62"
+         id="rect9" />
+      <rect
+         class="st27"
+         x="1093.68"
+         y="324.28"
+         width="42.86"
+         height="19.05"
+         id="rect10" />
+      <rect
+         class="st26"
+         x="1098.44"
+         y="307.62"
+         width="38.1"
+         height="47.62"
+         id="rect11" />
+      <rect
+         class="st28"
+         x="1096.06"
+         y="326.67"
+         width="42.86"
+         height="19.05"
+         id="rect12" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(1105.95 339.74)"
+       id="text12"><tspan
+         x="0"
+         y="0"
+         id="tspan12">fastq</tspan></text>
+  </g>
+  <g
+     id="g164">
+    <g
+       id="g163">
+      <rect
+         class="st26"
+         x="841.18"
+         y="416.69"
+         width="38.1"
+         height="47.62"
+         id="rect160" />
+      <rect
+         class="st27"
+         x="838.8"
+         y="435.73"
+         width="42.86"
+         height="19.05"
+         id="rect161" />
+      <rect
+         class="st26"
+         x="843.56"
+         y="419.07"
+         width="38.1"
+         height="47.62"
+         id="rect162" />
+      <rect
+         class="st28"
+         x="841.18"
+         y="438.11"
+         width="42.86"
+         height="19.05"
+         id="rect163" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(851.07 451.19)"
+       id="text163"><tspan
+         x="0"
+         y="0"
+         id="tspan163">fastq</tspan></text>
+  </g>
+  <circle
+     id="circle12"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="15.2s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path12" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle15"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="15.2s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path15" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle16"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="15.2s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path16" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle17"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="15.2s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path17" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle18"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="15.2s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path18" />
+    </animateMotion>
+  </circle>
+  <g
+     id="g171">
+    <g
+       id="g170">
+      <rect
+         class="st26"
+         x="738.16"
+         y="377.12"
+         width="38.1"
+         height="47.62"
+         id="rect167" />
+      <rect
+         class="st27"
+         x="735.78"
+         y="396.17"
+         width="42.86"
+         height="19.05"
+         id="rect168" />
+      <rect
+         class="st26"
+         x="740.54"
+         y="379.5"
+         width="38.1"
+         height="47.62"
+         id="rect169" />
+      <rect
+         class="st28"
+         x="738.16"
+         y="398.55"
+         width="42.86"
+         height="19.05"
+         id="rect170" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(748.05 411.62)"
+       id="text170"><tspan
+         x="0"
+         y="0"
+         id="tspan170">bam</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="662.67"
+     y="477.25"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1340.34 969.5) rotate(-180)"
+     id="rect172" />
+  <rect
+     class="st14"
+     x="662.67"
+     y="435.25"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1340.34 885.5) rotate(180)"
+     id="rect187" />
+  <rect
+     class="st14"
+     x="662.67"
+     y="394.62"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1340.34 804.24) rotate(180)"
+     id="rect186" />
+  <rect
+     class="st14"
+     x="662.67"
+     y="353.06"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1340.34 721.11) rotate(180)"
+     id="rect185" />
+  <rect
+     class="st14"
+     x="662.67"
+     y="311.15"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1340.34 637.3) rotate(180)"
+     id="rect171" />
+  <circle
+     id="circle19"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="18s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.5;0.5;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path19" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle20"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="18s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.5;0.5;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path20" />
+    </animateMotion>
+  </circle>
+  <rect
+     class="st14"
+     x="584.96"
+     y="394.78"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1184.91 804.55) rotate(-180)"
+     id="rect193" />
+  <rect
+     class="st14"
+     x="541.78"
+     y="394.78"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1098.55 804.55) rotate(180)"
+     id="rect155" />
+  <rect
+     class="st14"
+     x="498.6"
+     y="394.78"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1012.19 804.55) rotate(-180)"
+     id="rect151" />
+  <rect
+     class="st14"
+     x="455.42"
+     y="394.78"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(925.83 804.55) rotate(180)"
+     id="rect152" />
+  <rect
+     class="st14"
+     x="412.24"
+     y="394.14"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(839.48 803.28) rotate(-180)"
+     id="rect196" />
+  <rect
+     class="st14"
+     x="368.56"
+     y="374.92"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(752.13 764.84) rotate(-180)"
+     id="rect188" />
+  <g
+     id="g193">
+    <g
+       id="g192">
+      <rect
+         class="st26"
+         x="295.68"
+         y="337.24"
+         width="38.1"
+         height="47.62"
+         id="rect189" />
+      <rect
+         class="st27"
+         x="293.3"
+         y="356.28"
+         width="42.86"
+         height="19.05"
+         id="rect190" />
+      <rect
+         class="st26"
+         x="298.06"
+         y="339.62"
+         width="38.1"
+         height="47.62"
+         id="rect191" />
+      <rect
+         class="st28"
+         x="295.68"
+         y="358.66"
+         width="42.86"
+         height="19.05"
+         id="rect192" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(310.57 371.74)"
+       id="text192"><tspan
+         x="0"
+         y="0"
+         id="tspan192">pdf</tspan></text>
+  </g>
+  <g
+     id="g148">
+    <g
+       id="g147">
+      <rect
+         class="st26"
+         x="295.68"
+         y="416.69"
+         width="38.1"
+         height="47.62"
+         id="rect144" />
+      <rect
+         class="st27"
+         x="293.3"
+         y="435.73"
+         width="42.86"
+         height="19.05"
+         id="rect145" />
+      <rect
+         class="st26"
+         x="298.06"
+         y="419.07"
+         width="38.1"
+         height="47.62"
+         id="rect146" />
+      <rect
+         class="st28"
+         x="295.68"
+         y="438.11"
+         width="42.86"
+         height="19.05"
+         id="rect147" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(310.57 451.19)"
+       id="text147"><tspan
+         x="0"
+         y="0"
+         id="tspan147">vcf</tspan></text>
+  </g>
+  <circle
+     id="circle21"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="11s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path21" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle22"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="11s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;0.5;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path22" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle23"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="20s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.25;1;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path23" />
+    </animateMotion>
+  </circle>
+  <rect
+     class="st14"
+     x="945.14"
+     y="194.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect109" />
+  <circle
+     id="circle24"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="12s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.25;1;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path24" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle25"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="12s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.25;1;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path25" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle26"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="12s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.25;1;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path26" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle27"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="12s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.25;1;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path27" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle28"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="12s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.25;1;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path28" />
+    </animateMotion>
+  </circle>
+  <rect
+     class="st14"
+     x="1040"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect124" />
+  <g
+     id="g144">
+    <text
+       class="st38"
+       transform="translate(1061.93 135.64)"
+       id="text144"><tspan
+         class="st36"
+         id="tspan140"><tspan
+           x="0"
+           y="0"
+           id="tspan139">SAMtools</tspan></tspan><tspan
+         class="st44"
+         id="tspan142"><tspan
+           x="16.22"
+           y="14.4"
+           id="tspan141">sort</tspan></tspan><tspan
+         class="st44"
+         id="tspan144"><tspan
+           x="12.07"
+           y="28.8"
+           id="tspan143">index</tspan></tspan></text>
+    <rect
+       class="st14"
+       x="1081.24"
+       y="172.42"
+       width="15"
+       height="15"
+       rx="7.5"
+       ry="7.5"
+       id="rect139" />
+  </g>
+  <rect
+     class="st14"
+     x="1216.77"
+     y="176.13"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect294" />
+  <rect
+     class="st14"
+     x="1271.86"
+     y="176.13"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect295" />
+  <rect
+     class="st14"
+     x="1326.96"
+     y="176.13"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect296" />
+  <g
+     id="g301">
+    <g
+       id="g300">
+      <rect
+         class="st26"
+         x="1384.43"
+         y="158.63"
+         width="38.1"
+         height="47.62"
+         id="rect297" />
+      <rect
+         class="st27"
+         x="1382.05"
+         y="177.68"
+         width="42.86"
+         height="19.05"
+         id="rect298" />
+      <rect
+         class="st26"
+         x="1386.81"
+         y="161.01"
+         width="38.1"
+         height="47.62"
+         id="rect299" />
+      <rect
+         class="st28"
+         x="1384.43"
+         y="180.06"
+         width="42.86"
+         height="19.05"
+         id="rect300" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(1399.32 193.13)"
+       id="text300"><tspan
+         x="0"
+         y="0"
+         id="tspan300">tsv</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="995.87"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect125" />
+  <text
+     class="st38"
+     transform="translate(986.59 202.64)"
+     id="text130"><tspan
+       class="st36"
+       id="tspan126"><tspan
+         x="0"
+         y="0"
+         id="tspan125">fgbio</tspan></tspan><tspan
+       class="st44"
+       id="tspan128"><tspan
+         x="-9.56"
+         y="14.4"
+         id="tspan127">FilterCon</tspan></tspan><tspan
+       class="st44"
+       id="tspan130"><tspan
+         x="-1.76"
+         y="28.8"
+         id="tspan129">Reads</tspan></tspan></text>
+  <g
+     id="g138">
+    <rect
+       class="st26"
+       x="1119.51"
+       y="156.98"
+       width="38.1"
+       height="47.62"
+       id="rect137" />
+    <rect
+       class="st29"
+       x="1117.13"
+       y="176.03"
+       width="42.86"
+       height="19.05"
+       id="rect138" />
+    <text
+       class="st37"
+       transform="translate(1126.89 189.25)"
+       id="text138"><tspan
+         x="0"
+         y="0"
+         id="tspan138">bam</tspan></text>
+  </g>
+  <rect
+     class="st3"
+     x="995.59"
+     y="64.39"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect291"
+     style="fill:#ffffff" />
+  <circle
+     id="circle29"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path29" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle29-0"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path29-0" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle30"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path30" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle31"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path31" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle32"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path32" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle33"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path33" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle36"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path36" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle37"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path37" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle38"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path38" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle39"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path39" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle40"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path40" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle41"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path41" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle42"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="13.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1"
+       keyTimes="0;0.5;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path42" />
+    </animateMotion>
+  </circle>
+  <rect
+     class="st14"
+     x="1193.77"
+     y="329.51"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect285" />
+  <rect
+     class="st14"
+     x="1274.59"
+     y="265.96"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect278" />
+  <rect
+     class="st14"
+     x="1275.33"
+     y="306.88"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect281" />
+  <rect
+     class="st14"
+     x="1275.33"
+     y="348.7"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect280" />
+  <rect
+     class="st14"
+     x="1275.33"
+     y="390.52"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect279" />
+  <rect
+     class="st14"
+     x="1190.84"
+     y="438.21"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1644.06 -752.63) rotate(90)"
+     id="rect243" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="471.64"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect249" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="513.26"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect250" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="555.26"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect251" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="597.26"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect252" />
+  <g
+     id="g315">
+    <rect
+       class="st26"
+       x="984.33"
+       y="523.73"
+       width="38.1"
+       height="47.62"
+       id="rect314" />
+    <rect
+       class="st29"
+       x="981.95"
+       y="542.78"
+       width="42.86"
+       height="19.05"
+       id="rect315" />
+    <text
+       class="st37"
+       transform="translate(991.7 556)"
+       id="text315"><tspan
+         x="0"
+         y="0"
+         id="tspan315">bam</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="995.85"
+     y="591.54"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(2006.69 1198.09) rotate(180)"
+     id="rect313" />
+  <rect
+     class="st14"
+     x="951.3"
+     y="550.73"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1917.59 1116.46) rotate(-180)"
+     id="rect236" />
+  <rect
+     class="st14"
+     x="875.18"
+     y="529.44"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1765.37 1073.89) rotate(-180)"
+     id="rect205" />
+  <rect
+     class="st14"
+     x="875.18"
+     y="571.46"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1765.37 1157.92) rotate(-180)"
+     id="rect206" />
+  <rect
+     class="st14"
+     x="800.81"
+     y="550.46"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1616.63 1115.92) rotate(-180)"
+     id="rect226" />
+  <rect
+     class="st14"
+     x="801.31"
+     y="591.54"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1617.63 1198.09) rotate(-180)"
+     id="rect235" />
+  <rect
+     class="st14"
+     x="875.18"
+     y="625.13"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1765.37 1265.25) rotate(-180)"
+     id="rect234" />
+  <rect
+     class="st14"
+     x="875.18"
+     y="660.95"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1765.37 1336.9) rotate(-180)"
+     id="rect310" />
+  <rect
+     class="st14"
+     x="875.18"
+     y="696.85"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1765.37 1408.7) rotate(-180)"
+     id="rect311" />
+  <circle
+     id="circle43"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="16.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path43" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle44"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="16.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path44" />
+    </animateMotion>
+  </circle>
+  <rect
+     class="st14"
+     x="1320.5319"
+     y="331.81232"
+     width="6.8066578"
+     height="7.4217863"
+     rx="3.4030969"
+     ry="3.7108932"
+     id="rect280-4"
+     style="fill:#ffff00;fill-opacity:1;stroke:#ffff00;stroke-width:0.473821;stroke-miterlimit:10;stroke-opacity:1" />
+  <rect
+     class="st14"
+     x="1320.5271"
+     y="331.38535"
+     width="6.3925614"
+     height="6.9702668"
+     rx="3.1960628"
+     ry="3.4851334"
+     id="rect280-4-2"
+     style="fill:#ffff00;fill-opacity:1;stroke:#ffff00;stroke-width:0.444995;stroke-miterlimit:10;stroke-opacity:1" />
+  <rect
+     class="st14"
+     x="1397.57"
+     y="306.83"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect277" />
+  <rect
+     class="st14"
+     x="1397.84"
+     y="348.65"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect284" />
+  <rect
+     class="st14"
+     x="1468.59"
+     y="306.88"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect276" />
+  <rect
+     class="st14"
+     x="1468.59"
+     y="348.7"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect283" />
+  <rect
+     class="st14"
+     x="1544.19"
+     y="328.73"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect290" />
+  <g
+     id="g290">
+    <g
+       id="g289">
+      <rect
+         class="st26"
+         x="1584.7"
+         y="308.78"
+         width="38.1"
+         height="47.62"
+         id="rect286" />
+      <rect
+         class="st27"
+         x="1582.32"
+         y="327.83"
+         width="42.86"
+         height="19.05"
+         id="rect287" />
+      <rect
+         class="st26"
+         x="1587.08"
+         y="311.16"
+         width="38.1"
+         height="47.62"
+         id="rect288" />
+      <rect
+         class="st28"
+         x="1584.7"
+         y="330.21"
+         width="42.86"
+         height="19.05"
+         id="rect289" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(1599.59 343.28)"
+       id="text289"><tspan
+         x="0"
+         y="0"
+         id="tspan289">tsv</tspan></text>
+  </g>
+  <circle
+     id="circle45"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="16.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path45" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle45-3"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="16.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path45-3" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle46"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="16.5s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.5;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path46" />
+    </animateMotion>
+  </circle>
+  <rect
+     class="st14"
+     x="805.53033"
+     y="700.27228"
+     width="6.8254786"
+     height="6.8250136"
+     rx="3.4125068"
+     ry="3.4125068"
+     id="rect280-4-9"
+     style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.455001;stroke-miterlimit:10;stroke-opacity:1" />
+  <rect
+     class="st14"
+     x="805.2309"
+     y="700.19977"
+     width="6.8254786"
+     height="6.8250136"
+     rx="3.4125068"
+     ry="3.4125068"
+     id="rect280-4-9-9"
+     style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.455001;stroke-miterlimit:10;stroke-opacity:1" />
+  <rect
+     class="st14"
+     x="743.47"
+     y="696.85"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     transform="translate(1501.95 1408.7) rotate(180)"
+     id="rect312" />
+  <g
+     id="g231">
+    <g
+       id="g230">
+      <rect
+         class="st26"
+         x="636.6"
+         y="673.48"
+         width="38.1"
+         height="47.62"
+         id="rect227" />
+      <rect
+         class="st27"
+         x="634.22"
+         y="692.53"
+         width="42.86"
+         height="19.05"
+         id="rect228" />
+      <rect
+         class="st26"
+         x="638.98"
+         y="675.86"
+         width="38.1"
+         height="47.62"
+         id="rect229" />
+      <rect
+         class="st28"
+         x="636.6"
+         y="694.91"
+         width="42.86"
+         height="19.05"
+         id="rect230" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(650.49 707.98)"
+       id="text230"><tspan
+         x="0"
+         y="0"
+         id="tspan230">vcf</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="1232.08"
+     y="648.86"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect261" />
+  <g
+     id="g257">
+    <g
+       id="g256">
+      <rect
+         class="st26"
+         x="1317.62"
+         y="604.7"
+         width="38.1"
+         height="47.62"
+         id="rect253" />
+      <rect
+         class="st27"
+         x="1315.24"
+         y="623.75"
+         width="42.86"
+         height="19.05"
+         id="rect254" />
+      <rect
+         class="st26"
+         x="1320.01"
+         y="607.08"
+         width="38.1"
+         height="47.62"
+         id="rect255" />
+      <rect
+         class="st28"
+         x="1317.62"
+         y="626.13"
+         width="42.86"
+         height="19.05"
+         id="rect256" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(1331.51 639.2)"
+       id="text256"><tspan
+         x="0"
+         y="0"
+         id="tspan256">pdf</tspan></text>
+  </g>
+  <g
+     id="g261">
+    <g
+       id="g260">
+      <rect
+         class="st26"
+         x="1317.62"
+         y="664.75"
+         width="38.1"
+         height="47.62"
+         id="rect257" />
+      <rect
+         class="st27"
+         x="1315.24"
+         y="683.8"
+         width="42.86"
+         height="19.05"
+         id="rect258" />
+      <rect
+         class="st26"
+         x="1320.01"
+         y="667.13"
+         width="38.1"
+         height="47.62"
+         id="rect259" />
+      <rect
+         class="st28"
+         x="1317.62"
+         y="686.18"
+         width="42.86"
+         height="19.05"
+         id="rect260" />
+    </g>
+    <text
+       class="st37"
+       transform="translate(1331.51 699.25)"
+       id="text260"><tspan
+         x="0"
+         y="0"
+         id="tspan260">vcf</tspan></text>
+  </g>
+</svg>
