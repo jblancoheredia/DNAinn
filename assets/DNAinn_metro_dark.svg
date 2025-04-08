@@ -3198,7 +3198,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#b3b3b3">
+     style="fill:#999999">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3468,7 +3468,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#cccccc">
+     style="fill:#4d4d4d">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3489,7 +3489,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#cccccc">
+     style="fill:#4d4d4d">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3510,7 +3510,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#cccccc">
+     style="fill:#4d4d4d">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3531,7 +3531,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#cccccc">
+     style="fill:#4d4d4d">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3967,7 +3967,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#cccccc">
+     style="fill:#4d4d4d">
     <animateMotion
        accumulate="none"
        additive="replace"
