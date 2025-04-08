@@ -18,9 +18,9 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="12.208529"
-     inkscape:cx="-23.753886"
-     inkscape:cy="-0.081909952"
+     inkscape:zoom="3.0594656"
+     inkscape:cx="891.33213"
+     inkscape:cy="629.19485"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="952"
@@ -28,7 +28,7 @@
      inkscape:window-maximized="0"
      inkscape:current-layer="Layer_1" />
   <path
-     style="fill:none;stroke:#ffffff"
+     style="fill:none;stroke:#000000"
      d="m 808.48487,704.29955 -151.68892,0.4133"
      id="path46"
      sodipodi:nodetypes="cc" />
@@ -3492,7 +3492,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#e6e6e6">
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3513,7 +3513,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#e6e6e6">
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3534,7 +3534,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#e6e6e6">
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3555,7 +3555,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#e6e6e6">
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3970,7 +3970,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#e6e6e6">
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3991,7 +3991,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#e6e6e6">
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
