@@ -18,12 +18,12 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.0631863"
-     inkscape:cx="1195.7233"
-     inkscape:cy="360.60727"
+     inkscape:zoom="3.5261272"
+     inkscape:cx="1117.6568"
+     inkscape:cy="596.12144"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
-     inkscape:window-x="952"
+     inkscape:window-x="482"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="Layer_1" />
@@ -1287,8 +1287,14 @@
   </g>
   <path
      class="st21"
-     d="M808.81,670.23v-111.03s0,111.03,0,111.03Z"
-     id="path202" />
+     d="M 808.81,629.44494 V 559.2 Z"
+     id="path202"
+     style="stroke:#ff0065;stroke-opacity:1" />
+  <path
+     class="st21"
+     d="M 808.79721,668.43464 V 629.42663 Z"
+     id="path202-4"
+     style="fill:none;stroke:#ff53c3;stroke-width:5.976;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
   <g
      id="g203">
     <line
@@ -1297,16 +1303,19 @@
        y1="704.35"
        x2="750.97"
        y2="704.35"
-       id="line203" />
+       id="line203"
+       style="stroke:#ff99ff;stroke-opacity:1" />
     <polygon
        class="st47"
        points="707.61 714.52 697.43 704.35 707.61 694.18 698.97 694.18 688.8 704.35 698.97 714.52 707.61 714.52"
-       id="polygon203" />
+       id="polygon203"
+       style="fill:#ff99ff;fill-opacity:1" />
   </g>
   <path
      class="st21"
      d="M904.14,557.96h53.36c.65,0,1.18.31,1.18.69v36.91s-.09,1.24.12,1.24"
-     id="path203" />
+     id="path203"
+     style="stroke:#ff0065;stroke-opacity:1" />
   <path
      class="st18"
      d="M753.62,652.55"
@@ -1328,7 +1337,8 @@
   <path
      class="st21"
      d="M903.38,536.96h-40.48c-.42,0-.76.34-.76.76v40.47c0,.42.34.76.76.76h40.48c.42,0,.76-.34.76-.76v-40.48c0-.42-.34-.76-.76-.76Z"
-     id="path205" />
+     id="path205"
+     style="stroke:#ff0065;stroke-opacity:1" />
   <text
      class="st38"
      transform="translate(863.3 602.75)"
@@ -1374,7 +1384,8 @@
   <path
      class="st21"
      d="M808.81,557.96h53.33-53.33Z"
-     id="path217" />
+     id="path217"
+     style="stroke:#ff0065;stroke-opacity:1" />
   <text
      class="st38"
      transform="translate(735.99 599.04)"
@@ -1391,8 +1402,9 @@
          id="tspan220">FilterMutect2</tspan></tspan></text>
   <path
      class="st21"
-     d="m 958.73129,593.12123 v 38.57114 c 0,0.39481 -1.23884,0.72382 -2.76742,0.72382 H 808.39153"
-     id="path221" />
+     d="m 958.78138,593.10363 v 38.60324 c 0,0.39514 -1.21097,0.72442 -2.70517,0.72442 H 811.82349"
+     id="path221"
+     style="stroke:#e03a96;stroke-opacity:1" />
   <text
      class="st38"
      transform="translate(725.07 675.95)"
@@ -1416,7 +1428,7 @@
        id="tspan226">LoFreq</tspan></text>
   <path
      class="st21"
-     d="M959.03,599.04h44.43-44.43Z"
+     d="m 961.749,599.04 h 41.711 z"
      id="path226" />
   <text
      class="st38"
@@ -1441,8 +1453,9 @@
        id="tspan235">VarDictJava</tspan></text>
   <path
      class="st21"
-     d="M958.8,632.63v35.17c0,.36-1.24.66-2.77.66h-147.71"
-     id="path235" />
+     d="m 958.75679,632.32039 v 35.44449 c 0,0.36281 -1.26055,0.66514 -2.81589,0.66514 H 805.784"
+     id="path235"
+     style="stroke:#ff53c3;stroke-opacity:1" />
   <path
      class="st23"
      d="M1239.58,656.36h35.83s-35.83,0-35.83,0Z"
@@ -1874,8 +1887,15 @@
      id="rect309" />
   <path
      class="st21"
-     d="M958.8,668.45v35.24c0,.36-1.21.66-2.71.66h-144.54c-1.51,0-2.73-.3-2.73-.67v-35.23"
-     id="path309" />
+     d="m 958.88347,671.44196 v 32.45412 c 0,0.33154 -1.21135,0.60783 -2.71302,0.60783 H 811.46957 c -1.51168,0 -2.73304,-0.27629 -2.73304,-0.61704 v -32.44491"
+     id="path309"
+     style="stroke:#ff00ff;stroke-opacity:1" />
+  <path
+     class="st21"
+     d="m 958.91167,668.78623 v 31.78935 c 0,0.32475 -1.22002,0.59538 -2.73244,0.59538"
+     id="path309-0"
+     style="fill:none;stroke:#ff00ff;stroke-width:5.72222px;stroke-miterlimit:10;stroke-opacity:1"
+     sodipodi:nodetypes="csc" />
   <g
      id="g312">
     <polyline
@@ -1907,12 +1927,14 @@
   </g>
   <path
      class="st21"
-     d="M750.97,704.35h61.71-61.71Z"
-     id="path312" />
+     d="m 750.97,704.35 h 60.82474 z"
+     id="path312"
+     style="stroke:#ff73cf;stroke-opacity:1" />
   <path
      class="st21"
      d="M1003.35,599.19v-41.23s0,41.23,0,41.23Z"
-     id="path313" />
+     id="path313"
+     style="stroke:#e20000;stroke-opacity:1" />
   <text
      class="st0"
      transform="translate(267.04 570.2)"
@@ -3893,7 +3915,7 @@
      rx="3.4125068"
      ry="3.4125068"
      id="rect280-4-9"
-     style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.455001;stroke-miterlimit:10;stroke-opacity:1" />
+     style="fill:#ff73cf;fill-opacity:1;stroke:#ff73cf;stroke-width:0.455001;stroke-miterlimit:10;stroke-opacity:1" />
   <rect
      class="st14"
      x="805.2309"
@@ -3903,7 +3925,7 @@
      rx="3.4125068"
      ry="3.4125068"
      id="rect280-4-9-9"
-     style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.455001;stroke-miterlimit:10;stroke-opacity:1" />
+     style="fill:#ff73cf;fill-opacity:1;stroke:#ff73cf;stroke-width:0.455001;stroke-miterlimit:10;stroke-opacity:1" />
   <rect
      class="st14"
      x="743.47"
