@@ -19,8 +19,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="8.9351783"
-     inkscape:cx="1441.6053"
-     inkscape:cy="342.46659"
+     inkscape:cx="1327.8974"
+     inkscape:cy="220.25302"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="952"
@@ -29,7 +29,7 @@
      inkscape:current-layer="Layer_1" />
   <path
      style="fill:none;stroke:#ffffff"
-     d="m 1324.1984,336.06314 h 40.2251 l 0.6095,20.11255 153.3836,0.20316 v -20.51886 l 86.7481,0.20315"
+     d="m 1324.1984,336.06314 h 40.2251 l 0.05,21.1198 153.9432,-0.2445 v -21.07845 l 86.7481,0.20315"
      id="path44"
      sodipodi:nodetypes="cccccc" />
   <path
@@ -3198,7 +3198,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#999999">
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
