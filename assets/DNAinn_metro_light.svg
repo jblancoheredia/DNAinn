@@ -19,9 +19,9 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="29.108185"
-     inkscape:cx="903.19957"
-     inkscape:cy="185.17129"
+     inkscape:zoom="2.9753068"
+     inkscape:cx="1042.4135"
+     inkscape:cy="357.94628"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="846"
@@ -711,6 +711,194 @@
          stop-color="#0000d1"
          id="stop8-8" />
     </linearGradient>
+    <linearGradient
+       id="linear-gradient3"
+       x1="344.51001"
+       y1="289.53"
+       x2="344.51001"
+       y2="383.19"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(516.77732,-108.7863)">
+      <stop
+         offset="0"
+         stop-color="#0000ad"
+         id="stop9-9" />
+      <stop
+         offset=".3"
+         stop-color="#0000e8"
+         id="stop10" />
+      <stop
+         offset=".71"
+         stop-color="#00a8ff"
+         id="stop11" />
+      <stop
+         offset="1"
+         stop-color="#b8e2f2"
+         id="stop12" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient4-7"
+       x1="411.82999"
+       y1="286"
+       x2="459.82999"
+       y2="286"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(516.81813,-105.93708)">
+      <stop
+         offset="0"
+         stop-color="#0000ad"
+         id="stop13" />
+      <stop
+         offset=".39"
+         stop-color="#0000d1"
+         id="stop14" />
+      <stop
+         offset=".98"
+         stop-color="#0000e8"
+         id="stop15" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient1-6"
+       x1="477.82999"
+       y1="286.67001"
+       x2="610.48999"
+       y2="286.67001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(508.57602,-105.85218)">
+      <stop
+         offset="0"
+         stop-color="#0000e8"
+         id="stop4-5" />
+      <stop
+         offset=".52"
+         stop-color="#00a8ff"
+         id="stop5-5" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-4"
+       x1="610.48999"
+       y1="286.76001"
+       x2="610.48999"
+       y2="442.82999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(516.89198,-104.94218)">
+      <stop
+         offset=".21"
+         stop-color="#00a8ff"
+         id="stop1-80" />
+      <stop
+         offset=".66"
+         stop-color="#27c4ff"
+         id="stop2-4" />
+      <stop
+         offset=".97"
+         stop-color="#b8e2f2"
+         id="stop3-6" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-8"
+       x1="374"
+       y1="317.95999"
+       x2="374"
+       y2="411.62"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.61109726,487.33034,73.909012)">
+      <stop
+         offset="0"
+         stop-color="#0000e8"
+         id="stop1-38" />
+      <stop
+         offset=".53"
+         stop-color="#b8e2f2"
+         id="stop2-1" />
+      <stop
+         offset="1"
+         stop-color="#007f80"
+         id="stop3-5" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-46"
+       x1="374"
+       y1="277.32001"
+       x2="374"
+       y2="183.66"
+       gradientTransform="matrix(1,0,0,-2.8735079,487.21446,847.44768)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#0000e8"
+         id="stop1-4" />
+      <stop
+         offset="1"
+         stop-color="#ff0065"
+         id="stop2-6" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-21"
+       x1="475.82001"
+       y1="341.60999"
+       x2="684.45001"
+       y2="341.60999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0210825,0,0,1.0617524,414.56169,40.013958)">
+      <stop
+         offset="0"
+         stop-color="#007f80"
+         id="stop1-87" />
+      <stop
+         offset=".27"
+         stop-color="#b8e2f2"
+         id="stop2-15" />
+      <stop
+         offset=".87"
+         stop-color="#0000e8"
+         id="stop3-58" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient1-4"
+       x1="453"
+       y1="116.15"
+       x2="508.54001"
+       y2="116.15"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1585164,0,0,0.97201639,620.26935,68.159954)">
+      <stop
+         offset="0"
+         stop-color="#0000e8"
+         id="stop4-0" />
+      <stop
+         offset=".05"
+         stop-color="#0012d1"
+         id="stop5-7" />
+      <stop
+         offset=".17"
+         stop-color="#0039a2"
+         id="stop6-5" />
+      <stop
+         offset=".3"
+         stop-color="#005b79"
+         id="stop7-7" />
+      <stop
+         offset=".43"
+         stop-color="#007657"
+         id="stop8-5" />
+      <stop
+         offset=".56"
+         stop-color="#008b3d"
+         id="stop9-0" />
+      <stop
+         offset=".7"
+         stop-color="#009b2b"
+         id="stop10-6" />
+      <stop
+         offset=".84"
+         stop-color="#00a420"
+         id="stop11-4" />
+      <stop
+         offset=".99"
+         stop-color="#00a71d"
+         id="stop12-7" />
+    </linearGradient>
   </defs>
   <rect
      class="st43"
@@ -749,31 +937,17 @@
        x="106.3"
        y="0"
        id="tspan4">inn</tspan></text>
-  <g
-     id="g5">
-    <line
-       class="st7"
-       x1="1203.77"
-       y1="182.75"
-       x2="1201.77"
-       y2="182.75"
-       id="line4" />
-    <path
-       class="st19"
-       d="M1197.91,182.75h-51.33c-.67,0-1.21-.09-1.21-.21v-7.24"
-       id="path4" />
-    <line
-       class="st7"
-       x1="1145.38"
-       y1="173.37"
-       x2="1145.38"
-       y2="171.37"
-       id="line5" />
-    <polygon
-       class="st39"
-       points="1191.82 172.58 1202 182.75 1191.82 192.92 1200.46 192.92 1210.63 182.75 1200.46 172.58 1191.82 172.58"
-       id="polygon5" />
-  </g>
+  <path
+     id="path4"
+     class="st2"
+     d="m 1209.4212,183.22724 h -59.4665 c -0.7764,0 -1.4018,-0.0876 -1.4018,-0.20412 v -7.03739"
+     style="fill:none;stroke:url(#linear-gradient1-4);stroke-width:5.62655;stroke-miterlimit:10;stroke-dasharray:3.61975, 3.61975;stroke-dashoffset:0" />
+  <polygon
+     id="polygon5-1"
+     class="st4"
+     points="511.09,128.55 521.26,118.38 511.09,108.21 502.45,108.21 512.63,118.38 502.45,128.55 "
+     style="fill:#217821;stroke:none;stroke-width:0;stroke-miterlimit:10;stroke-dasharray:none"
+     transform="translate(691.56422,64.540506)" />
   <g
      id="g7">
     <line
@@ -825,9 +999,10 @@
        id="polygon9" />
   </g>
   <path
-     class="st7"
-     d="M1127.3,336.86v-156.07s0,156.07,0,156.07Z"
-     id="path9" />
+     id="path9-0"
+     class="st5"
+     d="m 1127.382,337.88782 v -156.07 z"
+     style="fill:none;stroke:url(#linear-gradient-4);stroke-width:6px;stroke-miterlimit:10;stroke-dasharray:none" />
   <path
      class="st22"
      d="M438.67,184.24h-210.49,210.49Z"
@@ -1002,18 +1177,20 @@
        id="polygon49" />
   </g>
   <path
-     class="st7"
-     d="M1127.3,180.79h-151,151Z"
-     id="path49" />
+     id="path49-8"
+     class="st2"
+     d="M 1119.0661,180.81782 H 986.40602 Z"
+     style="fill:none;stroke:url(#linear-gradient1-6);stroke-width:6px;stroke-miterlimit:10;stroke-dasharray:none" />
   <path
      id="path50-0"
      class="st1"
      d="M 931.74869,180.77438 H 547.91871 Z"
      style="letter-spacing:0em;fill:none;stroke:url(#linear-gradient2);stroke-width:6px;stroke-miterlimit:10" />
   <path
-     class="st7"
-     d="M861.32,181.37v95.85s0-95.85,0-95.85Z"
-     id="path51" />
+     id="path51-3"
+     class="st3"
+     d="m 861.28732,180.7437 v 93.66 z"
+     style="fill:none;stroke:url(#linear-gradient3);stroke-width:6px;stroke-miterlimit:10" />
   <text
      class="st38"
      transform="translate(885.24 205.53)"
@@ -1153,28 +1330,39 @@
        class="st7"
        points="861.32 322.07 861.32 324.07 861.32 322.07"
        id="polyline87" />
-    <line
-       class="st13"
-       x1="861.32"
-       y1="317.87"
-       x2="861.32"
-       y2="286.39"
-       id="line87" />
     <polyline
        class="st7"
        points="861.32 284.29 861.32 282.29 861.32 284.29"
        id="polyline88" />
-    <line
-       class="st13"
-       x1="861.32"
-       y1="288.49"
-       x2="861.32"
-       y2="319.97"
-       id="line88" />
+    <path
+       id="path51"
+       class="st0"
+       d="m 861.33034,268.21349 v 57.23537 z"
+       style="fill:none;stroke:url(#linear-gradient-8);stroke-width:6;stroke-miterlimit:0.1;stroke-dasharray:6,6;stroke-dashoffset:0.6" />
     <polygon
        class="st39"
        points="871.49 312.48 861.32 322.66 851.15 312.48 851.15 321.12 861.32 331.29 871.49 321.12 871.49 312.48"
-       id="polygon88" />
+       id="polygon88"
+       style="fill:#007f80;fill-opacity:1" />
+  </g>
+  <g
+     id="g88-5"
+     transform="translate(141.85376,187.11205)">
+    <polyline
+       class="st7"
+       points="861.32 322.07 861.32 324.07 861.32 322.07"
+       id="polyline87-5"
+       style="fill:none;stroke:#0000ff;stroke-width:6px;stroke-miterlimit:10" />
+    <polygon
+       class="st39"
+       points="861.32,331.29 871.49,321.12 871.49,312.48 861.32,322.66 851.15,312.48 851.15,321.12 "
+       id="polygon88-2"
+       style="fill:#ff0065;fill-opacity:1" />
+    <path
+       id="path51-4"
+       class="st0"
+       d="M 861.21446,50.566467 V 319.69922 Z"
+       style="fill:none;stroke:url(#linear-gradient-46);stroke-width:6;stroke-miterlimit:10;stroke-dasharray:6, 6;stroke-dashoffset:3" />
   </g>
   <text
      class="st38"
@@ -1242,9 +1430,10 @@
      ry="7.5"
      id="rect108" />
   <path
-     class="st7"
-     d="M952.64,201.03h-20.24c-.42,0-.76-.34-.76-.76v-40.48c0-.42.34-.76.76-.76h40.48c.42,0,.76.34.76.76v7.49"
-     id="path108" />
+     id="path108-0"
+     class="st4"
+     d="m 952.64813,201.06292 h -20.24 c -0.42,0 -0.76,-0.34 -0.76,-0.76 v -40.48 c 0,-0.42 0.34,-0.76 0.76,-0.76 h 40.48 c 0.42,0 0.76,0.34 0.76,0.76 v 7.49"
+     style="fill:none;stroke:url(#linear-gradient4-7);stroke-width:6px;stroke-miterlimit:10;stroke-dasharray:none" />
   <rect
      class="st14"
      x="945.14"
@@ -1555,31 +1744,17 @@
          x="23.38"
          y="14.4"
          id="tspan199">?</tspan></tspan></text>
-  <g
-     id="g202">
-    <line
-       class="st7"
-       x1="899.14"
-       y1="447.64"
-       x2="901.14"
-       y2="447.64"
-       id="line201" />
-    <path
-       class="st8"
-       d="M905.1,447.64h201.58c2.24,0,4.05-.75,4.05-1.67v-84.58"
-       id="path201" />
-    <line
-       class="st7"
-       x1="1110.72"
-       y1="359.41"
-       x2="1110.72"
-       y2="357.41"
-       id="line202" />
-    <polygon
-       class="st39"
-       points="911.09 457.81 900.91 447.64 911.09 437.47 902.45 437.47 892.28 447.64 902.45 457.81 911.09 457.81"
-       id="polygon202" />
-  </g>
+  <path
+     id="path201-5"
+     class="st3"
+     d="m 900.41314,446.90934 h 205.82966 c 2.2873,0 4.1355,-0.79631 4.1355,-1.77312 v -89.80303"
+     style="fill:none;stroke:url(#linear-gradient-21);stroke-width:6;stroke-miterlimit:10;stroke-dasharray:6, 6;stroke-dashoffset:2.4" />
+  <polygon
+     id="polygon202-7"
+     class="st0"
+     points="481.81,393.4 471.63,383.23 481.81,373.06 473.17,373.06 463,383.23 473.17,393.4 "
+     style="font-size:19px;fill:#007f80"
+     transform="translate(426.81264,63.642802)" />
   <path
      class="st21"
      d="M 808.81,629.44494 V 559.2 Z"
@@ -2193,35 +2368,6 @@
      id="path309-0"
      style="fill:none;stroke:#ff00ff;stroke-width:5.72222px;stroke-miterlimit:10;stroke-opacity:1"
      sodipodi:nodetypes="csc" />
-  <g
-     id="g312">
-    <polyline
-       class="st7"
-       points="1003.37 504.99 1003.37 506.99 1003.37 504.99"
-       id="polyline311" />
-    <line
-       class="st5"
-       x1="1003.37"
-       y1="501.03"
-       x2="1003.37"
-       y2="241.92"
-       id="line311" />
-    <polyline
-       class="st7"
-       points="1003.37 239.94 1003.37 237.94 1003.37 239.94"
-       id="polyline312" />
-    <line
-       class="st5"
-       x1="1003.37"
-       y1="243.9"
-       x2="1003.37"
-       y2="503.01"
-       id="line312" />
-    <polygon
-       class="st39"
-       points="1013.55 495.4 1003.37 505.57 993.2 495.4 993.2 504.03 1003.37 514.2 1013.55 504.03 1013.55 495.4"
-       id="polygon312" />
-  </g>
   <path
      class="st21"
      d="m 750.97,704.35 h 60.82474 z"
