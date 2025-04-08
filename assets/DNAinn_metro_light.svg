@@ -20,8 +20,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="2.9753068"
-     inkscape:cx="1042.4135"
-     inkscape:cy="357.94628"
+     inkscape:cx="1096.0214"
+     inkscape:cy="552.21196"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="846"
@@ -3762,7 +3762,8 @@
      id="circle32"
      cx="0.0099999998"
      cy="-0.63"
-     r="3.0999999">
+     r="3.0999999"
+     style="fill:#999999">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3782,7 +3783,8 @@
      id="circle33"
      cx="0.0099999998"
      cy="-0.63"
-     r="3.0999999">
+     r="3.0999999"
+     style="fill:#999999">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3802,7 +3804,8 @@
      id="circle36"
      cx="0.0099999998"
      cy="-0.63"
-     r="3.0999999">
+     r="3.0999999"
+     style="fill:#999999">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3822,7 +3825,8 @@
      id="circle37"
      cx="0.0099999998"
      cy="-0.63"
-     r="3.0999999">
+     r="3.0999999"
+     style="fill:#999999">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -4257,7 +4261,8 @@
      id="circle45"
      cx="0.0099999998"
      cy="-0.63"
-     r="3.0999999">
+     r="3.0999999"
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -4277,7 +4282,8 @@
      id="circle45-3"
      cx="0.0099999998"
      cy="-0.63"
-     r="3.0999999">
+     r="3.0999999"
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -4297,7 +4303,8 @@
      id="circle46"
      cx="0.0099999998"
      cy="-0.63"
-     r="3.0999999">
+     r="3.0999999"
+     style="fill:#666666">
     <animateMotion
        accumulate="none"
        additive="replace"
