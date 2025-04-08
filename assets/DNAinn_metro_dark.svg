@@ -19,8 +19,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="8.9351783"
-     inkscape:cx="1406.4633"
-     inkscape:cy="307.99609"
+     inkscape:cx="1289.6217"
+     inkscape:cy="206.37529"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="952"
@@ -29,13 +29,13 @@
      inkscape:current-layer="Layer_1" />
   <path
      style="fill:none;stroke:#ffffff"
-     d="m 1323.6596,336.73465 h 40.8345 v -21.12833 l 153.3836,0.20316 0.2032,20.72202 85.7323,0.20315"
-     id="path43"
+     d="m 1324.1984,336.62273 h 40.2251 l 0.6095,20.11255 153.3836,0.20316 v -20.51886 l 86.7481,0.20315"
+     id="path44"
      sodipodi:nodetypes="cccccc" />
   <path
      style="fill:none;stroke:#ffffff"
-     d="m 1324.0865,337.0704 h 40.2251 l 0.6095,20.11255 153.3836,0.20316 v -20.51886 l 86.7481,0.20315"
-     id="path44"
+     d="m 1323.7715,336.17506 h 40.8345 v -21.12833 l 153.3836,0.20316 0.2032,20.72202 85.7323,0.20315"
+     id="path43"
      sodipodi:nodetypes="cccccc" />
   <path
      style="fill:none;stroke:#000000"
@@ -131,7 +131,7 @@
      id="path26" />
   <path
      style="fill:none;stroke:#000000"
-     d="m 1004.1159,180.77868 131.0456,0.1891 6.2403,1.32369 80.7453,0.7564 5.2948,0.3782 178.1313,0"
+     d="m 1003.7801,182.34552 131.0456,0.1891 6.2403,1.32369 80.7453,0.7564 5.2948,0.3782 h 178.1313"
      id="path25"
      sodipodi:nodetypes="cccccc" />
   <path
@@ -3198,7 +3198,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#e6e6e6">
+     style="fill:#cccccc">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3468,7 +3468,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#666666">
+     style="fill:#cccccc">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3489,7 +3489,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#666666">
+     style="fill:#cccccc">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3510,7 +3510,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#666666">
+     style="fill:#cccccc">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3531,7 +3531,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#666666">
+     style="fill:#cccccc">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3946,7 +3946,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#666666">
+     style="fill:#cccccc">
     <animateMotion
        accumulate="none"
        additive="replace"
@@ -3967,7 +3967,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#666666">
+     style="fill:#cccccc">
     <animateMotion
        accumulate="none"
        additive="replace"
