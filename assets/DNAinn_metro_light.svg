@@ -19,15 +19,15 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.9753068"
-     inkscape:cx="1096.0214"
-     inkscape:cy="552.21196"
+     inkscape:zoom="1.0108834"
+     inkscape:cx="823.04252"
+     inkscape:cy="491.6492"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="846"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="Layer_1" />
+     inkscape:current-layer="g294" />
   <path
      style="fill:none;stroke:#ffffff"
      d="m 808.48487,704.29955 -151.68892,0.4133"
@@ -898,6 +898,40 @@
          offset=".99"
          stop-color="#00a71d"
          id="stop12-7" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-80"
+       x1="475.29999"
+       y1="303.95001"
+       x2="475.29999"
+       y2="173.99001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(684.61736,35.790041)">
+      <stop
+         offset="0"
+         stop-color="#ff9f00"
+         id="stop1-2" />
+      <stop
+         offset="1"
+         stop-color="blue"
+         id="stop2-48" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient1-9"
+       x1="453.26999"
+       y1="413.84"
+       x2="453.26999"
+       y2="305.37"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(706.60343,36.107139)">
+      <stop
+         offset=".47"
+         stop-color="#a450d9"
+         id="stop3-9" />
+      <stop
+         offset="1"
+         stop-color="blue"
+         id="stop4-7" />
     </linearGradient>
   </defs>
   <rect
@@ -2187,53 +2221,29 @@
        id="tspan290">Noah</tspan></text>
   <g
      id="g292">
-    <line
-       class="st7"
-       x1="1178.98"
-       y1="336.86"
-       x2="1176.98"
-       y2="336.86"
-       id="line291" />
     <path
-       class="st17"
-       d="M1172.98,336.86h-22.85c-.37,0-.67-1.09-.67-2.43v-124.53"
-       id="path291" />
-    <line
-       class="st7"
-       x1="1149.46"
-       y1="207.91"
-       x2="1149.46"
-       y2="205.91"
-       id="line292" />
+       id="path291-3"
+       class="st3"
+       d="m 1173.1773,336.74004 h -22.85 c -0.37,0 -0.67,-1.09 -0.67,-2.43 v -124.53"
+       style="fill:none;stroke:url(#linear-gradient-80);stroke-width:6px;stroke-miterlimit:10;stroke-dasharray:4, 4" />
     <polygon
        class="st39"
        points="1167.03 326.69 1177.21 336.86 1167.03 347.03 1175.67 347.03 1185.84 336.86 1175.67 326.69 1167.03 326.69"
-       id="polygon292" />
+       id="polygon292"
+       style="fill:#ff6f00;fill-opacity:1" />
   </g>
   <g
      id="g294">
-    <line
-       class="st7"
-       x1="1178.98"
-       y1="446.75"
-       x2="1176.98"
-       y2="446.75"
-       id="line293" />
     <path
-       class="st12"
-       d="M1172.91,446.75h-22.77c-.37,0-.67-.91-.67-2.03v-103.44"
-       id="path293" />
-    <line
-       class="st7"
-       x1="1149.46"
-       y1="339.24"
-       x2="1149.46"
-       y2="337.24"
-       id="line294" />
+       id="path293-0"
+       class="st2"
+       d="m 1173.0934,446.94714 h -22.77 c -0.37,0 -0.67,-0.91 -0.67,-2.03 v -103.44"
+       style="fill:none;stroke:url(#linear-gradient1-9);stroke-width:6px;stroke-miterlimit:10;stroke-dasharray:4.08, 4.08" />
     <polygon
        class="st39"
        points="1167.03 436.58 1177.21 446.75 1167.03 456.92 1175.67 456.92 1185.84 446.75 1175.67 436.58 1167.03 436.58"
-       id="polygon294" />
+       id="polygon294"
+       style="fill:#872db3;fill-opacity:1" />
   </g>
   <rect
      class="st0"
@@ -3826,7 +3836,7 @@
      cx="0.0099999998"
      cy="-0.63"
      r="3.0999999"
-     style="fill:#b3b3b3">
+     style="fill:#999999">
     <animateMotion
        accumulate="none"
        additive="replace"
