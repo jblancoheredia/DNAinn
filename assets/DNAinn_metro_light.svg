@@ -3,7 +3,7 @@
    id="Layer_1"
    version="1.1"
    viewBox="0 0 1724 792"
-   sodipodi:docname="DNAinn.svg"
+   sodipodi:docname="DNAinn_metro_light.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -18,9 +18,9 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="36.123716"
-     inkscape:cx="1316.9741"
-     inkscape:cy="341.13323"
+     inkscape:zoom="2.0631863"
+     inkscape:cx="1195.7233"
+     inkscape:cy="360.60727"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="952"
@@ -1571,11 +1571,13 @@
   <path
      class="st10"
      d="M1240.85,337.01h-42.51,42.51Z"
-     id="path265" />
+     id="path265"
+     style="stroke:#d84315;stroke-opacity:1" />
   <path
      class="st10"
      d="M1518.09,334.97v20.73c0,.22-.34.39-.76.39h-40.48"
-     id="path266" />
+     id="path266"
+     style="stroke:#ffd54f;stroke-opacity:1" />
   <text
      class="st32"
      transform="translate(1259.39 296.57)"
@@ -1586,11 +1588,13 @@
   <path
      class="st10"
      d="M1476.85,314.48h40.48c.42,0,.76.17.76.39v20.61"
-     id="path267" />
+     id="path267"
+     style="stroke:#ffd54f;stroke-opacity:1" />
   <path
      class="st10"
-     d="M1551.69,335.48h-30.55,30.55Z"
-     id="path268" />
+     d="m 1551.69,335.48 h -30.5924 z"
+     id="path268"
+     style="stroke:#ffe082;stroke-opacity:1" />
   <text
      class="st32"
      transform="translate(1381.67 296.57)"
@@ -1615,31 +1619,38 @@
   <path
      class="st10"
      d="M1240.85,372.77v24.36c0,.25.67.46,1.49.46h79.48c.83,0,1.5-.21,1.5-.46v-24.36"
-     id="path270" />
+     id="path270"
+     style="stroke:#ffa000;stroke-opacity:1" />
   <path
      class="st10"
      d="M1240.85,314.35v-40.48c0-.42.67-.76,1.49-.76h79.48c.83,0,1.5.34,1.5.76v40.47"
-     id="path271" />
+     id="path271"
+     style="stroke:#e65100;stroke-opacity:1" />
   <path
      class="st10"
      d="M1240.85,355.59v-40.48c0-.42.67-.76,1.49-.76h79.48c.83,0,1.5.34,1.5.76v40.47"
-     id="path272" />
+     id="path272"
+     style="stroke:#ff6f00;stroke-opacity:1" />
   <path
      class="st10"
      d="M1240.85,379.39v-22.61c0-.23.67-.42,1.49-.42h79.48c.83,0,1.5.19,1.5.43v22.61"
-     id="path273" />
+     id="path273"
+     style="stroke:#ff8f00;stroke-opacity:1" />
   <path
      class="st10"
      d="M1405.64,356.48h-40.48c-.42,0-.76-.34-.76-.76v-40.48c0-.42.34-.76.76-.76h40.48"
-     id="path274" />
+     id="path274"
+     style="stroke:#ffa000;stroke-opacity:1" />
   <path
      class="st10"
-     d="M1362.91,335.48h-36.76,36.76Z"
-     id="path275" />
+     d="M 1361.4694,335.48 H 1326.15 Z"
+     id="path275"
+     style="stroke:#ff8f00;stroke-opacity:1" />
   <path
      class="st10"
      d="M1476.09,314.38h-70.45,70.45Z"
-     id="path276" />
+     id="path276"
+     style="stroke:#ffc107;stroke-opacity:1" />
   <text
      class="st35"
      transform="translate(1256.86 380.26)"
@@ -1664,7 +1675,8 @@
   <path
      class="st10"
      d="M1476.09,356.2h-70.45,70.45Z"
-     id="path283" />
+     id="path283"
+     style="stroke:#ffc107;stroke-opacity:1" />
   <text
      class="st35"
      transform="translate(1372.91 382.75)"
@@ -3715,7 +3727,7 @@
      rx="3.4030969"
      ry="3.7108932"
      id="rect280-4"
-     style="fill:#ffff00;fill-opacity:1;stroke:#ffff00;stroke-width:0.473821;stroke-miterlimit:10;stroke-opacity:1" />
+     style="fill:#ff6f00;fill-opacity:1;stroke:#ff6f00;stroke-width:0.473821;stroke-miterlimit:10;stroke-opacity:1" />
   <rect
      class="st14"
      x="1320.5271"
@@ -3725,7 +3737,7 @@
      rx="3.1960628"
      ry="3.4851334"
      id="rect280-4-2"
-     style="fill:#ffff00;fill-opacity:1;stroke:#ffff00;stroke-width:0.444995;stroke-miterlimit:10;stroke-opacity:1" />
+     style="fill:#ff6f00;fill-opacity:1;stroke:#ff6f00;stroke-width:0.444995;stroke-miterlimit:10;stroke-opacity:1" />
   <rect
      class="st14"
      x="1397.57"
