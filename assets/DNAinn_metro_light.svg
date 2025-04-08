@@ -18,12 +18,12 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="3.5261272"
-     inkscape:cx="1117.6568"
-     inkscape:cy="596.12144"
+     inkscape:zoom="2.8572914"
+     inkscape:cx="1146.5404"
+     inkscape:cy="611.76819"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
-     inkscape:window-x="482"
+     inkscape:window-x="846"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="Layer_1" />
@@ -429,6 +429,143 @@
         stroke: #bc13fe;
       }
     </style>
+    <linearGradient
+       id="linear-gradient"
+       x1="478.82001"
+       y1="504.79999"
+       x2="478.82001"
+       y2="327.57999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(760.6067,150.37759)">
+      <stop
+         offset="0"
+         stop-color="#b18ec2"
+         id="stop1" />
+      <stop
+         offset=".28"
+         stop-color="#8b5aa5"
+         id="stop2" />
+      <stop
+         offset=".53"
+         stop-color="#7f4299"
+         id="stop3" />
+      <stop
+         offset=".75"
+         stop-color="#692f8c"
+         id="stop4" />
+      <stop
+         offset="1"
+         stop-color="#3e2164"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-9"
+       x1="478.82001"
+       y1="90.480003"
+       x2="478.82001"
+       y2="267.70001"
+       gradientTransform="matrix(1,0,0,-1,0,595.28)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#b593ff"
+         id="stop1-3" />
+      <stop
+         offset=".28"
+         stop-color="#a450d9"
+         id="stop2-8" />
+      <stop
+         offset=".53"
+         stop-color="#872db3"
+         id="stop3-0" />
+      <stop
+         offset=".75"
+         stop-color="#692d8c"
+         id="stop4-2" />
+      <stop
+         offset="1"
+         stop-color="#3e2164"
+         id="stop5-4" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient1"
+       x1="437.25"
+       y1="140.41"
+       x2="437.25"
+       y2="299.29999"
+       gradientTransform="matrix(1,0,0,-1,0,595.28)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#a450d9"
+         id="stop6" />
+      <stop
+         offset=".38"
+         stop-color="#872db3"
+         id="stop7" />
+      <stop
+         offset=".7"
+         stop-color="#692f8c"
+         id="stop8" />
+      <stop
+         offset=".89"
+         stop-color="#3e2164"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-2"
+       x1="478.82001"
+       y1="504.79999"
+       x2="478.82001"
+       y2="327.57999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(760.73388,150.43975)">
+      <stop
+         offset="0"
+         stop-color="#b593ff"
+         id="stop1-7" />
+      <stop
+         offset=".28"
+         stop-color="#a450d9"
+         id="stop2-0" />
+      <stop
+         offset=".53"
+         stop-color="#872db3"
+         id="stop3-3" />
+      <stop
+         offset=".75"
+         stop-color="#692d8c"
+         id="stop4-9" />
+      <stop
+         offset="1"
+         stop-color="#3e2164"
+         id="stop5-9" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient1-2"
+       x1="437.25"
+       y1="454.87"
+       x2="437.25"
+       y2="295.98001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(761.09365,149.73752)">
+      <stop
+         offset="0"
+         stop-color="#a450d9"
+         id="stop6-2" />
+      <stop
+         offset=".38"
+         stop-color="#872db3"
+         id="stop7-6" />
+      <stop
+         offset=".7"
+         stop-color="#692f8c"
+         id="stop8-6" />
+      <stop
+         offset=".89"
+         stop-color="#3e2164"
+         id="stop9-7" />
+    </linearGradient>
   </defs>
   <rect
      class="st43"
@@ -1457,17 +1594,18 @@
      id="path235"
      style="stroke:#ff53c3;stroke-opacity:1" />
   <path
-     class="st23"
-     d="M1239.58,656.36h35.83s-35.83,0-35.83,0Z"
-     id="path236" />
-  <path
-     class="st23"
-     d="M1198.34,479.46v-34.21s0,34.21,0,34.21Z"
-     id="path237" />
-  <path
-     class="st23"
-     d="M1239.58,479.14v177.22s0-177.22,0-177.22Z"
-     id="path238" />
+     id="path236-7"
+     class="st3"
+     d="m 1238.9657,656.37771 h 35.83 z"
+     style="fill:none;stroke:#beaeff;stroke-width:6px;stroke-miterlimit:10" />
+  <rect
+     class="st9"
+     x="1236.5538"
+     y="478.01974"
+     width="6"
+     height="177.22"
+     id="rect9-9"
+     style="fill:url(#linear-gradient-2);stroke-width:0;stroke-dasharray:none" />
   <text
      class="st32"
      transform="translate(1251.28 607.83)"
@@ -1503,63 +1641,59 @@
        x="0"
        y="0"
        id="tspan244">CNVkit</tspan></text>
-  <g
-     id="g249">
-    <path
-       class="st23"
-       d="M1198.34,480.12c0-.42.34-.76.76-.76h40.48"
-       id="path244" />
-    <line
-       class="st23"
-       x1="1239.58"
-       y1="521.36"
-       x2="1199.1"
-       y2="521.36"
-       id="line244" />
-    <line
-       class="st23"
-       x1="1199.1"
-       y1="521.36"
-       x2="1239.58"
-       y2="521.36"
-       id="line245" />
-    <line
-       class="st23"
-       x1="1239.58"
-       y1="563.36"
-       x2="1199.1"
-       y2="563.36"
-       id="line246" />
-    <line
-       class="st23"
-       x1="1199.1"
-       y1="563.36"
-       x2="1239.58"
-       y2="563.36"
-       id="line247" />
-    <path
-       class="st23"
-       d="M1239.58,605.36h-40.48c-.42,0-.76-.34-.76-.76"
-       id="path247" />
-    <line
-       class="st23"
-       x1="1198.34"
-       y1="479.74"
-       x2="1198.34"
-       y2="604.97"
-       id="line248" />
-    <line
-       class="st23"
-       x1="1198.34"
-       y1="604.98"
-       x2="1198.34"
-       y2="479.75"
-       id="line249" />
-  </g>
   <path
      class="st23"
-     d="m 1324.751,677.46602 h -48.0916 c -0.499,0 -0.9029,-0.33718 -0.9029,-0.7537 v -40.14464 c 0,-0.41652 0.4039,-0.7537 0.9029,-0.7537 h 48.0797"
-     id="path252" />
+     d="m 1198.34,480.12 c 0,-0.42 0.34,-0.76 0.76,-0.76 h 40.48"
+     id="path244"
+     style="stroke:#3d0866;stroke-opacity:1" />
+  <line
+     class="st23"
+     x1="1239.58"
+     y1="521.35999"
+     x2="1199.1"
+     y2="521.35999"
+     id="line244" />
+  <line
+     class="st23"
+     x1="1199.1"
+     y1="521.35999"
+     x2="1239.58"
+     y2="521.35999"
+     id="line245"
+     style="stroke:#692d8c;stroke-opacity:1" />
+  <line
+     class="st23"
+     x1="1239.58"
+     y1="563.35999"
+     x2="1199.1"
+     y2="563.35999"
+     id="line246" />
+  <line
+     class="st23"
+     x1="1199.1"
+     y1="563.35999"
+     x2="1239.58"
+     y2="563.35999"
+     id="line247"
+     style="stroke:#872db3;stroke-opacity:1" />
+  <path
+     class="st23"
+     d="m 1239.58,605.36 h -40.48 c -0.42,0 -0.76,-0.34 -0.76,-0.76"
+     id="path247"
+     style="stroke:#a450d9;stroke-opacity:1" />
+  <rect
+     class="st8"
+     x="1195.3436"
+     y="445.71753"
+     width="6"
+     height="158.89"
+     id="rect10-8"
+     style="fill:url(#linear-gradient1-2);stroke-width:0;stroke-dasharray:none" />
+  <path
+     id="path252-6"
+     class="st5"
+     d="m 1324.7472,677.59249 h -48.09 c -0.5,0 -0.9,-0.34 -0.9,-0.75 v -40.14 c 0,-0.42 0.4,-0.75 0.9,-0.75 h 48.08"
+     style="fill:none;stroke:#ceb3ff;stroke-width:6px;stroke-miterlimit:10;stroke-dasharray:none" />
   <text
      class="st32"
      transform="translate(1250.8 565.78)"
@@ -3550,42 +3684,6 @@
      ry="7.5"
      transform="translate(1644.06 -752.63) rotate(90)"
      id="rect243" />
-  <rect
-     class="st14"
-     x="1232.08"
-     y="471.64"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect249" />
-  <rect
-     class="st14"
-     x="1232.08"
-     y="513.26"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect250" />
-  <rect
-     class="st14"
-     x="1232.08"
-     y="555.26"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect251" />
-  <rect
-     class="st14"
-     x="1232.08"
-     y="597.26"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect252" />
   <g
      id="g315">
     <rect
@@ -3977,15 +4075,6 @@
          y="0"
          id="tspan230">vcf</tspan></text>
   </g>
-  <rect
-     class="st14"
-     x="1232.08"
-     y="648.86"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect261" />
   <g
      id="g257">
     <g
@@ -4068,4 +4157,49 @@
          y="0"
          id="tspan260">vcf</tspan></text>
   </g>
+  <rect
+     class="st14"
+     x="1232.08"
+     y="648.86"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect261" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="597.26"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect252" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="555.26"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect251" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="513.26"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect250" />
+  <rect
+     class="st14"
+     x="1232.08"
+     y="471.64"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect249" />
 </svg>
