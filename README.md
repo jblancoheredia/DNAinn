@@ -17,17 +17,28 @@
   <img alt="Metro" src="assets/DNAinn_metro_light.svg" width="1500">
 </picture>
 
-**DNAinn** is a bioinformatics pipeline that ...
+**DNAinn** is a bioinformatics pipeline for processing DNA sequencing data from the MSKCC panels IMPACT and ACCESS.
 
-<!-- TODO nf-core:
-   Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
-   major pipeline sections and the types of output it produces. You're giving an overview to someone new
-   to nf-core here, in 15-20 seconds. For an example, see https://github.com/nf-core/rnaseq/blob/master/README.md#introduction
--->
+## Pipeline Steps
 
-<!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
-     workflows use the "tube map" design for that. See https://nf-co.re/docs/contributing/design_guidelines#examples for examples.   -->
-<!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
+0. DNAinn starts from seq data as FastQ files, in the 
+
+
+# Structural Variants Calling (SVtorm as stand-alone pipeline)
+
+1. Calling SVs
+   - ([`Delly`](https://github.com/dellytools/delly))
+   - ([`Svaba`](https://github.com/walaj/svaba))
+   - ([`Manta`](https://github.com/Illumina/manta))
+   - ([`Gridss`](https://github.com/PapenfussLab/gridss))
+2. Merging Calls ([`SURVIVOR`](https://github.com/fritzsedlazeck/SURVIVOR))
+3. Bed to Interval list ([`GATK`](https://gatk.broadinstitute.org/hc/en-us/articles/360035531852-Intervals-and-interval-lists))
+4. ReCalling ([`Gridss`](https://github.com/PapenfussLab/gridss))
+5. Filtering Calls ([`SURVIVOR`](https://github.com/fritzsedlazeck/SURVIVOR))
+6. Annotate SVs ([`iAnnotateSV`](https://github.com/mskcc/iAnnotateSV))
+7. Draw SVs ([`DrawSV`](https://github.com/jblancoheredia/DrawSV))
+8. Check for expected SVs in Controls 
+9. Present QC for raw reads ([`MultiQC`](http://multiqc.info/)) 
 
 1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
 2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
@@ -70,12 +81,18 @@ nextflow run CMOinn/dnainn \
 
 ## Credits
 
-CMOinn/dnainn was originally written by blancoj@mskcc.org.
+SVtorm was originally written by Juan Blanco-Heredia at the Marie-Josée and Henry R. Kravis Center for Molecular Oncology, Technology Innovation Lab, Memorial Sloan Kettering Cancer Center.
+
+Main developer:
+
+- [Juan Blanco-Heredia](blancoj@mskcc.org)
 
 We thank the following people for their extensive assistance in the development of this pipeline:
 
-loomisb@mskcc.org
-halec@mskcc.org
+- [Caryn Hale](halec@mskcc.org)
+- [Brian Loomis](loomisb@mskcc.org)
+- [Kanika Arora](AroraK@mskcc.org)
+- [Shivani Guturu](guturus1@mskcc.org)
 
 ## Contributions and Support
 
@@ -83,14 +100,9 @@ If you would like to contribute to this pipeline, please see the [contributing g
 
 ## Citations
 
-<!-- TODO nf-core: Add citation for pipeline after first release. Uncomment lines below and update Zenodo doi and badge at the top of this file. -->
-<!-- If you use CMOinn/dnainn for your analysis, please cite it using the following doi: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX) -->
-
-<!-- TODO nf-core: Add bibliography of tools and data used in your pipeline -->
-
 An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
 
-This pipeline uses code and infrastructure developed and maintained by the [nf-core](https://nf-co.re) community, reused here under the [MIT license](https://github.com/nf-core/tools/blob/master/LICENSE).
+This pipeline uses code and infrastructure developed and maintained by the [nf-core](https://nf-co.re) community, reused here under the [MIT license](https://github.com/nf-core/tools/blob/main/LICENSE).
 
 > **The nf-core framework for community-curated bioinformatics pipelines.**
 >
