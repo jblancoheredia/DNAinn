@@ -54,18 +54,13 @@ process ALIGN_BAM_RAW {
     # The real path to the BWA index prefix`
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools sort -n -@ ${task.cpus} -o ${prefix}.unmapped.qname.bam ${prefix}.unmapped.bam && \\
-    samtools view -h ${prefix}.unmapped.qname.bam | \\
-    awk 'BEGIN {OFS=\"\\t\"} /^@/ {print; next} {for(i=12;i<=NF;i++) if(\$i ~ /^RX:Z:/) umi=\$i; key=\$1\":\"umi; if (!seen[key]++) print}' | \\
-    samtools view -b -o ${prefix}.unmapped.dedup.bam
-
-    samtools fastq ${samtools_fastq_args} ${prefix}.unmapped.dedup.bam \\
+    samtools fastq ${samtools_fastq_args} ${prefix}.unmapped.bam \\
         | bwa-mem2 mem ${bwa_args} -t ${task.cpus} -p -B 3 -K 100000000 -Y -M -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
         | fgbio -Xmx${fgbio_mem_gb}g \\
             --compression ${fgbio_zipper_bams_compression} \\
             --async-io=true \\
             ZipperBams \\
-            --unmapped ${prefix}.unmapped.dedup.bam \\
+            --unmapped ${prefix}.unmapped.bam \\
             --ref ${fasta} \\
             --output ${fgbio_zipper_bams_output} \\
             --tags-to-reverse Consensus \\
