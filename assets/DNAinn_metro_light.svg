@@ -20,14 +20,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="2.0064838"
-     inkscape:cx="159.48297"
+     inkscape:cx="455.52324"
      inkscape:cy="204.33756"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="846"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g7" />
+     inkscape:current-layer="Layer_1" />
   <polygon
      id="polygon37-0"
      class="st28"
@@ -2327,30 +2327,6 @@
      rx="7.5"
      ry="7.5"
      id="rect110" />
-  <g
-     id="g114">
-    <rect
-       class="st26"
-       x="788.01"
-       y="156.98"
-       width="38.1"
-       height="47.62"
-       id="rect113" />
-    <rect
-       class="st29"
-       x="785.63"
-       y="176.03"
-       width="42.86"
-       height="19.05"
-       id="rect114" />
-    <text
-       class="st37"
-       transform="translate(795.39 189.25)"
-       id="text114"><tspan
-         x="0"
-         y="0"
-         id="tspan114">bam</tspan></text>
-  </g>
   <text
      class="st38"
      transform="translate(728.7 205.53)"
@@ -5323,4 +5299,28 @@
      rx="7.5"
      ry="7.5"
      id="rect249" />
+  <g
+     id="g114">
+    <rect
+       class="st26"
+       x="788.01"
+       y="156.98"
+       width="38.1"
+       height="47.62"
+       id="rect113" />
+    <rect
+       class="st29"
+       x="785.63"
+       y="176.03"
+       width="42.86"
+       height="19.05"
+       id="rect114" />
+    <text
+       class="st37"
+       transform="translate(795.39 189.25)"
+       id="text114"><tspan
+         x="0"
+         y="0"
+         id="tspan114">bam</tspan></text>
+  </g>
 </svg>
