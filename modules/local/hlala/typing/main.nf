@@ -8,7 +8,9 @@ process HLALA_TYPING {
         'quay.io/biocontainers/hla-la:1.0.3--hd03093a_0' }"
 
     input:
-    tuple val(meta), path(bam), path(bai), path(graph)
+    tuple val(meta) , path(bam)
+    tuple val(meta2), path(bai)
+    path(graph)
 
     output:
     tuple val(meta), path("${meta.id}")                             , emit: results
@@ -37,11 +39,11 @@ process HLALA_TYPING {
     mkdir $prefix
 
     /usr/local/opt/hla-la/src/HLA-LA.pl \\
-        --BAM $bam \\
-        --graph ../graphs/$graph \\
-        --sampleID $prefix \\
+        --BAM ${bam} \\
+        --graph ${graph} \\
+        --sampleID ${prefix} \\
         --workingDir . \\
-        --maxThreads $task.cpus \\
+        --maxThreads ${task.cpus} \\
         $args
 
     cat <<-END_VERSIONS > versions.yml
@@ -49,7 +51,6 @@ process HLALA_TYPING {
         hla-la: 1.0.3
     END_VERSIONS
     """
-
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """

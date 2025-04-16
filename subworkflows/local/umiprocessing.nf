@@ -10,10 +10,13 @@
 
 include { BAMCUT                                                                                                                    } from '../../modules/local/bamcut/main' // <- In Beta
 include { SPADES                                                                                                                    } from '../../modules/local/spades/main' // <- In use
-include { MOSDEPTH                                                                                                                  } from '../../modules/local/mosdepth/main' // <- In use
 include { REPEATSEQ                                                                                                                 } from '../../modules/local/repeatseq/main' // <- In Beta
 include { MERGE_REPS                                                                                                                } from '../../modules/local/merge_reps/main' // <- In Beta
 include { SAMBLASTER                                                                                                                } from '../../modules/local/samblaster/main' // <- In use
+include { MOSDEPTH_DUP                                                                                                              } from '../../modules/local/mosdepth/main' // <- In use
+include { MOSDEPTH_FIN                                                                                                              } from '../../modules/local/mosdepth/main' // <- In use
+include { MOSDEPTH_RAW                                                                                                              } from '../../modules/local/mosdepth/main' // <- In use
+include { MOSDEPTH_SIM                                                                                                              } from '../../modules/local/mosdepth/main' // <- In use
 include { ALIGN_BAM_FIN                                                                                                             } from '../../modules/local/umi_align_bam/main' // <- In use
 include { ALIGN_BAM_RAW                                                                                                             } from '../../modules/local/umi_align_bam/main' // <- In use
 include { FILTER_CONTIGS                                                                                                            } from '../../modules/local/filter_contigs/main' // <- In use
@@ -116,9 +119,9 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH(ch_bam_fcu_sort, ch_bam_fcu_indx, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
-    ch_versions = ch_versions.mix(MOSDEPTH.out.versions.first())
-    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt)
+    MOSDEPTH_RAW(ch_bam_fcu_sort, ch_bam_fcu_indx, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    ch_versions = ch_versions.mix(MOSDEPTH_RAW.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_RAW.out.summary_txt)
 
     //
     // MODULE: Run Survivor ScanReads to get Error Profiles
@@ -304,6 +307,27 @@ workflow UMIPROCESSING {
     ch_bam_sim_stix = SAMTOOLS_SORT_INDEX_FIN.out.bam_simplex
 
     //
+    // MODULE: Run MosDepth
+    //
+    MOSDEPTH_FIN(ch_bam_fin_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    ch_versions = ch_versions.mix(MOSDEPTH_FIN.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_FIN.out.summary_txt)
+
+    //
+    // MODULE: Run MosDepth
+    //
+    MOSDEPTH_DUP(ch_bam_dup_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    ch_versions = ch_versions.mix(MOSDEPTH_DUP.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_DUP.out.summary_txt)
+
+    //
+    // MODULE: Run MosDepth
+    //
+    MOSDEPTH_SIM(ch_bam_sim_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    ch_versions = ch_versions.mix(MOSDEPTH_SIM.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_SIM.out.summary_txt)
+
+    //
     // MODULE: Run ErrorRateByReadPosition in Final BAM
     //
     FGBIO_ERRORRATEBYREADPOSITION_FIN(ch_bam_fin_sort, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
@@ -368,6 +392,7 @@ workflow UMIPROCESSING {
     ubam            = ch_ubam
     raw_bam         = ch_raw_sort_bam
     raw_bai         = ch_raw_sort_bai
+    raw_baix        = ch_bam_fcu_stix
     versions        = ch_collated_versions
     group_bam       = ch_bam_grouped
     duplex_bam      = ch_bam_dup_stix

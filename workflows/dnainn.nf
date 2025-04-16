@@ -194,6 +194,7 @@ workflow DNAINN {
         ch_ubam						= UMIPROCESSING.out.ubam
         ch_raw_bam					= UMIPROCESSING.out.raw_bam
         ch_raw_bai					= UMIPROCESSING.out.raw_bai
+        ch_raw_baix                 = UMIPROCESSING.out.raw_baix
         ch_versions					= ch_versions.mix(UMIPROCESSING.out.versions)
         ch_bam_duplex               = UMIPROCESSING.out.duplex_bam
         ch_bam_grouped				= UMIPROCESSING.out.group_bam
@@ -293,7 +294,10 @@ workflow DNAINN {
         // SUBWORKFLOW: Run immunoncology analysis (optional)
         //
         IMMUNONCOLOGY(
-            ch_bam_finalized
+            ch_raw_bam,
+            ch_raw_bai,
+            ch_fastqs,
+            ch_reads_finalized
         )
         ch_versions = ch_versions.mix(IMMUNONCOLOGY.out.versions)
 //    ch_multiqc_files = ch_multiqc_files.mix(TELOMEREFEATS.out.multiqc_files)

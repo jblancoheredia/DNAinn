@@ -69,19 +69,19 @@ workflow DEDUPANDRECAL {
     //
     SAMTOOLS_SORT_INDEX(ch_bam, ch_fasta, params.fai)
     ch_versions = ch_versions.mix(SAMTOOLS_SORT_INDEX.out.versions.first())
-    ch_bam_ori = SAMTOOLS_SORT_INDEX.out.bam
-    ch_bam_ori_index = SAMTOOLS_SORT_INDEX.out.bai
+    ch_bam_raw = SAMTOOLS_SORT_INDEX.out.bam
+    ch_bam_raw_index = SAMTOOLS_SORT_INDEX.out.bai
 
     //
     // MODULE: Run Survivor ScanReads to get Error Profiles
     //
-    SURVIVOR_SCAN_READS(ch_bam_ori, ch_bam_ori_index, params.read_length)
+    SURVIVOR_SCAN_READS(ch_bam_raw, ch_bam_raw_index, params.read_length)
     ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS.out.versions.first())
 
     //
     // MODULE: Run Picard's Collect HS Metrics for raw BAM files
     //
-    COLLECTHSMETRICS_ORI(ch_bam_ori, ch_bam_ori_index, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
+    COLLECTHSMETRICS_ORI(ch_bam_raw, ch_bam_raw_index, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_ORI.out.versions.first())
     ch_coverage_raw  = COLLECTHSMETRICS_ORI.out.coverage
     ch_hsmetrics_raw = COLLECTHSMETRICS_ORI.out.hsmetrics
@@ -89,7 +89,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run MSI Sensor PRO
     ///
-    MSISENSORPRO_RAW(ch_bam_ori, ch_bam_ori_index, ch_msi_f)
+    MSISENSORPRO_RAW(ch_bam_raw, ch_bam_raw_index, ch_msi_f)
     ch_versions = ch_versions.mix(MSISENSORPRO_RAW.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_RAW.out.summary.map{it[1]}.collect())
     ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_RAW.out.msi_uns.map{it[1]}.collect())
@@ -98,14 +98,14 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH(ch_bam_ori, ch_bam_ori_index, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH(ch_bam_raw, ch_bam_raw_index, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
     ch_versions = ch_versions.mix(MOSDEPTH.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt)
 
     //
     // MODULE: Run GATK4 MarkDuplicates
     //
-    GATK4_MARKDUPLICATES(ch_bam_ori, params.fasta, params.fai)
+    GATK4_MARKDUPLICATES(ch_bam_raw, params.fasta, params.fai)
     ch_multiqc_files = ch_multiqc_files.mix(GATK4_MARKDUPLICATES.out.metrics.collect{it[1]})
     ch_multiqc_files = ch_multiqc_files.mix(GATK4_MARKDUPLICATES.out.complex_metrics.collect{it[1]})
     ch_versions = ch_versions.mix(GATK4_MARKDUPLICATES.out.versions.first())

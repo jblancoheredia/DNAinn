@@ -19,15 +19,30 @@
      inkscape:pageopacity="1"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.0064838"
-     inkscape:cx="274.11136"
-     inkscape:cy="590.087"
+     inkscape:zoom="8.8723143"
+     inkscape:cx="1146.4878"
+     inkscape:cy="193.74877"
      inkscape:window-width="3088"
      inkscape:window-height="1285"
      inkscape:window-x="846"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="Layer_1" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1.05535"
+     d="m 1004.1152,180.77922 146.0131,0.18903 6.531,3.23429 90.3897,-1.15501 5.8996,0.37805 h 198.4767"
+     id="path25"
+     sodipodi:nodetypes="cccccc" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:0.1"
+     d="m 1451.2996,183.88116 -0.021,-21.40465 h 50.4477"
+     id="path341-6"
+     sodipodi:nodetypes="ccc" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:0.1"
+     d="m 1451.3168,183.21101 -0.021,21.40465 h 50.4477"
+     id="path341-4-0"
+     sodipodi:nodetypes="ccc" />
   <polygon
      id="polygon37-0"
      class="st28"
@@ -144,11 +159,6 @@
      style="fill:none;stroke:#000000"
      d="M 1003.4466,180.94939 1003.1109,548.891"
      id="path26" />
-  <path
-     style="fill:none;stroke:#000000"
-     d="m 1004.1159,180.77868 131.0456,0.1891 6.2403,1.32369 80.7453,0.7564 5.2948,0.3782 178.1313,0"
-     id="path25"
-     sodipodi:nodetypes="cccccc" />
   <path
      style="fill:none;stroke:#000000"
      d="m 1003.5486,180.77868 134.2603,-0.1891 V 71.479437 l -135.0167,0.189099"
@@ -1793,6 +1803,110 @@
          stop-color="#d1dedf"
          id="stop12-0" />
     </linearGradient>
+    <linearGradient
+       id="linear-gradient47"
+       x1="1316.3"
+       y1="-344.20001"
+       x2="1316.3"
+       y2="-593.29999"
+       gradientTransform="rotate(-90,1647.675,-147.71769)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#379e48"
+         id="stop173" />
+      <stop
+         offset=".5"
+         stop-color="#23652d"
+         id="stop174" />
+      <stop
+         offset="1"
+         stop-color="#194921"
+         id="stop175" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient51"
+       x1="1447.7"
+       y1="183.39999"
+       x2="1487.3"
+       y2="183.39999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.4926664,0.05729)">
+      <stop
+         offset="0"
+         stop-color="#379e48"
+         id="stop185" />
+      <stop
+         offset=".5"
+         stop-color="#33be3a"
+         id="stop186" />
+      <stop
+         offset="1"
+         stop-color="#64f5a0"
+         id="stop187" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient52"
+       x1="1446.7"
+       y1="183.60001"
+       x2="1453.6"
+       y2="183.60001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.90407915,0,0,1.2083809,140.01316,-38.90993)">
+      <stop
+         offset="0"
+         stop-color="#379e48"
+         id="stop188" />
+      <stop
+         offset="1"
+         stop-color="#38a745"
+         id="stop189" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-3"
+       x1="551.29999"
+       y1="685.29999"
+       x2="583.59998"
+       y2="685.29999"
+       gradientTransform="matrix(1.2,0,0,-1,500.8,847.34474)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#0000e8"
+         id="stop1-79" />
+      <stop
+         offset="0"
+         stop-color="#0012d1"
+         id="stop2-023" />
+      <stop
+         offset=".2"
+         stop-color="#0039a2"
+         id="stop3-99" />
+      <stop
+         offset=".3"
+         stop-color="#005b79"
+         id="stop4-70" />
+      <stop
+         offset=".4"
+         stop-color="#007657"
+         id="stop5-39" />
+      <stop
+         offset=".6"
+         stop-color="#008b3d"
+         id="stop6-8" />
+      <stop
+         offset=".7"
+         stop-color="#009b2b"
+         id="stop7-65" />
+      <stop
+         offset=".8"
+         stop-color="#00a420"
+         id="stop8-76" />
+      <stop
+         offset="1"
+         stop-color="#00a71d"
+         id="stop9-27" />
+    </linearGradient>
   </defs>
   <text
      class="st35"
@@ -1827,17 +1941,6 @@
        y="0"
        id="tspan4"
        style="fill:#e6e6e6;fill-opacity:1">inn</tspan></text>
-  <path
-     id="path4"
-     class="st2"
-     d="m 1209.4212,183.22724 h -59.4665 c -0.7764,0 -1.4018,-0.0876 -1.4018,-0.20412 v -7.03739"
-     style="fill:none;stroke:url(#linear-gradient1-4);stroke-width:5.62655;stroke-miterlimit:10;stroke-dasharray:3.61975, 3.61975;stroke-dashoffset:0" />
-  <polygon
-     id="polygon5-1"
-     class="st4"
-     points="511.09,128.55 521.26,118.38 511.09,108.21 502.45,108.21 512.63,118.38 502.45,128.55 "
-     style="fill:#217821;stroke:none;stroke-width:0;stroke-miterlimit:10;stroke-dasharray:none"
-     transform="translate(691.56422,64.540506)" />
   <g
      id="g7">
     <line
@@ -1921,31 +2024,41 @@
   <text
      class="st38"
      transform="translate(198.39 133.14)"
-     id="text30"><tspan
+     id="text30"
+     style="fill:#e6e6e6"><tspan
        class="st31"
-       id="tspan28"><tspan
+       id="tspan28"
+       style="fill:#e6e6e6"><tspan
          x="0"
          y="0"
-         id="tspan27">cat</tspan></tspan><tspan
+         id="tspan27"
+         style="fill:#e6e6e6">cat</tspan></tspan><tspan
        class="st44"
-       id="tspan30"><tspan
+       id="tspan30"
+       style="fill:#e6e6e6"><tspan
          x="-7"
          y="14.4"
-         id="tspan29">FastQ</tspan></tspan></text>
+         id="tspan29"
+         style="fill:#e6e6e6">FastQ</tspan></tspan></text>
   <text
      class="st38"
      transform="translate(187.01 228.33)"
-     id="text34"><tspan
+     id="text34"
+     style="fill:#e6e6e6"><tspan
        class="st31"
-       id="tspan32"><tspan
+       id="tspan32"
+       style="fill:#e6e6e6"><tspan
          x="0"
          y="0"
-         id="tspan31">FastQC</tspan></tspan><tspan
+         id="tspan31"
+         style="fill:#e6e6e6">FastQC</tspan></tspan><tspan
        class="st44"
-       id="tspan34"><tspan
+       id="tspan34"
+       style="fill:#e6e6e6"><tspan
          x="-.83"
          y="14.4"
-         id="tspan33">Original</tspan></tspan></text>
+         id="tspan33"
+         style="fill:#e6e6e6">Original</tspan></tspan></text>
   <path
      id="path34-2"
      class="st21"
@@ -2323,15 +2436,6 @@
          y="28.8"
          id="tspan96"
          style="fill:#e6e6e6;fill-opacity:1">UMIs</tspan></tspan></text>
-  <rect
-     class="st14"
-     x="853.82"
-     y="173.29"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect104" />
   <text
      class="st38"
      transform="translate(652.27 205.53)"
@@ -2351,53 +2455,11 @@
          y="14.4"
          id="tspan107"
          style="fill:#e6e6e6;fill-opacity:1">Raw</tspan></tspan></text>
-  <rect
-     class="st14"
-     x="892.53"
-     y="173.29"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect108" />
   <path
      id="path108-0"
      class="st4"
      d="m 952.64813,201.06292 h -20.24 c -0.42,0 -0.76,-0.34 -0.76,-0.76 v -40.48 c 0,-0.42 0.34,-0.76 0.76,-0.76 h 40.48 c 0.42,0 0.76,0.34 0.76,0.76 v 7.49"
      style="fill:none;stroke:url(#linear-gradient4-7);stroke-width:6px;stroke-miterlimit:10;stroke-dasharray:none" />
-  <rect
-     class="st14"
-     x="945.14"
-     y="152.29"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect110" />
-  <g
-     id="g114">
-    <rect
-       class="st26"
-       x="788.01"
-       y="156.98"
-       width="38.1"
-       height="47.62"
-       id="rect113" />
-    <rect
-       class="st29"
-       x="785.63"
-       y="176.03"
-       width="42.86"
-       height="19.05"
-       id="rect114" />
-    <text
-       class="st37"
-       transform="translate(795.39 189.25)"
-       id="text114"><tspan
-         x="0"
-         y="0"
-         id="tspan114">bam</tspan></text>
-  </g>
   <text
      class="st38"
      transform="translate(728.7 205.53)"
@@ -3258,42 +3320,6 @@
        id="polygon294"
        style="fill:#872db3;fill-opacity:1" />
   </g>
-  <rect
-     class="st0"
-     x="-186.60335"
-     y="1226.5552"
-     width="6"
-     height="158.89"
-     transform="rotate(-90)"
-     id="rect4"
-     style="fill:url(#linear-gradient-93)" />
-  <text
-     class="st32"
-     transform="translate(1196.23 156.98)"
-     id="text295"
-     style="fill:#e6e6e6;fill-opacity:1"><tspan
-       x="0"
-       y="0"
-       id="tspan295"
-       style="fill:#e6e6e6;fill-opacity:1">TelHunter</tspan></text>
-  <text
-     class="st32"
-     transform="translate(1252.39 214.44)"
-     id="text296"
-     style="fill:#e6e6e6;fill-opacity:1"><tspan
-       x="0"
-       y="0"
-       id="tspan296"
-       style="fill:#e6e6e6;fill-opacity:1">TelFusion</tspan></text>
-  <text
-     class="st32"
-     transform="translate(1306.59 156.98)"
-     id="text297"
-     style="fill:#e6e6e6;fill-opacity:1"><tspan
-       x="0"
-       y="0"
-       id="tspan297"
-       style="fill:#e6e6e6;fill-opacity:1">TelReport</tspan></text>
   <text
      class="st35"
      transform="translate(120.78 622.5)"
@@ -4398,15 +4424,6 @@
          href="#path23" />
     </animateMotion>
   </circle>
-  <rect
-     class="st14"
-     x="945.14"
-     y="194.29"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect109" />
   <circle
      id="circle24"
      cx="0.0099999998"
@@ -4426,27 +4443,6 @@
        restart="always">
       <mpath
          href="#path24" />
-    </animateMotion>
-  </circle>
-  <circle
-     id="circle25"
-     cx="0.0099999998"
-     cy="-0.63"
-     r="3.0999999"
-     style="fill:#ffffff">
-    <animateMotion
-       accumulate="none"
-       additive="replace"
-       begin="12s"
-       calcMode="paced"
-       dur="6s"
-       fill="remove"
-       keyPoints="0;1;1;1;1;1"
-       keyTimes="0;0.25;1;1;1;1"
-       repeatCount="indefinite"
-       restart="always">
-      <mpath
-         href="#path25" />
     </animateMotion>
   </circle>
   <circle
@@ -4512,132 +4508,33 @@
          href="#path28" />
     </animateMotion>
   </circle>
-  <rect
-     class="st14"
-     x="1040"
-     y="173.29"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect124" />
-  <g
-     id="g144"
-     style="fill:#e6e6e6;fill-opacity:1">
-    <text
-       class="st38"
-       transform="translate(1061.93 135.64)"
-       id="text144"
+  <text
+     class="st38"
+     id="text144"
+     style="fill:#e6e6e6;fill-opacity:1"
+     x="1061.9301"
+     y="135.64"><tspan
+       class="st36"
+       id="tspan140"
        style="fill:#e6e6e6;fill-opacity:1"><tspan
-         class="st36"
-         id="tspan140"
-         style="fill:#e6e6e6;fill-opacity:1"><tspan
-           x="0"
-           y="0"
-           id="tspan139"
-           style="fill:#e6e6e6;fill-opacity:1">SAMtools</tspan></tspan><tspan
-         class="st44"
-         id="tspan142"
-         style="fill:#e6e6e6;fill-opacity:1"><tspan
-           x="16.22"
-           y="14.4"
-           id="tspan141"
-           style="fill:#e6e6e6;fill-opacity:1">sort</tspan></tspan><tspan
-         class="st44"
-         id="tspan144"
-         style="fill:#e6e6e6;fill-opacity:1"><tspan
-           x="12.07"
-           y="28.8"
-           id="tspan143"
-           style="fill:#e6e6e6;fill-opacity:1">index</tspan></tspan></text>
-    <rect
-       class="st14"
-       x="1081.24"
-       y="172.42"
-       width="15"
-       height="15"
-       rx="7.5"
-       ry="7.5"
-       id="rect139"
-       style="fill:#e6e6e6;fill-opacity:1" />
-  </g>
-  <rect
-     class="st14"
-     x="1216.77"
-     y="176.13"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect294" />
-  <rect
-     class="st14"
-     x="1271.86"
-     y="176.13"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect295" />
-  <rect
-     class="st14"
-     x="1326.96"
-     y="176.13"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect296" />
-  <g
-     id="g301">
-    <g
-       id="g300">
-      <rect
-         class="st26"
-         x="1384.43"
-         y="158.63"
-         width="38.1"
-         height="47.62"
-         id="rect297" />
-      <rect
-         class="st27"
-         x="1382.05"
-         y="177.68"
-         width="42.86"
-         height="19.05"
-         id="rect298" />
-      <rect
-         class="st26"
-         x="1386.81"
-         y="161.01"
-         width="38.1"
-         height="47.62"
-         id="rect299" />
-      <rect
-         class="st28"
-         x="1384.43"
-         y="180.06"
-         width="42.86"
-         height="19.05"
-         id="rect300" />
-    </g>
-    <text
-       class="st37"
-       transform="translate(1399.32 193.13)"
-       id="text300"><tspan
-         x="0"
-         y="0"
-         id="tspan300">tsv</tspan></text>
-  </g>
-  <rect
-     class="st14"
-     x="995.87"
-     y="173.29"
-     width="15"
-     height="15"
-     rx="7.5"
-     ry="7.5"
-     id="rect125" />
+         x="1061.9301"
+         y="135.64"
+         id="tspan139"
+         style="fill:#e6e6e6;fill-opacity:1">SAMtools</tspan></tspan><tspan
+       class="st44"
+       id="tspan142"
+       style="fill:#e6e6e6;fill-opacity:1"><tspan
+         x="1078.15"
+         y="150.03999"
+         id="tspan141"
+         style="fill:#e6e6e6;fill-opacity:1">sort</tspan></tspan><tspan
+       class="st44"
+       id="tspan144"
+       style="fill:#e6e6e6;fill-opacity:1"><tspan
+         x="1074"
+         y="164.44"
+         id="tspan143"
+         style="fill:#e6e6e6;fill-opacity:1">index</tspan></tspan></text>
   <text
      class="st38"
      transform="translate(986.59 202.64)"
@@ -4664,30 +4561,6 @@
          y="28.8"
          id="tspan129"
          style="fill:#e6e6e6;fill-opacity:1">Reads</tspan></tspan></text>
-  <g
-     id="g138">
-    <rect
-       class="st26"
-       x="1119.51"
-       y="156.98"
-       width="38.1"
-       height="47.62"
-       id="rect137" />
-    <rect
-       class="st29"
-       x="1117.13"
-       y="176.03"
-       width="42.86"
-       height="19.05"
-       id="rect138" />
-    <text
-       class="st37"
-       transform="translate(1126.89 189.25)"
-       id="text138"><tspan
-         x="0"
-         y="0"
-         id="tspan138">bam</tspan></text>
-  </g>
   <rect
      class="st3"
      x="995.59"
@@ -5575,4 +5448,497 @@
      class="st3"
      d="m 100.33197,676.37795 v 0 c 4.14,0 7.5,3.36 7.5,7.5 v 0 c 0,4.14 -3.36,7.5 -7.5,7.5 v 0 c -4.140004,0 -7.500004,-3.36 -7.500004,-7.5 v 0 c 0,-4.14 3.36,-7.5 7.500004,-7.5 z"
      style="fill:url(#linear-gradient6-5);stroke:none;stroke-miterlimit:10" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:0.1"
+     d="m 1451.1953,183.83205 -0.021,-21.40465 h 50.4477"
+     id="path341"
+     sodipodi:nodetypes="ccc" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:6;stroke-miterlimit:0.1"
+     d="m 1451.2125,183.1619 -0.021,21.40465 h 50.4477"
+     id="path341-4"
+     sodipodi:nodetypes="ccc" />
+  <rect
+     id="rect4"
+     class="st92"
+     x="1202.0927"
+     y="180.65729"
+     width="249.10001"
+     height="6"
+     style="fill:url(#linear-gradient47)" />
+  <g
+     id="g296"
+     class="st71"
+     style="isolation:isolate;fill:#e6e6e6"
+     transform="translate(0.4926664,0.05729)">
+    <text
+       class="st74"
+       transform="translate(1174.2,157)"
+       id="text295"
+       style="font-weight:600;font-size:12px;font-family:MavenPro-SemiBold, 'Maven Pro';isolation:isolate;fill:#e6e6e6"><tspan
+         x="0"
+         y="0"
+         id="tspan295"
+         style="fill:#e6e6e6">TelHunter</tspan></text>
+  </g>
+  <g
+     id="g297"
+     class="st71"
+     style="isolation:isolate;fill:#e6e6e6"
+     transform="translate(0.4926664,0.05729)">
+    <text
+       class="st74"
+       transform="translate(1221.4,214.4)"
+       id="text296"
+       style="font-weight:600;font-size:12px;font-family:MavenPro-SemiBold, 'Maven Pro';isolation:isolate;fill:#e6e6e6"><tspan
+         x="0"
+         y="0"
+         id="tspan296"
+         style="fill:#e6e6e6">TelFusDect</tspan></text>
+  </g>
+  <g
+     id="g298"
+     class="st71"
+     style="isolation:isolate;fill:#e6e6e6"
+     transform="translate(0.4926664,0.05729)">
+    <text
+       class="st74"
+       transform="translate(1275.6,157)"
+       id="text297"
+       style="font-weight:600;font-size:12px;font-family:MavenPro-SemiBold, 'Maven Pro';isolation:isolate;fill:#e6e6e6"><tspan
+         x="0"
+         y="0"
+         id="tspan297"
+         style="fill:#e6e6e6">TelReport</tspan></text>
+  </g>
+  <g
+     id="g301"
+     transform="translate(0.4926664,0.05729)">
+    <g
+       id="g300">
+      <rect
+         id="rect297"
+         class="st77"
+         x="1282.1"
+         y="87"
+         width="38.099998"
+         height="47.599998"
+         style="fill:#ffffff;stroke:#000000" />
+      <rect
+         id="rect298"
+         class="st78"
+         x="1279.8"
+         y="106"
+         width="42.900002"
+         height="19.1"
+         style="fill:#39383a;stroke:#000000" />
+      <rect
+         id="rect299"
+         class="st77"
+         x="1284.5"
+         y="89.300003"
+         width="38.099998"
+         height="47.599998"
+         style="fill:#ffffff;stroke:#000000" />
+      <rect
+         id="rect300"
+         class="st79"
+         x="1282.1"
+         y="108.4"
+         width="42.900002"
+         height="19.1"
+         style="fill:#1e1c1c;stroke:#000000" />
+    </g>
+    <g
+       id="g323"
+       class="st71"
+       style="isolation:isolate">
+      <text
+         class="st72"
+         transform="translate(1297,121.5)"
+         id="text323"
+         style="font-size:12px;font-family:Helvetica, Helvetica;isolation:isolate;fill:#ffffff"><tspan
+           x="0"
+           y="0"
+           id="tspan322">tsv</tspan></text>
+    </g>
+  </g>
+  <g
+     id="text2971"
+     data-name="text297"
+     class="st71"
+     style="isolation:isolate;fill:#e6e6e6"
+     transform="translate(0.4926664,0.05729)">
+    <text
+       class="st74"
+       transform="translate(1331.1,214.4)"
+       id="text338"
+       style="font-weight:600;font-size:12px;font-family:MavenPro-SemiBold, 'Maven Pro';isolation:isolate;fill:#e6e6e6"><tspan
+         x="0"
+         y="0"
+         id="tspan338"
+         style="fill:#e6e6e6">ALTpred</tspan></text>
+  </g>
+  <g
+     id="text2972"
+     data-name="text297"
+     class="st71"
+     style="isolation:isolate;fill:#e6e6e6"
+     transform="translate(0.4926664,0.05729)">
+    <text
+       class="st74"
+       transform="translate(1389.1,157)"
+       id="text339"
+       style="font-weight:600;font-size:12px;font-family:MavenPro-SemiBold, 'Maven Pro';isolation:isolate;fill:#e6e6e6"><tspan
+         x="0"
+         y="0"
+         id="tspan339"
+         style="fill:#e6e6e6">SHAP</tspan></text>
+  </g>
+  <path
+     id="path1511"
+     data-name="path151"
+     class="st31"
+     d="m 1487.7927,162.45729 h -35.9 c -0.4,0 -0.7,0.3 -0.7,0.8 v 40.5 c 0,0.4 0.3,0.8 0.7,0.8 h 35.9"
+     style="fill:none;stroke:url(#linear-gradient51);stroke-width:6px;stroke-miterlimit:10" />
+  <path
+     id="path4"
+     class="st3"
+     d="m 1176.8,183.44474 h -33.2 c -0.4,0 -0.8,0 -0.8,-0.2 v -7"
+     style="fill:none;stroke:url(#linear-gradient-3);stroke-width:5.6px;stroke-miterlimit:10;stroke-dasharray:3.6, 3.6" />
+  <polygon
+     id="polygon5-1"
+     class="st101"
+     points="1176.7,193.1 1186.8,182.9 1176.7,172.8 1168,172.8 1178.2,182.9 1168,193.1 "
+     style="fill:#217821"
+     transform="translate(0.4926664,0.57448919)" />
+  <circle
+     id="circle25"
+     cx="0.0099999998"
+     cy="-0.63"
+     r="3.0999999"
+     style="fill:#ffffff">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="12s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1;1"
+       keyTimes="0;0.5;1;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path25" />
+    </animateMotion>
+  </circle>
+  <g
+     id="g114">
+    <rect
+       class="st26"
+       x="788.01"
+       y="156.98"
+       width="38.1"
+       height="47.62"
+       id="rect113" />
+    <rect
+       class="st29"
+       x="785.63"
+       y="176.03"
+       width="42.86"
+       height="19.05"
+       id="rect114" />
+    <text
+       class="st37"
+       transform="translate(795.39 189.25)"
+       id="text114"><tspan
+         x="0"
+         y="0"
+         id="tspan114">bam</tspan></text>
+  </g>
+  <rect
+     class="st14"
+     x="853.82"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect104" />
+  <rect
+     class="st14"
+     x="892.53"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect108" />
+  <rect
+     class="st14"
+     x="945.14"
+     y="152.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect110" />
+  <rect
+     class="st14"
+     x="945.14"
+     y="194.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect109" />
+  <rect
+     class="st14"
+     x="995.87"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect125" />
+  <rect
+     class="st14"
+     x="1040"
+     y="173.29"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect124" />
+  <rect
+     class="st14"
+     x="1081.24"
+     y="172.42"
+     width="15"
+     height="15"
+     rx="7.5"
+     ry="7.5"
+     id="rect139"
+     style="fill:#ffffff;fill-opacity:1" />
+  <g
+     id="g138">
+    <rect
+       class="st26"
+       x="1119.51"
+       y="156.98"
+       width="38.1"
+       height="47.62"
+       id="rect137" />
+    <rect
+       class="st29"
+       x="1117.13"
+       y="176.03"
+       width="42.86"
+       height="19.05"
+       id="rect138" />
+    <text
+       class="st37"
+       transform="translate(1126.89 189.25)"
+       id="text138"><tspan
+         x="0"
+         y="0"
+         id="tspan138">bam</tspan></text>
+  </g>
+  <path
+     id="rect294"
+     class="st53"
+     d="m 1201.7927,176.15729 v 0 c 4.1,0 7.5,3.4 7.5,7.5 v 0 c 0,4.1 -3.4,7.5 -7.5,7.5 v 0 c -4.1,0 -7.5,-3.4 -7.5,-7.5 v 0 c 0,-4.1 3.4,-7.5 7.5,-7.5 z"
+     style="fill:#ffffff;stroke:#1e1c1c;stroke-miterlimit:10" />
+  <path
+     id="rect295"
+     class="st53"
+     d="m 1252.6927,176.15729 v 0 c 4.1,0 7.5,3.4 7.5,7.5 v 0 c 0,4.1 -3.4,7.5 -7.5,7.5 v 0 c -4.1,0 -7.5,-3.4 -7.5,-7.5 v 0 c 0,-4.1 3.4,-7.5 7.5,-7.5 z"
+     style="fill:#ffffff;stroke:#1e1c1c;stroke-miterlimit:10" />
+  <path
+     id="rect2951"
+     data-name="rect295"
+     class="st53"
+     d="m 1303.6927,176.15729 v 0 c 4.1,0 7.5,3.4 7.5,7.5 v 0 c 0,4.1 -3.4,7.5 -7.5,7.5 v 0 c -4.1,0 -7.5,-3.4 -7.5,-7.5 v 0 c 0,-4.1 3.4,-7.5 7.5,-7.5 z"
+     style="fill:#ffffff;stroke:#1e1c1c;stroke-miterlimit:10" />
+  <path
+     id="rect2952"
+     data-name="rect295"
+     class="st53"
+     d="m 1354.5927,176.15729 v 0 c 4.1,0 7.5,3.4 7.5,7.5 v 0 c 0,4.1 -3.4,7.5 -7.5,7.5 v 0 c -4.1,0 -7.5,-3.4 -7.5,-7.5 v 0 c 0,-4.1 3.4,-7.5 7.5,-7.5 z"
+     style="fill:#ffffff;stroke:#1e1c1c;stroke-miterlimit:10" />
+  <path
+     id="rect2953"
+     data-name="rect295"
+     class="st53"
+     d="m 1405.5927,176.15729 v 0 c 4.1,0 7.5,3.4 7.5,7.5 v 0 c 0,4.1 -3.4,7.5 -7.5,7.5 v 0 c -4.1,0 -7.5,-3.4 -7.5,-7.5 v 0 c 0,-4.1 3.4,-7.5 7.5,-7.5 z"
+     style="fill:#ffffff;stroke:#1e1c1c;stroke-miterlimit:10" />
+  <circle
+     id="circle341"
+     class="st89"
+     cx="0"
+     cy="-.6"
+     r="3.1"
+     style="fill:#ffffff">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="15s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.15;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path341" />
+    </animateMotion>
+  </circle>
+  <circle
+     id="circle341-4"
+     class="st89"
+     cx="0"
+     cy="-.6"
+     r="3.1"
+     style="fill:#ffffff">
+    <animateMotion
+       accumulate="none"
+       additive="replace"
+       begin="15s"
+       calcMode="paced"
+       dur="6s"
+       fill="remove"
+       keyPoints="0;1;1;1;1"
+       keyTimes="0;0.15;1;1;1"
+       repeatCount="indefinite"
+       restart="always">
+      <mpath
+         href="#path341-4" />
+    </animateMotion>
+  </circle>
+  <path
+     id="rect2954"
+     data-name="rect295"
+     class="st93"
+     d="m 1451.1088,178.8403 v 0 c 1.7177,0 3.0739,1.81257 3.0739,4.1085 v 0 c 0,2.29592 -1.3562,4.10849 -3.0739,4.10849 v 0 c -1.7178,0 -3.0739,-1.81257 -3.0739,-4.10849 v 0 c 0,-2.29593 1.3561,-4.1085 3.0739,-4.1085 z"
+     style="fill:url(#linear-gradient52);stroke-width:1.04521" />
+  <g
+     id="g3012"
+     data-name="g301"
+     transform="translate(0.4926664,0.05729)">
+    <g
+       id="g3002"
+       data-name="g300">
+      <rect
+         id="rect2972"
+         data-name="rect297"
+         class="st77"
+         x="1487.3"
+         y="119.6"
+         width="38.099998"
+         height="47.599998"
+         style="fill:#ffffff;stroke:#000000" />
+      <rect
+         id="rect2982"
+         data-name="rect298"
+         class="st78"
+         x="1484.9"
+         y="138.7"
+         width="42.900002"
+         height="19.1"
+         style="fill:#39383a;stroke:#000000" />
+      <rect
+         id="rect2992"
+         data-name="rect299"
+         class="st77"
+         x="1489.7"
+         y="122"
+         width="38.099998"
+         height="47.599998"
+         style="fill:#ffffff;stroke:#000000" />
+      <rect
+         id="rect3002"
+         data-name="rect300"
+         class="st79"
+         x="1487.3"
+         y="141.10001"
+         width="42.900002"
+         height="19.1"
+         style="fill:#1e1c1c;stroke:#000000" />
+    </g>
+    <g
+       id="text3002"
+       data-name="text300"
+       class="st71"
+       style="isolation:isolate">
+      <text
+         class="st72"
+         transform="translate(1502.2,154.1)"
+         id="text341"
+         style="font-size:12px;font-family:Helvetica, Helvetica;isolation:isolate;fill:#ffffff"><tspan
+           x="0"
+           y="0"
+           id="tspan341">pdf</tspan></text>
+    </g>
+  </g>
+  <g
+     id="g3011"
+     data-name="g301"
+     transform="translate(0.4926664,0.05729)">
+    <g
+       id="g3001"
+       data-name="g300">
+      <rect
+         id="rect2971"
+         data-name="rect297"
+         class="st77"
+         x="1487.3"
+         y="197.2"
+         width="38.099998"
+         height="47.599998"
+         style="fill:#ffffff;stroke:#000000" />
+      <rect
+         id="rect2981"
+         data-name="rect298"
+         class="st78"
+         x="1484.9"
+         y="216.3"
+         width="42.900002"
+         height="19.1"
+         style="fill:#39383a;stroke:#000000" />
+      <rect
+         id="rect2991"
+         data-name="rect299"
+         class="st77"
+         x="1489.7"
+         y="199.60001"
+         width="38.099998"
+         height="47.599998"
+         style="fill:#ffffff;stroke:#000000" />
+      <rect
+         id="rect3001"
+         data-name="rect300"
+         class="st79"
+         x="1487.3"
+         y="218.7"
+         width="42.900002"
+         height="19.1"
+         style="fill:#1e1c1c;stroke:#000000" />
+    </g>
+    <g
+       id="text3001"
+       data-name="text300"
+       class="st71"
+       style="isolation:isolate">
+      <text
+         class="st72"
+         transform="translate(1502.2,231.7)"
+         id="text340"
+         style="font-size:12px;font-family:Helvetica, Helvetica;isolation:isolate;fill:#ffffff"><tspan
+           x="0"
+           y="0"
+           id="tspan340">tsv</tspan></text>
+    </g>
+  </g>
 </svg>

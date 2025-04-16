@@ -374,6 +374,42 @@
                     "fa_icon": "fas fa-book",
                     "help_text": "Dict file to use for alignment."
                 },
+                "chr6_fa": {
+                    "type": "string",
+                    "description": "chr6_hla_fa file",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "chr6_hla_fa file to use for alignment."
+                },
+                "chr6_fai": {
+                    "type": "string",
+                    "description": "chr6_hla_fai file",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "chr6_hla_fai file to use for alignment."
+                },
+                "imgt_fa": {
+                    "type": "string",
+                    "description": "imgt_hla_fa file",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "imgt_hla_fa file to use for alignment."
+                },
+                "imgt_fai": {
+                    "type": "string",
+                    "description": "imgt_hla_fai file",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "imgt_hla_fai file to use for alignment."
+                },
+                "bwa2_chr6": {
+                    "type": "string",
+                    "description": "chr6_hla bwa2 index",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "chr6_hla bwa2 index to use for alignment."
+                },
+                "bwa2_imgt": {
+                    "type": "string",
+                    "description": "imgt_hla bwa2 index",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "imgt_hla bwa2 index to use for alignment."
+                },
                 "bwa": {
                     "type": "string",
                     "description": "BWA index",
@@ -769,6 +805,16 @@
                     "fa_icon": "fas fa-book"
                 },
                 "allow_list_genes": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "hlala_graph": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "optitype_image": {
                     "type": "string",
                     "description": "Self explicative...",
                     "fa_icon": "fas fa-book"
