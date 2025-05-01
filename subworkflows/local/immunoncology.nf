@@ -77,12 +77,12 @@ workflow IMMUNONCOLOGY {
     ch_imgt_tsv = HLAIMGT.out.tsv
     ch_versions = ch_versions.mix(HLAIMGT.out.versions)
 
-    //
-    // MODULE: Run HLA-LA 
-    //
-    HLALA_TYPING(ch_bam, ch_bai, params.hlala_graph)
-    ch_hlahd = HLALA_TYPING.out.results
-    ch_versions = ch_versions.mix(HLALA_TYPING.out.versions)
+//    //
+//    // MODULE: Run HLA-LA 
+//    //
+//    HLALA_TYPING(ch_bam, ch_bai, params.hlala_graph)
+//    ch_hlahd = HLALA_TYPING.out.results
+//    ch_versions = ch_versions.mix(HLALA_TYPING.out.versions)
 
     //
     // Collate and save software versions

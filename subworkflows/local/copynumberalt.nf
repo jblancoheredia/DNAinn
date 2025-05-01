@@ -8,6 +8,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+include { ONCOCNV                                                                                                                   } from '../../modules/local/oncocnv/main'
 include { FACETS_CNV                                                                                                                } from '../../modules/local/facets/main'
 include { CNVKIT_CALL                                                                                                               } from '../../modules/nf-core/cnvkit/call/main'
 include { CNVKIT_BATCH                                                                                                              } from '../../modules/nf-core/cnvkit/batch/main'
@@ -54,6 +55,15 @@ workflow COPYNUMBERALT {
     main:
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
+
+    //
+    // MODULE: Run OncoCNV
+    //
+    ONCOCNV(ch_consensus_bam, ch_fasta, ch_intervals, ch_fai, params.normal_bai, params.normal_bam)
+    ch_versions = ch_versions.mix(ONCOCNV.out.versions)
+    ch_oncocnv_png      = ONCOCNV.out.png
+    ch_oncocnv_profile  = ONCOCNV.out.profile
+    ch_oncocnv_summary  = ONCOCNV.out.summary
 
     //
     // MODULE: Run BCFtools Mpileup

@@ -26,15 +26,21 @@ def parse_freebayes(file_path):
             chrom, pos, vid, ref, alt, qual, fltr, info, fmt, sample = fields[:10]
             info_dict = dict(kv.split('=') for kv in info.split(';') if '=' in kv)
             fmt_dict = dict(zip(fmt.split(':'), sample.split(':')))
-            af = fmt_dict.get("AF") or info_dict.get("AF")
-            vd = fmt_dict.get("AO")
-            dp = fmt_dict.get("DP")
-            if (not af or af == ".") and vd and dp:
-                try: af = str(round(float(vd) / float(dp), 4))
-                except ZeroDivisionError: af = "0"
-            records.append({"KEY": f"{chrom}_{pos}_{ref}_{alt}", "CHROM": chrom, "POS": int(pos), "ID": vid,
-                            "REF": ref, "ALT": alt, "QUAL": qual, "FILTER": fltr, "AF": af,
-                            "VD": vd, "DP": dp, "Caller": "freebayes"})
+            a  = info_dict.get("AD")
+            if a:
+              d  = a.split(',')
+              try: af = str(round(float(d[1]) / float(d[0]), 4))
+              except ZeroDivisionError: af = "0"
+            else:
+              af = fmt_dict.get("AF") or info_dict.get("AF")
+              vd = fmt_dict.get("AO")
+              dp = fmt_dict.get("DP")
+              if (not af or af == ".") and vd and dp:
+                  try: af = str(round(float(vd) / float(dp), 4))
+                  except ZeroDivisionError: af = "0"
+              records.append({"KEY": f"{chrom}_{pos}_{ref}_{alt}", "CHROM": chrom, "POS": int(pos), "ID": vid,
+                              "REF": ref, "ALT": alt, "QUAL": qual, "FILTER": fltr, "AF": af,
+                              "VD": vd, "DP": dp, "Caller": "freebayes"})
     return pd.DataFrame(records)
 
 def parse_lofreq(file_path):
@@ -111,7 +117,6 @@ def merge_callers(dfs, caller_order):
     for df in dfs:
         for _, row in df.iterrows():
             grouped[row['KEY']].append(row)
-
     merged = []
     for key, records in grouped.items():
         base = records[0]

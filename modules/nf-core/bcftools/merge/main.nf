@@ -8,7 +8,7 @@ process BCFTOOLS_MERGE {
         'quay.io/biocontainers/bcftools:1.20--h8b25389_0' }"
 
     input:
-    tuple val(meta), path(vcfs), path(tbis)
+    tuple val(meta) , path(vcfs), path(tbis)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
     path(bed)

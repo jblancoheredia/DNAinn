@@ -17,6 +17,7 @@ include { GATK4_MUTECT2                                                         
 include { BCFTOOLS_MERGE                                                                                                            } from '../../modules/local/bcftools/merge/main' 
 include { GATK4_FILTERMUTECTCALLS                                                                                                   } from '../../modules/local/gatk4/filtermutectcalls/main'   
 include { GATK4_GETPILEUPSUMMARIES                                                                                                  } from '../../modules/nf-core/gatk4/getpileupsummaries/main'
+include { GETBASECOUNTS_MULTISAMPLE                                                                                                 } from '../../modules/local/getbasecounts/multisample/main'
 include { GATK4_CALCULATECONTAMINATION                                                                                              } from '../../modules/nf-core/gatk4/calculatecontamination/main' 
 include { GATK4_LEARNREADORIENTATIONMODEL                                                                                           } from '../../modules/nf-core/gatk4/learnreadorientationmodel/main'
 
@@ -140,6 +141,20 @@ workflow VARIANTDSCVRY {
     VCFCALLS2TSV(ch_pre_merge)
     ch_versions = ch_versions.mix(VCFCALLS2TSV.out.versions)
     ch_variants_tsv = VCFCALLS2TSV.out.tsv
+
+    //
+    // MODULE: Run BCFtools to merge the VCFs
+    //
+    BCFTOOLS_MERGE(ch_pre_merge, ch_fasta, ch_fai, params.targets_bed)
+    ch_versions = ch_versions.mix(BCFTOOLS_MERGE.out.versions)
+    ch_merged_vcf = BCFTOOLS_MERGE.out.vcf
+
+
+    //
+    // MODULES: Run GetBaseCountsMultiSample
+    //
+    GETBASECOUNTS_MULTISAMPLE(ch_bam_clipped, ch_fasta, ch_fai, ch_merged_vcf)
+    ch_versions = ch_versions.mix(GETBASECOUNTS_MULTISAMPLE.out.versions)
 
     //
     // Collate and save software versions

@@ -360,7 +360,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run MSI Sensor PRO
     ///
-    MSISENSORPRO_FIN(ch_bam_fin_stix, ch_msi_f)
+    MSISENSORPRO_FIN(ch_bam_dup_stix, ch_msi_f)
     ch_versions = ch_versions.mix(MSISENSORPRO_FIN.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_FIN.out.summary.map{it[1]}.collect())
     ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_FIN.out.msi_uns.map{it[1]}.collect())
@@ -369,7 +369,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Extract FastQ reads from BAM
     //
-    SAMTOOLS_COLLATEFASTQ(ch_bam_fin_stix, ch_fasta, [])
+    SAMTOOLS_COLLATEFASTQ(ch_bam_dup_stix, ch_fasta, [])
     ch_versions = ch_versions.mix(SAMTOOLS_COLLATEFASTQ.out.versions)
     ch_consensus_reads = SAMTOOLS_COLLATEFASTQ.out.fastq
 

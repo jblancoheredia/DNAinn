@@ -62,11 +62,11 @@ workflow TELOMEREFEATS {
     ch_telhun_pdf = TELOMEREHUNTER_FULL.out.pdf
     ch_fus_bambai = TELOMEREHUNTER_FULL.out.bam
 
-    //
-    // MODULE: Run TelFusDetector
-    //
-    TELFUSDETECTOR_FULL(ch_bam_dedup, params.genome, 1, params.seq_library)
-    ch_versions = ch_versions.mix(TELFUSDETECTOR_FULL.out.versions)
+//    //
+//    // MODULE: Run TelFusDetector
+//    //
+//    TELFUSDETECTOR_FULL(ch_bam_dedup, params.genome, 1, params.seq_library)
+//    ch_versions = ch_versions.mix(TELFUSDETECTOR_FULL.out.versions)
 
     //
     // Collate and save software versions
