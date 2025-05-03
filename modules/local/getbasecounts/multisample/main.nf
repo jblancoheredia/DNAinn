@@ -4,14 +4,14 @@ process GETBASECOUNTS_MULTISAMPLE {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/getbasecounts:1.4.0':
-        'blancojmskcc/getbasecounts:1.4.0' }"
+        'docker://blancojmskcc/getbasecounts:1.2.2':
+        'blancojmskcc/getbasecounts:1.2.2' }"
 
     input:
-    tuple val(meta) , path(bam), path(bai)
+    tuple val(meta),  path(vcfs), path(tbis)
+    tuple val(meta1), path(bam),  path(bai)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
-    tuple val(meta4), path(vcf)
 
     output:
     tuple val(meta), path("*.tvs"), emit: tvs
@@ -27,9 +27,37 @@ process GETBASECOUNTS_MULTISAMPLE {
     GetBaseCountsMultiSample \\
         --fasta ${fasta} \\
         --bam ${bam} \\
-        --vcf ${vcf} \\
+        --vcf ${prefix}.freebayes.vcf  \\
         --thread ${task.cpus} \\
-        --output ${prefix}_getbasecounts.tsv
+        --output ${prefix}_freebayes_getbasecounts.tsv
+
+    GetBaseCountsMultiSample \\
+        --fasta ${fasta} \\
+        --bam ${bam} \\
+        --vcf ${prefix}.lofreq.somatic_final.snvs.vcf  \\
+        --thread ${task.cpus} \\
+        --output ${prefix}_lofreq_snvs_getbasecounts.tsv
+
+    GetBaseCountsMultiSample \\
+        --fasta ${fasta} \\
+        --bam ${bam} \\
+        --vcf ${prefix}.lofreq.somatic_final.indels.vcf  \\
+        --thread ${task.cpus} \\
+        --output ${prefix}_lofreq_indels_getbasecounts.tsv
+
+    GetBaseCountsMultiSample \\
+        --fasta ${fasta} \\
+        --bam ${bam} \\
+        --vcf ${prefix}.mutect2.filtered.vcf  \\
+        --thread ${task.cpus} \\
+        --output ${prefix}_mutect2_getbasecounts.tsv
+
+    GetBaseCountsMultiSample \\
+        --fasta ${fasta} \\
+        --bam ${bam} \\
+        --vcf ${prefix}.vardict.vcf  \\
+        --thread ${task.cpus} \\
+        --output ${prefix}_vardict_getbasecounts.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

@@ -24,9 +24,7 @@ process BCFTOOLS_MERGE {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-
-    def input = (vcfs.collect().size() > 1) ? vcfs.sort{ it.name } : vcfs
-    def regions = bed ? "--regions-file $bed" : ""
+    def regions = bed ? "--regions-file ${bed}" : ""
     def extension = args.contains("--output-type b") || args.contains("-Ob") ? "bcf.gz" :
                     args.contains("--output-type u") || args.contains("-Ou") ? "bcf" :
                     args.contains("--output-type z") || args.contains("-Oz") ? "vcf.gz" :
@@ -35,18 +33,21 @@ process BCFTOOLS_MERGE {
 
     """
     bcftools merge \\
-        $args \\
-        $regions \\
-        --threads $task.cpus \\
+        ${args} \\
+        ${regions} \\
+        --threads ${task.cpus} \\
         --output ${prefix}.${extension} \\
-        $input
+        ${prefix}.freebayes.vcf  \\
+        ${prefix}.lofreq.somatic_final.snvs.vcf \\
+        ${prefix}.lofreq.somatic_final.indels.vcf \\
+        ${prefix}.mutect2.filtered.vcf \\
+        ${prefix}.vardict.vcf
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         bcftools: \$(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*\$//')
     END_VERSIONS
     """
-
     stub:
     def args = task.ext.args   ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"

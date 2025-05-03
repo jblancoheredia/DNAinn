@@ -142,19 +142,19 @@ workflow VARIANTDSCVRY {
     ch_versions = ch_versions.mix(VCFCALLS2TSV.out.versions)
     ch_variants_tsv = VCFCALLS2TSV.out.tsv
 
-    //
-    // MODULE: Run BCFtools to merge the VCFs
-    //
-    BCFTOOLS_MERGE(ch_pre_merge, ch_fasta, ch_fai, params.targets_bed)
-    ch_versions = ch_versions.mix(BCFTOOLS_MERGE.out.versions)
-    ch_merged_vcf = BCFTOOLS_MERGE.out.vcf
+//    //
+//    // MODULE: Run BCFtools to merge the VCFs
+//    //
+//    BCFTOOLS_MERGE(ch_pre_merge, ch_fasta, ch_fai, params.targets_bed)
+//    ch_versions = ch_versions.mix(BCFTOOLS_MERGE.out.versions)
+//    ch_merged_vcf = BCFTOOLS_MERGE.out.vcf
 
 
-    //
-    // MODULES: Run GetBaseCountsMultiSample
-    //
-    GETBASECOUNTS_MULTISAMPLE(ch_bam_clipped, ch_fasta, ch_fai, ch_merged_vcf)
-    ch_versions = ch_versions.mix(GETBASECOUNTS_MULTISAMPLE.out.versions)
+//    //
+//    // MODULES: Run GetBaseCountsMultiSample
+//    //
+//    GETBASECOUNTS_MULTISAMPLE(ch_pre_merge, ch_bam_clipped, ch_fasta, ch_fai)
+//    ch_versions = ch_versions.mix(GETBASECOUNTS_MULTISAMPLE.out.versions)
 
     //
     // Collate and save software versions

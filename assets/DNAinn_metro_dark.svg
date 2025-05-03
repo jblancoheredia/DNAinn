@@ -1749,14 +1749,15 @@
      id="path25"
      class="st68"
      d="M1004.1,180.8l145.8.2,7,2.2,89.9.3h204"
-     sodipodi:nodetypes="cccccc" />
+     sodipodi:nodetypes="cccccc"
+     style="stroke:#000000" />
   <sodipodi:namedview
      id="namedview318"
      bordercolor="#cccccc"
      borderopacity="1"
      inkscape:current-layer="Layer_1"
-     inkscape:cx="382.70197"
-     inkscape:cy="368.4619"
+     inkscape:cx="886.03911"
+     inkscape:cy="426.58098"
      inkscape:deskcolor="#d1d1d1"
      inkscape:pagecheckerboard="0"
      inkscape:pageopacity="1"
@@ -1766,7 +1767,7 @@
      inkscape:window-width="2560"
      inkscape:window-x="0"
      inkscape:window-y="25"
-     inkscape:zoom="1.6853846"
+     inkscape:zoom="1.2166506"
      pagecolor="#ffffff" />
   <polygon
      id="polygon37-0"
@@ -1943,7 +1944,8 @@
      id="path11"
      class="st68"
      d="M807.2,181.1l124.5-.2.2-22.1,41.6.2.2,21.9h153.7v159.9l-16.4.4-.2,106.8-249.5-.2-13.9-24.3-38.7-.4-.2-20.8-49.3.4"
-     sodipodi:nodetypes="cccccccccccccc" />
+     sodipodi:nodetypes="cccccccccccccc"
+     style="stroke:#000000" />
   <path
      id="path7"
      class="st68"
@@ -1953,7 +1955,8 @@
   <path
      id="path5"
      class="st68"
-     d="M438.2,184.3h96.7l16.4-3.5,256.6-.2" />
+     d="M438.2,184.3h96.7l16.4-3.5,256.6-.2"
+     style="stroke:#000000" />
   <path
      id="path2"
      class="st68"
@@ -2475,435 +2478,549 @@
      d="M861.3,180.7v93.7-93.7Z" />
   <g
      id="text60"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g223"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g222"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g221"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(885.2 205.5)"
-             id="text220"><tspan
+             id="text220"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan220">fgbio</tspan></text>
+               id="tspan220"
+               style="fill:#e6e6e6">fgbio</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text204"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g225"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g224"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(883.3 219.9)"
-             id="text223"><tspan
+             id="text223"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan223">Group</tspan></text>
+               id="tspan223"
+               style="fill:#e6e6e6">Group</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g227"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g226"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text214"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(882.7 234.3)"
-             id="text225"><tspan
+             id="text225"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan225">ByUMI</tspan></text>
+               id="tspan225"
+               style="fill:#e6e6e6">ByUMI</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g230"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g229"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g228"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(896.7 248.7)"
-             id="text227"><tspan
+             id="text227"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan227">+</tspan></text>
+               id="tspan227"
+               style="fill:#e6e6e6">+</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text207"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g232"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g231"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(884.4 263.1)"
-             id="text230"><tspan
+             id="text230"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan230">MDup</tspan></text>
+               id="tspan230"
+               style="fill:#e6e6e6">MDup</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text66"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g234"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g233"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text219"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(937.9 226.3)"
-             id="text232"><tspan
+             id="text232"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan232">fgbio</tspan></text>
+               id="tspan232"
+               style="fill:#e6e6e6">fgbio</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g236"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g235"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text221"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(933.9 240.7)"
-             id="text234"><tspan
+             id="text234"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan234">Duplex</tspan></text>
+               id="tspan234"
+               style="fill:#e6e6e6">Duplex</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g238"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g237"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text222"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(933.1 255.1)"
-             id="text236"><tspan
+             id="text236"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan236">Metrics</tspan></text>
+               id="tspan236"
+               style="fill:#e6e6e6">Metrics</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text67"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g240"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g239"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text224"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(828.6 164.4)"
-             id="text238"><tspan
+             id="text238"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan238">SAMblaster</tspan></text>
+               id="tspan238"
+               style="fill:#e6e6e6">SAMblaster</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text73"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text212"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g241"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text226"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1064.2 226)"
-             id="text240"><tspan
+             id="text240"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan240">Samtools</tspan></text>
+               id="tspan240"
+               style="fill:#e6e6e6">Samtools</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g244"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g243"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g242"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(1072.8 240.4)"
-             id="text241"><tspan
+             id="text241"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan241">collate</tspan></text>
+               id="tspan241"
+               style="fill:#e6e6e6">collate</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g246"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g245"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text229"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(1069.5 254.8)"
-             id="text244"><tspan
+             id="text244"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan244">bam2fq</tspan></text>
+               id="tspan244"
+               style="fill:#e6e6e6">bam2fq</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text79"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text215"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g247"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text231"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(937.9 113.2)"
-             id="text246"><tspan
+             id="text246"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan246">fgbio</tspan></text>
+               id="tspan246"
+               style="fill:#e6e6e6">fgbio</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g250"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g249"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g248"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(933.9 127.6)"
-             id="text247"><tspan
+             id="text247"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan247">Duplex</tspan></text>
+               id="tspan247"
+               style="fill:#e6e6e6">Duplex</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text217"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g252"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g251"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(939.3 142)"
-             id="text250"><tspan
+             id="text250"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan250">Cons</tspan></text>
+               id="tspan250"
+               style="fill:#e6e6e6">Cons</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text81"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g254"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g253"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text235"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(954 336.9)"
-             id="text252"><tspan
+             id="text252"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan252">Du</tspan></text>
+               id="tspan252"
+               style="fill:#e6e6e6">Du</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g256"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g255"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text237"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(969.5 336.9)"
-             id="text254"><tspan
+             id="text254"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan254">plex</tspan></text>
+               id="tspan254"
+               style="fill:#e6e6e6">plex</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text85"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g258"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g257"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text239"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1074.6 278.4)"
-             id="text256"><tspan
+             id="text256"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan256">FastQC</tspan></text>
+               id="tspan256"
+               style="fill:#e6e6e6">FastQC</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g261"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g260"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g259"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(1082.2 292.8)"
-             id="text258"><tspan
+             id="text258"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan258">Final</tspan></text>
+               id="tspan258"
+               style="fill:#e6e6e6">Final</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text86"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g263"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g262"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text242"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(804.6 231.9)"
-             id="text261"><tspan
+             id="text261"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan261">Spades</tspan></text>
+               id="tspan261"
+               style="fill:#e6e6e6">Spades</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text87"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g266"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g265"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g264"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(756 279.7)"
-             id="text263"><tspan
+             id="text263"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan263">FilterContigs.py</tspan></text>
+               id="tspan263"
+               style="fill:#e6e6e6">FilterContigs.py</tspan></text>
         </g>
       </g>
     </g>
@@ -3217,42 +3334,53 @@
   </g>
   <g
      id="text124"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g292"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g291"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g290"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1022 203.5) scale(.9 1)"
-             id="text289"><tspan
+             id="text289"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan289">AlignBAM</tspan></text>
+               id="tspan289"
+               style="fill:#e6e6e6">AlignBAM</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g295"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g294"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g293"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(1035.8 217.9) scale(.9 1)"
-             id="text292"><tspan
+             id="text292"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan292">Final</tspan></text>
+               id="tspan292"
+               style="fill:#e6e6e6">Final</tspan></text>
         </g>
       </g>
     </g>
@@ -3339,84 +3467,106 @@
   </g>
   <g
      id="text135"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g303"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g302"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g301"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1011.9 336.9)"
-             id="text300"><tspan
+             id="text300"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan300">Sim</tspan></text>
+               id="tspan300"
+               style="fill:#e6e6e6">Sim</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g305"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g304"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text269"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(1032.9 336.9)"
-             id="text303"><tspan
+             id="text303"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan303">plex</tspan></text>
+               id="tspan303"
+               style="fill:#e6e6e6">plex</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text137"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g308"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g307"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g306"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(983.5 38.6)"
-             id="text305"><tspan
+             id="text305"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan305">Collect</tspan></text>
+               id="tspan305"
+               style="fill:#e6e6e6">Collect</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g311"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g310"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g309"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(982 53)"
-             id="text308"><tspan
+             id="text308"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan308">Metrics</tspan></text>
+               id="tspan308"
+               style="fill:#e6e6e6">Metrics</tspan></text>
         </g>
       </g>
     </g>
@@ -3446,306 +3596,386 @@
      d="M850,381.1h-40.5c-.4,0-.8.3-.8.8v40.5c0,.4.3.8.8.8h40.5" />
   <g
      id="text155"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g313"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g312"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text274"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(524.9 371.9)"
-             id="text311"><tspan
+             id="text311"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan311">Survivor</tspan></text>
+               id="tspan311"
+               style="fill:#e6e6e6">Survivor</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text243"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g315"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g314"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(532.3 386.3)"
-             id="text313"><tspan
+             id="text313"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan313">Merge</tspan></text>
+               id="tspan313"
+               style="fill:#e6e6e6">Merge</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text167"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g317"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g316"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text277"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(745.6 350.8)"
-             id="text315"><tspan
+             id="text315"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan315">BWA</tspan></text>
+               id="tspan315"
+               style="fill:#e6e6e6">BWA</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g319"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g318"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text279"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(742.2 365.1)"
-             id="text317"><tspan
+             id="text317"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan317">mem2</tspan></text>
+               id="tspan317"
+               style="fill:#e6e6e6">mem2</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text172"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g321"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g320"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text281"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(653.8 342.5)"
-             id="text319"><tspan
+             id="text319"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan319">Tiddit</tspan></text>
+               id="tspan319"
+               style="fill:#e6e6e6">Tiddit</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text173"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g324"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g323"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g322"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(656 300.9)"
-             id="text321"><tspan
+             id="text321"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan321">Delly</tspan></text>
+               id="tspan321"
+               style="fill:#e6e6e6">Delly</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text174"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g326"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g325"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text284"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(652.5 384.1)"
-             id="text324"><tspan
+             id="text324"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan324">Gridss</tspan></text>
+               id="tspan324"
+               style="fill:#e6e6e6">Gridss</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text175"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text249"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g327"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text286"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(652.9 467.3)"
-             id="text326"><tspan
+             id="text326"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan326">Svaba</tspan></text>
+               id="tspan326"
+               style="fill:#e6e6e6">Svaba</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text176"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g329"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g328"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text287"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(652.4 425.7)"
-             id="text327"><tspan
+             id="text327"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan327">Manta</tspan></text>
+               id="tspan327"
+               style="fill:#e6e6e6">Manta</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text180"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text251"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g331"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g330"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(488.3 430.2)"
-             id="text329"><tspan
+             id="text329"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan329">ReCall</tspan></text>
+               id="tspan329"
+               style="fill:#e6e6e6">ReCall</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g333"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g332"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text290"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(489.4 444.6)"
-             id="text331"><tspan
+             id="text331"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan331">Gridss</tspan></text>
+               id="tspan331"
+               style="fill:#e6e6e6">Gridss</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text184"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g336"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g335"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g334"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(438.7 371.9)"
-             id="text333"><tspan
+             id="text333"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan333">Survivor</tspan></text>
+               id="tspan333"
+               style="fill:#e6e6e6">Survivor</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g338"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g337"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text294"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(441 386.3)"
-             id="text336"><tspan
+             id="text336"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan336">Filtering</tspan></text>
+               id="tspan336"
+               style="fill:#e6e6e6">Filtering</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text185"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g341"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g340"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g339"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(350.6 364.3)"
-             id="text338"><tspan
+             id="text338"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan338">DrawSVs</tspan></text>
+               id="tspan338"
+               style="fill:#e6e6e6">DrawSVs</tspan></text>
         </g>
       </g>
     </g>
@@ -3769,84 +3999,106 @@
      d="M711.4,483.9v-40.5c0-.4-.7-.8-1.5-.8h-79.5c-.8,0-1.5.3-1.5.8v40.5" />
   <g
      id="g346"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g344"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g343"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g342"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(562.3 430.2)"
-             id="text341"><tspan
+             id="text341"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan341">Standarize</tspan></text>
+               id="tspan341"
+               style="fill:#e6e6e6">Standarize</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text257"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g345"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text299"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(579.9 444.6)"
-             id="text344"><tspan
+             id="text344"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan344">Calls</tspan></text>
+               id="tspan344"
+               style="fill:#e6e6e6">Calls</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g351"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g348"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g347"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text301"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(393.5 430.2)"
-             id="text346"><tspan
+             id="text346"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan346">Annotate</tspan></text>
+               id="tspan346"
+               style="fill:#e6e6e6">Annotate</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text259"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g350"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g349"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(416.8 444.6)"
-             id="text348"><tspan
+             id="text348"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan348">?</tspan></text>
+               id="tspan348"
+               style="fill:#e6e6e6">?</tspan></text>
         </g>
       </g>
     </g>
@@ -3873,46 +4125,58 @@
      d="M753.6,652.5" />
   <g
      id="g355"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g354"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g353"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g352"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(853.6 690.9)"
-             id="text351"><tspan
+             id="text351"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan351">FreeBayes</tspan></text>
+               id="tspan351"
+               style="fill:#e6e6e6">FreeBayes</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g359"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g358"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g357"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g356"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(931 540.8)"
-             id="text355"><tspan
+             id="text355"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan355">Mutect2</tspan></text>
+               id="tspan355"
+               style="fill:#e6e6e6">Mutect2</tspan></text>
         </g>
       </g>
     </g>
@@ -3929,126 +4193,159 @@
      inkscape:transform-center-y="0.72770987" />
   <g
      id="g364"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text262"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g361"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g360"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(863.3 602.8)"
-             id="text359"><tspan
+             id="text359"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan359">GATK4</tspan></text>
+               id="tspan359"
+               style="fill:#e6e6e6">GATK4</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g363"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g362"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text312"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(867.4 617.1)"
-             id="text361"><tspan
+             id="text361"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan361">GPUS</tspan></text>
+               id="tspan361"
+               style="fill:#e6e6e6">GPUS</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g369"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text264"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g366"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g365"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(863.3 500.7)"
-             id="text364"><tspan
+             id="text364"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan364">GATK4</tspan></text>
+               id="tspan364"
+               style="fill:#e6e6e6">GATK4</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g368"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g367"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text316"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(866.7 515.1)"
-             id="text366"><tspan
+             id="text366"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan366">LROM</tspan></text>
+               id="tspan366"
+               style="fill:#e6e6e6">LROM</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g375"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g372"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g371"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g370"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(788.9 529.4)"
-             id="text369"><tspan
+             id="text369"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan369">GATK4</tspan></text>
+               id="tspan369"
+               style="fill:#e6e6e6">GATK4</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text267"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g374"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g373"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(778.5 543.8)"
-             id="text372"><tspan
+             id="text372"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan372">CalContam</tspan></text>
+               id="tspan372"
+               style="fill:#e6e6e6">CalContam</tspan></text>
         </g>
       </g>
     </g>
@@ -4059,42 +4356,53 @@
      d="M861.6,557.7h-51.9c-.6,0-1.2.3-1.2.7v38.1" />
   <g
      id="g380"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g377"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g376"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text323"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(736 599)"
-             id="text375"><tspan
+             id="text375"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan375">GATK4</tspan></text>
+               id="tspan375"
+               style="fill:#e6e6e6">GATK4</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g379"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g378"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text325"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(719.3 613.4)"
-             id="text377"><tspan
+             id="text377"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan377">FilterMutect2</tspan></text>
+               id="tspan377"
+               style="fill:#e6e6e6">FilterMutect2</tspan></text>
         </g>
       </g>
     </g>
@@ -4105,130 +4413,164 @@
      d="M808.7,593.2v38.5c0,.4,1.2.7,2.7.7h144.6c1.5,0,2.7-.3,2.7-.7v-38.5" />
   <g
      id="g385"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text270"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g381"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text328"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(724.9 649.8)"
-             id="text380"><tspan
+             id="text380"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan380">VCF2TSV</tspan></text>
+               id="tspan380"
+               style="fill:#e6e6e6">VCF2TSV</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g384"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g383"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g382"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(713.1 664.2)"
-             id="text381"><tspan
+             id="text381"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan381">Merge/Report</tspan></text>
+               id="tspan381"
+               style="fill:#e6e6e6">Merge/Report</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g387"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text272"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g386"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text332"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(863.2 726.2)"
-             id="text385"><tspan
+             id="text385"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan385">LoFreq</tspan></text>
+               id="tspan385"
+               style="fill:#e6e6e6">LoFreq</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g393"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g389"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g388"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text334"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(988.7 625.1)"
-             id="text387"><tspan
+             id="text387"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan387">fgbio</tspan></text>
+               id="tspan387"
+               style="fill:#e6e6e6">fgbio</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g392"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g391"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g390"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(980.9 639.5)"
-             id="text389"><tspan
+             id="text389"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan389">ClipBAM</tspan></text>
+               id="tspan389"
+               style="fill:#e6e6e6">ClipBAM</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g395"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text275"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g394"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text339"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(848.2 654.2)"
-             id="text393"><tspan
+             id="text393"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan393">VarDictJava</tspan></text>
+               id="tspan393"
+               style="fill:#e6e6e6">VarDictJava</tspan></text>
         </g>
       </g>
     </g>
@@ -4250,111 +4592,140 @@
      height="177.2" />
   <g
      id="g399"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g398"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g397"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g396"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1251.3 607.8)"
-             id="text395"><tspan
+             id="text395"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan395">Sequenza</tspan></text>
+               id="tspan395"
+               style="fill:#e6e6e6">Sequenza</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g403"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g402"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g401"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g400"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1251 481.6)"
-             id="text399"><tspan
+             id="text399"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan399">Controlfreec</tspan></text>
+               id="tspan399"
+               style="fill:#e6e6e6">Controlfreec</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g409"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g405"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g404"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text347"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1175.6 413.8)"
-             id="text403"><tspan
+             id="text403"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan403">bcftools</tspan></text>
+               id="tspan403"
+               style="fill:#e6e6e6">bcftools</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g408"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g407"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g406"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(1176.6 428.2)"
-             id="text405"><tspan
+             id="text405"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan405">mpileup</tspan></text>
+               id="tspan405"
+               style="fill:#e6e6e6">mpileup</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g413"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g412"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g411"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g410"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1251.3 523.7)"
-             id="text409"><tspan
+             id="text409"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan409">CNVkit</tspan></text>
+               id="tspan409"
+               style="fill:#e6e6e6">CNVkit</tspan></text>
         </g>
       </g>
     </g>
@@ -4408,65 +4779,82 @@
      d="M1324.7,677.6h-48.1c-.5,0-.9-.3-.9-.8v-40.1c0-.4.4-.8.9-.8h48.1" />
   <g
      id="g416"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g415"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g414"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text353"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1250.8 565.8)"
-             id="text413"><tspan
+             id="text413"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan413">FACETS</tspan></text>
+               id="tspan413"
+               style="fill:#e6e6e6">FACETS</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g420"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g418"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g417"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text356"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1214.6 681.3)"
-             id="text416"><tspan
+             id="text416"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan416">BCFtools</tspan></text>
+               id="tspan416"
+               style="fill:#e6e6e6">BCFtools</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text283"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g419"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text358"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(1222.6 695.7)"
-             id="text418"><tspan
+             id="text418"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan418">Merge</tspan></text>
+               id="tspan418"
+               style="fill:#e6e6e6">Merge</tspan></text>
         </g>
       </g>
     </g>
@@ -4481,23 +4869,29 @@
      d="M1476.1,356.3h41.2c.4,0,.8-.2.8-.4v-20.6" />
   <g
      id="g423"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g422"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g421"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text360"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1259.4 296.6)"
-             id="text420"><tspan
+             id="text420"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan420">HLA-HD</tspan></text>
+               id="tspan420"
+               style="fill:#e6e6e6">HLA-HD</tspan></text>
         </g>
       </g>
     </g>
@@ -4508,69 +4902,87 @@
      d="M1476.1,314.6h41.2c.4,0,.8.2.8.4v20.6" />
   <g
      id="g426"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g425"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g424"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text363"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1381.7 296.6)"
-             id="text423"><tspan
+             id="text423"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan423">LOHHLA</tspan></text>
+               id="tspan423"
+               style="fill:#e6e6e6">LOHHLA</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g429"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g428"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g427"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text365"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1458.7 296.6)"
-             id="text426"><tspan
+             id="text426"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan426">MHC-I</tspan></text>
+               id="tspan426"
+               style="fill:#e6e6e6">MHC-I</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g432"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g431"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g430"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text368"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1456.9 382.8)"
-             id="text429"><tspan
+             id="text429"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan429">MHC-II</tspan></text>
+               id="tspan429"
+               style="fill:#e6e6e6">MHC-II</tspan></text>
         </g>
       </g>
     </g>
@@ -4613,134 +5025,169 @@
      d="M1476.3,356.2h-70.4,70.4Z" />
   <g
      id="g435"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g434"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g433"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text371"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1256.9 380.3)"
-             id="text432"><tspan
+             id="text432"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan432">Optitype</tspan></text>
+               id="tspan432"
+               style="fill:#e6e6e6">Optitype</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g438"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g437"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g436"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text373"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1260.4 338.4)"
-             id="text435"><tspan
+             id="text435"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan435">HLA*LA</tspan></text>
+               id="tspan435"
+               style="fill:#e6e6e6">HLA*LA</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g441"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g440"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g439"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text376"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1251.9 422.2)"
-             id="text438"><tspan
+             id="text438"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan438">Polysolver</tspan></text>
+               id="tspan438"
+               style="fill:#e6e6e6">Polysolver</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g443"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text291"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g442"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text379"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1372.9 382.8)"
-             id="text441"><tspan
+             id="text441"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan441">LOH-HLA-II</tspan></text>
+               id="tspan441"
+               style="fill:#e6e6e6">LOH-HLA-II</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g448"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g446"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g445"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g444"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1187.5 305.2)"
-             id="text443"><tspan
+             id="text443"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan443">Chr6</tspan></text>
+               id="tspan443"
+               style="fill:#e6e6e6">Chr6</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text293"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g447"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text383"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1185.4 319.6)"
-             id="text446"><tspan
+             id="text446"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan446">Fastq</tspan></text>
+               id="tspan446"
+               style="fill:#e6e6e6">Fastq</tspan></text>
         </g>
       </g>
     </g>
@@ -4751,23 +5198,29 @@
      d="M1590,335.5h-71.9,71.9Z" />
   <g
      id="g452"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g451"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g450"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g449"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(1535.4 320.4)"
-             id="text448"><tspan
+             id="text448"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan448">Noah</tspan></text>
+               id="tspan448"
+               style="fill:#e6e6e6">Noah</tspan></text>
         </g>
       </g>
     </g>
@@ -4800,69 +5253,87 @@
      height="6" />
   <g
      id="g457"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g456"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g455"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g454"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1174.2 157)"
-             id="text453"><tspan
+             id="text453"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan453">TelHunter</tspan></text>
+               id="tspan453"
+               style="fill:#e6e6e6">TelHunter</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g459"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text296"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g458"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text392"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1221.4 214.4)"
-             id="text457"><tspan
+             id="text457"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan457">TelFusDect</tspan></text>
+               id="tspan457"
+               style="fill:#e6e6e6">TelFusDect</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="g462"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g461"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g460"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text394"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1275.6 157)"
-             id="text459"><tspan
+             id="text459"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan459">TelReport</tspan></text>
+               id="tspan459"
+               style="fill:#e6e6e6">TelReport</tspan></text>
         </g>
       </g>
     </g>
@@ -6200,64 +6671,81 @@
      class="st51"
      d="M1047.5,173.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z" />
   <g
-     id="g144">
+     id="g144"
+     style="fill:#e6e6e6">
     <g
        id="text144"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="text320"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g507"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <g
              id="text430"
-             class="st74">
+             class="st74"
+             style="fill:#e6e6e6">
             <text
                class="st71"
                transform="translate(1061.9 135.6)"
-               id="text506"><tspan
+               id="text506"
+               style="fill:#e6e6e6"><tspan
                  x="0"
                  y="0"
-                 id="tspan506">SAMtools</tspan></text>
+                 id="tspan506"
+                 style="fill:#e6e6e6">SAMtools</tspan></text>
           </g>
         </g>
       </g>
       <g
          id="g509"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g508"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <g
              id="text431"
-             class="st74">
+             class="st74"
+             style="fill:#e6e6e6">
             <text
                class="st69"
                transform="translate(1078.2 150)"
-               id="text507"><tspan
+               id="text507"
+               style="fill:#e6e6e6"><tspan
                  x="0"
                  y="0"
-                 id="tspan507">sort</tspan></text>
+                 id="tspan507"
+                 style="fill:#e6e6e6">sort</tspan></text>
           </g>
         </g>
       </g>
       <g
          id="text322"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g510"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <g
              id="text433"
-             class="st74">
+             class="st74"
+             style="fill:#e6e6e6">
             <text
                class="st69"
                transform="translate(1074 164.4)"
-               id="text509"><tspan
+               id="text509"
+               style="fill:#e6e6e6"><tspan
                  x="0"
                  y="0"
-                 id="tspan509">index</tspan></text>
+                 id="tspan509"
+                 style="fill:#e6e6e6">index</tspan></text>
           </g>
         </g>
       </g>
@@ -6265,7 +6753,8 @@
     <path
        id="rect139"
        class="st51"
-       d="M1088.7,172.4h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z" />
+       d="M1088.7,172.4h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"
+       style="fill:#e6e6e6" />
   </g>
   <path
      id="rect294"
@@ -6338,61 +6827,77 @@
      d="M1003.4,173.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z" />
   <g
      id="text130"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g518"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g517"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text439"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st71"
              transform="translate(986.6 202.6)"
-             id="text516"><tspan
+             id="text516"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan516">fgbio</tspan></text>
+               id="tspan516"
+               style="fill:#e6e6e6">fgbio</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g520"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g519"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text440"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(977 217)"
-             id="text518"><tspan
+             id="text518"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan518">FilterCon</tspan></text>
+               id="tspan518"
+               style="fill:#e6e6e6">FilterCon</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="g522"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g521"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text442"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(984.8 231.4)"
-             id="text520"><tspan
+             id="text520"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan520">Reads</tspan></text>
+               id="tspan520"
+               style="fill:#e6e6e6">Reads</tspan></text>
         </g>
       </g>
     </g>
@@ -7146,46 +7651,58 @@
   </g>
   <g
      id="text2971"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g548"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g547"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text463"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1331.1 214.4)"
-             id="text546"><tspan
+             id="text546"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan546">ALTpred</tspan></text>
+               id="tspan546"
+               style="fill:#e6e6e6">ALTpred</tspan></text>
         </g>
       </g>
     </g>
   </g>
   <g
      id="text2972"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="g551"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g550"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g549"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(1389.1 157)"
-             id="text548"><tspan
+             id="text548"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan548">SHAP</tspan></text>
+               id="tspan548"
+               style="fill:#e6e6e6">SHAP</tspan></text>
         </g>
       </g>
     </g>
@@ -7303,105 +7820,59 @@
       </g>
     </g>
   </g>
-  <g
-     id="g3012">
-    <g
-       id="g3002">
-      <rect
-         id="rect2972"
-         class="st80"
-         x="1487.3"
-         y="119.6"
-         width="38.1"
-         height="47.6" />
-      <rect
-         id="rect2982"
-         class="st81"
-         x="1484.9"
-         y="138.7"
-         width="42.9"
-         height="19.1" />
-      <rect
-         id="rect2992"
-         class="st80"
-         x="1489.7"
-         y="122"
-         width="38.1"
-         height="47.6" />
-      <rect
-         id="rect3002"
-         class="st82"
-         x="1487.3"
-         y="141.1"
-         width="42.9"
-         height="19.1" />
-    </g>
-    <g
-       id="text3002"
-       class="st74">
-      <g
-         id="g555"
-         class="st74">
-        <g
-           id="g554"
-           class="st74">
-          <g
-             id="g553"
-             class="st74">
-            <text
-               class="st75"
-               transform="translate(1502.2 154.1)"
-               id="text552"><tspan
-                 x="0"
-                 y="0"
-                 id="tspan552">pdf</tspan></text>
-          </g>
-        </g>
-      </g>
-    </g>
-  </g>
   <path
      id="rect2954"
      class="st96"
      d="M1450.6,178.8h0c1.7,0,3.1,1.8,3.1,4.1h0c0,2.3-1.4,4.1-3.1,4.1h0c-1.7,0-3.1-1.8-3.1-4.1h0c0-2.3,1.4-4.1,3.1-4.1Z" />
   <g
      id="g2711"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text2701"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g556"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text469"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(726.1 751.3)"
-             id="text555"><tspan
+             id="text555"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan555">BCFtools</tspan></text>
+               id="tspan555"
+               style="fill:#e6e6e6">BCFtools</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text2711"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g558"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="g557"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(730.3 765.7)"
-             id="text556"><tspan
+             id="text556"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan556">Merge</tspan></text>
+               id="tspan556"
+               style="fill:#e6e6e6">Merge</tspan></text>
         </g>
       </g>
     </g>
@@ -7416,42 +7887,53 @@
      d="M618.2,704.5h108.7-108.7Z" />
   <g
      id="g2712"
-     class="st74">
+     class="st74"
+     style="fill:#e6e6e6">
     <g
        id="text2702"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g559"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text471"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st77"
              transform="translate(635.5 730.6)"
-             id="text558"><tspan
+             id="text558"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan558">GetBaseCounts</tspan></text>
+               id="tspan558"
+               style="fill:#e6e6e6">GetBaseCounts</tspan></text>
         </g>
       </g>
     </g>
     <g
        id="text2712"
-       class="st74">
+       class="st74"
+       style="fill:#e6e6e6">
       <g
          id="g560"
-         class="st74">
+         class="st74"
+         style="fill:#e6e6e6">
         <g
            id="text472"
-           class="st74">
+           class="st74"
+           style="fill:#e6e6e6">
           <text
              class="st69"
              transform="translate(641.6 745)"
-             id="text559"><tspan
+             id="text559"
+             style="fill:#e6e6e6"><tspan
                x="0"
                y="0"
-               id="tspan559">MultiSample</tspan></text>
+               id="tspan559"
+               style="fill:#e6e6e6">MultiSample</tspan></text>
         </g>
       </g>
     </g>
@@ -7561,4 +8043,61 @@
      id="rect280-4-9-9"
      class="st3"
      d="M808.6,700.2h0c1.9,0,3.4,1.6,3.4,3.5h0c0,1.9-1.5,3.5-3.4,3.5h0c-1.9,0-3.4-1.6-3.4-3.5h0c0-1.9,1.5-3.5,3.4-3.5Z" />
+  <g
+     id="g3012">
+    <g
+       id="g3002">
+      <rect
+         id="rect2972"
+         class="st80"
+         x="1487.3"
+         y="119.6"
+         width="38.1"
+         height="47.6" />
+      <rect
+         id="rect2982"
+         class="st81"
+         x="1484.9"
+         y="138.7"
+         width="42.9"
+         height="19.1" />
+      <rect
+         id="rect2992"
+         class="st80"
+         x="1489.7"
+         y="122"
+         width="38.1"
+         height="47.6" />
+      <rect
+         id="rect3002"
+         class="st82"
+         x="1487.3"
+         y="141.1"
+         width="42.9"
+         height="19.1" />
+    </g>
+    <g
+       id="text3002"
+       class="st74">
+      <g
+         id="g555"
+         class="st74">
+        <g
+           id="g554"
+           class="st74">
+          <g
+             id="g553"
+             class="st74">
+            <text
+               class="st75"
+               transform="translate(1502.2 154.1)"
+               id="text552"><tspan
+                 x="0"
+                 y="0"
+                 id="tspan552">pdf</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
 </svg>

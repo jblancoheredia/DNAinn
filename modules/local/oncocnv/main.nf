@@ -31,10 +31,12 @@ process ONCOCNV {
     def tumor = tumor.join(',')
     def VERSION = '7.0' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
+    awk 'BEGIN {OFS="\\t"} {printf "%s\\t%s\\t%s\\tID%04d\\t0\\t%s\\n", \$1, \$2, \$3, ++i, \$5}' ${bed} > targets.bed
+
     perl \$(which ONCOCNV_getCounts.pl) \\
         getControlStats \\
         $mode \\
-        -b ${bed} \\
+        -b targets.bed \\
         -c $normal \\
         -o ControlStats.txt
 

@@ -56,14 +56,14 @@ workflow COPYNUMBERALT {
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
 
-    //
-    // MODULE: Run OncoCNV
-    //
-    ONCOCNV(ch_consensus_bam, ch_fasta, ch_intervals, ch_fai, params.normal_bai, params.normal_bam)
-    ch_versions = ch_versions.mix(ONCOCNV.out.versions)
-    ch_oncocnv_png      = ONCOCNV.out.png
-    ch_oncocnv_profile  = ONCOCNV.out.profile
-    ch_oncocnv_summary  = ONCOCNV.out.summary
+//    //
+//    // MODULE: Run OncoCNV
+//    //
+//    ONCOCNV(ch_consensus_bam, ch_fasta, ch_targets_bed, ch_fai, params.normal_bai, params.normal_bam)
+//    ch_versions = ch_versions.mix(ONCOCNV.out.versions)
+//    ch_oncocnv_png      = ONCOCNV.out.png
+//    ch_oncocnv_profile  = ONCOCNV.out.profile
+//    ch_oncocnv_summary  = ONCOCNV.out.summary
 
     //
     // MODULE: Run BCFtools Mpileup
