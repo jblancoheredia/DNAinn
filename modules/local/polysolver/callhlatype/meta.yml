@@ -1,0 +1,61 @@
+name: fgbio_fastqtobam
+description: |
+  Generates an unmapped BAM (or SAM or CRAM) file from fastq files.
+keywords:
+  - hla
+  - typing
+tools:
+  - polysolver:
+      description: |
+        Polysolver is a software tool for HLA typing based 
+        on whole exome sequencing data and infers alleles 
+        for three major MHC class I genes.
+      homepage: https://github.com/jason-weirather/hla-polysolver
+      documentation: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2239-6
+      doi: 10.1186/s12859-018-2239-6
+      licence: ["MIT"]
+input:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. [ id:'test', single_end:false ]
+  - - bam:
+        type: file
+        description: the BAM file.
+        pattern: "*.bam"
+        ontologies:
+          - edam: "http://edamontology.org/format_2572"
+  - meta2:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. [ id:'test', single_end:false ]
+  - - bai:
+        type: file
+        description: the BAI file.
+        pattern: "*.bai"
+  - race:
+      type: string
+      description: Ethnicity of the individual
+      pattern: "{Caucasian,Black,Asian,Unknown}"
+output:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. [ id:'test', single_end:false ]
+  - - hla:
+        type: file
+        description: |
+          File containing the two inferred alleles 
+          for each of HLA-A, HLA-B and HLA-C.
+        pattern: "*.winners.hla.txt"
+  - version:
+      type: file
+      description: File containing software version
+      pattern: "*.{version.yml}"
+authors:
+  - "@jblancoheredia"
+maintainers:
+  - "@jblancoheredia"

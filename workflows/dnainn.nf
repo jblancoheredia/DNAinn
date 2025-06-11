@@ -171,6 +171,16 @@ workflow DNAINN {
 
     }
 
+    //
+    // Create Normal BAM input channel
+    //
+    ch_bam_normal = Channel
+        .fromSamplesheet("input")
+        .map { meta, fastq_1, fastq_2 ->
+            def normal_meta = meta + [ normal_bam: file(params.normal_bam), normal_bai: file(params.normal_bai) ]
+            return [ meta.id, normal_meta, [ file(params.normal_bam), file(params.normal_bai) ] ]
+        }
+
     // Subworkflow Channels
     ch_umiprocessing_output = Channel.empty()
     ch_dedupandrecal_output = Channel.empty()
@@ -316,6 +326,7 @@ workflow DNAINN {
         ch_bwa2,
         ch_dict,
         ch_fasta,
+        ch_bam_normal,
         ch_normal_bam,
         ch_normal_bai,
         ch_known_sites,

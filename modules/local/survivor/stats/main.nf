@@ -8,7 +8,7 @@ process SURVIVOR_STATS {
         'biocontainers/survivor:1.0.7--h9a82719_1' }"
 
     input:
-    tuple val(meta), path(vcf)
+    tuple val(meta), path(vcf), path(tbi)
     val(minsv)          // Min SV size (-1 to disable)
     val(maxsv)          // Max SV size (-1 to disable)
     val(minnumreads)    // Min number of reads support: RE flag (-1 to disable)

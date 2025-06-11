@@ -1,6 +1,6 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
-name: "drawsv"
+name: "iannotatesv"
 ## TODO nf-core: Add a description of the module and list keywords
 description: write your description here
 keywords:
@@ -8,14 +8,14 @@ keywords:
   - example
   - genomics
 tools:
-  - "drawsv":
+  - "iannotatesv":
       ## TODO nf-core: Add a description and other details for the software below
-      description: "Fast and accurate gene fusion detection from RNA-Seq data"
-      homepage: "None"
-      documentation: "None"
-      tool_dev_url: "None"
+      description: ""
+      homepage: ""
+      documentation: ""
+      tool_dev_url: ""
       doi: ""
-      licence: ['MIT']
+      licence: 
       identifier: 
 
 ## TODO nf-core: Add a description of all of the variables used as input

@@ -14,6 +14,8 @@ include { OPTITYPE                                                              
 include { HLALA_TYPING                                                                                                              } from '../../modules/local/hlala/typing/main'  
 include { ALIGN_HLA_CHR6                                                                                                            } from '../../modules/local/bwamem2/chr6/main'
 include { ALIGN_HLA_IMGT                                                                                                            } from '../../modules/local/bwamem2/imgt/main'
+include { ARCASHLA_EXTRACT                                                                                                          } from '../../modules/nf-core/arcashla/extract/main' 
+include { POLYSOLVER_CALLHLATYPE                                                                                                    } from '../../modules/local/polysolver/callhlatype/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +52,7 @@ workflow IMMUNONCOLOGY {
     ch_imgt_bai = ALIGN_HLA_IMGT.out.bai
 
     //
-    // MODULE: Run BWAMEM2 to align to IMGT-HLA reference
+    // MODULE: Run BWAMEM2 to align to Chr6 reference
     //
     ALIGN_HLA_CHR6(ch_fastqs, params.bwa2_chr6, params.chr6_fa, params.chr6_fai)
     ch_versions = ch_versions.mix(ALIGN_HLA_CHR6.out.versions)
@@ -83,6 +85,20 @@ workflow IMMUNONCOLOGY {
 //    HLALA_TYPING(ch_bam, ch_bai, params.hlala_graph)
 //    ch_hlahd = HLALA_TYPING.out.results
 //    ch_versions = ch_versions.mix(HLALA_TYPING.out.versions)
+
+//    //
+//    // MODULE: Run Polysolver
+//    //
+//    POLYSOLVER_CALLHLATYPE(ch_bam, ch_bai, params.ethnicity)
+//    ch_versions = ch_versions.mix(POLYSOLVER_CALLHLATYPE.out.versions)
+//    ch_polysolver = POLYSOLVER_CALLHLATYPE.out.hla
+
+    //
+    // MODULE: Run ArcasHLA
+    //
+    ARCASHLA_EXTRACT()
+    ch_versions = ch_versions.mix(ARCASHLA_EXTRACT.out.versions)
+    ch_arcashla = ARCASHLA_EXTRACT.out.
 
     //
     // Collate and save software versions

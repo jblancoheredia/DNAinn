@@ -814,6 +814,11 @@
                     "description": "Self explicative...",
                     "fa_icon": "fas fa-book"
                 },
+                "ethnicity": {
+                    "type": "string",
+                    "description": "Polysolver input, no comments...",
+                    "fa_icon": "fas fa-book"
+                },
                 "optitype_image": {
                     "type": "string",
                     "description": "Self explicative...",

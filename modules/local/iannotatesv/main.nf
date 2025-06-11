@@ -1,65 +1,86 @@
 process IANNOTATESV {
-    tag "$meta.id"
-    label 'process_low'
+    tag "$meta.patient_id"
+    label 'process_single'
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/survivor:1.0.7':
-        'blancojmskcc/survivor:1.0.7' }"
-
+        'docker://blancojmskcc/iannotatesv:1.2.1':
+        'blancojmskcc/iannotatesv:1.2.1' }"
 
     input:
-    tuple val(meta),  path(delly_vcf)
-    tuple val(meta1), path(svaba_vcf)
-    tuple val(meta2), path(manta_vcf)
-    tuple val(meta3), path(tiddit_vcf)
-    tuple val(meta4), path(gridss_vcf)
-    path(chr_length)
-    val(max_distance_breakpoints)
-    val(min_supporting_callers)
-    val(account_for_type)
-    val(account_for_sv_strands)
-    val(estimate_distanced_by_sv_size)
-    val(min_sv_size)
+    tuple val(meta),  path(filtered_vcf), path(filtered_vcf_index)
+    tuple val(meta2), path(filtered_tsv)
+    tuple val(meta3), path(annote_input)
 
     output:
-    tuple val(meta), path("*.bed")   , emit: bed
-    tuple val(meta), path("*.vcf")   , emit: vcf
-    path "versions.yml"              , emit: versions
+    tuple val(meta), file("*_SOMTIC_SV_OUT.tsv"), emit: tsv
+    tuple val(meta), file("*_SOMTIC_SV_ANN.tsv"), emit: ann
+    path "versions.yml"                         , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def args = task.ext.args ?: ''
+    def prefix = task.ext.prefix ?: "${meta.patient_id}"
     """
-    SURVIVOR merge \\
-        <(ls *.vcf) \\
-        ${max_distance_breakpoints} \\
-        ${min_supporting_callers} \\
-        ${account_for_type} \\
-        ${account_for_sv_strands} \\
-        ${estimate_distanced_by_sv_size} \\
-        ${min_sv_size} \\
-        ${prefix}.survivor_sv_sup.vcf
+    python /opt/iAnnotateSV/iAnnotateSV/iAnnotateSV.py \\
+    -i ${annote_input} \\
+    -ofp ${prefix} \
+    -o . \
+    -r hg19 \
+    -d 3000
 
-    SURVIVOR vcftobed ${prefix}.survivor_sv_sup.vcf 0 -1 ${prefix}.survivor_sv_sup.bed
+    paste ${filtered_tsv} ${prefix}_Annotated.txt > ${prefix}_SOMTIC_SV_ANN.tsv
+
+    innput_file=\"${prefix}_SOMTIC_SV_ANN.tsv\"
+    output_file=\"${prefix}_SOMTIC_SV_OUT.tsv\"
+
+    supp_col=17
+    gene1col=26
+    gene2col=29
+
+    int_threshold=3
+
+    declare -a allow_list=(\"ALK\" \"BRAF\" \"EGFR\" \"ETV6\" \"FGFR2\" \"FGFR3\" \"MET\" \"NTRK1\" \"RET\" \"ROS1\")
+
+    allow_pattern=\$(IFS=\"|\"; echo \"\${allow_list[*]}\")
+
+    awk -v x_col=\"\$supp_col\" -v y_col=\"\$gene1col\" -v z_col=\"\$gene2col\" -v threshold=\"\$int_threshold\" -v pattern=\"\$allow_pattern\" '
+    {FS=\"\\\\t\"}{
+      x_value = \$x_col;
+      y_value = \$y_col;
+      z_value = \$z_col;
+
+      print \"Processing line: \" NR;
+      print \"x_value: \" x_value, \"y_value: \" y_value, \"z_value: \" z_value;
+      print \"Matches pattern? y_value: \" (y_value ~ pattern), \"z_value: \" (z_value ~ pattern);
+
+      if (x_value >= threshold || y_value ~ pattern || z_value ~ pattern) {
+        print \"Line \" NR \" passed the filter.\";
+        print \$0 > \"'\$output_file'\"
+    } else {
+        print \"Line \" NR \" did not pass the filter.\";
+    }
+    }' \"\$innput_file\"
+
+    echo \"Filtering complete. Results saved to \$output_file.\"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        survivor: \$(echo \$(SURVIVOR 2>&1 | grep "Version" | sed 's/^Version: //'))
+        iannotatesv: "1.2.1"
     END_VERSIONS
     """
 
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def args = task.ext.args ?: ''
+    def prefix = task.ext.prefix ?: "${meta.patient_id}"
     """
-    touch ${prefix}.survivor_sv_sup.vcf
-    touch ${prefix}.survivor_sv_sup.bed
+    touch ${prefix}_SOMTIC_SV_OUT.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        survivor: \$(echo \$(SURVIVOR 2>&1 | grep "Version" | sed 's/^Version: //'))
+        iannotatesv: "1.2.1"
     END_VERSIONS
     """
 }

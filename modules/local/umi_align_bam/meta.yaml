@@ -60,7 +60,6 @@ input:
       type: bool
       description: True to sort the output in template-coordinate order, otherwise don't sort
       pattern: "{true,false}"
-
 output:
   - meta:
       type: map

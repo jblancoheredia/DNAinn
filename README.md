@@ -1,6 +1,6 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/DNAinn_logo_dark.svg">
-    <img alt="mskcc/dnainn" src="assets/DNAinn_logo_light.svg" width="400">
+    <img alt="mskcc/dnainn" src="assets/DNAinn_logo_light.svg" width="1500">
   </picture>
 
 [![nf-test](https://img.shields.io/badge/unit_tests-nf--test-337ab7.svg)](https://www.nf-test.com)

@@ -1,5 +1,5 @@
 process SURVIVOR_MERGE {
-    tag "$meta.id"
+    tag "$meta.patient_id"
     label 'process_low'
 
     conda "${moduleDir}/environment.yml"
@@ -8,18 +8,19 @@ process SURVIVOR_MERGE {
         'blancojmskcc/survivor:1.0.7' }"
 
     input:
-    tuple val(meta),  path(delly_vcf)
-    tuple val(meta1), path(svaba_vcf)
-    tuple val(meta2), path(manta_vcf)
-    tuple val(meta3), path(tiddit_vcf)
-    tuple val(meta4), path(gridss_vcf)
-    path(dict)
-    val(min_sv_size)
+    tuple val(meta), 
+          val(meta_delly),  path('delly.vcf'),
+          val(meta_svaba),  path('svaba.vcf'),
+          val(meta_manta),  path('manta.vcf'),
+          val(meta_gridss), path('gridss.vcf'),
+          val(meta_tiddit), path('tiddit.vcf')
+    path(chr_length)
+    val(max_distance_breakpoints)
+    val(min_supporting_callers)
     val(account_for_type)
     val(account_for_sv_strands)
-    val(min_supporting_callers)
-    val(max_distance_breakpoints)
     val(estimate_distanced_by_sv_size)
+    val(min_sv_size)
 
     output:
     tuple val(meta), path("*.bed")   , emit: bed
@@ -30,10 +31,16 @@ process SURVIVOR_MERGE {
     task.ext.when == null || task.ext.when
 
     script:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient_id}"
     """
+    echo delly.vcf  >> VCFs_List.txt
+    echo svaba.vcf  >> VCFs_List.txt
+    echo manta.vcf  >> VCFs_List.txt
+    echo gridss.vcf >> VCFs_List.txt
+    echo tiddit.vcf >> VCFs_List.txt
+
     SURVIVOR merge \\
-        <(ls *.vcf) \\
+        VCFs_List.txt \\
         ${max_distance_breakpoints} \\
         ${min_supporting_callers} \\
         ${account_for_type} \\
@@ -44,32 +51,17 @@ process SURVIVOR_MERGE {
 
     SURVIVOR vcftobed ${prefix}.survivor_sv_sup.vcf 0 -1 ${prefix}.survivor_sv_sup.bed.tmp
 
+    awk '{ 
+        new_start = (\$2 - 500 < 0) ? 0 : \$2 - 500;
+        new_end = \$2 + 500;
+        print \$1 \"\t\" new_start \"\t\" new_end 
+    }' ${prefix}.survivor_sv_sup.bed.tmp >> ${prefix}.survivor_sv_sup.bed
 
-    awk -v dict=${dict} '
-        BEGIN {
-            while ((getline < dict) > 0) {
-                if (\$1 == \"@SQ\") {
-                    split(\$2, a, \":\"); chr = a[2]
-                    split(\$3, b, \":\"); len = b[2]
-                    contig_len[chr] = len
-                }
-            }
-        }
-    
-        {
-            chr1 = \$1
-            pos1 = \$2
-            start1 = (pos1 - 500 < 0) ? 0 : pos1 - 500
-            end1 = (pos1 + 500 > contig_len[chr1]) ? contig_len[chr1] : pos1 + 500
-            print chr1 \"\t\" start1 \"\t\" end1
-    
-            chr2 = \$4
-            pos2 = \$5
-            start2 = (pos2 - 500 < 0) ? 0 : pos2 - 500
-            end2 = (pos2 + 500 > contig_len[chr2]) ? contig_len[chr2] : pos2 + 500
-            print chr2 \"\t\" start2 \"\t\" end2
-        }
-    ' ${prefix}.survivor_sv_sup.bed.tmp > ${prefix}.survivor_sv_sup.bed
+    awk '{ 
+        new_start = (\$5 - 500 < 0) ? 0 : \$5 - 500;
+        new_end = \$5 + 500;
+        print \$4 \"\t\" new_start \"\t\" new_end 
+    }' ${prefix}.survivor_sv_sup.bed.tmp >> ${prefix}.survivor_sv_sup.bed
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -77,7 +69,7 @@ process SURVIVOR_MERGE {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient_id}"
     """
     touch ${prefix}.survivor_sv_sup.vcf
     touch ${prefix}.survivor_sv_sup.bed
