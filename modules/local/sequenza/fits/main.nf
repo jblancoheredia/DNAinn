@@ -11,7 +11,7 @@ process SEQUENZA_FITS {
     tuple val(meta),  path(seqz)
 
     output:
-    tuple val(meta), path("*.tsv")  , emit: tsv
+    tuple val(meta), path("*.txt")  , emit: txt
     tuple val(meta), path("*.pdf")  , emit: pdf
     tuple val(meta), path("*.RData"), emit: rdata
     path "versions.yml"             , emit: versions
