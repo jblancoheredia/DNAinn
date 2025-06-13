@@ -833,7 +833,35 @@
                     "type": "string",
                     "description": "Default memory allocation",
                     "fa_icon": "fas fa-people-group",
-                    "help_text": "Default memory allocation replaced by modules tags",
+                    "help_text": "Default memory allocation replaced by modules tags"
+                },
+                "tools_dir": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "Default tools location",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Default tools location in the current local machine"
+                },
+                "cytobands": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Default cytobands file location",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Default cytobands file location in the current local machine"
+                },
+                "annotations": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Default annotations file location",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Default annotations file location in the current local machine"
+                },
+                "protein_domains": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Default protein_domains file location",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Default protein_domains file location in the current local machine"
                 },
                 "by_chr_dir": {
                     "type": "string",

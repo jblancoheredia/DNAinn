@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://raw.githubusercontent.com/jblancoheredia/DNAinn/master/assets/schema_input.json",
-    "title": "CMOinn/dnainn pipeline - params.input schema",
+    "title": "CTI/DNAinn pipeline - params.input schema",
     "description": "Schema for the file provided with params.input",
     "type": "array",
     "items": {
@@ -10,7 +10,8 @@
             "patient": {
                 "type": "string",
                 "pattern": "^\\S+$",
-                "errorMessage": "Patient ID must be provided and cannot contain spaces"
+                "errorMessage": "Patient ID must be provided and cannot contain spaces",
+                "meta": ["patient"]
             },
             "sample": {
                 "type": "string",
@@ -35,12 +36,14 @@
             "matched_normal": {
                 "type": "integer",
                 "enum": [0, 1],
-                "errorMessage": "matched_normal must be 0 (tumour-only) or 1 (has matched normal)"
+                "errorMessage": "matched_normal must be 0 (tumour-only) or 1 (has matched normal)",
+                "meta": ["matched_normal"]
             },
             "sample_type": {
                 "type": "string",
                 "enum": ["normal", "tumour"],
-                "errorMessage": "sample_type must be either 'normal' or 'tumour'"
+                "errorMessage": "sample_type must be either 'normal' or 'tumour'",
+                "meta": ["sample_type"]
             }
         },
         "required": ["patient", "sample", "fastq_1", "matched_normal", "sample_type"]
