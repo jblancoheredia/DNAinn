@@ -1,8 +1,3 @@
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/DNAinn_logo_dark.svg">
-    <img alt="mskcc/dnainn" src="assets/DNAinn_logo_light.svg" width="1500">
-  </picture>
-
 [![nf-test](https://img.shields.io/badge/unit_tests-nf--test-337ab7.svg)](https://www.nf-test.com)
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/)
 [![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/)

@@ -21,6 +21,7 @@ include { CNVKIT_REFERENCE                                                      
 include { CNVKIT_ANTITARGET                                                                                                         } from '../../modules/nf-core/cnvkit/antitarget/main'
 include { CNVKIT_GENEMETRICS                                                                                                        } from '../../modules/nf-core/cnvkit/genemetrics/main'
 include { CONTROLFREEC_OT_FREEC                                                                                                     } from '../../modules/local/controlfreec_ot/freec/main'
+include { SEQUENZAUTILS_BAM2SEQZ                                                                                                    } from '../../modules/local/sequenzautils/bam2seqz/main'
 include { CONTROLFREEC_OT_FREEC2BED                                                                                                 } from '../../modules/local/controlfreec_ot/freec2bed/main' 
 include { CONTROLFREEC_OT_FREEC2CIRCOS                                                                                              } from '../../modules/local/controlfreec_ot/freec2circos/main'
 include { CONTROLFREEC_OT_ASSESSSIGNIFICANCE                                                                                        } from '../../modules/local/controlfreec_ot/assesssignificance/main'
@@ -47,6 +48,8 @@ workflow COPYNUMBERALT {
     ch_raw_bam
     ch_raw_bai
     ch_intervals
+    ch_normal_bam
+    ch_normal_bai
     ch_targets_bed
     ch_consensus_bam
     ch_cnvkit_reference
@@ -159,18 +162,25 @@ workflow COPYNUMBERALT {
     FACETS_CNV(ch_consensus_bam, params.normal_bam, params.normal_bai, params.common_vcf, params.common_vcf_tbi)
     ch_versions = ch_versions.mix(FACETS_CNV.out.versions.first())
 
+    //
+    // MODULE: Run Sequenzautils BAM2seqz
+    //
+    SEQUENZAUTILS_BAM2SEQZ(ch_consensus_bam, ch_fasta, ch_fai,ch_normal_bam, ch_normal_bai, params.wigfile50)
+    ch_seqz = SEQUENZAUTILS_BAM2SEQZ.out.seqz
+    ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
+
 //    //
 //    // MODULE: Run Sequenzautils BAM2seqz
 //    //
 //    SEQUENZA_SEQZ(ch_consensus_bam, ch_fasta, ch_fai, ch_sam_mpileup, ch_sam_mpileup_tbi, params.normal_mpileup, params.normal_mpileup_tbi, params.wigfile50, 50)
 //    ch_versions = ch_versions.mix(SEQUENZA_SEQZ.out.versions.first())
 //    ch_seqz = SEQUENZA_SEQZ.out.seqz
-//
-//    //
-//    // MODULE: Run Sequenzautils BAM2seqz
-//    //
-//    SEQUENZA_FITS(ch_seqz)
-//    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
+
+    //
+    // MODULE: Run Sequenzautils BAM2seqz
+    //
+    SEQUENZA_FITS(ch_seqz)
+    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
 
     //
     // Collate and save software versions

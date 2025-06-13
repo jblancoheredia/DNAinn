@@ -4,16 +4,17 @@ process SEQUENZA_FITS {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/sequenza:3.0.0' :
-        'blancojmskcc/sequenza:3.0.0' }"
+        'docker://blancojmskcc/sequenza:3.0.1' :
+        'blancojmskcc/sequenza:3.0.1' }"
 
     input:
     tuple val(meta),  path(seqz)
 
     output:
-    tuple val(meta), path("*.tsv"), emit: tsv
-    tuple val(meta), path("*.pdf"), emit: pdf
-    path "versions.yml"           , emit: versions
+    tuple val(meta), path("*.tsv")  , emit: tsv
+    tuple val(meta), path("*.pdf")  , emit: pdf
+    tuple val(meta), path("*.RData"), emit: rdata
+    path "versions.yml"             , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -22,23 +23,31 @@ process SEQUENZA_FITS {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """ 
-    cat << EOF > run_sequenza.${meta.id}.R
-    library(sequenza)
-
+    cat << EOF > run_sequenza.${prefix}.R
     Sys.setenv("VROOM_CONNECTION_SIZE" = 1000000000)
 
-    ${meta.id} <- sequenza.extract("${seqz}", verbose = FALSE)
+    library(sequenza)
 
-    CP <- sequenza.fit(${meta.id})
+    data.file <- "${seqz}"
 
-    sequenza.results(sequenza.extract = ${meta.id}, 
-                    cp.table = CP, 
-                    sample.id = "${meta.id}", 
-                    out.dir = "${meta.id}.output")
+    output.dir <- "sequenza_results"
+
+    sample.id <- "${prefix}"
+
+    seqz.data <- sequenza.extract(data.file)
+
+    CP <- sequenza.fit(seqz.data)
+
+    sequenza.results(sequenza.extract = seqz.data,
+                 cp.table = CP,
+                 sample.id = sample.id,
+                 out.dir = output.dir)
 
     EOF
 
-    Rscript run_sequenza.${meta.id}.R
+    Rscript run_sequenza.${prefix}.R
+
+    mv sequenza_results/${prefix}* .
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -50,6 +59,7 @@ process SEQUENZA_FITS {
     """
     touch ${prefix}.tsv
     touch ${prefix}.pdf
+    touch ${prefix}.RData
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

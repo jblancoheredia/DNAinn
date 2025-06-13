@@ -246,6 +246,8 @@ workflow DNAINN {
             ch_raw_bam,
             ch_raw_bai,
             ch_intervals,
+            ch_normal_bam,
+            ch_normal_bai,
             ch_targets_bed,
             ch_bam_finalized,
             ch_cnvkit_reference,
