@@ -30,9 +30,8 @@ process SEQUENZAUTILS_BAM2SEQZ {
     sequenza-utils \\
         bam2seqz \\
         ${args} \\
-        -n ${tumourbam} \\
+        -n ${normalbam} \\
         -t ${tumourbam} \\
-        --normal2 ${normalbam} \\
         --fasta ${fasta} \\
         -gc ${wigfile} \\
         -o ${prefix}_sequenza.seqz.gz

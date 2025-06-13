@@ -1,12 +1,17 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://raw.githubusercontent.com/CMOinn/dnainn/master/assets/schema_input.json",
+    "$id": "https://raw.githubusercontent.com/jblancoheredia/DNAinn/master/assets/schema_input.json",
     "title": "CMOinn/dnainn pipeline - params.input schema",
     "description": "Schema for the file provided with params.input",
     "type": "array",
     "items": {
         "type": "object",
         "properties": {
+            "patient": {
+                "type": "string",
+                "pattern": "^\\S+$",
+                "errorMessage": "Patient ID must be provided and cannot contain spaces"
+            },
             "sample": {
                 "type": "string",
                 "pattern": "^\\S+$",
@@ -26,8 +31,18 @@
                 "exists": true,
                 "pattern": "^\\S+\\.f(ast)?q\\.gz$",
                 "errorMessage": "FastQ file for reads 2 cannot contain spaces and must have extension '.fq.gz' or '.fastq.gz'"
+            },
+            "matched_normal": {
+                "type": "integer",
+                "enum": [0, 1],
+                "errorMessage": "matched_normal must be 0 (tumour-only) or 1 (has matched normal)"
+            },
+            "sample_type": {
+                "type": "string",
+                "enum": ["normal", "tumour"],
+                "errorMessage": "sample_type must be either 'normal' or 'tumour'"
             }
         },
-        "required": ["sample", "fastq_1"]
+        "required": ["patient", "sample", "fastq_1", "matched_normal", "sample_type"]
     }
 }
