@@ -1,5 +1,5 @@
 process SEQUENZAUTILS_BAM2SEQZ {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
@@ -8,11 +8,9 @@ process SEQUENZAUTILS_BAM2SEQZ {
         'blancojmskcc/sequenza:3.0.0' }"
 
     input:
-    tuple val(meta) , path(tumourbam), path(tumourbai)
-    tuple val(meta3), path(fasta)
-    tuple val(meta0), path(fastai)
-    tuple val(meta1), path(normalbam)
-    tuple val(meta2), path(normalbai)
+    tuple val(meta) , path(tumourbam), path(tumourbai), path(normalbam), path(normalbai)
+    tuple val(meta2), path(fasta)
+    tuple val(meta3), path(fastai)
     path(wigfile)
 
     output:
@@ -25,7 +23,7 @@ process SEQUENZAUTILS_BAM2SEQZ {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     sequenza-utils \\
         bam2seqz \\
@@ -51,7 +49,7 @@ process SEQUENZAUTILS_BAM2SEQZ {
 
     stub:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}_sequenza.small.seqz.gz
 

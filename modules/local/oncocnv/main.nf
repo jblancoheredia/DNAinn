@@ -8,12 +8,10 @@ process ONCOCNV {
         'registry.hub.docker.com/biocontainers/oncocnv:v7.0_cv2' }"
 
     input:
-    tuple val(meta) , path(tumor), path(tumor_index)
+    tuple val(meta) , path(tumor), path(tumor_index), path(normal), path(normal_index)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(bed)
-    tuple val(meta4), path(fai)
-    path(normal_index)
-    path(normal)
+    tuple val(meta4), path(fai)  
 
     output:
     tuple val(meta), path("*.profile.png")  ,emit: png

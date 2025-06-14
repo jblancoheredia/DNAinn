@@ -47,6 +47,7 @@ workflow COPYNUMBERALT {
     ch_fasta
     ch_raw_bam
     ch_raw_bai
+    ch_bam_pairs
     ch_intervals
     ch_normal_bam
     ch_normal_bai
@@ -62,7 +63,7 @@ workflow COPYNUMBERALT {
 //    //
 //    // MODULE: Run OncoCNV
 //    //
-//    ONCOCNV(ch_consensus_bam, ch_fasta, ch_targets_bed, ch_fai, params.normal_bai, params.normal_bam)
+//    ONCOCNV(ch_bam_pairs, ch_fasta, ch_targets_bed, ch_fai)
 //    ch_versions = ch_versions.mix(ONCOCNV.out.versions)
 //    ch_oncocnv_png      = ONCOCNV.out.png
 //    ch_oncocnv_profile  = ONCOCNV.out.profile
@@ -84,103 +85,96 @@ workflow COPYNUMBERALT {
     ch_versions = ch_versions.mix(SAMTOOLS_MPILEUP.out.versions)
     ch_sam_mpileup = SAMTOOLS_MPILEUP.out.pup
     ch_sam_mpileup_tbi = SAMTOOLS_MPILEUP.out.tbi
-
-    //
-    // MODULE: Run ControlFreec Freec 
-    //
-    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
-    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
-    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
-    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
-
-    //
-    // MODULE: Run ControlFreec Assess Significance
-    //
-    CONTROLFREEC_OT_ASSESSSIGNIFICANCE(ch_cfot_cnvs, ch_cfot_ratio)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_ASSESSSIGNIFICANCE.out.versions)
-
-    //
-    // MODULE: Run ControlFreec Freec2BED
-    //
-    CONTROLFREEC_OT_FREEC2BED(ch_cfot_ratio)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2BED.out.versions)
-
-    //
-    // MODULE: Run ControlFreec Freec2Circos
-    //
-    CONTROLFREEC_OT_FREEC2CIRCOS(ch_cfot_ratio)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2CIRCOS.out.versions)
-
+  
 //    //
-//    // MODULE: Run CNVkit AntiTarget Module just once per panel
+//    // MODULE: Run ControlFreec Freec 
 //    //
-//    CNVKIT_ANTITARGET(ch_targets_bed)
-//    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
-//    ch_antitargets = CNVKIT_ANTITARGET.out.bed
-
+//    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
+//    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
+//    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
+//    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
+//
 //    //
-//    // MODULE: Run CNVkit Reference Module just once per panel
+//    // MODULE: Run ControlFreec Assess Significance
 //    //
-//    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_cnvkit_antitarget)
-//    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
-//    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
-
-    //
-    // MODULE: Run CNVKIT Batch
-    //
-    generate_pon = false
-    CNVKIT_BATCH(ch_consensus_bam, ch_fasta, ch_fai, ch_cnvkit_antitarget, ch_cnvkit_reference, generate_pon)
-    ch_versions = ch_versions.mix(CNVKIT_BATCH.out.versions.first())
-    ch_cnvkit_call_input = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2], []]}
-
-    //
-    // MODULE: Run CNVkit Call
-    //
-    CNVKIT_CALL(ch_cnvkit_call_input)
-    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions.first())
-    ch_cnv_calls_raw = CNVKIT_CALL.out.cns
-
-    //
-    // MODULE: Run CNVkit Export
-    //
-    CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
-    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions.first())
-    ch_cnv_calls_export = CNVKIT_EXPORT.out.output
-
-    //
-    // MODULE: Run CNVkit GeneMetrics
-    //
-    ch_genemetrics_input = CNVKIT_BATCH.out.cnr.join(CNVKIT_BATCH.out.cns).map{ meta, cnr, cns -> [meta, cnr, cns[2]]}
-    CNVKIT_GENEMETRICS(ch_genemetrics_input)
-    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions.first())
-    ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
-
-    //
-    // MODULE: Run FACETS 
-    //
-    FACETS_CNV(ch_consensus_bam, params.normal_bam, params.normal_bai, params.common_vcf, params.common_vcf_tbi)
-    ch_versions = ch_versions.mix(FACETS_CNV.out.versions.first())
-
-    //
-    // MODULE: Run Sequenzautils BAM2seqz
-    //
-    SEQUENZAUTILS_BAM2SEQZ(ch_consensus_bam, ch_fasta, ch_fai,ch_normal_bam, ch_normal_bai, params.wigfile50)
-    ch_seqz = SEQUENZAUTILS_BAM2SEQZ.out.seqz
-    ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
-
+//    CONTROLFREEC_OT_ASSESSSIGNIFICANCE(ch_cfot_cnvs, ch_cfot_ratio)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_ASSESSSIGNIFICANCE.out.versions)
+//
+//    //
+//    // MODULE: Run ControlFreec Freec2BED
+//    //
+//    CONTROLFREEC_OT_FREEC2BED(ch_cfot_ratio)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2BED.out.versions)
+//
+//    //
+//    // MODULE: Run ControlFreec Freec2Circos
+//    //
+//    CONTROLFREEC_OT_FREEC2CIRCOS(ch_cfot_ratio)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2CIRCOS.out.versions)
+//
+////    //
+////    // MODULE: Run CNVkit AntiTarget Module just once per panel
+////    //
+////    CNVKIT_ANTITARGET(ch_targets_bed)
+////    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
+////    ch_antitargets = CNVKIT_ANTITARGET.out.bed
+//
+////    //
+////    // MODULE: Run CNVkit Reference Module just once per panel
+////    //
+////    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_cnvkit_antitarget)
+////    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
+////    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
+//
+//    //
+//    // MODULE: Run CNVKIT Batch
+//    //
+//    generate_pon = false
+//    CNVKIT_BATCH(ch_consensus_bam, ch_fasta, ch_fai, ch_cnvkit_antitarget, ch_cnvkit_reference, generate_pon)
+//    ch_versions = ch_versions.mix(CNVKIT_BATCH.out.versions.first())
+//    ch_cnvkit_call_input = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2], []]}
+//
+//    //
+//    // MODULE: Run CNVkit Call
+//    //
+//    CNVKIT_CALL(ch_cnvkit_call_input)
+//    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions.first())
+//    ch_cnv_calls_raw = CNVKIT_CALL.out.cns
+//
+//    //
+//    // MODULE: Run CNVkit Export
+//    //
+//    CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
+//    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions.first())
+//    ch_cnv_calls_export = CNVKIT_EXPORT.out.output
+//
+//    //
+//    // MODULE: Run CNVkit GeneMetrics
+//    //
+//    ch_genemetrics_input = CNVKIT_BATCH.out.cnr.join(CNVKIT_BATCH.out.cns).map{ meta, cnr, cns -> [meta, cnr, cns[2]]}
+//    CNVKIT_GENEMETRICS(ch_genemetrics_input)
+//    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions.first())
+//    ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
+//
+//    //
+//    // MODULE: Run FACETS 
+//    //
+//    FACETS_CNV(ch_bam_pairs, params.common_vcf, params.common_vcf_tbi)
+//    ch_versions = ch_versions.mix(FACETS_CNV.out.versions.first())
+//
 //    //
 //    // MODULE: Run Sequenzautils BAM2seqz
 //    //
-//    SEQUENZA_SEQZ(ch_consensus_bam, ch_fasta, ch_fai, ch_sam_mpileup, ch_sam_mpileup_tbi, params.normal_mpileup, params.normal_mpileup_tbi, params.wigfile50, 50)
-//    ch_versions = ch_versions.mix(SEQUENZA_SEQZ.out.versions.first())
-//    ch_seqz = SEQUENZA_SEQZ.out.seqz
-
-    //
-    // MODULE: Run Sequenzautils BAM2seqz
-    //
-    SEQUENZA_FITS(ch_seqz)
-    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
+//    SEQUENZAUTILS_BAM2SEQZ(ch_bam_pairs, ch_fasta, ch_fai, params.wigfile50)
+//    ch_seqz = SEQUENZAUTILS_BAM2SEQZ.out.seqz
+//    ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
+//
+//    //
+//    // MODULE: Run Sequenzautils BAM2seqz
+//    //
+//    SEQUENZA_FITS(ch_seqz)
+//    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
 
     //
     // Collate and save software versions

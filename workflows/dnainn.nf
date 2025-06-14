@@ -171,16 +171,6 @@ workflow DNAINN {
 
     }
 
-    //
-    // Create Normal BAM input channel
-    //
-    ch_bam_normal = Channel
-        .fromSamplesheet("input")
-        .map { meta, fastq_1, fastq_2 ->
-            def normal_meta = meta + [ normal_bam: file(params.normal_bam), normal_bai: file(params.normal_bai) ]
-            return [ meta.id, normal_meta, [ file(params.normal_bam), file(params.normal_bai) ] ]
-        }
-
     // Subworkflow Channels
     ch_umiprocessing_output = Channel.empty()
     ch_dedupandrecal_output = Channel.empty()
@@ -235,6 +225,45 @@ workflow DNAINN {
 
     }
 
+    //
+    // Group tumours by patient and pair with normals or use backup
+    //
+    ch_bam_finalized
+        .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
+        .groupTuple(by: 0)
+        .map { patient, meta_list, bam_list, bai_list -> 
+            def samples = []
+            meta_list.eachWithIndex { meta, i ->
+                samples << [meta, bam_list[i], bai_list[i]]
+            }
+
+            def tumour = samples.find { it[0].sample_type == 'tumour' }
+            def normal = samples.find { it[0].sample_type == 'normal' }
+
+            if (tumour && normal) {
+                return [tumour, normal]
+            } else if (tumour && tumour[0].matched_normal == 0) {
+                return [tumour, null]
+            } else {
+                return null
+            }
+        }
+        .filter { it != null }
+        .map { tumour, normal ->
+            def meta_t = tumour[0]
+            def bam_t  = tumour[1]
+            def bai_t  = tumour[2]
+
+            if (normal) {
+                def bam_n = normal[1]
+                def bai_n = normal[2]
+                return [meta_t, bam_t, bai_t, bam_n, bai_n]
+            } else {
+                return [meta_t, bam_t, bai_t, ch_normal_bam, ch_normal_bai]
+            }
+        }
+        .set { ch_bam_pairs }
+
     if (params.run_copynumberalt) {
 
         //
@@ -245,6 +274,7 @@ workflow DNAINN {
             ch_fasta,
             ch_raw_bam,
             ch_raw_bai,
+            ch_bam_pairs,
             ch_intervals,
             ch_normal_bam,
             ch_normal_bai,

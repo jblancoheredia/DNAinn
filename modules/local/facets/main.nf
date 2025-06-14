@@ -1,5 +1,5 @@
 process FACETS_CNV {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_high'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -7,9 +7,7 @@ process FACETS_CNV {
         'blancojmskcc/cnv_facets:0.16.1' }"
 
     input:
-    tuple val(meta),  path(tbam), path(tbai)
-    path(nbam)
-    path(nbai)
+    tuple val(meta),  path(tbam), path(tbai), path(nbam), path(nbai)
     path(common_vcf)
     path(common_vcf_tbi)
 
@@ -26,7 +24,7 @@ process FACETS_CNV {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     cnv_facets.R \\
         -t ${tbam} \\
@@ -44,7 +42,7 @@ process FACETS_CNV {
 
     stub:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}.vcf.gz
     touch ${prefix}.cnv.png

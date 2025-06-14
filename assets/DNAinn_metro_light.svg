@@ -52,59 +52,72 @@
         stroke: #3d0866;
       }
 
+      .st69 {
+        fill: #f26724;
+      }
+
+      .st69, .st70, .st71, .st72, .st73, .st74, .st75, .st76, .st77, .st78 {
+        isolation: isolate;
+      }
+
+      .st69, .st72, .st73, .st76 {
+        font-family: MavenPro-Bold, 'Maven Pro';
+        font-weight: 700;
+      }
+
+      .st69, .st76 {
+        font-size: 43px;
+      }
+
       .st7 {
         stroke: url(#linear-gradient);
       }
 
-      .st69, .st70, .st71, .st72, .st73, .st74, .st75, .st76, .st77, .st78, .st79 {
-        isolation: isolate;
-      }
-
-      .st69, .st71 {
+      .st70, .st71 {
         font-family: MavenPro-Regular, 'Maven Pro';
       }
 
-      .st69, .st72, .st77, .st78 {
+      .st70, .st72, .st77, .st78 {
         font-size: 12px;
       }
 
-      .st80 {
+      .st79 {
         fill: #0000ad;
       }
 
-      .st81 {
+      .st80 {
         fill: #626465;
       }
 
-      .st81, .st82, .st83, .st84, .st85, .st86 {
+      .st80, .st81, .st82, .st83, .st84, .st85 {
         stroke: #000;
       }
 
-      .st87 {
+      .st86 {
         fill: url(#linear-gradient9);
       }
 
-      .st88 {
+      .st87 {
         fill: url(#linear-gradient3);
       }
 
-      .st89 {
+      .st88 {
         fill: url(#linear-gradient6);
       }
 
-      .st90 {
+      .st89 {
         fill: url(#linear-gradient8);
       }
 
-      .st91 {
+      .st90 {
         fill: url(#linear-gradient7);
       }
 
-      .st92 {
+      .st91 {
         fill: url(#linear-gradient5);
       }
 
-      .st93 {
+      .st92 {
         fill: url(#linear-gradient4);
       }
 
@@ -116,21 +129,8 @@
         stroke: #692d8c;
       }
 
-      .st94 {
+      .st93 {
         fill: #e6e6e6;
-      }
-
-      .st70, .st72, .st73, .st76, .st79 {
-        font-family: MavenPro-Bold, 'Maven Pro';
-        font-weight: 700;
-      }
-
-      .st70, .st76 {
-        fill: #001b78;
-      }
-
-      .st70, .st79 {
-        font-size: 43px;
       }
 
       .st71, .st74 {
@@ -138,31 +138,31 @@
         font-size: 19px;
       }
 
-      .st95 {
+      .st94 {
         fill: url(#linear-gradient32);
       }
 
-      .st96 {
+      .st95 {
         fill: url(#linear-gradient33);
       }
 
-      .st97 {
+      .st96 {
         fill: url(#linear-gradient48);
       }
 
-      .st98 {
+      .st97 {
         fill: url(#linear-gradient52);
       }
 
-      .st99 {
+      .st98 {
         fill: url(#linear-gradient54);
       }
 
-      .st100 {
+      .st99 {
         fill: url(#linear-gradient55);
       }
 
-      .st101 {
+      .st100 {
         fill: url(#linear-gradient22);
       }
 
@@ -202,7 +202,7 @@
         stroke: #a450d9;
       }
 
-      .st102 {
+      .st101 {
         fill: #007f80;
       }
 
@@ -231,7 +231,7 @@
         stroke: #beaeff;
       }
 
-      .st103 {
+      .st102 {
         fill: #e54e9b;
       }
 
@@ -360,7 +360,7 @@
         stroke: url(#linear-gradient37);
       }
 
-      .st82, .st68, .st77 {
+      .st81, .st68, .st77 {
         fill: #fff;
       }
 
@@ -368,7 +368,7 @@
         stroke: #007f80;
       }
 
-      .st104 {
+      .st103 {
         fill: #ff6f00;
       }
 
@@ -385,15 +385,15 @@
         stroke-dashoffset: 2.4px;
       }
 
-      .st83 {
+      .st82 {
         fill: #39383a;
       }
 
-      .st105 {
+      .st104 {
         fill: #872db3;
       }
 
-      .st106 {
+      .st105 {
         fill: #282871;
       }
 
@@ -410,14 +410,14 @@
       }
 
       .st76 {
-        font-size: 43px;
+        fill: #001b78;
       }
 
       .st77 {
         font-family: Helvetica, Helvetica;
       }
 
-      .st84 {
+      .st83 {
         fill: #1e1c1c;
       }
 
@@ -435,7 +435,7 @@
         stroke-dashoffset: 3px;
       }
 
-      .st107 {
+      .st106 {
         fill: #ff0065;
       }
 
@@ -448,7 +448,7 @@
         stroke: #06ff32;
       }
 
-      .st108 {
+      .st107 {
         fill: #9ab0b6;
       }
 
@@ -460,12 +460,8 @@
         stroke: #0000ad;
       }
 
-      .st86 {
+      .st85 {
         fill: #4f4f51;
-      }
-
-      .st79 {
-        fill: #f26724;
       }
 
       .st59 {
@@ -480,7 +476,7 @@
         stroke: #6dff51;
       }
 
-      .st109 {
+      .st108 {
         fill: #217821;
       }
 
@@ -496,7 +492,7 @@
         stroke: #bc13fe;
       }
     </style>
-    <linearGradient id="linear-gradient" x1="775" y1="166.9" x2="810.4" y2="166.9" gradientTransform="translate(0 792) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="775" y1="193.1" x2="810.4" y2="193.1" gradientTransform="translate(0 432)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#d380b5"/>
       <stop offset=".5" stop-color="#e54e9b"/>
       <stop offset=".8" stop-color="#e54c99"/>
@@ -504,13 +500,13 @@
       <stop offset="1" stop-color="#e63d86"/>
       <stop offset="1" stop-color="#e8347b"/>
     </linearGradient>
-    <linearGradient id="linear-gradient1" x1="296.2" y1="-204.7" x2="392.8" y2="-108.1" gradientTransform="translate(539.6 426.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient1" x1="296.2" y1="564.7" x2="392.8" y2="468.1" gradientTransform="translate(539.6 66.5)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#d82f51"/>
       <stop offset=".2" stop-color="#e8347b"/>
       <stop offset=".6" stop-color="#e6388d"/>
       <stop offset="1" stop-color="#e63992"/>
     </linearGradient>
-    <linearGradient id="linear-gradient2" x1="633.6" y1="-1254.5" x2="665.9" y2="-1254.5" gradientTransform="translate(407.7 1435.5) scale(1.2 1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient2" x1="537.4" y1="2046.5" x2="569.7" y2="2046.5" gradientTransform="translate(523.1 2227.5) scale(1.2 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0000e8"/>
       <stop offset="0" stop-color="#0012d1"/>
       <stop offset=".2" stop-color="#0039a2"/>
@@ -521,7 +517,7 @@
       <stop offset=".8" stop-color="#00a420"/>
       <stop offset="1" stop-color="#00a71d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient3" x1="110.1" y1="-1111.8" x2="125.1" y2="-1111.8" gradientTransform="translate(-16.8 1773)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient3" x1="110.1" y1="1903.8" x2="125.1" y2="1903.8" gradientTransform="translate(-16.8 2565) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#23652d"/>
       <stop offset=".4" stop-color="#379e48"/>
       <stop offset=".7" stop-color="#33be3a"/>
@@ -529,23 +525,23 @@
       <stop offset=".9" stop-color="#59e889"/>
       <stop offset="1" stop-color="#64f5a0"/>
     </linearGradient>
-    <linearGradient id="linear-gradient4" x1="110.1" y1="-1047.5" x2="125.1" y2="-1047.5" gradientTransform="translate(-16.3 1773)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient4" x1="110.1" y1="1839.5" x2="125.1" y2="1839.5" gradientTransform="translate(-16.3 2565) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ec6635"/>
       <stop offset=".6" stop-color="#f2a346"/>
       <stop offset=".8" stop-color="#f6ca63"/>
       <stop offset="1" stop-color="#fbfc88"/>
     </linearGradient>
-    <linearGradient id="linear-gradient5" x1="110.1" y1="-1175.8" x2="125.1" y2="-1175.8" gradientTransform="translate(-16.8 1773)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient5" x1="110.1" y1="1967.8" x2="125.1" y2="1967.8" gradientTransform="translate(-16.8 2565) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#000"/>
       <stop offset="1" stop-color="#d1dedf"/>
     </linearGradient>
-    <linearGradient id="linear-gradient6" x1="117.6" y1="-1076" x2="117.6" y2="-1061" gradientTransform="translate(-16.8 1773)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient6" x1="117.6" y1="1868" x2="117.6" y2="1853" gradientTransform="translate(-16.8 2565) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#692d8c"/>
       <stop offset=".6" stop-color="#a450d9"/>
       <stop offset=".8" stop-color="#b981ec"/>
       <stop offset="1" stop-color="#ceb3ff"/>
     </linearGradient>
-    <linearGradient id="linear-gradient7" x1="110.1" y1="-1154.1" x2="125.1" y2="-1154.1" gradientTransform="translate(-16.8 1772.5)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient7" x1="110.1" y1="1946.1" x2="125.1" y2="1946.1" gradientTransform="translate(-16.8 2564.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#282871"/>
       <stop offset="0" stop-color="blue"/>
       <stop offset=".3" stop-color="#2932fc"/>
@@ -553,24 +549,24 @@
       <stop offset=".9" stop-color="#a5cbf3"/>
       <stop offset="1" stop-color="#b8e2f2"/>
     </linearGradient>
-    <linearGradient id="linear-gradient8" x1="110.1" y1="-1132.8" x2="125.1" y2="-1132.8" gradientTransform="translate(-16.8 1773)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient8" x1="110.1" y1="1924.8" x2="125.1" y2="1924.8" gradientTransform="translate(-16.8 2565) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#efb6f5"/>
       <stop offset=".4" stop-color="#e758a3"/>
       <stop offset=".6" stop-color="#e74791"/>
       <stop offset="1" stop-color="#e9327b"/>
     </linearGradient>
-    <linearGradient id="linear-gradient9" x1="110.1" y1="-1089.2" x2="125.1" y2="-1089.2" gradientTransform="translate(-16.8 1773)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient9" x1="110.1" y1="1881.2" x2="125.1" y2="1881.2" gradientTransform="translate(-16.8 2565) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#a2f2d4"/>
       <stop offset=".6" stop-color="#03fdfc"/>
       <stop offset=".8" stop-color="#01b0b0"/>
       <stop offset="1" stop-color="#007f80"/>
     </linearGradient>
-    <linearGradient id="linear-gradient10" x1="610.5" y1="-1093.7" x2="610.5" y2="-937.6" gradientTransform="translate(516.9 1275.5)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient10" x1="610.5" y1="1885.7" x2="610.5" y2="1729.6" gradientTransform="translate(516.9 2067.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset=".2" stop-color="#00a8ff"/>
       <stop offset=".7" stop-color="#27c4ff"/>
       <stop offset="1" stop-color="#b8e2f2"/>
     </linearGradient>
-    <linearGradient id="linear-gradient11" x1="146" y1="-1268.8" x2="356.5" y2="-1268.8" gradientTransform="translate(83.4 1452.8)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient11" x1="146" y1="2060.8" x2="356.5" y2="2060.8" gradientTransform="translate(83.4 2244.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#61647d"/>
       <stop offset=".6" stop-color="#81919d"/>
       <stop offset=".6" stop-color="#8596a1"/>
@@ -578,228 +574,228 @@
       <stop offset=".9" stop-color="#a1b7bb"/>
       <stop offset="1" stop-color="#a5bcbf"/>
     </linearGradient>
-    <linearGradient id="linear-gradient12" x1="2913" y1="-1733.7" x2="2913" y2="-1640" gradientTransform="translate(1497.5 3097) rotate(-90) scale(1 .6)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient12" x1="2552" y1="1348" x2="2552" y2="1254.3" gradientTransform="translate(1266.1 2736) rotate(-90) scale(1 -.6)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#a5bcbe"/>
       <stop offset=".2" stop-color="#b8e2f2"/>
       <stop offset="1" stop-color="#282871"/>
     </linearGradient>
-    <linearGradient id="linear-gradient13" x1="36.3" y1="-1268.8" x2="104.1" y2="-1268.8" gradientTransform="translate(81.8 1453.4)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient13" x1="36.3" y1="2060.8" x2="104.1" y2="2060.8" gradientTransform="translate(81.8 2245.4) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1f1f2a"/>
       <stop offset="0" stop-color="#242431"/>
       <stop offset=".4" stop-color="#333346"/>
       <stop offset=".7" stop-color="#3c3c52"/>
       <stop offset="1" stop-color="#3f4057"/>
     </linearGradient>
-    <linearGradient id="linear-gradient14" x1="101.1" y1="-1268.8" x2="149.1" y2="-1268.8" gradientTransform="translate(82.4 1453.4)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient14" x1="101.1" y1="2060.8" x2="149.1" y2="2060.8" gradientTransform="translate(82.4 2245.4) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#3f4057"/>
       <stop offset="0" stop-color="#3f4057"/>
       <stop offset=".3" stop-color="#52546c"/>
       <stop offset=".7" stop-color="#5d6078"/>
       <stop offset="1" stop-color="#61647d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient15" x1="262.4" y1="-1280.6" x2="310.4" y2="-1280.6" gradientTransform="translate(82.1 1453.3)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient15" x1="262.4" y1="2072.6" x2="310.4" y2="2072.6" gradientTransform="translate(82.1 2245.3) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#81919d"/>
       <stop offset=".3" stop-color="#8ea0a8"/>
       <stop offset=".7" stop-color="#9aacb1"/>
       <stop offset="1" stop-color="#9eb1b5"/>
     </linearGradient>
-    <linearGradient id="linear-gradient16" x1="477.8" y1="-1093.7" x2="610.5" y2="-1093.7" gradientTransform="translate(508.6 1274.5)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient16" x1="477.8" y1="1885.7" x2="610.5" y2="1885.7" gradientTransform="translate(508.6 2066.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0000e8"/>
       <stop offset=".5" stop-color="#00a8ff"/>
     </linearGradient>
-    <linearGradient id="linear-gradient17" x1="31" y1="-1093.6" x2="414.8" y2="-1093.6" gradientTransform="translate(516.9 1274.4)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient17" x1="31" y1="1885.6" x2="414.8" y2="1885.6" gradientTransform="translate(516.9 2066.4) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#00007d"/>
       <stop offset=".5" stop-color="#0000ad"/>
       <stop offset="1" stop-color="#0000d1"/>
     </linearGradient>
-    <linearGradient id="linear-gradient18" x1="344.5" y1="-1090.9" x2="344.5" y2="-997.2" gradientTransform="translate(516.8 1271.6)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient18" x1="344.5" y1="1882.9" x2="344.5" y2="1789.2" gradientTransform="translate(516.8 2063.6) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0000ad"/>
       <stop offset=".3" stop-color="#0000e8"/>
       <stop offset=".7" stop-color="#00a8ff"/>
       <stop offset="1" stop-color="#b8e2f2"/>
     </linearGradient>
-    <linearGradient id="linear-gradient19" x1="374" y1="-1937.3" x2="374" y2="-1843.7" gradientTransform="translate(487.3 1438.1) scale(1 .6)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient19" x1="374" y1="2873.3" x2="374" y2="2779.7" gradientTransform="translate(487.3 1999.7) scale(1 -.6)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0000e8"/>
       <stop offset=".5" stop-color="#b8e2f2"/>
       <stop offset="1" stop-color="#007f80"/>
     </linearGradient>
-    <linearGradient id="linear-gradient20" x1="374" y1="682.6" x2="374" y2="588.9" gradientTransform="translate(629.1 2219.1) scale(1 -2.9)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient20" x1="374" y1="-181.1" x2="374" y2="-87.4" gradientTransform="translate(629.1 764.7) scale(1 2.9)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0000e8"/>
       <stop offset="1" stop-color="#ff0065"/>
     </linearGradient>
-    <linearGradient id="linear-gradient21" x1="411.8" y1="-1094.4" x2="459.8" y2="-1094.4" gradientTransform="translate(516.8 1274.5)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient21" x1="411.8" y1="1886.4" x2="459.8" y2="1886.4" gradientTransform="translate(516.8 2066.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0000ad"/>
       <stop offset=".4" stop-color="#0000d1"/>
       <stop offset="1" stop-color="#0000e8"/>
     </linearGradient>
-    <linearGradient id="linear-gradient22" x1="2943.4" y1="1602.5" x2="2943.4" y2="1171.8" gradientTransform="translate(1978.8 3345.5) rotate(-90) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient22" x1="2582.4" y1="-449.5" x2="2582.4" y2="-18.8" gradientTransform="translate(825.8 2984.5) rotate(-90)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#a2f2d4"/>
       <stop offset=".5" stop-color="#03fdfc"/>
       <stop offset=".7" stop-color="#03c0c1"/>
       <stop offset=".8" stop-color="#009c9d"/>
       <stop offset="1" stop-color="#007f80"/>
     </linearGradient>
-    <linearGradient id="linear-gradient23" x1="437" y1="-1157.9" x2="521.2" y2="-1109.3" gradientTransform="translate(191.3 1472.3)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient23" x1="437" y1="1949.9" x2="521.2" y2="1901.3" gradientTransform="translate(191.3 2264.3) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#03fdfc"/>
       <stop offset=".5" stop-color="#03c0c1"/>
       <stop offset="1" stop-color="#009c9d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient24" x1="437" y1="-1157.9" x2="521.2" y2="-1109.3" gradientTransform="translate(191.4 1513.5)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient24" x1="437" y1="1949.9" x2="521.2" y2="1901.3" gradientTransform="translate(191.4 2305.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#03fdfc"/>
       <stop offset=".5" stop-color="#03c0c1"/>
       <stop offset="1" stop-color="#009c9d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient25" x1="437" y1="-1157.9" x2="521.2" y2="-1109.3" gradientTransform="translate(191.2 1555.9)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient25" x1="437" y1="1949.9" x2="521.2" y2="1901.3" gradientTransform="translate(191.2 2347.9) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#03fdfc"/>
       <stop offset=".5" stop-color="#03c0c1"/>
       <stop offset="1" stop-color="#009c9d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient26" x1="437" y1="1496.1" x2="521.2" y2="1544.7" gradientTransform="translate(191.4 1985.1) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient26" x1="437" y1="-1136.1" x2="521.2" y2="-1184.7" gradientTransform="translate(191.4 1625.1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#03fdfc"/>
       <stop offset=".5" stop-color="#03c0c1"/>
       <stop offset="1" stop-color="#009c9d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient27" x1="437" y1="-1157.9" x2="521.2" y2="-1109.3" gradientTransform="translate(191.3 1596.4)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient27" x1="437" y1="1949.9" x2="521.2" y2="1901.3" gradientTransform="translate(191.3 2388.4) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#03fdfc"/>
       <stop offset=".5" stop-color="#03c0c1"/>
       <stop offset="1" stop-color="#009c9d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient28" x1="490.6" y1="-913.7" x2="699.3" y2="-913.7" gradientTransform="translate(399.4 1407.8) scale(1 1.1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient28" x1="490.6" y1="1686" x2="699.3" y2="1686" gradientTransform="translate(399.4 2257.4) scale(1 -1.1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#007f80"/>
       <stop offset=".3" stop-color="#b8e2f2"/>
       <stop offset=".9" stop-color="#0000e8"/>
     </linearGradient>
-    <linearGradient id="linear-gradient29" x1="727" y1="-558.1" x2="775" y2="-558.1" gradientTransform="translate(0 1183.7)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient29" x1="727" y1="1350.1" x2="775" y2="1350.1" gradientTransform="translate(0 1975.7) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#e8a2c8"/>
       <stop offset="1" stop-color="#d380b5"/>
     </linearGradient>
-    <linearGradient id="linear-gradient30" x1="295.1" y1="-939.3" x2="393.1" y2="-1037.3" gradientTransform="translate(539.6 1575.4)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient30" x1="295.1" y1="1731.3" x2="393.1" y2="1829.3" gradientTransform="translate(539.6 2367.4) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#d82f51"/>
       <stop offset=".2" stop-color="#e8347b"/>
       <stop offset=".6" stop-color="#e6388d"/>
       <stop offset="1" stop-color="#e63992"/>
     </linearGradient>
-    <linearGradient id="linear-gradient31" x1="344.5" y1="-973.4" x2="344.5" y2="-928" gradientTransform="translate(539.6 1575.8)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient31" x1="344.5" y1="1765.4" x2="344.5" y2="1720" gradientTransform="translate(539.6 2367.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#e8347b"/>
       <stop offset=".6" stop-color="#e54e9b"/>
       <stop offset="1" stop-color="#e559a0"/>
     </linearGradient>
-    <linearGradient id="linear-gradient32" x1="478.9" y1="-875.6" x2="478.9" y2="-1052.8" gradientTransform="translate(760.7 1530.8)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient32" x1="478.9" y1="1667.6" x2="478.9" y2="1844.8" gradientTransform="translate(760.7 2322.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#b593ff"/>
       <stop offset=".3" stop-color="#a450d9"/>
       <stop offset=".5" stop-color="#872db3"/>
       <stop offset=".8" stop-color="#692d8c"/>
       <stop offset="1" stop-color="#3e2164"/>
     </linearGradient>
-    <linearGradient id="linear-gradient33" x1="437.2" y1="-925.5" x2="437.2" y2="-1084.4" gradientTransform="translate(761.1 1530.1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient33" x1="437.2" y1="1717.5" x2="437.2" y2="1876.4" gradientTransform="translate(761.1 2322.1) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#a450d9"/>
       <stop offset=".4" stop-color="#872db3"/>
       <stop offset=".7" stop-color="#692f8c"/>
       <stop offset=".9" stop-color="#3e2164"/>
     </linearGradient>
-    <linearGradient id="linear-gradient34" x1="680.9" y1="1486.4" x2="725.9" y2="1486.4" gradientTransform="translate(795.2 1833.7) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient34" x1="680.9" y1="-1126.4" x2="725.9" y2="-1126.4" gradientTransform="translate(795.2 1473.7)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f5c14f"/>
       <stop offset=".3" stop-color="#f7d153"/>
       <stop offset=".7" stop-color="#f9dd57"/>
       <stop offset="1" stop-color="#fae259"/>
     </linearGradient>
-    <linearGradient id="linear-gradient35" x1="680.9" y1="-1167.6" x2="725.9" y2="-1167.6" gradientTransform="translate(795.2 1491.2)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient35" x1="680.9" y1="1959.6" x2="725.9" y2="1959.6" gradientTransform="translate(795.2 2283.2) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f5c14f"/>
       <stop offset=".3" stop-color="#f7d153"/>
       <stop offset=".7" stop-color="#f9dd57"/>
       <stop offset="1" stop-color="#fae259"/>
     </linearGradient>
-    <linearGradient id="linear-gradient36" x1="442.7" y1="-1104.3" x2="531.1" y2="-1104.3" gradientTransform="translate(795.1 1491.1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient36" x1="442.7" y1="1896.3" x2="531.1" y2="1896.3" gradientTransform="translate(795.1 2283.1) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ec6633"/>
       <stop offset=".3" stop-color="#ec7337"/>
       <stop offset=".6" stop-color="#ec7f3b"/>
       <stop offset="1" stop-color="#ed843d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient37" x1="442.7" y1="-1104.3" x2="531.1" y2="-1104.3" gradientTransform="translate(795.2 1449.2)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient37" x1="442.7" y1="1896.3" x2="531.1" y2="1896.3" gradientTransform="translate(795.2 2241.2) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ec6633"/>
       <stop offset=".3" stop-color="#ec7337"/>
       <stop offset=".6" stop-color="#ec7f3b"/>
       <stop offset="1" stop-color="#ed843d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient38" x1="442.7" y1="1549.7" x2="531.1" y2="1549.7" gradientTransform="translate(795.1 1916.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient38" x1="442.7" y1="-1189.7" x2="531.1" y2="-1189.7" gradientTransform="translate(795.1 1556.5)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ec6633"/>
       <stop offset=".3" stop-color="#ec7337"/>
       <stop offset=".6" stop-color="#ec7f3b"/>
       <stop offset="1" stop-color="#ed843d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient39" x1="442.7" y1="1549.8" x2="531.1" y2="1549.8" gradientTransform="translate(795.1 1874.9) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient39" x1="442.7" y1="-1189.8" x2="531.1" y2="-1189.8" gradientTransform="translate(795.1 1514.9)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ec6633"/>
       <stop offset=".3" stop-color="#ec7337"/>
       <stop offset=".6" stop-color="#ec7f3b"/>
       <stop offset="1" stop-color="#ed843d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient40" x1="442.2" y1="1046.4" x2="530.7" y2="1046.4" gradientTransform="translate(795.9 1966.3) scale(1 -1.6)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient40" x1="442.2" y1="-605.4" x2="530.7" y2="-605.4" gradientTransform="translate(795.9 1260.7) scale(1 1.6)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ec6633"/>
       <stop offset=".3" stop-color="#ec7337"/>
       <stop offset=".6" stop-color="#ec7f3b"/>
       <stop offset="1" stop-color="#ed843d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient41" x1="566.2" y1="-1155.6" x2="610.5" y2="-1155.6" gradientTransform="translate(795.3 1491.1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient41" x1="566.2" y1="1947.6" x2="610.5" y2="1947.6" gradientTransform="translate(795.3 2283.1) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ed843d"/>
       <stop offset=".3" stop-color="#ef9240"/>
       <stop offset=".6" stop-color="#f19e43"/>
       <stop offset="1" stop-color="#f2a345"/>
     </linearGradient>
-    <linearGradient id="linear-gradient42" x1="531" y1="-1155.5" x2="566.3" y2="-1155.5" gradientTransform="translate(795.5 1491)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient42" x1="531" y1="1947.5" x2="566.3" y2="1947.5" gradientTransform="translate(795.5 2283) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ed843d"/>
       <stop offset="1" stop-color="#ed843d"/>
     </linearGradient>
-    <linearGradient id="linear-gradient43" x1="610.5" y1="-1134.5" x2="680.9" y2="-1134.5" gradientTransform="translate(795 1449)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient43" x1="610.5" y1="1926.5" x2="680.9" y2="1926.5" gradientTransform="translate(795 2241) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f2a345"/>
       <stop offset=".7" stop-color="#f5c14f"/>
     </linearGradient>
-    <linearGradient id="linear-gradient44" x1="610.5" y1="-1134.5" x2="680.9" y2="-1134.5" gradientTransform="translate(795.4 1490.7)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient44" x1="610.5" y1="1926.5" x2="680.9" y2="1926.5" gradientTransform="translate(795.4 2282.7) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f2a345"/>
       <stop offset=".7" stop-color="#f5c14f"/>
     </linearGradient>
-    <linearGradient id="linear-gradient45" x1="725.9" y1="-1155.6" x2="797.8" y2="-1155.6" gradientTransform="translate(792.2 1491.1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient45" x1="725.9" y1="1947.6" x2="797.8" y2="1947.6" gradientTransform="translate(792.2 2283.1) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fae259"/>
       <stop offset=".2" stop-color="#f9e566"/>
       <stop offset=".4" stop-color="#f8ec7b"/>
       <stop offset=".7" stop-color="#f8ef87"/>
       <stop offset="1" stop-color="#f8f18c"/>
     </linearGradient>
-    <linearGradient id="linear-gradient46" x1="475.3" y1="-1076.5" x2="475.3" y2="-1206.4" gradientTransform="translate(684.6 1416.2)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient46" x1="475.3" y1="1868.5" x2="475.3" y2="1998.4" gradientTransform="translate(684.6 2208.2) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ff9f00"/>
       <stop offset="1" stop-color="blue"/>
     </linearGradient>
-    <linearGradient id="linear-gradient47" x1="453.2" y1="-966.6" x2="453.2" y2="-1075" gradientTransform="translate(706.6 1416.5)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient47" x1="453.2" y1="1758.6" x2="453.2" y2="1867" gradientTransform="translate(706.6 2208.5) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset=".5" stop-color="#a450d9"/>
       <stop offset="1" stop-color="blue"/>
     </linearGradient>
-    <linearGradient id="linear-gradient48" x1="2813.3" y1="1252.8" x2="2813.3" y2="1501.9" gradientTransform="translate(2703.5 2996.9) rotate(-90) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient48" x1="2452.3" y1="-99.8" x2="2452.3" y2="-348.9" gradientTransform="translate(1550.5 2635.9) rotate(-90)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#379e48"/>
       <stop offset=".5" stop-color="#23652d"/>
       <stop offset="1" stop-color="#194921"/>
     </linearGradient>
-    <linearGradient id="linear-gradient49" x1="344.5" y1="-935.7" x2="344.5" y2="-890.4" gradientTransform="translate(539.6 1578)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient49" x1="344.5" y1="1727.7" x2="344.5" y2="1682.4" gradientTransform="translate(539.6 2370) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#e559a0"/>
       <stop offset="1" stop-color="#d380b5"/>
     </linearGradient>
-    <linearGradient id="linear-gradient50" x1="444" y1="-1009" x2="444" y2="-951.2" gradientTransform="translate(540 1579.3)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient50" x1="444" y1="1801" x2="444" y2="1743.2" gradientTransform="translate(540 2371.3) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#d82f51"/>
       <stop offset="1" stop-color="#e8347b"/>
     </linearGradient>
-    <linearGradient id="linear-gradient51" x1="1447.7" y1="1234.1" x2="1487.3" y2="1234.1" gradientTransform="translate(0 1417.6) scale(1 -1)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient51" x1="1447.7" y1="-874.1" x2="1487.3" y2="-874.1" gradientTransform="translate(0 1057.6)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#379e48"/>
       <stop offset=".5" stop-color="#33be3a"/>
       <stop offset="1" stop-color="#64f5a0"/>
     </linearGradient>
-    <linearGradient id="linear-gradient52" x1="1394" y1="1070.4" x2="1400.9" y2="1070.4" gradientTransform="translate(187.1 1467.4) scale(.9 -1.2)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient52" x1="1458.1" y1="-674.4" x2="1465" y2="-674.4" gradientTransform="translate(129.4 992.2) scale(.9 1.2)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#379e48"/>
       <stop offset="1" stop-color="#38a745"/>
     </linearGradient>
-    <linearGradient id="linear-gradient53" x1="618.2" y1="-558.2" x2="726.9" y2="-558.2" gradientTransform="translate(0 1183.7)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient53" x1="618.2" y1="1350.2" x2="726.9" y2="1350.2" gradientTransform="translate(0 1975.7) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffdbec"/>
       <stop offset=".5" stop-color="#f2bed0"/>
       <stop offset="1" stop-color="#e8a2c8"/>
     </linearGradient>
-    <linearGradient id="linear-gradient54" x1="158.5" y1="555.3" x2="179.5" y2="555.3" gradientTransform="translate(0 2)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient54" x1="158.5" y1="236.7" x2="179.5" y2="236.7" gradientTransform="translate(0 794) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="0" stop-color="#fbe588"/>
       <stop offset=".2" stop-color="#ffcc25"/>
@@ -812,7 +808,19 @@
       <stop offset=".7" stop-color="#683186"/>
       <stop offset="1" stop-color="#001b78"/>
     </linearGradient>
-    <linearGradient id="linear-gradient55" x1="76.6" y1="572.7" x2="76.6" y2="538" xlink:href="#linear-gradient54"/>
+    <linearGradient id="linear-gradient55" x1="76.7" y1="219.3" x2="76.7" y2="254" gradientTransform="translate(0 794) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0" stop-color="#fbe588"/>
+      <stop offset=".2" stop-color="#ffcc25"/>
+      <stop offset=".4" stop-color="#f26724"/>
+      <stop offset=".5" stop-color="#c85641"/>
+      <stop offset=".5" stop-color="#a5495a"/>
+      <stop offset=".5" stop-color="#8a3e6d"/>
+      <stop offset=".6" stop-color="#77367b"/>
+      <stop offset=".6" stop-color="#6b3283"/>
+      <stop offset=".7" stop-color="#683186"/>
+      <stop offset="1" stop-color="#001b78"/>
+    </linearGradient>
   </defs>
   <path id="path46" class="st57" d="M808.5,626.5h-36.5v-22h-42.1v21.3l-116.3.2" sodipodi:nodetypes="cccccc"/>
   <path id="path461" class="st57" d="M808.5,626.7h-36.5v20h-42.1v-21.3l-117.5.2" sodipodi:nodetypes="cccccc"/>
@@ -828,7 +836,9 @@
         <g id="text339" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(850.2 669.2)"><tspan x="0" y="0">VarDictJava</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(850.2 669.2)"><tspan x="0" y="0">VarDictJava</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -839,7 +849,7 @@
   <path id="path341-4" class="st52" d="M1450.7,183.1v21.4h50.4" sodipodi:nodetypes="ccc"/>
   <path id="path25" class="st64" d="M1004.1,180.8l145.8.2,7,2.2,89.9.3h204" sodipodi:nodetypes="cccccc"/>
   <sodipodi:namedview id="namedview318" bordercolor="#cccccc" borderopacity="1" inkscape:current-layer="Layer_1" inkscape:cx="802.70249" inkscape:cy="702.40387" inkscape:deskcolor="#d1d1d1" inkscape:pagecheckerboard="0" inkscape:pageopacity="1" inkscape:showpageshadow="0" inkscape:window-height="1285" inkscape:window-maximized="0" inkscape:window-width="2560" inkscape:window-x="0" inkscape:window-y="25" inkscape:zoom="35.085228" pagecolor="#ffffff"/>
-  <polygon id="polygon37-0" class="st108" points="358.3 142 358.3 150.6 368.4 160.8 378.6 150.6 378.6 142 368.4 152.2 358.3 142"/>
+  <polygon id="polygon37-0" class="st107" points="358.3 142 358.3 150.6 368.4 160.8 378.6 150.6 378.6 142 368.4 152.2 358.3 142"/>
   <line id="line37-6" class="st2" x1="368.4" y1="122.6" x2="368.4" y2="155.8"/>
   <path id="path45" class="st64" d="M1239.5,656.3h35.8v-20.7h64.7" sodipodi:nodetypes="cccc"/>
   <path id="path45-3" class="st64" d="M1239.6,656.6h35.8v20.7h64.7" sodipodi:nodetypes="cccc"/>
@@ -881,7 +891,9 @@
         <g id="text189" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(120.8 688.1)"><tspan x="0" y="0">SVtorm (SV Calling)</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(120.8 688.1)"><tspan x="0" y="0">SVtorm (SV Calling)</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -894,7 +906,9 @@
         <g id="text190" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(120.8 708.4)"><tspan x="0" y="0">Copy Number Alterations</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(120.8 708.4)"><tspan x="0" y="0">Copy Number Alterations</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -906,7 +920,9 @@
       <g id="text192" class="st75">
         <g class="st75">
           <g class="st75">
-            <text class="st73" transform="translate(197.4 910.1)"><tspan x="0" y="0">CTI/DNA</tspan></text>
+            <g class="st75">
+              <text class="st73" transform="translate(197.4 910.1)"><tspan x="0" y="0">CTI/DNA</tspan></text>
+            </g>
           </g>
         </g>
       </g>
@@ -917,33 +933,35 @@
       <g id="text193" class="st75">
         <g class="st75">
           <g class="st75">
-            <text class="st76" transform="translate(277 572.3)"><tspan x="0" y="0">inn</tspan></text>
+            <g class="st75">
+              <text class="st76" transform="translate(277 572.3)"><tspan x="0" y="0">inn</tspan></text>
+            </g>
           </g>
         </g>
       </g>
     </g>
   </g>
   <path id="path4" class="st0" d="M1182.5,183.2h-33.2c-.4,0-.8,0-.8-.2v-7"/>
-  <polygon id="polygon5-1" class="st109" points="1176.7 193.1 1186.8 182.9 1176.7 172.8 1168 172.8 1178.2 182.9 1168 193.1 1176.7 193.1"/>
-  <path id="rect1-1" class="st88" d="M100.8,653.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
+  <polygon id="polygon5-1" class="st108" points="1176.7 193.1 1186.8 182.9 1176.7 172.8 1168 172.8 1178.2 182.9 1168 193.1 1176.7 193.1"/>
+  <path id="rect1-1" class="st87" d="M100.8,653.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <line id="line6" class="st16" x1="983.7" y1="71.9" x2="981.7" y2="71.9"/>
   <path id="path6" class="st63" d="M977.7,71.9h-167.2c-1.9,0-3.4.9-3.4,2.1v108.3"/>
   <line id="line7" class="st16" x1="807.1" y1="184.4" x2="807.1" y2="186.4"/>
-  <polygon id="polygon7" class="st80" points="971.8 61.7 982 71.9 971.8 82.1 980.4 82.1 990.6 71.9 980.4 61.7 971.8 61.7"/>
-  <path id="rect308-7" class="st93" d="M101.3,718h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <path id="rect301-3" class="st92" d="M100.8,589.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <path id="rect305-8" class="st89" d="M100.8,697h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <path id="rect306-4" class="st91" d="M100.8,610.9h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <path id="rect307-8" class="st90" d="M100.8,632.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <path id="rect3081" class="st87" d="M100.8,676.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
+  <polygon id="polygon7" class="st79" points="971.8 61.7 982 71.9 971.8 82.1 980.4 82.1 990.6 71.9 980.4 61.7 971.8 61.7"/>
+  <path id="rect308-7" class="st92" d="M101.3,718h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
+  <path id="rect301-3" class="st91" d="M100.8,589.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
+  <path id="rect305-8" class="st88" d="M100.8,697h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
+  <path id="rect306-4" class="st90" d="M100.8,610.9h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
+  <path id="rect307-8" class="st89" d="M100.8,632.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
+  <path id="rect3081" class="st86" d="M100.8,676.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <line id="line8" class="st16" x1="1022.6" y1="71.9" x2="1024.6" y2="71.9"/>
   <path id="path8" class="st58" d="M1028.5,71.9h106.8c1.2,0,2.3.9,2.3,2.1v108.4"/>
   <line id="line9" class="st16" x1="1137.6" y1="184.4" x2="1137.6" y2="186.4"/>
-  <polygon id="polygon9" class="st80" points="1034.5 82.1 1024.3 71.9 1034.5 61.7 1025.9 61.7 1015.7 71.9 1025.9 82.1 1034.5 82.1"/>
+  <polygon id="polygon9" class="st79" points="1034.5 82.1 1024.3 71.9 1034.5 61.7 1025.9 61.7 1015.7 71.9 1025.9 82.1 1034.5 82.1"/>
   <path id="path9-0" class="st27" d="M1127.4,337.9v-156.1,156.1Z"/>
   <path id="path13-7" class="st32" d="M439.9,184h-210.5,210.5Z"/>
   <path id="path51-9" class="st12" d="M442.6,184h57.2-57.2Z"/>
-  <polygon id="polygon88-0" class="st106" points="486.8 194.2 495.5 194.2 505.6 184 495.5 173.8 486.8 173.8 497 184 486.8 194.2"/>
+  <polygon id="polygon88-0" class="st105" points="486.8 194.2 495.5 194.2 505.6 184 495.5 173.8 486.8 173.8 497 184 486.8 194.2"/>
   <path id="path14-3" class="st30" d="M185.9,184.6h-67.8,67.8Z"/>
   <g id="text30" class="st75">
     <g id="g197" class="st75">
@@ -951,7 +969,9 @@
         <g id="text195" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(198.4 133.1)"><tspan x="0" y="0">cat</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(198.4 133.1)"><tspan x="0" y="0">cat</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -962,7 +982,9 @@
         <g id="text197" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(191.4 147.5)"><tspan x="0" y="0">FastQ</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(191.4 147.5)"><tspan x="0" y="0">FastQ</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -975,7 +997,9 @@
         <g id="text198" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(187 228.3)"><tspan x="0" y="0">FastQC</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(187 228.3)"><tspan x="0" y="0">FastQC</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -986,7 +1010,9 @@
         <g id="text200" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(186.2 242.7)"><tspan x="0" y="0">Original</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(186.2 242.7)"><tspan x="0" y="0">Original</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1001,7 +1027,9 @@
         <g id="text201" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(337.8 103.9)"><tspan x="0" y="0">NumReads</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(337.8 103.9)"><tspan x="0" y="0">NumReads</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1012,7 +1040,9 @@
         <g id="text203" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(338.3 118.3)"><tspan x="0" y="0">PreDefined</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(338.3 118.3)"><tspan x="0" y="0">PreDefined</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1025,7 +1055,9 @@
         <g id="text205" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(326.7 205.2)"><tspan x="0" y="0">Downsampling</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(326.7 205.2)"><tspan x="0" y="0">Downsampling</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1036,7 +1068,9 @@
         <g id="text206" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(349.6 219.6)"><tspan x="0" y="0">Counts</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(349.6 219.6)"><tspan x="0" y="0">Counts</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1049,7 +1083,9 @@
         <g id="text208" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(396.9 155.7)"><tspan x="0" y="0">Downsampling</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(396.9 155.7)"><tspan x="0" y="0">Downsampling</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1060,7 +1096,9 @@
         <g id="text210" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(423.4 170.1)"><tspan x="0" y="0">Seqtk</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(423.4 170.1)"><tspan x="0" y="0">Seqtk</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1071,7 +1109,7 @@
   <line id="line48" class="st53" x1="1003.4" y1="98" x2="1003.4" y2="175.9"/>
   <polyline id="polyline49" class="st16" points="1003.4 177.9 1003.4 179.9 1003.4 177.9"/>
   <line id="line49" class="st59" x1="1003.4" y1="173.9" x2="1003.4" y2="96"/>
-  <polygon id="polygon49" class="st80" points="993.2 103.6 1003.4 93.4 1013.5 103.6 1013.5 94.9 1003.4 84.8 993.2 94.9 993.2 103.6"/>
+  <polygon id="polygon49" class="st79" points="993.2 103.6 1003.4 93.4 1013.5 103.6 1013.5 94.9 1003.4 84.8 993.2 94.9 993.2 103.6"/>
   <path id="path49-8" class="st26" d="M1119.1,180.8h-132.7,132.7Z"/>
   <path id="path50-0" class="st29" d="M931.7,180.8h-383.8,383.8Z"/>
   <path id="path51-3" class="st31" d="M861.3,180.7v93.7-93.7Z"/>
@@ -1081,7 +1119,9 @@
         <g id="text211" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(885.2 205.5)"><tspan x="0" y="0">fgbio</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(885.2 205.5)"><tspan x="0" y="0">fgbio</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1092,7 +1132,9 @@
         <g id="text213" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(883.3 219.9)"><tspan x="0" y="0">Group</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(883.3 219.9)"><tspan x="0" y="0">Group</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1103,7 +1145,9 @@
         <g id="text214" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(882.7 234.3)"><tspan x="0" y="0">ByUMI</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(882.7 234.3)"><tspan x="0" y="0">ByUMI</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1114,7 +1158,9 @@
         <g id="text216" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(896.7 248.7)"><tspan x="0" y="0">+</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(896.7 248.7)"><tspan x="0" y="0">+</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1125,7 +1171,9 @@
         <g id="text218" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(884.4 263.1)"><tspan x="0" y="0">MDup</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(884.4 263.1)"><tspan x="0" y="0">MDup</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1138,7 +1186,9 @@
         <g id="text219" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(937.9 226.3)"><tspan x="0" y="0">fgbio</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(937.9 226.3)"><tspan x="0" y="0">fgbio</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1149,7 +1199,9 @@
         <g id="text221" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(933.9 240.7)"><tspan x="0" y="0">Duplex</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(933.9 240.7)"><tspan x="0" y="0">Duplex</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1160,7 +1212,9 @@
         <g id="text222" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(933.1 255.1)"><tspan x="0" y="0">Metrics</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(933.1 255.1)"><tspan x="0" y="0">Metrics</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1173,7 +1227,9 @@
         <g id="text224" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(828.6 164.4)"><tspan x="0" y="0">SAMblaster</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(828.6 164.4)"><tspan x="0" y="0">SAMblaster</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1186,7 +1242,9 @@
         <g id="text226" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1064.2 226)"><tspan x="0" y="0">Samtools</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1064.2 226)"><tspan x="0" y="0">Samtools</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1197,7 +1255,9 @@
         <g id="text227" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(1072.8 240.4)"><tspan x="0" y="0">collate</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(1072.8 240.4)"><tspan x="0" y="0">collate</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1208,7 +1268,9 @@
         <g id="text229" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(1069.5 254.8)"><tspan x="0" y="0">bam2fq</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(1069.5 254.8)"><tspan x="0" y="0">bam2fq</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1221,7 +1283,9 @@
         <g id="text231" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(937.9 113.2)"><tspan x="0" y="0">fgbio</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(937.9 113.2)"><tspan x="0" y="0">fgbio</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1232,7 +1296,9 @@
         <g id="text232" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(933.9 127.6)"><tspan x="0" y="0">Duplex</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(933.9 127.6)"><tspan x="0" y="0">Duplex</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1243,7 +1309,9 @@
         <g id="text234" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(939.3 142)"><tspan x="0" y="0">Cons</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(939.3 142)"><tspan x="0" y="0">Cons</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1256,7 +1324,9 @@
         <g id="text235" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(954 336.9)"><tspan x="0" y="0">Du</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(954 336.9)"><tspan x="0" y="0">Du</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1267,7 +1337,9 @@
         <g id="text237" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(969.5 336.9)"><tspan x="0" y="0">plex</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(969.5 336.9)"><tspan x="0" y="0">plex</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1280,7 +1352,9 @@
         <g id="text239" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1074.6 278.4)"><tspan x="0" y="0">FastQC</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1074.6 278.4)"><tspan x="0" y="0">FastQC</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1291,7 +1365,9 @@
         <g id="text240" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(1082.2 292.8)"><tspan x="0" y="0">Final</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(1082.2 292.8)"><tspan x="0" y="0">Final</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1304,7 +1380,9 @@
         <g id="text242" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(804.6 231.9)"><tspan x="0" y="0">Spades</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(804.6 231.9)"><tspan x="0" y="0">Spades</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1317,7 +1395,9 @@
         <g id="text244" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(756 279.7)"><tspan x="0" y="0">FilterContigs.py</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(756 279.7)"><tspan x="0" y="0">FilterContigs.py</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1328,10 +1408,10 @@
     <polyline id="polyline87" class="st16" points="861.3 322.1 861.3 324.1 861.3 322.1"/>
     <polyline id="polyline88" class="st16" points="861.3 284.3 861.3 282.3 861.3 284.3"/>
     <path id="path51" class="st11" d="M861.3,268.2v57.2-57.2Z"/>
-    <polygon id="polygon88" class="st102" points="871.5 312.5 861.3 322.7 851.2 312.5 851.2 321.1 861.3 331.3 871.5 321.1 871.5 312.5"/>
+    <polygon id="polygon88" class="st101" points="871.5 312.5 861.3 322.7 851.2 312.5 851.2 321.1 861.3 331.3 871.5 321.1 871.5 312.5"/>
   </g>
   <polyline id="polyline87-5" class="st16" points="1003.2 509.2 1003.2 511.2 1003.2 509.2"/>
-  <polygon id="polygon88-2" class="st107" points="1003.2 518.4 1013.3 508.2 1013.3 499.6 1003.2 509.8 993 499.6 993 508.2 1003.2 518.4"/>
+  <polygon id="polygon88-2" class="st106" points="1003.2 518.4 1013.3 508.2 1013.3 499.6 1003.2 509.8 993 499.6 993 508.2 1003.2 518.4"/>
   <path id="path51-4" class="st56" d="M1003.1,237.7v269.1V237.7Z"/>
   <g id="text91" class="st75">
     <g id="g247" class="st75">
@@ -1339,7 +1419,9 @@
         <g id="text245" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(566.5 150)"><tspan x="0" y="0">fgbio</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(566.5 150)"><tspan x="0" y="0">fgbio</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1350,7 +1432,9 @@
         <g id="text247" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(557.9 164.4)"><tspan x="0" y="0">FQ2BAM</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(557.9 164.4)"><tspan x="0" y="0">FQ2BAM</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1363,7 +1447,9 @@
         <g id="text248" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(703.1 135.6)"><tspan x="0" y="0">fgbio</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(703.1 135.6)"><tspan x="0" y="0">fgbio</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1374,7 +1460,9 @@
         <g id="text250" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(697.8 150)"><tspan x="0" y="0">Correct</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(697.8 150)"><tspan x="0" y="0">Correct</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1385,7 +1473,9 @@
         <g id="text252" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(704.8 164.4)"><tspan x="0" y="0">UMIs</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(704.8 164.4)"><tspan x="0" y="0">UMIs</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1399,7 +1489,9 @@
         <g id="text253" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(652.3 205.5)"><tspan x="0" y="0">AlignBAM</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(652.3 205.5)"><tspan x="0" y="0">AlignBAM</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1410,7 +1502,9 @@
         <g id="text255" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(668.4 219.9)"><tspan x="0" y="0">Raw</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(668.4 219.9)"><tspan x="0" y="0">Raw</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1426,7 +1520,9 @@
         <g id="text256" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(728.7 205.5)"><tspan x="0" y="0">SAMtools</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(728.7 205.5)"><tspan x="0" y="0">SAMtools</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1437,7 +1533,9 @@
         <g id="text258" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(744.9 219.9)"><tspan x="0" y="0">sort</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(744.9 219.9)"><tspan x="0" y="0">sort</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1448,7 +1546,9 @@
         <g id="text260" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(740.8 234.3)"><tspan x="0" y="0">index</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(740.8 234.3)"><tspan x="0" y="0">index</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1461,7 +1561,9 @@
         <g id="text261" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1022 203.5) scale(.9 1)"><tspan x="0" y="0">AlignBAM</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1022 203.5) scale(.9 1)"><tspan x="0" y="0">AlignBAM</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1472,7 +1574,9 @@
         <g id="text263" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(1035.8 217.9) scale(.9 1)"><tspan x="0" y="0">Final</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(1035.8 217.9) scale(.9 1)"><tspan x="0" y="0">Final</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1480,15 +1584,17 @@
     </g>
   </g>
   <g id="g131">
-    <rect id="rect130" class="st82" x="954" y="269.8" width="38.1" height="47.6"/>
-    <rect id="rect131" class="st85" x="951.6" y="288.8" width="42.9" height="19"/>
+    <rect id="rect130" class="st81" x="954" y="269.8" width="38.1" height="47.6"/>
+    <rect id="rect131" class="st84" x="951.6" y="288.8" width="42.9" height="19"/>
     <g id="text131" class="st75">
       <g id="text236" class="st75">
         <g id="g266" class="st75">
           <g id="text265" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(961.4 302)"><tspan x="0" y="0">bam</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(961.4 302)"><tspan x="0" y="0">bam</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -1497,15 +1603,17 @@
     </g>
   </g>
   <g id="g133">
-    <rect id="rect132" class="st82" x="1014.7" y="269.8" width="38.1" height="47.6"/>
-    <rect id="rect133" class="st85" x="1012.3" y="288.8" width="42.9" height="19"/>
+    <rect id="rect132" class="st81" x="1014.7" y="269.8" width="38.1" height="47.6"/>
+    <rect id="rect133" class="st84" x="1012.3" y="288.8" width="42.9" height="19"/>
     <g id="text133" class="st75">
       <g id="g268" class="st75">
         <g id="g267" class="st75">
           <g id="text266" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1022 302)"><tspan x="0" y="0">bam</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1022 302)"><tspan x="0" y="0">bam</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -1519,7 +1627,9 @@
         <g id="text268" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1011.9 336.9)"><tspan x="0" y="0">Sim</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1011.9 336.9)"><tspan x="0" y="0">Sim</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1530,7 +1640,9 @@
         <g id="text269" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(1032.9 336.9)"><tspan x="0" y="0">plex</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(1032.9 336.9)"><tspan x="0" y="0">plex</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1543,7 +1655,9 @@
         <g id="text271" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(983.5 38.6)"><tspan x="0" y="0">Collect</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(983.5 38.6)"><tspan x="0" y="0">Collect</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1554,7 +1668,9 @@
         <g id="text273" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(982 53)"><tspan x="0" y="0">Metrics</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(982 53)"><tspan x="0" y="0">Metrics</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1563,7 +1679,7 @@
   </g>
   <path id="path138" class="st16" d="M994.6,180.8h-20.2c-.4,0-.8-.1-.8-.2v-13.2"/>
   <path id="path144" class="st60" d="M335.3,422.7h40.5c.4,0,.8-.3.8-.8v-40.5c0-.4-.3-.8-.8-.8h-40.5"/>
-  <rect id="rect4-5" class="st101" x="376.3" y="399.1" width="430.7" height="6"/>
+  <rect id="rect4-5" class="st100" x="376.3" y="399.1" width="430.7" height="6"/>
   <path id="path186-6-3" class="st23" d="M711.4,359.8v-40.5c0-.4-.7-.8-1.5-.8h-79.5c-.8,0-1.5.3-1.5.8v40.5"/>
   <path id="path151" class="st47" d="M850,381.1h-40.5c-.4,0-.8.3-.8.8v40.5c0,.4.3.8.8.8h40.5"/>
   <g id="text155" class="st75">
@@ -1572,7 +1688,9 @@
         <g id="text274" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(524.9 371.9)"><tspan x="0" y="0">Survivor</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(524.9 371.9)"><tspan x="0" y="0">Survivor</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1583,7 +1701,9 @@
         <g id="text276" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(532.3 386.3)"><tspan x="0" y="0">Merge</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(532.3 386.3)"><tspan x="0" y="0">Merge</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1596,7 +1716,9 @@
         <g id="text277" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(745.6 350.8)"><tspan x="0" y="0">BWA</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(745.6 350.8)"><tspan x="0" y="0">BWA</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1607,7 +1729,9 @@
         <g id="text279" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(742.2 365.1)"><tspan x="0" y="0">mem2</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(742.2 365.1)"><tspan x="0" y="0">mem2</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1620,7 +1744,9 @@
         <g id="text281" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(653.8 342.5)"><tspan x="0" y="0">Tiddit</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(653.8 342.5)"><tspan x="0" y="0">Tiddit</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1633,7 +1759,9 @@
         <g id="text282" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(656 300.9)"><tspan x="0" y="0">Delly</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(656 300.9)"><tspan x="0" y="0">Delly</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1646,7 +1774,9 @@
         <g id="text284" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(652.5 384.1)"><tspan x="0" y="0">Gridss</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(652.5 384.1)"><tspan x="0" y="0">Gridss</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1659,7 +1789,9 @@
         <g id="text286" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(652.9 467.3)"><tspan x="0" y="0">Svaba</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(652.9 467.3)"><tspan x="0" y="0">Svaba</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1672,7 +1804,9 @@
         <g id="text287" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(652.4 425.7)"><tspan x="0" y="0">Manta</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(652.4 425.7)"><tspan x="0" y="0">Manta</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1685,7 +1819,9 @@
         <g id="text289" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(488.3 430.2)"><tspan x="0" y="0">ReCall</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(488.3 430.2)"><tspan x="0" y="0">ReCall</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1696,7 +1832,9 @@
         <g id="text290" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(489.4 444.6)"><tspan x="0" y="0">Gridss</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(489.4 444.6)"><tspan x="0" y="0">Gridss</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1709,7 +1847,9 @@
         <g id="text292" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(438.7 371.9)"><tspan x="0" y="0">Survivor</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(438.7 371.9)"><tspan x="0" y="0">Survivor</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1720,7 +1860,9 @@
         <g id="text294" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(441 386.3)"><tspan x="0" y="0">Filtering</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(441 386.3)"><tspan x="0" y="0">Filtering</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1733,7 +1875,9 @@
         <g id="text295" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(350.6 364.3)"><tspan x="0" y="0">DrawSVs</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(350.6 364.3)"><tspan x="0" y="0">DrawSVs</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1750,7 +1894,9 @@
         <g id="text297" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(562.3 430.2)"><tspan x="0" y="0">Standarize</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(562.3 430.2)"><tspan x="0" y="0">Standarize</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1761,7 +1907,9 @@
         <g id="text299" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(579.9 444.6)"><tspan x="0" y="0">Calls</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(579.9 444.6)"><tspan x="0" y="0">Calls</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1774,7 +1922,9 @@
         <g id="text301" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(393.5 430.2)"><tspan x="0" y="0">Annotate</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(393.5 430.2)"><tspan x="0" y="0">Annotate</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1785,7 +1935,9 @@
         <g id="text303" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(416.8 444.6)"><tspan x="0" y="0">?</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(416.8 444.6)"><tspan x="0" y="0">?</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1793,7 +1945,7 @@
     </g>
   </g>
   <path id="path201-5" class="st50" d="M900.4,446.9h205.8c2.3,0,4.1-.8,4.1-1.8v-89.8"/>
-  <polygon id="polygon202-7" class="st102" points="908.6 457 898.4 446.9 908.6 436.7 900 436.7 889.8 446.9 900 457 908.6 457"/>
+  <polygon id="polygon202-7" class="st101" points="908.6 457 898.4 446.9 908.6 436.7 900 436.7 889.8 446.9 900 457 908.6 457"/>
   <path id="path204" class="st54" d="M753.6,652.5"/>
   <g id="g311" class="st75">
     <g id="g310" class="st75">
@@ -1801,7 +1953,9 @@
         <g id="text308" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(860.8 627.9)"><tspan x="0" y="0">Mutect2</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(860.8 627.9)"><tspan x="0" y="0">Mutect2</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1816,7 +1970,9 @@
         <g id="text328" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(724.9 570.8)"><tspan x="0" y="0">VCF2TSV</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(724.9 570.8)"><tspan x="0" y="0">VCF2TSV</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1827,7 +1983,9 @@
         <g id="text329" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(713.1 585.2)"><tspan x="0" y="0">Merge/Report</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(713.1 585.2)"><tspan x="0" y="0">Merge/Report</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1840,7 +1998,9 @@
         <g id="text332" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(863.2 589.7)"><tspan x="0" y="0">LoFreq</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(863.2 589.7)"><tspan x="0" y="0">LoFreq</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1853,7 +2013,9 @@
         <g id="text334" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(988.7 651.1)"><tspan x="0" y="0">fgbio</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(988.7 651.1)"><tspan x="0" y="0">fgbio</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1864,7 +2026,9 @@
         <g id="text336" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(980.9 665.5)"><tspan x="0" y="0">ClipBAM</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(980.9 665.5)"><tspan x="0" y="0">ClipBAM</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1873,14 +2037,16 @@
   </g>
   <path id="path2703" class="st4" d="M809.3,605.3v39.4l146.9-.2c1.5,0,2.7-.3,2.7-.7v-38.5"/>
   <path id="path236-7" class="st15" d="M1239,656.4h35.8-35.8Z"/>
-  <rect id="rect9-9" class="st95" x="1236.6" y="478" width="6" height="177.2"/>
+  <rect id="rect9-9" class="st94" x="1236.6" y="478" width="6" height="177.2"/>
   <g id="g344" class="st75">
     <g id="g343" class="st75">
       <g id="g342" class="st75">
         <g id="text341" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1251.3 607.8)"><tspan x="0" y="0">Sequenza</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1251.3 607.8)"><tspan x="0" y="0">Sequenza</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1893,7 +2059,9 @@
         <g id="text344" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1251 481.6)"><tspan x="0" y="0">Controlfreec</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1251 481.6)"><tspan x="0" y="0">Controlfreec</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1906,7 +2074,9 @@
         <g id="text347" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1175.6 413.8)"><tspan x="0" y="0">bcftools</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1175.6 413.8)"><tspan x="0" y="0">bcftools</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1917,7 +2087,9 @@
         <g id="text348" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(1176.6 428.2)"><tspan x="0" y="0">mpileup</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(1176.6 428.2)"><tspan x="0" y="0">mpileup</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1930,7 +2102,9 @@
         <g id="text351" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1251.3 523.7)"><tspan x="0" y="0">CNVkit</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1251.3 523.7)"><tspan x="0" y="0">CNVkit</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1943,7 +2117,7 @@
   <line id="line246" class="st65" x1="1239.6" y1="563.4" x2="1199.1" y2="563.4"/>
   <line id="line247" class="st51" x1="1199.1" y1="563.4" x2="1239.6" y2="563.4"/>
   <path id="path247" class="st14" d="M1239.6,605.4h-40.5c-.4,0-.8-.3-.8-.8"/>
-  <rect id="rect10-8" class="st96" x="1195.3" y="445.7" width="6" height="158.9"/>
+  <rect id="rect10-8" class="st95" x="1195.3" y="445.7" width="6" height="158.9"/>
   <path id="path252-6" class="st55" d="M1324.7,677.6h-48.1c-.5,0-.9-.3-.9-.8v-40.1c0-.4.4-.8.9-.8h48.1"/>
   <g id="g356" class="st75">
     <g id="g355" class="st75">
@@ -1951,7 +2125,9 @@
         <g id="text353" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1250.8 565.8)"><tspan x="0" y="0">FACETS</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1250.8 565.8)"><tspan x="0" y="0">FACETS</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1964,7 +2140,9 @@
         <g id="text356" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1214.6 681.3)"><tspan x="0" y="0">BCFtools</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1214.6 681.3)"><tspan x="0" y="0">BCFtools</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1975,7 +2153,9 @@
         <g id="text358" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(1222.6 695.7)"><tspan x="0" y="0">Merge</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(1222.6 695.7)"><tspan x="0" y="0">Merge</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -1990,7 +2170,9 @@
         <g id="text360" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1259.4 296.6)"><tspan x="0" y="0">HLA-HD</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1259.4 296.6)"><tspan x="0" y="0">HLA-HD</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2004,7 +2186,9 @@
         <g id="text363" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1381.7 296.6)"><tspan x="0" y="0">LOHHLA</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1381.7 296.6)"><tspan x="0" y="0">LOHHLA</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2017,7 +2201,9 @@
         <g id="text365" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1458.7 296.6)"><tspan x="0" y="0">MHC-I</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1458.7 296.6)"><tspan x="0" y="0">MHC-I</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2030,7 +2216,9 @@
         <g id="text368" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1456.9 382.8)"><tspan x="0" y="0">MHC-II</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1456.9 382.8)"><tspan x="0" y="0">MHC-II</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2052,7 +2240,9 @@
         <g id="text371" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1256.9 380.3)"><tspan x="0" y="0">Optitype</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1256.9 380.3)"><tspan x="0" y="0">Optitype</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2065,7 +2255,9 @@
         <g id="text373" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1260.4 338.4)"><tspan x="0" y="0">HLA*LA</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1260.4 338.4)"><tspan x="0" y="0">HLA*LA</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2078,7 +2270,9 @@
         <g id="text376" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1251.9 422.2)"><tspan x="0" y="0">Polysolver</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1251.9 422.2)"><tspan x="0" y="0">Polysolver</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2091,7 +2285,9 @@
         <g id="text379" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1372.9 382.8)"><tspan x="0" y="0">LOH-HLA-II</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1372.9 382.8)"><tspan x="0" y="0">LOH-HLA-II</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2104,7 +2300,9 @@
         <g id="text381" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1187.5 305.2)"><tspan x="0" y="0">Chr6</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1187.5 305.2)"><tspan x="0" y="0">Chr6</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2115,7 +2313,9 @@
         <g id="text383" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1185.4 319.6)"><tspan x="0" y="0">Fastq</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1185.4 319.6)"><tspan x="0" y="0">Fastq</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2129,7 +2329,9 @@
         <g id="text385" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(1535.4 320.4)"><tspan x="0" y="0">Noah</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(1535.4 320.4)"><tspan x="0" y="0">Noah</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2137,19 +2339,21 @@
     </g>
   </g>
   <path id="path291-3" class="st10" d="M1173.2,336.7h-22.8c-.4,0-.7-1.1-.7-2.4v-124.5"/>
-  <polygon id="polygon292" class="st104" points="1167 326.7 1177.2 336.9 1167 347 1175.7 347 1185.8 336.9 1175.7 326.7 1167 326.7"/>
+  <polygon id="polygon292" class="st103" points="1167 326.7 1177.2 336.9 1167 347 1175.7 347 1185.8 336.9 1175.7 326.7 1167 326.7"/>
   <g id="g389">
     <path id="path293-0" class="st1" d="M1173.1,446.9h-22.8c-.4,0-.7-.9-.7-2v-103.4"/>
-    <polygon id="polygon294" class="st105" points="1167 436.6 1177.2 446.8 1167 456.9 1175.7 456.9 1185.8 446.8 1175.7 436.6 1167 436.6"/>
+    <polygon id="polygon294" class="st104" points="1167 436.6 1177.2 446.8 1167 456.9 1175.7 456.9 1185.8 446.8 1175.7 436.6 1167 436.6"/>
   </g>
-  <rect id="rect4" class="st97" x="1201.6" y="180.6" width="249.1" height="6"/>
+  <rect id="rect4" class="st96" x="1201.6" y="180.6" width="249.1" height="6"/>
   <g id="g392" class="st75">
     <g id="g391" class="st75">
       <g id="g390" class="st75">
         <g id="text389" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1174.2 157)"><tspan x="0" y="0">TelHunter</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1174.2 157)"><tspan x="0" y="0">TelHunter</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2162,7 +2366,9 @@
         <g id="text392" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1221.4 214.4)"><tspan x="0" y="0">TelFusDect</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1221.4 214.4)"><tspan x="0" y="0">TelFusDect</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2175,7 +2381,9 @@
         <g id="text394" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1275.6 157)"><tspan x="0" y="0">TelReport</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1275.6 157)"><tspan x="0" y="0">TelReport</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2188,7 +2396,9 @@
         <g id="text397" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(120.8 622.5)"><tspan x="0" y="0">UMI Processing</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(120.8 622.5)"><tspan x="0" y="0">UMI Processing</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2201,7 +2411,9 @@
         <g id="text399" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(120.8 600.6)"><tspan x="0" y="0">Preprocessing</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(120.8 600.6)"><tspan x="0" y="0">Preprocessing</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2214,7 +2426,9 @@
         <g id="text401" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(120.8 729.9)"><tspan x="0" y="0">HLAinn (ImmunOncology)</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(120.8 729.9)"><tspan x="0" y="0">HLAinn (ImmunOncology)</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2227,7 +2441,9 @@
         <g id="text403" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(120.8 665.6)"><tspan x="0" y="0">Tempus (Telomers)</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(120.8 665.6)"><tspan x="0" y="0">Tempus (Telomers)</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2240,7 +2456,9 @@
         <g id="text405" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(120.8 644.2)"><tspan x="0" y="0">Mutation Calling</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(120.8 644.2)"><tspan x="0" y="0">Mutation Calling</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2255,7 +2473,9 @@
         <g id="text408" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st71" transform="translate(344.6 570.5)"><tspan x="0" y="0">[de</tspan></text>
+              <g class="st75">
+                <text class="st71" transform="translate(344.6 570.5)"><tspan x="0" y="0">[de</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2266,7 +2486,9 @@
         <g id="text409" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st74" transform="translate(373.1 570.5)"><tspan x="0" y="0">ɪ</tspan></text>
+              <g class="st75">
+                <text class="st74" transform="translate(373.1 570.5)"><tspan x="0" y="0">ɪ</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2277,41 +2499,45 @@
         <g id="text410" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st71" transform="translate(380.7 570.5)"><tspan x="0" y="0">n]</tspan></text>
+              <g class="st75">
+                <text class="st71" transform="translate(380.7 570.5)"><tspan x="0" y="0">n]</tspan></text>
+              </g>
             </g>
           </g>
         </g>
       </g>
     </g>
   </g>
-  <circle id="circle1" class="st94" cy="-.6" r="3.1">
+  <circle id="circle1" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="0s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1" keyTimes="0;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path1"/>
     </animateMotion>
   </circle>
-  <circle id="circle1-9" class="st94" cy="-.6" r="3.1">
+  <circle id="circle1-9" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="0s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1" keyTimes="0;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path1-9"/>
     </animateMotion>
   </circle>
   <g id="g23">
-    <rect id="rect14" class="st82" x="97.9" y="155.7" width="38.1" height="47.6"/>
-    <rect id="rect15" class="st81" x="96.4" y="172.1" width="42.9" height="19.1"/>
-    <rect id="rect16" class="st82" x="100.6" y="158.6" width="38.1" height="47.6"/>
-    <rect id="rect17" class="st86" x="98.9" y="174.6" width="42.9" height="19.1"/>
-    <rect id="rect18" class="st82" x="103.2" y="161.9" width="38.1" height="47.6"/>
-    <rect id="rect19" class="st83" x="101.5" y="177" width="42.9" height="19.1"/>
+    <rect id="rect14" class="st81" x="97.9" y="155.7" width="38.1" height="47.6"/>
+    <rect id="rect15" class="st80" x="96.4" y="172.1" width="42.9" height="19.1"/>
+    <rect id="rect16" class="st81" x="100.6" y="158.6" width="38.1" height="47.6"/>
+    <rect id="rect17" class="st85" x="98.9" y="174.6" width="42.9" height="19.1"/>
+    <rect id="rect18" class="st81" x="103.2" y="161.9" width="38.1" height="47.6"/>
+    <rect id="rect19" class="st82" x="101.5" y="177" width="42.9" height="19.1"/>
     <g id="g22">
-      <rect id="rect20" class="st82" x="106.3" y="165.2" width="38.1" height="47.6"/>
+      <rect id="rect20" class="st81" x="106.3" y="165.2" width="38.1" height="47.6"/>
       <g id="g21">
-        <rect id="rect21" class="st84" x="104" y="179.5" width="42.9" height="19.1"/>
+        <rect id="rect21" class="st83" x="104" y="179.5" width="42.9" height="19.1"/>
         <g id="text21" class="st75">
           <g id="text309" class="st75">
             <g id="g413" class="st75">
               <g id="text412" class="st75">
                 <g class="st75">
                   <g class="st75">
-                    <text class="st77" transform="translate(113.9 192.5)"><tspan x="0" y="0">fastq</tspan></text>
+                    <g class="st75">
+                      <text class="st77" transform="translate(113.9 192.5)"><tspan x="0" y="0">fastq</tspan></text>
+                    </g>
                   </g>
                 </g>
               </g>
@@ -2323,27 +2549,27 @@
   </g>
   <path id="rect35" class="st68" d="M207.2,155.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <path id="rect34" class="st68" d="M207.2,197.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <circle id="circle2" class="st94" cy="-.6" r="3.1">
+  <circle id="circle2" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="3s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1" keyTimes="0;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path2"/>
     </animateMotion>
   </circle>
-  <circle id="circle3" class="st94" cy="-.6" r="3.1">
+  <circle id="circle3" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="3s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1" keyTimes="0;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path3"/>
     </animateMotion>
   </circle>
-  <circle id="circle5" class="st94" cy="-.6" r="3.1">
+  <circle id="circle5" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="6s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1" keyTimes="0;0.75;1" repeatCount="indefinite" restart="always">
       <mpath href="#path5"/>
     </animateMotion>
   </circle>
   <g id="g27">
     <g id="g26">
-      <rect id="rect23" class="st82" x="267.9" y="159.2" width="38.1" height="47.6"/>
-      <rect id="rect24" class="st83" x="265.5" y="178.3" width="42.9" height="19.1"/>
-      <rect id="rect25" class="st82" x="270.3" y="161.6" width="38.1" height="47.6"/>
-      <rect id="rect26" class="st84" x="267.9" y="180.7" width="42.9" height="19.1"/>
+      <rect id="rect23" class="st81" x="267.9" y="159.2" width="38.1" height="47.6"/>
+      <rect id="rect24" class="st82" x="265.5" y="178.3" width="42.9" height="19.1"/>
+      <rect id="rect25" class="st81" x="270.3" y="161.6" width="38.1" height="47.6"/>
+      <rect id="rect26" class="st83" x="267.9" y="180.7" width="42.9" height="19.1"/>
     </g>
     <g id="text26" class="st75">
       <g id="text310" class="st75">
@@ -2351,7 +2577,9 @@
           <g id="text413" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(277.8 193.7)"><tspan x="0" y="0">fastq</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(277.8 193.7)"><tspan x="0" y="0">fastq</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2363,10 +2591,10 @@
   <path id="rect44" class="st68" d="M438.7,176.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <g id="g103">
     <g id="g102">
-      <rect id="rect99" class="st82" x="512.4" y="155.8" width="38.1" height="47.6"/>
-      <rect id="rect100" class="st83" x="510" y="174.8" width="42.9" height="19.1"/>
-      <rect id="rect101" class="st82" x="514.8" y="158.2" width="38.1" height="47.6"/>
-      <rect id="rect102" class="st84" x="512.4" y="177.2" width="42.9" height="19.1"/>
+      <rect id="rect99" class="st81" x="512.4" y="155.8" width="38.1" height="47.6"/>
+      <rect id="rect100" class="st82" x="510" y="174.8" width="42.9" height="19.1"/>
+      <rect id="rect101" class="st81" x="514.8" y="158.2" width="38.1" height="47.6"/>
+      <rect id="rect102" class="st83" x="512.4" y="177.2" width="42.9" height="19.1"/>
     </g>
     <g id="text102" class="st75">
       <g id="g416" class="st75">
@@ -2374,7 +2602,9 @@
           <g id="text414" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(522.3 190.3)"><tspan x="0" y="0">fastq</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(522.3 190.3)"><tspan x="0" y="0">fastq</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2384,15 +2614,17 @@
   </g>
   <path id="rect111" class="st68" d="M581.3,173.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <g id="g98">
-    <rect id="rect97" class="st82" x="609.7" y="157" width="38.1" height="47.6"/>
-    <rect id="rect98" class="st85" x="607.3" y="176" width="42.9" height="19.1"/>
+    <rect id="rect97" class="st81" x="609.7" y="157" width="38.1" height="47.6"/>
+    <rect id="rect98" class="st84" x="607.3" y="176" width="42.9" height="19.1"/>
     <g id="text98" class="st75">
       <g id="g418" class="st75">
         <g id="g417" class="st75">
           <g id="text416" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(613.7 189.2)"><tspan x="0" y="0">ubam</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(613.7 189.2)"><tspan x="0" y="0">ubam</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2403,27 +2635,27 @@
   <path id="rect105" class="st68" d="M680.3,173.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <path id="rect112" class="st68" d="M717.9,173.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <path id="rect103" class="st68" d="M755.5,173.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <circle id="circle7" class="st94" cy="-.6" r="3.1">
+  <circle id="circle7" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="11s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path7"/>
     </animateMotion>
   </circle>
-  <circle id="circle10" class="st94" cy="-.6" r="3.1">
+  <circle id="circle10" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="11s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.75;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path10"/>
     </animateMotion>
   </circle>
-  <circle id="circle11" class="st94" cy="-.6" r="3.1">
+  <circle id="circle11" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="11s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.75;0.75;1" repeatCount="indefinite" restart="always">
       <mpath href="#path11"/>
     </animateMotion>
   </circle>
   <g id="g160">
     <g id="g159">
-      <rect id="rect156" class="st82" x="841.2" y="337.2" width="38.1" height="47.6"/>
-      <rect id="rect157" class="st83" x="838.8" y="356.3" width="42.9" height="19"/>
-      <rect id="rect158" class="st82" x="843.6" y="339.6" width="38.1" height="47.6"/>
-      <rect id="rect159" class="st84" x="841.2" y="358.7" width="42.9" height="19"/>
+      <rect id="rect156" class="st81" x="841.2" y="337.2" width="38.1" height="47.6"/>
+      <rect id="rect157" class="st82" x="838.8" y="356.3" width="42.9" height="19"/>
+      <rect id="rect158" class="st81" x="843.6" y="339.6" width="38.1" height="47.6"/>
+      <rect id="rect159" class="st83" x="841.2" y="358.7" width="42.9" height="19"/>
     </g>
     <g id="text159" class="st75">
       <g id="text313" class="st75">
@@ -2431,7 +2663,9 @@
           <g id="text418" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(851.1 371.7)"><tspan x="0" y="0">fastq</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(851.1 371.7)"><tspan x="0" y="0">fastq</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2445,10 +2679,10 @@
   <path id="rect200" class="st68" d="M1134.8,275.9h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5Z"/>
   <g id="g13">
     <g id="g12">
-      <rect id="rect9" class="st82" x="1096.1" y="305.2" width="38.1" height="47.6"/>
-      <rect id="rect10" class="st83" x="1093.7" y="324.3" width="42.9" height="19"/>
-      <rect id="rect11" class="st82" x="1098.4" y="307.6" width="38.1" height="47.6"/>
-      <rect id="rect12" class="st84" x="1096.1" y="326.7" width="42.9" height="19"/>
+      <rect id="rect9" class="st81" x="1096.1" y="305.2" width="38.1" height="47.6"/>
+      <rect id="rect10" class="st82" x="1093.7" y="324.3" width="42.9" height="19"/>
+      <rect id="rect11" class="st81" x="1098.4" y="307.6" width="38.1" height="47.6"/>
+      <rect id="rect12" class="st83" x="1096.1" y="326.7" width="42.9" height="19"/>
     </g>
     <g id="text12" class="st75">
       <g id="text314" class="st75">
@@ -2456,7 +2690,9 @@
           <g id="text419" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1105.9 339.7)"><tspan x="0" y="0">fastq</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1105.9 339.7)"><tspan x="0" y="0">fastq</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2466,10 +2702,10 @@
   </g>
   <g id="g164">
     <g id="g163">
-      <rect id="rect160" class="st82" x="841.2" y="416.7" width="38.1" height="47.6"/>
-      <rect id="rect161" class="st83" x="838.8" y="435.7" width="42.9" height="19"/>
-      <rect id="rect162" class="st82" x="843.6" y="419.1" width="38.1" height="47.6"/>
-      <rect id="rect163" class="st84" x="841.2" y="438.1" width="42.9" height="19"/>
+      <rect id="rect160" class="st81" x="841.2" y="416.7" width="38.1" height="47.6"/>
+      <rect id="rect161" class="st82" x="838.8" y="435.7" width="42.9" height="19"/>
+      <rect id="rect162" class="st81" x="843.6" y="419.1" width="38.1" height="47.6"/>
+      <rect id="rect163" class="st83" x="841.2" y="438.1" width="42.9" height="19"/>
     </g>
     <g id="text163" class="st75">
       <g id="g422" class="st75">
@@ -2477,7 +2713,9 @@
           <g id="text420" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(851.1 451.2)"><tspan x="0" y="0">fastq</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(851.1 451.2)"><tspan x="0" y="0">fastq</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2485,37 +2723,37 @@
       </g>
     </g>
   </g>
-  <circle id="circle12" class="st94" cy="-.6" r="3.1">
+  <circle id="circle12" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="15.2s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path12"/>
     </animateMotion>
   </circle>
-  <circle id="circle15" class="st94" cy="-.6" r="3.1">
+  <circle id="circle15" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="15.2s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path15"/>
     </animateMotion>
   </circle>
-  <circle id="circle16" class="st94" cy="-.6" r="3.1">
+  <circle id="circle16" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="15.2s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path16"/>
     </animateMotion>
   </circle>
-  <circle id="circle17" class="st94" cy="-.6" r="3.1">
+  <circle id="circle17" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="15.2s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path17"/>
     </animateMotion>
   </circle>
-  <circle id="circle18" class="st94" cy="-.6" r="3.1">
+  <circle id="circle18" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="15.2s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path18"/>
     </animateMotion>
   </circle>
   <g id="g171">
     <g id="g170">
-      <rect id="rect167" class="st82" x="738.2" y="377.1" width="38.1" height="47.6"/>
-      <rect id="rect168" class="st83" x="735.8" y="396.2" width="42.9" height="19"/>
-      <rect id="rect169" class="st82" x="740.5" y="379.5" width="38.1" height="47.6"/>
-      <rect id="rect170" class="st84" x="738.2" y="398.5" width="42.9" height="19"/>
+      <rect id="rect167" class="st81" x="738.2" y="377.1" width="38.1" height="47.6"/>
+      <rect id="rect168" class="st82" x="735.8" y="396.2" width="42.9" height="19"/>
+      <rect id="rect169" class="st81" x="740.5" y="379.5" width="38.1" height="47.6"/>
+      <rect id="rect170" class="st83" x="738.2" y="398.5" width="42.9" height="19"/>
     </g>
     <g id="text170" class="st75">
       <g id="g424" class="st75">
@@ -2523,7 +2761,9 @@
           <g id="text422" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(748 411.6)"><tspan x="0" y="0">bam</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(748 411.6)"><tspan x="0" y="0">bam</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2536,12 +2776,12 @@
   <path id="rect186" class="st68" d="M670.2,409.6h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
   <path id="rect185" class="st68" d="M670.2,368h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
   <path id="rect171" class="st68" d="M670.2,326.1h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
-  <circle id="circle19" class="st94" cy="-.6" r="3.1">
+  <circle id="circle19" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="18s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.5;0.5;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path19"/>
     </animateMotion>
   </circle>
-  <circle id="circle20" class="st94" cy="-.6" r="3.1">
+  <circle id="circle20" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="18s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.5;0.5;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path20"/>
     </animateMotion>
@@ -2554,10 +2794,10 @@
   <path id="rect188" class="st68" d="M376.1,389.9h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
   <g id="g428">
     <g id="g425">
-      <rect id="rect189" class="st82" x="295.7" y="337.2" width="38.1" height="47.6"/>
-      <rect id="rect190" class="st83" x="293.3" y="356.3" width="42.9" height="19"/>
-      <rect id="rect191" class="st82" x="298.1" y="339.6" width="38.1" height="47.6"/>
-      <rect id="rect192" class="st84" x="295.7" y="358.7" width="42.9" height="19"/>
+      <rect id="rect189" class="st81" x="295.7" y="337.2" width="38.1" height="47.6"/>
+      <rect id="rect190" class="st82" x="293.3" y="356.3" width="42.9" height="19"/>
+      <rect id="rect191" class="st81" x="298.1" y="339.6" width="38.1" height="47.6"/>
+      <rect id="rect192" class="st83" x="295.7" y="358.7" width="42.9" height="19"/>
     </g>
     <g id="g427" class="st75">
       <g id="text317" class="st75">
@@ -2565,7 +2805,9 @@
           <g id="text425" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(310.6 371.7)"><tspan x="0" y="0">pdf</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(310.6 371.7)"><tspan x="0" y="0">pdf</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2575,10 +2817,10 @@
   </g>
   <g id="g148">
     <g id="g147">
-      <rect id="rect144" class="st82" x="295.7" y="416.7" width="38.1" height="47.6"/>
-      <rect id="rect145" class="st83" x="293.3" y="435.7" width="42.9" height="19"/>
-      <rect id="rect146" class="st82" x="298.1" y="419.1" width="38.1" height="47.6"/>
-      <rect id="rect147" class="st84" x="295.7" y="438.1" width="42.9" height="19"/>
+      <rect id="rect144" class="st81" x="295.7" y="416.7" width="38.1" height="47.6"/>
+      <rect id="rect145" class="st82" x="293.3" y="435.7" width="42.9" height="19"/>
+      <rect id="rect146" class="st81" x="298.1" y="419.1" width="38.1" height="47.6"/>
+      <rect id="rect147" class="st83" x="295.7" y="438.1" width="42.9" height="19"/>
     </g>
     <g id="text147" class="st75">
       <g id="g430" class="st75">
@@ -2586,7 +2828,9 @@
           <g id="text428" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(310.6 451.2)"><tspan x="0" y="0">vcf</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(310.6 451.2)"><tspan x="0" y="0">vcf</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2594,43 +2838,43 @@
       </g>
     </g>
   </g>
-  <circle id="circle21" class="st94" cy="-.6" r="3.1">
+  <circle id="circle21" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="11s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path21"/>
     </animateMotion>
   </circle>
-  <circle id="circle22" class="st94" cy="-.6" r="3.1">
+  <circle id="circle22" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="11s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;0.5;1" repeatCount="indefinite" restart="always">
       <mpath href="#path22"/>
     </animateMotion>
   </circle>
-  <circle id="circle23" class="st94" cy="-.6" r="3.1">
+  <circle id="circle23" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="20s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.25;1;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path23"/>
     </animateMotion>
   </circle>
   <path id="rect109" class="st68" d="M952.6,194.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <circle id="circle24" class="st94" cy="-.6" r="3.1">
+  <circle id="circle24" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="12s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.25;1;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path24"/>
     </animateMotion>
   </circle>
-  <circle id="circle25" class="st94" cy="-.6" r="3.1">
+  <circle id="circle25" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="12s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.5;1;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path25"/>
     </animateMotion>
   </circle>
-  <circle id="circle26" class="st94" cy="-.6" r="3.1">
+  <circle id="circle26" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="12s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.25;1;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path26"/>
     </animateMotion>
   </circle>
-  <circle id="circle27" class="st94" cy="-.6" r="3.1">
+  <circle id="circle27" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="12s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.25;1;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path27"/>
     </animateMotion>
   </circle>
-  <circle id="circle28" class="st94" cy="-.6" r="3.1">
+  <circle id="circle28" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="12s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1;1" keyTimes="0;0.25;1;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path28"/>
     </animateMotion>
@@ -2643,7 +2887,9 @@
           <g id="text430" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st72" transform="translate(1061.9 135.6)"><tspan x="0" y="0">SAMtools</tspan></text>
+                <g class="st75">
+                  <text class="st72" transform="translate(1061.9 135.6)"><tspan x="0" y="0">SAMtools</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2654,7 +2900,9 @@
           <g id="text431" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st69" transform="translate(1078.2 150)"><tspan x="0" y="0">sort</tspan></text>
+                <g class="st75">
+                  <text class="st70" transform="translate(1078.2 150)"><tspan x="0" y="0">sort</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2665,7 +2913,9 @@
           <g id="text433" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st69" transform="translate(1074 164.4)"><tspan x="0" y="0">index</tspan></text>
+                <g class="st75">
+                  <text class="st70" transform="translate(1074 164.4)"><tspan x="0" y="0">index</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2678,10 +2928,10 @@
   <path id="rect295" class="st68" d="M1252.2,176.1h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <g id="g439">
     <g id="g435">
-      <rect id="rect297" class="st82" x="1282.1" y="87" width="38.1" height="47.6"/>
-      <rect id="rect298" class="st83" x="1279.8" y="106" width="42.9" height="19.1"/>
-      <rect id="rect299" class="st82" x="1284.5" y="89.3" width="38.1" height="47.6"/>
-      <rect id="rect300" class="st84" x="1282.1" y="108.4" width="42.9" height="19.1"/>
+      <rect id="rect297" class="st81" x="1282.1" y="87" width="38.1" height="47.6"/>
+      <rect id="rect298" class="st82" x="1279.8" y="106" width="42.9" height="19.1"/>
+      <rect id="rect299" class="st81" x="1284.5" y="89.3" width="38.1" height="47.6"/>
+      <rect id="rect300" class="st83" x="1282.1" y="108.4" width="42.9" height="19.1"/>
     </g>
     <g id="g438" class="st75">
       <g id="g437" class="st75">
@@ -2689,7 +2939,9 @@
           <g id="text435" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1297 121.5)"><tspan x="0" y="0">tsv</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1297 121.5)"><tspan x="0" y="0">tsv</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2704,7 +2956,9 @@
         <g id="text439" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st72" transform="translate(986.6 202.6)"><tspan x="0" y="0">fgbio</tspan></text>
+              <g class="st75">
+                <text class="st72" transform="translate(986.6 202.6)"><tspan x="0" y="0">fgbio</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2715,7 +2969,9 @@
         <g id="text440" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(977 217)"><tspan x="0" y="0">FilterCon</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(977 217)"><tspan x="0" y="0">FilterCon</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2726,7 +2982,9 @@
         <g id="text442" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(984.8 231.4)"><tspan x="0" y="0">Reads</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(984.8 231.4)"><tspan x="0" y="0">Reads</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2734,15 +2992,17 @@
     </g>
   </g>
   <g id="g138">
-    <rect id="rect137" class="st82" x="1119.5" y="157" width="38.1" height="47.6"/>
-    <rect id="rect138" class="st85" x="1117.1" y="176" width="42.9" height="19.1"/>
+    <rect id="rect137" class="st81" x="1119.5" y="157" width="38.1" height="47.6"/>
+    <rect id="rect138" class="st84" x="1117.1" y="176" width="42.9" height="19.1"/>
     <g id="text138" class="st75">
       <g id="text327" class="st75">
         <g id="g444" class="st75">
           <g id="text443" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1126.9 189.2)"><tspan x="0" y="0">bam</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1126.9 189.2)"><tspan x="0" y="0">bam</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2751,67 +3011,67 @@
     </g>
   </g>
   <path id="rect291" class="st68" d="M1003.1,64.4h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <circle id="circle29" class="st94" cy="-.6" r="3.1">
+  <circle id="circle29" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path29"/>
     </animateMotion>
   </circle>
-  <circle id="circle29-0" class="st94" cy="-.6" r="3.1">
+  <circle id="circle29-0" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path29-0"/>
     </animateMotion>
   </circle>
-  <circle id="circle30" class="st94" cy="-.6" r="3.1">
+  <circle id="circle30" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path30"/>
     </animateMotion>
   </circle>
-  <circle id="circle31" class="st94" cy="-.6" r="3.1">
+  <circle id="circle31" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path31"/>
     </animateMotion>
   </circle>
-  <circle id="circle32" class="st94" cy="-.6" r="3.1">
+  <circle id="circle32" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path32"/>
     </animateMotion>
   </circle>
-  <circle id="circle33" class="st94" cy="-.6" r="3.1">
+  <circle id="circle33" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path33"/>
     </animateMotion>
   </circle>
-  <circle id="circle36" class="st94" cy="-.6" r="3.1">
+  <circle id="circle36" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path36"/>
     </animateMotion>
   </circle>
-  <circle id="circle37" class="st94" cy="-.6" r="3.1">
+  <circle id="circle37" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path37"/>
     </animateMotion>
   </circle>
-  <circle id="circle38" class="st94" cy="-.6" r="3.1">
+  <circle id="circle38" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path38"/>
     </animateMotion>
   </circle>
-  <circle id="circle39" class="st94" cy="-.6" r="3.1">
+  <circle id="circle39" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path39"/>
     </animateMotion>
   </circle>
-  <circle id="circle40" class="st94" cy="-.6" r="3.1">
+  <circle id="circle40" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path40"/>
     </animateMotion>
   </circle>
-  <circle id="circle41" class="st94" cy="-.6" r="3.1">
+  <circle id="circle41" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path41"/>
     </animateMotion>
   </circle>
-  <circle id="circle42" class="st94" cy="-.6" r="3.1">
+  <circle id="circle42" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="13.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1" keyTimes="0;0.5;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path42"/>
     </animateMotion>
@@ -2823,15 +3083,17 @@
   <path id="rect279" class="st68" d="M1282.8,390.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <path id="rect243" class="st68" d="M1205.9,445.7h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5Z"/>
   <g id="g448">
-    <rect id="rect314" class="st82" x="984.3" y="523.7" width="38.1" height="47.6"/>
-    <rect id="rect315" class="st85" x="982" y="542.8" width="42.9" height="19"/>
+    <rect id="rect314" class="st81" x="984.3" y="523.7" width="38.1" height="47.6"/>
+    <rect id="rect315" class="st84" x="982" y="542.8" width="42.9" height="19"/>
     <g id="g447" class="st75">
       <g id="g446" class="st75">
         <g id="g445" class="st75">
           <g id="text444" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(991.7 556)"><tspan x="0" y="0">bam</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(991.7 556)"><tspan x="0" y="0">bam</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2843,12 +3105,12 @@
   <path id="rect234" class="st68" d="M884.1,612.7h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
   <path id="rect310" class="st68" d="M884.1,652.6h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
   <path id="rect311" class="st68" d="M884.1,691.4h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
-  <circle id="circle43" class="st94" cy="-.6" r="3.1">
+  <circle id="circle43" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path43"/>
     </animateMotion>
   </circle>
-  <circle id="circle44" class="st94" cy="-.6" r="3.1">
+  <circle id="circle44" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path44"/>
     </animateMotion>
@@ -2862,10 +3124,10 @@
   <path id="rect290" class="st68" d="M1551.7,328.7h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <g id="g453">
     <g id="g449">
-      <rect id="rect286" class="st82" x="1584.7" y="308.8" width="38.1" height="47.6"/>
-      <rect id="rect287" class="st83" x="1582.3" y="327.8" width="42.9" height="19"/>
-      <rect id="rect288" class="st82" x="1587.1" y="311.2" width="38.1" height="47.6"/>
-      <rect id="rect289" class="st84" x="1584.7" y="330.2" width="42.9" height="19"/>
+      <rect id="rect286" class="st81" x="1584.7" y="308.8" width="38.1" height="47.6"/>
+      <rect id="rect287" class="st82" x="1582.3" y="327.8" width="42.9" height="19"/>
+      <rect id="rect288" class="st81" x="1587.1" y="311.2" width="38.1" height="47.6"/>
+      <rect id="rect289" class="st83" x="1584.7" y="330.2" width="42.9" height="19"/>
     </g>
     <g id="g452" class="st75">
       <g id="g451" class="st75">
@@ -2873,7 +3135,9 @@
           <g id="text449" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1599.6 343.3)"><tspan x="0" y="0">tsv</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1599.6 343.3)"><tspan x="0" y="0">tsv</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2881,12 +3145,12 @@
       </g>
     </g>
   </g>
-  <circle id="circle45" class="st94" cy="-.6" r="3.1">
+  <circle id="circle45" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path45"/>
     </animateMotion>
   </circle>
-  <circle id="circle45-3" class="st94" cy="-.6" r="3.1">
+  <circle id="circle45-3" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path45-3"/>
     </animateMotion>
@@ -2894,10 +3158,10 @@
   <path id="rect312" class="st68" d="M751,612.8h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
   <g id="g458">
     <g id="g454">
-      <rect id="rect253" class="st82" x="1317.6" y="604.7" width="38.1" height="47.6"/>
-      <rect id="rect254" class="st83" x="1315.2" y="623.8" width="42.9" height="19"/>
-      <rect id="rect255" class="st82" x="1320" y="607.1" width="38.1" height="47.6"/>
-      <rect id="rect256" class="st84" x="1317.6" y="626.1" width="42.9" height="19"/>
+      <rect id="rect253" class="st81" x="1317.6" y="604.7" width="38.1" height="47.6"/>
+      <rect id="rect254" class="st82" x="1315.2" y="623.8" width="42.9" height="19"/>
+      <rect id="rect255" class="st81" x="1320" y="607.1" width="38.1" height="47.6"/>
+      <rect id="rect256" class="st83" x="1317.6" y="626.1" width="42.9" height="19"/>
     </g>
     <g id="g457" class="st75">
       <g id="g456" class="st75">
@@ -2905,7 +3169,9 @@
           <g id="text454" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1331.5 639.2)"><tspan x="0" y="0">pdf</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1331.5 639.2)"><tspan x="0" y="0">pdf</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2915,10 +3181,10 @@
   </g>
   <g id="g462">
     <g id="g459">
-      <rect id="rect257" class="st82" x="1317.6" y="664.8" width="38.1" height="47.6"/>
-      <rect id="rect258" class="st83" x="1315.2" y="683.8" width="42.9" height="19"/>
-      <rect id="rect259" class="st82" x="1320" y="667.1" width="38.1" height="47.6"/>
-      <rect id="rect260" class="st84" x="1317.6" y="686.2" width="42.9" height="19"/>
+      <rect id="rect257" class="st81" x="1317.6" y="664.8" width="38.1" height="47.6"/>
+      <rect id="rect258" class="st82" x="1315.2" y="683.8" width="42.9" height="19"/>
+      <rect id="rect259" class="st81" x="1320" y="667.1" width="38.1" height="47.6"/>
+      <rect id="rect260" class="st83" x="1317.6" y="686.2" width="42.9" height="19"/>
     </g>
     <g id="g461" class="st75">
       <g id="text335" class="st75">
@@ -2926,7 +3192,9 @@
           <g id="text459" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1331.5 699.2)"><tspan x="0" y="0">vcf</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1331.5 699.2)"><tspan x="0" y="0">vcf</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2940,15 +3208,17 @@
   <path id="rect250" class="st68" d="M1239.6,513.3h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <path id="rect249" class="st68" d="M1239.6,471.6h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <g id="g114">
-    <rect id="rect113" class="st82" x="788" y="157" width="38.1" height="47.6"/>
-    <rect id="rect114" class="st85" x="785.6" y="176" width="42.9" height="19.1"/>
+    <rect id="rect113" class="st81" x="788" y="157" width="38.1" height="47.6"/>
+    <rect id="rect114" class="st84" x="785.6" y="176" width="42.9" height="19.1"/>
     <g id="text114" class="st75">
       <g id="text337" class="st75">
         <g id="g463" class="st75">
           <g id="text462" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(795.4 189.2)"><tspan x="0" y="0">bam</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(795.4 189.2)"><tspan x="0" y="0">bam</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -2962,7 +3232,9 @@
         <g id="text463" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1331.1 214.4)"><tspan x="0" y="0">ALTpred</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1331.1 214.4)"><tspan x="0" y="0">ALTpred</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2975,7 +3247,9 @@
         <g id="text464" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(1389.1 157)"><tspan x="0" y="0">SHAP</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(1389.1 157)"><tspan x="0" y="0">SHAP</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -2986,22 +3260,22 @@
   <path id="rect2951" class="st68" d="M1303.2,176.1h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <path id="rect2952" class="st68" d="M1354.1,176.1h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
   <path id="rect2953" class="st68" d="M1405.1,176.1h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5Z"/>
-  <circle id="circle341" class="st94" cy="-.6" r="3.1">
+  <circle id="circle341" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="15s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.15;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path341"/>
     </animateMotion>
   </circle>
-  <circle id="circle341-4" class="st94" cy="-.6" r="3.1">
+  <circle id="circle341-4" class="st93" cy="-.6" r="3.1">
     <animateMotion accumulate="none" additive="replace" begin="15s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.15;1;1;1" repeatCount="indefinite" restart="always">
       <mpath href="#path341-4"/>
     </animateMotion>
   </circle>
   <g id="g3011">
     <g id="g3001">
-      <rect id="rect2971" class="st82" x="1487.3" y="197.2" width="38.1" height="47.6"/>
-      <rect id="rect2981" class="st83" x="1484.9" y="216.3" width="42.9" height="19.1"/>
-      <rect id="rect2991" class="st82" x="1489.7" y="199.6" width="38.1" height="47.6"/>
-      <rect id="rect3001" class="st84" x="1487.3" y="218.7" width="42.9" height="19.1"/>
+      <rect id="rect2971" class="st81" x="1487.3" y="197.2" width="38.1" height="47.6"/>
+      <rect id="rect2981" class="st82" x="1484.9" y="216.3" width="42.9" height="19.1"/>
+      <rect id="rect2991" class="st81" x="1489.7" y="199.6" width="38.1" height="47.6"/>
+      <rect id="rect3001" class="st83" x="1487.3" y="218.7" width="42.9" height="19.1"/>
     </g>
     <g id="text3001" class="st75">
       <g id="text340" class="st75">
@@ -3009,7 +3283,9 @@
           <g id="text466" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1502.2 231.7)"><tspan x="0" y="0">tsv</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1502.2 231.7)"><tspan x="0" y="0">tsv</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -3019,10 +3295,10 @@
   </g>
   <g id="g3012">
     <g id="g3002">
-      <rect id="rect2972" class="st82" x="1487.3" y="119.6" width="38.1" height="47.6"/>
-      <rect id="rect2982" class="st83" x="1484.9" y="138.7" width="42.9" height="19.1"/>
-      <rect id="rect2992" class="st82" x="1489.7" y="122" width="38.1" height="47.6"/>
-      <rect id="rect3002" class="st84" x="1487.3" y="141.1" width="42.9" height="19.1"/>
+      <rect id="rect2972" class="st81" x="1487.3" y="119.6" width="38.1" height="47.6"/>
+      <rect id="rect2982" class="st82" x="1484.9" y="138.7" width="42.9" height="19.1"/>
+      <rect id="rect2992" class="st81" x="1489.7" y="122" width="38.1" height="47.6"/>
+      <rect id="rect3002" class="st83" x="1487.3" y="141.1" width="42.9" height="19.1"/>
     </g>
     <g id="text3002" class="st75">
       <g id="g469" class="st75">
@@ -3030,7 +3306,9 @@
           <g id="text467" class="st75">
             <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(1502.2 154.1)"><tspan x="0" y="0">pdf</tspan></text>
+                <g class="st75">
+                  <text class="st77" transform="translate(1502.2 154.1)"><tspan x="0" y="0">pdf</tspan></text>
+                </g>
               </g>
             </g>
           </g>
@@ -3038,14 +3316,16 @@
       </g>
     </g>
   </g>
-  <path id="rect2954" class="st98" d="M1450.6,178.8h0c1.7,0,3.1,1.8,3.1,4.1h0c0,2.3-1.4,4.1-3.1,4.1h0c-1.7,0-3.1-1.8-3.1-4.1h0c0-2.3,1.4-4.1,3.1-4.1Z"/>
+  <path id="rect2954" class="st97" d="M1450.6,178.8h0c1.7,0,3.1,1.8,3.1,4.1h0c0,2.3-1.4,4.1-3.1,4.1h0c-1.7,0-3.1-1.8-3.1-4.1h0c0-2.3,1.4-4.1,3.1-4.1Z"/>
   <g id="g2711" class="st75">
     <g id="text2701" class="st75">
       <g id="g470" class="st75">
         <g id="text469" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(726.1 672.3)"><tspan x="0" y="0">BCFtools</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(726.1 672.3)"><tspan x="0" y="0">BCFtools</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -3056,7 +3336,9 @@
         <g id="text470" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(730.3 686.7)"><tspan x="0" y="0">Merge</tspan></text>
+              <g class="st75">
+                <text class="st70" transform="translate(730.3 686.7)"><tspan x="0" y="0">Merge</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -3071,7 +3353,9 @@
         <g id="text471" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(635.5 651.6)"><tspan x="0" y="0">GetBaseCounts</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(635.5 651.6)"><tspan x="0" y="0">GetBaseCounts</tspan></text>
+              </g>
             </g>
           </g>
         </g>
@@ -3082,38 +3366,8 @@
         <g id="text472" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st69" transform="translate(641.6 666)"><tspan x="0" y="0">MultiSample</tspan></text>
-            </g>
-          </g>
-        </g>
-      </g>
-    </g>
-  </g>
-  <circle id="circle461" class="st94" cy="-.6" r="3.1">
-    <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
-      <mpath href="#path461"/>
-    </animateMotion>
-  </circle>
-  <circle id="circle46" class="st94" cy="-.6" r="3.1">
-    <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
-      <mpath href="#path46"/>
-    </animateMotion>
-  </circle>
-  <path id="rect3122" class="st68" d="M676.7,633.3h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
-  <g id="g477">
-    <g id="g474">
-      <rect id="rect227" class="st82" x="589.6" y="600.5" width="38.1" height="47.6"/>
-      <rect id="rect228" class="st83" x="587.2" y="619.5" width="42.9" height="19"/>
-      <rect id="rect229" class="st82" x="592" y="602.9" width="38.1" height="47.6"/>
-      <rect id="rect230" class="st84" x="589.6" y="621.9" width="42.9" height="19"/>
-    </g>
-    <g id="g476" class="st75">
-      <g id="text331" class="st75">
-        <g id="g475" class="st75">
-          <g id="text474" class="st75">
-            <g class="st75">
               <g class="st75">
-                <text class="st77" transform="translate(603.5 635)"><tspan x="0" y="0">vcf</tspan></text>
+                <text class="st70" transform="translate(641.6 666)"><tspan x="0" y="0">MultiSample</tspan></text>
               </g>
             </g>
           </g>
@@ -3121,7 +3375,41 @@
       </g>
     </g>
   </g>
-  <path id="rect280-4-9-9" class="st103" d="M808.7,621.6h0c1.9,0,3.4,1.6,3.4,3.5h0c0,1.9-1.5,3.5-3.4,3.5h0c-1.9,0-3.4-1.6-3.4-3.5h0c0-1.9,1.5-3.5,3.4-3.5Z"/>
+  <circle id="circle461" class="st93" cy="-.6" r="3.1">
+    <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
+      <mpath href="#path461"/>
+    </animateMotion>
+  </circle>
+  <circle id="circle46" class="st93" cy="-.6" r="3.1">
+    <animateMotion accumulate="none" additive="replace" begin="16.5s" calcMode="paced" dur="6s" fill="remove" keyPoints="0;1;1;1;1" keyTimes="0;0.5;1;1;1" repeatCount="indefinite" restart="always">
+      <mpath href="#path46"/>
+    </animateMotion>
+  </circle>
+  <path id="rect3122" class="st68" d="M676.7,633.3h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
+  <g id="g477">
+    <g id="g474">
+      <rect id="rect227" class="st81" x="589.6" y="600.5" width="38.1" height="47.6"/>
+      <rect id="rect228" class="st82" x="587.2" y="619.5" width="42.9" height="19"/>
+      <rect id="rect229" class="st81" x="592" y="602.9" width="38.1" height="47.6"/>
+      <rect id="rect230" class="st83" x="589.6" y="621.9" width="42.9" height="19"/>
+    </g>
+    <g id="g476" class="st75">
+      <g id="text331" class="st75">
+        <g id="g475" class="st75">
+          <g id="text474" class="st75">
+            <g class="st75">
+              <g class="st75">
+                <g class="st75">
+                  <text class="st77" transform="translate(603.5 635)"><tspan x="0" y="0">vcf</tspan></text>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <path id="rect280-4-9-9" class="st102" d="M808.9,620.7h0c1.9,0,3.4,2,3.4,4.5h0c0,2.4-1.5,4.5-3.4,4.5h0c-1.9,0-3.4-2-3.4-4.5h0c0-2.4,1.5-4.5,3.4-4.5Z"/>
   <path id="rect236" class="st68" d="M884.1,572.3h0c-4.1,0-7.5-3.4-7.5-7.5h0c0-4.1,3.4-7.5,7.5-7.5h0c4.1,0,7.5,3.4,7.5,7.5h0c0,4.1-3.4,7.5-7.5,7.5Z"/>
   <g id="g308" class="st75">
     <g id="g307" class="st75">
@@ -3129,25 +3417,31 @@
         <g id="text305" class="st75">
           <g class="st75">
             <g class="st75">
-              <text class="st78" transform="translate(855 549.4)"><tspan x="0" y="0">FreeBayes</tspan></text>
+              <g class="st75">
+                <text class="st78" transform="translate(855 549.4)"><tspan x="0" y="0">FreeBayes</tspan></text>
+              </g>
             </g>
           </g>
         </g>
       </g>
     </g>
   </g>
-  <polygon class="st99" points="179.5 538.6 163.2 576 158.5 576 174.7 538.6 179.5 538.6"/>
+  <polygon class="st98" points="179.5 538.6 163.2 576 158.5 576 174.7 538.6 179.5 538.6"/>
   <g class="st75">
     <g class="st75">
-      <text class="st70" transform="translate(91.9 572.3)"><tspan x="0" y="0">CTI</tspan></text>
+      <g class="st75">
+        <text class="st76" transform="translate(91.9 572.3)"><tspan x="0" y="0">CTI</tspan></text>
+      </g>
     </g>
   </g>
   <g class="st75">
     <g class="st75">
       <g class="st75">
-        <text class="st79" transform="translate(182.9 572.3)"><tspan x="0" y="0">DNA</tspan></text>
+        <g class="st75">
+          <text class="st69" transform="translate(182.9 572.3)"><tspan x="0" y="0">DNA</tspan></text>
+        </g>
       </g>
     </g>
   </g>
-  <path class="st100" d="M67.8,548.7l8.8-8.8,8.9,8.7c0,0-.2.3-.3.4-.5.6-1.1,1.1-1.6,1.7l-5.6-5.3v9.3h6.5v2.8h-6.5s0,0,0,0v2c0,0,.1.5.2.5h6.3v2.8h-6.5v1.9c0,0,.1.4.2.4h6.3s0,0,0,0v2.6s0,0,0,0h-6.2s-.2.2-.2.2v6.4h-2.9v-6.6h-6.3v-2.7h6.3v-2.3h-6.3v-2.8h6.3v-2.5h-6.3v-2.8h6.3v-9.3l-5.3,5.3c-.1,0-.8-.7-.9-.8l-1.1-1.2h0c0,0,0,0,0,0h0Z"/>
+  <path class="st99" d="M67.8,548.7l8.8-8.8,8.9,8.7s-.2.3-.3.4c-.5.6-1.1,1.1-1.6,1.7l-5.6-5.3v9.3h6.5v2.8h-6.5v2s0,.5.2.5h6.3v2.8h-6.5v1.9s0,.4.2.4h6.3v2.6h-6.2l-.2.2v6.4h-2.9v-6.6h-6.3v-2.7h6.3v-2.3h-6.3v-2.8h6.3v-2.5h-6.3v-2.8h6.3v-9.3l-5.3,5.3c0,0-.8-.7-.9-.8l-1.1-1.2h-.1Z"/>
 </svg>
