@@ -48,11 +48,11 @@ workflow STRCTRLVARNTS {
     ch_dict
     ch_fasta
     ch_bam_normal
-    ch_normal_bam
-    ch_normal_bai
     ch_known_sites
     ch_bcf_mpileup
     ch_split_reads
+    ch_normal_con_bam
+    ch_normal_con_bai
     ch_reads_finalized
     ch_intervals_gunzip
     ch_intervals_gunzip_index     

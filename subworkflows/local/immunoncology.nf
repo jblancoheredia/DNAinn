@@ -79,24 +79,24 @@ workflow IMMUNONCOLOGY {
     ch_imgt_tsv = HLAIMGT.out.tsv
     ch_versions = ch_versions.mix(HLAIMGT.out.versions)
 
-//    //
-//    // MODULE: Run HLA-LA 
-//    //
-//    HLALA_TYPING(ch_bam, ch_bai, params.hlala_graph)
-//    ch_hlahd = HLALA_TYPING.out.results
-//    ch_versions = ch_versions.mix(HLALA_TYPING.out.versions)
+    //
+    // MODULE: Run HLA-LA 
+    //
+    HLALA_TYPING(ch_chr6_bam, ch_chr6_bai, params.hlala_graph)
+    ch_hlahd = HLALA_TYPING.out.results
+    ch_versions = ch_versions.mix(HLALA_TYPING.out.versions)
 
-//    //
-//    // MODULE: Run Polysolver
-//    //
-//    POLYSOLVER_CALLHLATYPE(ch_bam, ch_bai, params.ethnicity)
-//    ch_versions = ch_versions.mix(POLYSOLVER_CALLHLATYPE.out.versions)
-//    ch_polysolver = POLYSOLVER_CALLHLATYPE.out.hla
+    //
+    // MODULE: Run Polysolver
+    //
+    POLYSOLVER_CALLHLATYPE(ch_chr6_bam, ch_chr6_bai, params.ethnicity)
+    ch_versions = ch_versions.mix(POLYSOLVER_CALLHLATYPE.out.versions)
+    ch_polysolver = POLYSOLVER_CALLHLATYPE.out.hla
 
     //
     // MODULE: Run ArcasHLA
     //
-    ARCASHLA_EXTRACT()
+    ARCASHLA_EXTRACT(ch_chr6_bam)
     ch_versions = ch_versions.mix(ARCASHLA_EXTRACT.out.versions)
     ch_arcashla = ARCASHLA_EXTRACT.out.
 

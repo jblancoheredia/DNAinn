@@ -4,13 +4,12 @@ process CONTROLFREEC_OT_MAKEGRAPH2 {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/control-freec:11.6--h1b792b2_1' :
-        'quay.io/biocontainers/control-freec:11.6--h1b792b2_1' }"
+        'https://depot.galaxyproject.org/singularity/control-freec:11.6b--hdbdd923_0':
+        'quay.io/biocontainers/control-freec:11.6b--hdbdd923_0' }"
 
     input:
     tuple val(meta),  path(ratio)
     tuple val(meta1), path(baf)
-    path(makeGraph2)
 
     output:
     tuple val(meta), path("*_BAF.png")       , emit: png_baf
@@ -26,9 +25,9 @@ process CONTROLFREEC_OT_MAKEGRAPH2 {
     def args = task.ext.args ?: ""
     def prefix = task.ext.prefix ?: "${meta.id}"
     def baf = baf ?: ""
-    def VERSION = '11.6' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def VERSION = '11.6b' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
-    cat ${makeGraph2} | R --slave --args ${ratio} ${baf}
+    cat \$(which makeGraph2.0.R) | R --slave --args ${args} ${ratio} ${baf}
 
     mv ${prefix}_BAF.txt.png ${prefix}_BAF.png
     mv ${prefix}_ratio.txt.log2.png ${prefix}_ratio.log2.png
@@ -42,7 +41,7 @@ process CONTROLFREEC_OT_MAKEGRAPH2 {
 
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def VERSION = '11.6' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def VERSION = '11.6b' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     touch ${prefix}_BAF.png
     touch ${prefix}_ratio.log2.png

@@ -754,12 +754,42 @@
                     "description": "Self explicative...",
                     "fa_icon": "fas fa-book"
                 },
-                "normal_bam": {
+                "normal_con_bam": {
                     "type": "string",
                     "description": "Self explicative...",
                     "fa_icon": "fas fa-book"
                 },
-                "normal_bai": {
+                "normal_con_bai": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "normal_dup_bam": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "normal_dup_bai": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "normal_sim_bam": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "normal_sim_bai": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "normal_fastq1": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
+                "normal_fastq2": {
                     "type": "string",
                     "description": "Self explicative...",
                     "fa_icon": "fas fa-book"

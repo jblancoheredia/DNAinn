@@ -1,5 +1,5 @@
 process SEQUENZA_FITS {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
@@ -11,17 +11,30 @@ process SEQUENZA_FITS {
     tuple val(meta),  path(seqz)
 
     output:
-    tuple val(meta), path("*.txt")  , emit: txt
-    tuple val(meta), path("*.pdf")  , emit: pdf
-    tuple val(meta), path("*.RData"), emit: rdata
-    path "versions.yml"             , emit: versions
+	tuple val(meta), path("*_CN_bars.pdf")  			, emit: plot_cn_bars
+	tuple val(meta), path("*_gc_plots.pdf")  			, emit: gc_plots
+	tuple val(meta), path("*_segments.txt")  			, emit:	segments
+	tuple val(meta), path("*_mutations.txt")  			, emit: mutations
+	tuple val(meta), path("*_model_fit.pdf")  			, emit: plot_model_fit
+	tuple val(meta), path("*_confints_CP.txt")  		, emit: confints_cp
+	tuple val(meta), path("*_CP_contours.pdf")  		, emit: cp_contours
+	tuple val(meta), path("*_genome_view.pdf")  		, emit: genome_view
+	tuple val(meta), path("*_sequenza_log.txt")  		, emit: log
+	tuple val(meta), path("*_alternative_fit.pdf")  	, emit:	plot_alt_fit
+	tuple val(meta), path("*_chromosome_view.pdf")  	, emit: chr_view
+	tuple val(meta), path("*_chromosome_depths.pdf")  	, emit: chr_depth
+	tuple val(meta), path("*_sequenza_extract.RData")  	, emit: rdata_extract
+	tuple val(meta), path("*_sequenza_cp_table.RData")  , emit: rdata_cp_table
+	tuple val(meta), path("*_alternative_solutions.txt"), emit: alt_solutions
+	path "versions.yml"             					, emit: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
+    def VERSION = '3.0.0'
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """ 
     cat << EOF > run_sequenza.${prefix}.R
     Sys.setenv("VROOM_CONNECTION_SIZE" = 1000000000)
@@ -51,11 +64,11 @@ process SEQUENZA_FITS {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        sequenzautils: \$(echo \$(sequenza-utils 2>&1) | sed 's/^.*is version //; s/ .*\$//')
+        sequenza: ${VERSION}
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}.tsv
     touch ${prefix}.pdf
@@ -63,7 +76,7 @@ process SEQUENZA_FITS {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        sequenzautils: \$(echo \$(sequenza-utils 2>&1) | sed 's/^.*is version //; s/ .*\$//')
+        sequenza: ${VERSION}
     END_VERSIONS
     """
 }

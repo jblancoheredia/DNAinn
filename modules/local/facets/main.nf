@@ -8,6 +8,7 @@ process FACETS_CNV {
 
     input:
     tuple val(meta),  path(tbam), path(tbai), path(nbam), path(nbai)
+    tuple val(meta2), path(intervals)
     path(common_vcf)
     path(common_vcf_tbi)
 
@@ -26,11 +27,12 @@ process FACETS_CNV {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
-    cnv_facets.R \\
+    cnv_facets.R  \\
         -t ${tbam} \\
         -n ${nbam} \\
         -o ${prefix} \\
         -vcf ${common_vcf} \\
+        --targets ${intervals} \\
         --snp-nprocs ${task.cpus} \\
         $args 
 

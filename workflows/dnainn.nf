@@ -50,12 +50,13 @@ ch_fasta                                    = Channel.fromPath(params.fasta).map
 ch_msi_f                                    = Channel.fromPath(params.msi_list).map                         { it -> [[id:it.Name], it] }.collect()
 ch_targets                                  = Channel.fromPath(params.targets).map                          { it -> [[id:it.Name], it] }.collect()
 ch_intervals                                = Channel.fromPath(params.intervals).map                        { it -> [[id:it.Name], it] }.collect()
-ch_normal_bam                               = Channel.fromPath(params.normal_bam).map                       { it -> [[id:it.Name], it] }.collect()
 ch_normal_bai                               = Channel.fromPath(params.normal_bai).map                       { it -> [[id:it.Name], it] }.collect()
 ch_known_sites                              = Channel.fromPath(params.known_sites).map                      { vcf -> def tbi = 
                                                                                                              file("${params.known_sites_tbi}") 
                                                                                                              [[id:vcf.Name], vcf, tbi] }.collect()
 ch_targets_bed                              = Channel.fromPath(params.targets_bed).map                      { it -> [[id:it.Name], it] }.collect()
+ch_normal_con_bam                           = Channel.fromPath(params.normal_con_bam).map                   { it -> [[id:it.Name], it] }.collect()
+ch_normal_con_bai                           = Channel.fromPath(params.normal_con_bai).map                   { it -> [[id:it.Name], it] }.collect()
 ch_bwa_dragen_hg38                          = Channel.fromPath(params.bwa_dragen_hg38).map                  { it -> [[id:it.Name], it] }.collect()
 ch_cnvkit_reference                         = Channel.fromPath(params.cnvkit_reference).map                 { it -> [[id:it.Name], it] }.collect()
 ch_intervals_gunzip                         = Channel.fromPath(params.intervals_bed_gunzip).map             { it -> [[id:it.Name], it] }.collect()
@@ -228,6 +229,9 @@ workflow DNAINN {
     //
     // Group tumours by patient and pair with normals or use backup
     //
+    def control_normal_bam = file(params.normal_con_bam)
+    def control_normal_bai = file(params.normal_con_bai)
+
     ch_bam_finalized
         .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
         .groupTuple(by: 0)
@@ -259,7 +263,7 @@ workflow DNAINN {
                 def bai_n = normal[2]
                 return [meta_t, bam_t, bai_t, bam_n, bai_n]
             } else {
-                return [meta_t, bam_t, bai_t, ch_normal_bam, ch_normal_bai]
+                return [meta_t, bam_t, bai_t, control_normal_bam, control_normal_bai]
             }
         }
         .set { ch_bam_pairs }
@@ -276,10 +280,10 @@ workflow DNAINN {
             ch_raw_bai,
             ch_bam_pairs,
             ch_intervals,
-            ch_normal_bam,
-            ch_normal_bai,
             ch_targets_bed,
             ch_bam_finalized,
+            ch_normal_con_bam,
+            ch_normal_con_bai,
             ch_cnvkit_reference,
             ch_cnvkit_antitarget
         )
@@ -358,12 +362,11 @@ workflow DNAINN {
         ch_bwa2,
         ch_dict,
         ch_fasta,
-        ch_bam_normal,
-        ch_normal_bam,
-        ch_normal_bai,
         ch_known_sites,
         ch_bcf_mpileup,
         ch_split_reads,
+        ch_normal_con_bam,
+        ch_normal_con_bai,
         ch_reads_finalized,
         ch_intervals_gunzip,
         ch_intervals_gunzip_index       

@@ -278,7 +278,7 @@ workflow UMIPROCESSING {
     ch_consensus_bam_sorted = FGBIO_SORTCONBAM.out.bam
 
     //
-    // MODULE: Run FgBIO FilterConsensusReads to produce the "Final", "Duplex Consensus" & "Simplex Consensus" BAM files
+    // MODULE: Run FgBIO FilterConsensusReads to produce the "Consensus", "Duplex" & "Simplex" BAM files
     //
     FGBIO_FILTERCONSENSUSREADS(ch_consensus_bam_sorted, params.fasta, params.fai, params.filter_min_reads, params.filter_min_base_quality, params.filter_max_base_error_rate, params.filter_max_read_error_rate, params.filter_max_no_call_fraction)
     ch_versions = ch_versions.mix(FGBIO_FILTERCONSENSUSREADS.out.versions.first())

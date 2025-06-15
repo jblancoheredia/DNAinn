@@ -1,17 +1,17 @@
 process ONCOCNV {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://containers.biocontainers.pro/s3/SingImgsRepo/oncocnv/v7.0_cv2/oncocnv_v7.0_cv2.sif':
-        'registry.hub.docker.com/biocontainers/oncocnv:v7.0_cv2' }"
+        'docker://blancojmskcc/oncocnv:7.0.0' :
+        'blancojmskcc/oncocnv:7.0.0' }"
 
     input:
     tuple val(meta) , path(tumor), path(tumor_index), path(normal), path(normal_index)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(bed)
-    tuple val(meta4), path(fai)  
+    tuple val(meta4), path(fai)
 
     output:
     tuple val(meta), path("*.profile.png")  ,emit: png
@@ -27,22 +27,25 @@ process ONCOCNV {
     def mode = task.ext.args ?: '-m Ampli'
     def normal = normal.join(',')
     def tumor = tumor.join(',')
-    def VERSION = '7.0' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def TOOLDIR = '/usr/local/bin/'
+    def VERSION = '7.0' 
     """
+    export R_USER_CACHE_DIR=\$(pwd)
+
     awk 'BEGIN {OFS="\\t"} {printf "%s\\t%s\\t%s\\tID%04d\\t0\\t%s\\n", \$1, \$2, \$3, ++i, \$5}' ${bed} > targets.bed
 
-    perl \$(which ONCOCNV_getCounts.pl) \\
+    perl ${TOOLDIR}ONCOCNV_getCounts.pl \\
         getControlStats \\
-        $mode \\
+        ${mode} \\
         -b targets.bed \\
-        -c $normal \\
+        -c ${normal} \\
         -o ControlStats.txt
 
-    perl \$(which ONCOCNV_getCounts.pl) \\
+    perl ${TOOLDIR}ONCOCNV_getCounts.pl \\
         getSampleStats \\
-        $mode \\
+        ${mode} \\
         -c ControlStats.txt \\
-        -s $tumor \\
+        -s ${tumor} \\
         -o SampleStats.txt
 
     cat ControlStats.txt \\
@@ -50,25 +53,25 @@ process ONCOCNV {
         | awk '{print \$1,\$2,\$3}' \\
         | sed "s/ /\t/g" > target.bed
 
-    perl \$(which createTargetGC.pl) \\
+    perl ${TOOLDIR}createTargetGC.pl \\
         -bed target.bed \\
         -fi ${fasta} \\
         -od . \\
         -of TargetGC.txt
 
-    cat \$(which processControl.R) \\
+    cat ${TOOLDIR}processControl.R \\
         | R \\
         --slave \\
         --args ControlStats.txt ControlStatsProcessed.txt TargetGC.txt
 
-    cat \$(which processSamples.R) \\
+    cat ${TOOLDIR}processSamples.R \\
         | R \\
         --slave \\
-        --args SampleStats.txt ControlStatsProcessed.txt Output.log $cghseg
+        --args SampleStats.txt ControlStatsProcessed.txt Output.log ${cghseg}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        oncocnv: $VERSION
+        oncocnv: ${VERSION}
         perl: \$(perl --version | grep 'This is perl' | sed 's/.*(v//g' | sed 's/)//g')
         r: \$(R --version | grep "R version" | sed 's/R version //g')
     END_VERSIONS

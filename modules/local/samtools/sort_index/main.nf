@@ -52,10 +52,9 @@ process SAMTOOLS_SORT_INDEX {
         samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
     END_VERSIONS
     """
-
     stub:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.id}_sort"
     def extension = args.contains("--output-fmt sam") ? "sam" :
                     args.contains("--output-fmt cram") ? "cram" :
                     "bam"
@@ -130,10 +129,9 @@ process SAMTOOLS_SORT_INDEX_RAW {
         samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
     END_VERSIONS
     """
-
     stub:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.id}_sort"
     def extension = args.contains("--output-fmt sam") ? "sam" :
                     args.contains("--output-fmt cram") ? "cram" :
                     "bam"
@@ -244,10 +242,9 @@ process SAMTOOLS_SORT_INDEX_FIN {
         samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
     END_VERSIONS
     """
-
     stub:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.id}_sort"
     def extension = args.contains("--output-fmt sam") ? "sam" :
                     args.contains("--output-fmt cram") ? "cram" :
                     "bam"
