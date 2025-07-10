@@ -96,7 +96,7 @@ process ALIGN_BAM_RAW {
 
 }
 
-process ALIGN_BAM_FIN {
+process ALIGN_BAM_CON {
     tag "$meta.id"
     label 'process_high'
 

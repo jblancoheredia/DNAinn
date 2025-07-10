@@ -1,5 +1,5 @@
 process RECALL_SV {
-    tag "$meta.patient_id"
+    tag "$meta.patient"
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
@@ -8,13 +8,10 @@ process RECALL_SV {
         'blancojmskcc/gridss:2.13.2' }"
 
     input:
-    tuple val(meta), 
-          val(meta0), path(normal_bam), path(normal_bai),
-          val(meta1), path(tumour_bam), path(tumour_bai),
-          val(meta2), path(interval_list)
-    tuple val(meta3), path(fasta)
-    tuple val(meta4), path(fasta_fai)
-    tuple val(meta5), path(known_sites), path(known_sites_tbi)
+    tuple val(meta) , path(tumour_bam), path(tumour_bai), path(normal_bam), path(normal_bai), path(interval_list)
+    tuple val(meta2), path(fasta)
+    tuple val(meta3), path(fasta_fai)
+    tuple val(meta4), path(known_sites), path(known_sites_tbi)
     path(refflat)
     path(bed)
     path(blocklist)
@@ -31,7 +28,7 @@ process RECALL_SV {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def VERSION = '2.13.2' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     def bwa = bwa_index ? "cp -s ${bwa_index}/* ." : ""
     def CollectGridssMetrics = "java -cp /opt/gridss/gridss--gridss-jar-with-dependencies.jar gridss.analysis.CollectGridssMetrics"
@@ -123,7 +120,7 @@ process RECALL_SV {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def VERSION = '2.13.2' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     touch ${prefix}.recall.unfiltered.vcf

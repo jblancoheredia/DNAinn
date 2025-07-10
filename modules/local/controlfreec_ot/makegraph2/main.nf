@@ -8,8 +8,7 @@ process CONTROLFREEC_OT_MAKEGRAPH2 {
         'quay.io/biocontainers/control-freec:11.6b--hdbdd923_0' }"
 
     input:
-    tuple val(meta),  path(ratio)
-    tuple val(meta1), path(baf)
+    tuple val(meta),  path(ratio), path(baf)
 
     output:
     tuple val(meta), path("*_BAF.png")       , emit: png_baf
@@ -27,6 +26,8 @@ process CONTROLFREEC_OT_MAKEGRAPH2 {
     def baf = baf ?: ""
     def VERSION = '11.6b' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
+    export R_USER_CACHE_DIR=\$(pwd)
+
     cat \$(which makeGraph2.0.R) | R --slave --args ${args} ${ratio} ${baf}
 
     mv ${prefix}_BAF.txt.png ${prefix}_BAF.png

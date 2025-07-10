@@ -8,12 +8,10 @@ process VARDICTJAVA {
         'biocontainers/mulled-v2-731b8c4cf44d76e9aa181af565b9eee448d82a8c:edd70e76f3529411a748168f6eb1a61f29702123-0' }"
 
     input:
-    tuple val(meta),  path(tbam), path(tbai)
+    tuple val(meta),  path(tbam), path(tbai), path(nbam), path(nbai)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fasta_fai)
     path(bed)
-    path(nbam)
-    path(nbai)
 
     output:
     tuple val(meta), path("*.vcf.gz"), path("*.tbi"), emit: vcf

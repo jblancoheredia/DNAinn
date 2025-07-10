@@ -4,16 +4,14 @@ process DELLY {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/delly:1.3.1' :
-        'blancojmskcc/delly:1.3.1' }"
+        'docker://blancojmskcc/delly:1.3.3' :
+        'blancojmskcc/delly:1.3.3' }"
 
     input:
-    tuple val(meta),  path(input),  path(input_index)
+    tuple val(meta),  path(tbam),  path(tbai), path(nbam), path(nbai)
     tuple val(meta1), path(fasta)
     tuple val(meta2), path(fai)
     path(exclude_bed)
-    path(normal)
-    path(normal_index)
 
     output:
     tuple val(meta), path("*.{csi,tbi}")            , emit: csi
@@ -27,55 +25,66 @@ process DELLY {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
-    def normal = "NORMAL"
     def prefix = task.ext.prefix ?: "${meta.id}"
     def suffix = task.ext.suffix ?: "bcf"
     def exclude = exclude_bed ? "--exclude ${exclude_bed}" : ""
     def bcf_output = suffix == "bcf" ? "--outfile ${prefix}.bcf" : ""
     def bcf_filter = suffix == "bcf" ? "--outfile ${prefix}.filtered.bcf" : ""
     """
-    echo -e "${meta.id}\\\\ttumor\\\\n${normal}\\\\tcontrol" > sample_file.tsv
+	cp ${tbam} tumor_modified.bam
+	cp ${nbam} normal_modified.bam
+	
+	samtools view -H ${tbam} | sed 's/SM:[^[:space:]]*/SM:${meta.id}/' > tumor_header.sam
+	samtools view -H ${nbam} | sed 's/SM:[^[:space:]]*/SM:NORMAL/' > normal_header.sam
+	
+	samtools reheader tumor_header.sam tumor_modified.bam > tumor_final.bam
+	samtools reheader normal_header.sam normal_modified.bam > normal_final.bam
+	
+	echo -e "${meta.id}\\ttumor\\nNORMAL\\tcontrol" > sample_file.tsv
 
-    delly \\
-        call \\
-        ${args} \\
-        ${bcf_output} \\
-        --genome ${fasta} \\
-        ${exclude} \\
-        ${input} \\
-        ${normal}.bam
+	samtools index tumor_final.bam
+	samtools index normal_final.bam
 
-    delly filter \\
-        -t \\
-        -v 3 \\
-        -m 50 \\
-        -a 0.01 \\
-        -f somatic \\
-        -s sample_file.tsv \\
-        ${bcf_filter} \\
-        ${prefix}.bcf
+	delly \\
+	    call \\
+	    ${args} \\
+	    ${bcf_output} \\
+	    --genome ${fasta} \\
+	    ${exclude} \\
+	    tumor_final.bam \\
+	    normal_final.bam
 
-    bcftools convert -O v -o ${prefix}.delly.vcf ${prefix}.filtered.bcf
+	delly filter \\
+	    -t \\
+	    -v 3 \\
+	    -m 50 \\
+	    -a 0.01 \\
+	    -f somatic \\
+	    -s sample_file.tsv \\
+	    ${bcf_filter} \\
+	    ${prefix}.bcf
 
-    awk 'BEGIN {FS=OFS=\"\\\\t\"}  /^#/ {print}' ${prefix}.delly.vcf > ${prefix}.delly.unfiltered.vcf
-    awk 'BEGIN {FS=OFS=\"\\\\t\"}  \$1 ~ /^(1?[0-9]|2[0-2]|X|Y)\$/ {print}' ${prefix}.delly.vcf >> ${prefix}.delly.unfiltered.vcf
+	bcftools convert -O v -o ${prefix}.delly.vcf ${prefix}.filtered.bcf
 
-    bgzip ${prefix}.delly.vcf
+	awk 'BEGIN {FS=OFS=\"\\\\t\"}  /^#/ {print}' ${prefix}.delly.vcf > ${prefix}.delly.unfiltered.vcf
+	awk 'BEGIN {FS=OFS=\"\\\\t\"}  \$1 ~ /^(1?[0-9]|2[0-2]|X|Y)\$/ {print}' ${prefix}.delly.vcf >> ${prefix}.delly.unfiltered.vcf
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        delly: \$( echo \$(delly --version 2>&1) | sed 's/^.*Delly version: v//; s/ using.*\$//')
-    END_VERSIONS
+	bgzip ${prefix}.delly.vcf
+
+	cat <<-END_VERSIONS > versions.yml
+	"${task.process}":
+	    delly: \$( delly --version 2>&1 | head -1 | sed 's/Delly version: v//' )
+	END_VERSIONS
     """
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.delly.vcf.gz
-    touch ${prefix}.delly.unfiltered.vcf
+	touch ${prefix}.delly.vcf.gz
+	touch ${prefix}.delly.unfiltered.vcf
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        delly: \$( echo \$(delly --version 2>&1) | sed 's/^.*Delly version: v//; s/ using.*\$//')
-    END_VERSIONS
+	cat <<-END_VERSIONS > versions.yml
+	"${task.process}":
+	    delly: \$( delly --version 2>&1 | head -1 | sed 's/Delly version: v//' )
+	END_VERSIONS
     """
 }

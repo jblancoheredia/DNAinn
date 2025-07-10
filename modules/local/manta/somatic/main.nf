@@ -9,13 +9,11 @@ process MANTA_SOMATIC {
         'biocontainers/manta:1.6.0--h9ee0642_1' }"
 
     input:
-    tuple val(meta) , path(tbam), path(tbai)
+    tuple val(meta) , path(tbam), path(tbai), path(nbam), path(nbai)
     tuple val(meta2), path(target_bed_tbi)
     tuple val(meta3), path(target_bed)
     tuple val(meta4), path(fasta)
-    tuple val(meta5), path(nbam)
-    tuple val(meta6), path(nbai)
-    tuple val(meta7), path(fai)
+    tuple val(meta5), path(fai)
     path(config)
 
     output:

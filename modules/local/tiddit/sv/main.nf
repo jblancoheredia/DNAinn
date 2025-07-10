@@ -8,7 +8,7 @@ process TIDDIT_SV {
         'blancojmskcc/tiddit:3.9.1' }"
 
     input:
-    tuple val(meta), path(input), path(input_index)
+    tuple val(meta), path(input), path(input_index), path(nbam), path(nbai)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(bwa_index)
 

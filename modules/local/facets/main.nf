@@ -31,8 +31,10 @@ process FACETS_CNV {
         -t ${tbam} \\
         -n ${nbam} \\
         -o ${prefix} \\
+        --cval 25 75 \\
+        --gbuild hg38 \\
+        --nbhd-snp 100 \\
         -vcf ${common_vcf} \\
-        --targets ${intervals} \\
         --snp-nprocs ${task.cpus} \\
         $args 
 

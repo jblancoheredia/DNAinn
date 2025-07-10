@@ -11,21 +11,21 @@ process SEQUENZA_FITS {
     tuple val(meta),  path(seqz)
 
     output:
-	tuple val(meta), path("*_CN_bars.pdf")  			, emit: plot_cn_bars
-	tuple val(meta), path("*_gc_plots.pdf")  			, emit: gc_plots
+	tuple val(meta), path("*_CN_bars.pdf")  			, emit: plot_cn_bars    ,  optional: true
+	tuple val(meta), path("*_gc_plots.pdf")  			, emit: gc_plots        ,  optional: true
 	tuple val(meta), path("*_segments.txt")  			, emit:	segments
-	tuple val(meta), path("*_mutations.txt")  			, emit: mutations
-	tuple val(meta), path("*_model_fit.pdf")  			, emit: plot_model_fit
+	tuple val(meta), path("*_mutations.txt")  			, emit: mutations       ,  optional: true
+	tuple val(meta), path("*_model_fit.pdf")  			, emit: plot_model_fit  ,  optional: true
 	tuple val(meta), path("*_confints_CP.txt")  		, emit: confints_cp
-	tuple val(meta), path("*_CP_contours.pdf")  		, emit: cp_contours
-	tuple val(meta), path("*_genome_view.pdf")  		, emit: genome_view
+	tuple val(meta), path("*_CP_contours.pdf")  		, emit: cp_contours     ,  optional: true
+	tuple val(meta), path("*_genome_view.pdf")  		, emit: genome_view     ,  optional: true
 	tuple val(meta), path("*_sequenza_log.txt")  		, emit: log
-	tuple val(meta), path("*_alternative_fit.pdf")  	, emit:	plot_alt_fit
-	tuple val(meta), path("*_chromosome_view.pdf")  	, emit: chr_view
-	tuple val(meta), path("*_chromosome_depths.pdf")  	, emit: chr_depth
-	tuple val(meta), path("*_sequenza_extract.RData")  	, emit: rdata_extract
-	tuple val(meta), path("*_sequenza_cp_table.RData")  , emit: rdata_cp_table
-	tuple val(meta), path("*_alternative_solutions.txt"), emit: alt_solutions
+	tuple val(meta), path("*_alternative_fit.pdf")  	, emit:	plot_alt_fit    ,  optional: true
+	tuple val(meta), path("*_chromosome_view.pdf")  	, emit: chr_view        ,  optional: true
+	tuple val(meta), path("*_chromosome_depths.pdf")  	, emit: chr_depth       ,  optional: true
+	tuple val(meta), path("*_sequenza_extract.RData")  	, emit: rdata_extract   ,  optional: true
+	tuple val(meta), path("*_sequenza_cp_table.RData")  , emit: rdata_cp_table  ,  optional: true
+	tuple val(meta), path("*_alternative_solutions.txt"), emit: alt_solutions   ,  optional: true
 	path "versions.yml"             					, emit: versions
 
     when:
@@ -47,7 +47,7 @@ process SEQUENZA_FITS {
 
     sample.id <- "${prefix}"
 
-    seqz.data <- sequenza.extract(data.file)
+    seqz.data <- sequenza.extract(data.file, min.reads = 1, chromosome.list = as.character(1:22), verbose = TRUE)
 
     CP <- sequenza.fit(seqz.data)
 

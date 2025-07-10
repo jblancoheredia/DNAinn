@@ -1,5 +1,5 @@
 process SURVIVOR_MERGE {
-    tag "$meta.patient_id"
+    tag "$meta.patient"
     label 'process_low'
 
     conda "${moduleDir}/environment.yml"
@@ -10,9 +10,9 @@ process SURVIVOR_MERGE {
     input:
     tuple val(meta), 
           val(meta_delly),  path('delly.vcf'),
-          val(meta_svaba),  path('svaba.vcf'),
-          val(meta_manta),  path('manta.vcf'),
           val(meta_gridss), path('gridss.vcf'),
+          val(meta_manta),  path('manta.vcf'),
+          val(meta_svaba),  path('svaba.vcf'),
           val(meta_tiddit), path('tiddit.vcf')
     path(chr_length)
     val(max_distance_breakpoints)
@@ -31,12 +31,12 @@ process SURVIVOR_MERGE {
     task.ext.when == null || task.ext.when
 
     script:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     echo delly.vcf  >> VCFs_List.txt
-    echo svaba.vcf  >> VCFs_List.txt
-    echo manta.vcf  >> VCFs_List.txt
     echo gridss.vcf >> VCFs_List.txt
+    echo manta.vcf  >> VCFs_List.txt
+    echo svaba.vcf  >> VCFs_List.txt
     echo tiddit.vcf >> VCFs_List.txt
 
     SURVIVOR merge \\
@@ -69,7 +69,7 @@ process SURVIVOR_MERGE {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}.survivor_sv_sup.vcf
     touch ${prefix}.survivor_sv_sup.bed

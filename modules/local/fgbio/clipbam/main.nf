@@ -8,14 +8,15 @@ process FGBIO_CLIPBAM {
         'blancojmskcc/umi_aligner:1.0.0' }"
 
     input:
-    tuple val(meta),  path(bam), path(bai)
+    tuple val(meta),  path(bam), path(bai), path(nbam), path(nbai)
     tuple val(meta1), path(fasta)
     tuple val(meta1), path(fai)
 
     output:
-    tuple val(meta), path("*.clipped.bam"), path("*.clipped.bai"),  emit: bam
-    tuple val(meta), path("*.metrics.txt"),                         emit: metrics
-    path "versions.yml",                                            emit: versions
+    tuple val(meta), path("*.t.clipped.bam"), path("*.t.clipped.bai"), path("*.n.clipped.bam"), path("*.n.clipped.bai"), emit: bam
+    tuple val(meta), path("normal_sample_name.txt"),                                                                     emit: txt
+    tuple val(meta), path("*.metrics.txt"),                                                                              emit: metrics
+    path "versions.yml",                                                                                                 emit: versions
 
     script:
     def args = task.ext.args ?: ''
@@ -37,12 +38,30 @@ process FGBIO_CLIPBAM {
         -Xmx${mem_gb}g \\
         ClipBam \\
         -i /dev/stdin \\
-        -o ${prefix}.clipped.bam \\
+        -o ${prefix}.t.clipped.bam \\
         -r ${fasta} \\
         -m ${prefix}.metrics.txt \\
         -S coordinate \\
         --clip-overlapping-reads=true \\
         $args
+
+    samtools \\
+        sort \\
+        -n \\
+        -l 0 \\
+        ${nbam} |\\
+    fgbio \\
+        -Xmx${mem_gb}g \\
+        ClipBam \\
+        -i /dev/stdin \\
+        -o ${prefix}.n.clipped.bam \\
+        -r ${fasta} \\
+        -m ${prefix}.metrics.txt \\
+        -S coordinate \\
+        --clip-overlapping-reads=true \\
+        $args
+
+    echo \$(samtools view -H ${prefix}.n.clipped.bam | grep '^@RG' | sed -n 's/.*SM:\\([^ \\t]*\\).*/\\1/p' | head -n1) > normal_sample_name.txt
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -52,7 +71,8 @@ process FGBIO_CLIPBAM {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch  ${prefix}.clipped.bam
+    touch  ${prefix}.t.clipped.bam
+    touch  ${prefix}.n.clipped.bam
     touch  ${prefix}.metrics.txt
 
     cat <<-END_VERSIONS > versions.yml

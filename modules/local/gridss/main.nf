@@ -8,11 +8,9 @@ process GRIDSS {
         'drgiovianco/gridss:2.13.2' }"
 
     input:
-    tuple val(meta) , path(tbam), path(tbai)
+    tuple val(meta) , path(tbam), path(tbai), path(nbam), path(nbai)
     tuple val(meta1), path(fasta)
     tuple val(meta2), path(fasta_fai)
-    path(nbam)
-    path(nbai)
     path(bed)
     path(blocklist)
     path(bwa_index)

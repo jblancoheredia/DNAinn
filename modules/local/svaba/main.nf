@@ -8,10 +8,8 @@ process SVABA {
         'blancojmskcc/svaba:1.2.0' }"
 
     input:
-    tuple val(meta),  path(tbam), path(tbai)
+    tuple val(meta),  path(tbam), path(tbai), path(nbam), path(nbai)
     path(bwa)
-    path(nbam)
-    path(nbai)
     path(dbsnp)
     path(dbsnp_tbi)
     path(bed)

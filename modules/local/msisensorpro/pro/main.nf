@@ -59,7 +59,7 @@ process MSISENSORPRO_RAW {
     """
 }
 
-process MSISENSORPRO_FIN {
+process MSISENSORPRO_CON {
     tag "$meta.id"
     label 'process_low'
 
@@ -73,10 +73,10 @@ process MSISENSORPRO_FIN {
     tuple val(meta2),  path(hom_ms)
 
     output:
-    tuple val(meta), path("${meta.id}.summary.fin"), emit: summary
-    tuple val(meta), path("${meta.id}.msi_uns.fin"), emit: msi_uns
-    tuple val(meta), path("${meta.id}.msi_dis.fin"), emit: msi_dis
-    tuple val(meta), path("${meta.id}.msi_all.fin"), emit: msi_all
+    tuple val(meta), path("${meta.id}.summary.con"), emit: summary
+    tuple val(meta), path("${meta.id}.msi_uns.con"), emit: msi_uns
+    tuple val(meta), path("${meta.id}.msi_dis.con"), emit: msi_dis
+    tuple val(meta), path("${meta.id}.msi_all.con"), emit: msi_all
     path "versions.yml",                         emit: versions
 
     when:
@@ -93,10 +93,10 @@ process MSISENSORPRO_FIN {
         -o ${prefix} \\
         $args
 
-    mv ${prefix}            ${prefix}.summary.fin
-    mv ${prefix}_unstable   ${prefix}.msi_uns.fin
-    mv ${prefix}_dis        ${prefix}.msi_dis.fin
-    mv ${prefix}_all        ${prefix}.msi_all.fin
+    mv ${prefix}            ${prefix}.summary.con
+    mv ${prefix}_unstable   ${prefix}.msi_uns.con
+    mv ${prefix}_dis        ${prefix}.msi_dis.con
+    mv ${prefix}_all        ${prefix}.msi_all.con
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -107,10 +107,10 @@ process MSISENSORPRO_FIN {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.summary.fin
-    touch ${prefix}.msi_uns.fin
-    touch ${prefix}.msi_dis.fin
-    touch ${prefix}.msi_all.fin
+    touch ${prefix}.summary.con
+    touch ${prefix}.msi_uns.con
+    touch ${prefix}.msi_dis.con
+    touch ${prefix}.msi_all.con
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

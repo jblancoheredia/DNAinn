@@ -9,7 +9,7 @@ process MANTA_TUMORONLY {
         'quay.io/biocontainers/manta:1.6.0--h9ee0642_1' }"
 
     input:
-    tuple val(meta),  path(input), path(input_index)
+    tuple val(meta),  path(input), path(input_index), path(nbam), path(nbai)
     tuple val(meta1), path(target_bed)
     tuple val(meta2), path(target_bed_tbi)
     tuple val(meta3), path(fasta)

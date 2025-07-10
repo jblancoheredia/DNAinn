@@ -16,13 +16,13 @@ include { SAMTOOLS_INDEX                                                        
 include { SAMTOOLS_STATS                                                                                                            } from '../../modules/nf-core/samtools/stats/main'
 include { FASTQ_CONSENSUS                                                                                                           } from '../../modules/local/fastqc_consensus/main'
 include { GATK4_APPLYBQSR                                                                                                           } from '../../modules/local/gatk4/applybqsr/main'
-include { MSISENSORPRO_FIN                                                                                                          } from '../../modules/local/msisensorpro/pro/main'   
+include { MSISENSORPRO_CON                                                                                                          } from '../../modules/local/msisensorpro/pro/main'   
 include { MSISENSORPRO_RAW                                                                                                          } from '../../modules/local/msisensorpro/pro/main'   
 include { SAMTOOLS_STATS_DR                                                                                                         } from '../../modules/local/samtools/stats_dr/main'
 include { SAMTOOLS_SORT_INDEX                                                                                                       } from '../../modules/local/samtools/sort_index/main'
 include { SURVIVOR_SCAN_READS                                                                                                       } from '../../modules/local/survivor/scanreads/main'
-include { COLLECTHSMETRICS_FIN                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main'
-include { COLLECTHSMETRICS_ORI                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main'
+include { COLLECTHSMETRICS_CON                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main'
+include { COLLECTHSMETRICS_RAW                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main'
 include { GATK4_MARKDUPLICATES          	                                                                                        } from '../../modules/local/gatk4/markduplicates/main'
 include { SAMTOOLS_COLLATEFASTQ                                                                                                     } from '../../modules/nf-core/samtools/collatefastq/main'   
 include { GATK4_BASERECALIBRATOR                                                                                                    } from '../../modules/local/gatk4/baserecalibrator/main'
@@ -81,10 +81,10 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run Picard's Collect HS Metrics for raw BAM files
     //
-    COLLECTHSMETRICS_ORI(ch_bam_raw, ch_bam_raw_index, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
-    ch_versions = ch_versions.mix(COLLECTHSMETRICS_ORI.out.versions.first())
-    ch_coverage_raw  = COLLECTHSMETRICS_ORI.out.coverage
-    ch_hsmetrics_raw = COLLECTHSMETRICS_ORI.out.hsmetrics
+    COLLECTHSMETRICS_RAW(ch_bam_raw, ch_bam_raw_index, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
+    ch_versions = ch_versions.mix(COLLECTHSMETRICS_RAW.out.versions.first())
+    ch_coverage_raw  = COLLECTHSMETRICS_RAW.out.coverage
+    ch_hsmetrics_raw = COLLECTHSMETRICS_RAW.out.hsmetrics
 
     //
     // MODULE: Run MSI Sensor PRO
@@ -156,19 +156,19 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
     //
-    COLLECTHSMETRICS_FIN(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
-    ch_versions = ch_versions.mix(COLLECTHSMETRICS_FIN.out.versions.first())
-    ch_coverage_con  = COLLECTHSMETRICS_FIN.out.coverage
-    ch_hsmetrics_con = COLLECTHSMETRICS_FIN.out.hsmetrics
+    COLLECTHSMETRICS_CON(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
+    ch_versions = ch_versions.mix(COLLECTHSMETRICS_CON.out.versions.first())
+    ch_coverage_con  = COLLECTHSMETRICS_CON.out.coverage
+    ch_hsmetrics_con = COLLECTHSMETRICS_CON.out.hsmetrics
 
     //
     // MODULE: Run MSI Sensor PRO
     ///
-    MSISENSORPRO_FIN(ch_bam_bai_dr, ch_msi_f)
-    ch_versions = ch_versions.mix(MSISENSORPRO_FIN.out.versions.first())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_FIN.out.summary.map{it[1]}.collect())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_FIN.out.msi_uns.map{it[1]}.collect())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_FIN.out.msi_all.map{it[1]}.collect())
+    MSISENSORPRO_CON(ch_bam_bai_dr, ch_msi_f)
+    ch_versions = ch_versions.mix(MSISENSORPRO_CON.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.summary.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.msi_uns.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.msi_all.map{it[1]}.collect())
 
     //
     // MODULE: Extract FastQ reads from BAM

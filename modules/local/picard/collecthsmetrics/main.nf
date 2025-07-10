@@ -1,4 +1,4 @@
-process COLLECTHSMETRICS_FIN {
+process COLLECTHSMETRICS_CON {
     tag "$meta.id"
     label 'process_single'
 
@@ -17,9 +17,9 @@ process COLLECTHSMETRICS_FIN {
     val(library)
 
     output:
-    tuple val(meta), path("*.HSmetrics.txt"),   emit: hsmetrics
+    tuple val(meta), path("*.HSmetrics.txt")         , emit: hsmetrics
     tuple val(meta), path("*.target_${library}.covg"), emit: coverage
-    path "versions.yml",                        emit: versions
+    path "versions.yml"                              , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -64,8 +64,8 @@ process COLLECTHSMETRICS_FIN {
         --BAIT_INTERVALS $bait_interval_list \\
         --TARGET_INTERVALS $target_interval_list \\
         --INPUT $bam \\
-        --OUTPUT ${prefix}.fin.HSmetrics.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.fin.target_${library}.covg
+        --OUTPUT ${prefix}.con.HSmetrics.txt \\
+        --PER_TARGET_COVERAGE ${prefix}.con.target_${library}.covg
 
 
     cat <<-END_VERSIONS > versions.yml
@@ -77,8 +77,8 @@ process COLLECTHSMETRICS_FIN {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.fin.HSmetrics.txt
-    touch ${prefix}.fin.target_${library}.covg
+    touch ${prefix}.con.HSmetrics.txt
+    touch ${prefix}.con.target_${library}.covg
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -87,7 +87,7 @@ process COLLECTHSMETRICS_FIN {
     """
 }
 
-process COLLECTHSMETRICS_ORI {
+process COLLECTHSMETRICS_RAW {
     tag "$meta.id"
     label 'process_single'
 
@@ -167,8 +167,8 @@ process COLLECTHSMETRICS_ORI {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.ori.HSmetrics.txt
-    touch ${prefix}.ori.target_${library}.covg
+    touch ${prefix}.raw.HSmetrics.txt
+    touch ${prefix}.raw.target_${library}.covg
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

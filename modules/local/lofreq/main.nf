@@ -8,14 +8,12 @@ process LOFREQ {
         'blancojmskcc/lofreq:2.1.5' }"
 
     input:
-    tuple val(meta) , path(tbam), path(tbai)
+    tuple val(meta) , path(tbam), path(tbai), path(nbam), path(nbai)
     tuple val(meta1), path(intervals)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
     path(known_sites_tbi)
     path(known_sites)
-    path(nbam)
-    path(nbai)
     
     output:
     tuple val(meta), path("*.somatic_final.snvs.vcf.gz")  , path("*.somatic_final.snvs.vcf.gz.tbi")  , emit: vcf_snvs

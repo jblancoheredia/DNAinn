@@ -8,17 +8,16 @@ process GATK4_MUTECT2 {
         'quay.io/biocontainers/gatk4:4.5.0.0--py36hdfd78af_0' }"
 
     input:
-    tuple val(meta),  path(tbam), path(tbai)
+    tuple val(meta),  path(tbam), path(tbai), path(nbam), path(nbai)
     tuple val(meta1), path(intervals)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
     tuple val(meta4), path(dict)
+    tuple val(meta5), path(txt)
     path(germline_resource)
     path(germline_resource_tbi)
     path(panel_of_normals)
     path(panel_of_normals_tbi)
-    path(nbam)
-    path(nbai)
 
     output:
     tuple val(meta), path("*.vcf.gz"), path("*.tbi"),       emit: vcf
@@ -39,12 +38,14 @@ process GATK4_MUTECT2 {
         avail_mem = (task.memory.mega*0.8).intValue()
     }
     """
+    normal_sample_name=\$(cat ${txt})
+
     gatk --java-options "-Xmx${avail_mem}M -XX:-UsePerfData" \\
         Mutect2 \\
         -I ${tbam} \\
         -I ${nbam} \\
         -R ${fasta} \\
-        -normal NORMAL \\
+        -normal \$normal_sample_name \\
         -O ${prefix}.vcf.gz \\
         --intervals ${intervals} \\
         --panel-of-normals ${panel_of_normals} \\

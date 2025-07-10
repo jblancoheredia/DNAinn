@@ -16,7 +16,7 @@ include { FGBIO_CLIPBAM                                                         
 include { GATK4_MUTECT2                                                                                                             } from '../../modules/local/gatk4/mutect2/main' 
 include { BCFTOOLS_MERGE                                                                                                            } from '../../modules/local/bcftools/merge/main' 
 include { GATK4_FILTERMUTECTCALLS                                                                                                   } from '../../modules/local/gatk4/filtermutectcalls/main'   
-include { GATK4_GETPILEUPSUMMARIES                                                                                                  } from '../../modules/nf-core/gatk4/getpileupsummaries/main'
+include { GATK4_GETPILEUPSUMMARIES                                                                                                  } from '../../modules/local/gatk4/getpileupsummaries/main'
 include { GETBASECOUNTS_MULTISAMPLE                                                                                                 } from '../../modules/local/getbasecounts/multisample/main'
 include { GATK4_CALCULATECONTAMINATION                                                                                              } from '../../modules/nf-core/gatk4/calculatecontamination/main' 
 include { GATK4_LEARNREADORIENTATIONMODEL                                                                                           } from '../../modules/nf-core/gatk4/learnreadorientationmodel/main'
@@ -43,6 +43,7 @@ workflow VARIANTDSCVRY {
     ch_fasta
     ch_targets
     ch_intervals
+    ch_bam_pairs
     ch_consensus_bam
 
     main:
@@ -52,15 +53,16 @@ workflow VARIANTDSCVRY {
     //
     // MODULE: Run FgBio ClipBAM 
     //
-    FGBIO_CLIPBAM(ch_consensus_bam, ch_fasta, ch_fai)
+    FGBIO_CLIPBAM(ch_bam_pairs, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(FGBIO_CLIPBAM.out.versions)
     ch_bam_clipped = FGBIO_CLIPBAM.out.bam
+    ch_txt = FGBIO_CLIPBAM.out.txt
 // TO-DO:    multi_qc_files = FGBIO_CLIPBAM.out.metrics
 
     //
     // MODULE: Run Mutect2
     //
-    GATK4_MUTECT2(ch_bam_clipped, ch_intervals, ch_fasta, ch_fai, ch_dict, params.germres, params.germres_tbi, params.pon, params.pon_tbi, params.normal_bam, params.normal_bai)
+    GATK4_MUTECT2(ch_bam_clipped, ch_intervals, ch_fasta, ch_fai, ch_dict, ch_txt, params.germres, params.germres_tbi, params.pon, params.pon_tbi)
     ch_versions = ch_versions.mix(GATK4_MUTECT2.out.versions)
     ch_mutect2_vcf = GATK4_MUTECT2.out.vcf
     ch_mutect2_f1r2 = GATK4_MUTECT2.out.f1r2
@@ -99,7 +101,7 @@ workflow VARIANTDSCVRY {
     //
     // MODULE: Run VarDictJava
     //
-    VARDICTJAVA(ch_bam_clipped, ch_fasta, ch_fai, params.vardict_bed, params.normal_bam, params.normal_bai)
+    VARDICTJAVA(ch_bam_clipped, ch_fasta, ch_fai, params.vardict_bed)
     ch_versions = ch_versions.mix(VARDICTJAVA.out.versions)
     ch_vardict_vcf = VARDICTJAVA.out.vcf
 
@@ -113,7 +115,7 @@ workflow VARIANTDSCVRY {
     //
     // MODULE: Run LoFreq to predict variants using multiple processors
     //
-    LOFREQ(ch_bam_clipped, ch_intervals, ch_fasta, ch_fai, params.known_sites_tbi, params.known_sites, params.normal_bam, params.normal_bai)
+    LOFREQ(ch_bam_clipped, ch_intervals, ch_fasta, ch_fai, params.known_sites_tbi, params.known_sites)
     ch_versions = ch_versions.mix(LOFREQ.out.versions)
     ch_lofreq_snvs_vcf = LOFREQ.out.vcf_snvs
     ch_lofreq_snvs_indels = LOFREQ.out.vcf_indels
@@ -148,7 +150,6 @@ workflow VARIANTDSCVRY {
 //    BCFTOOLS_MERGE(ch_pre_merge, ch_fasta, ch_fai, params.targets_bed)
 //    ch_versions = ch_versions.mix(BCFTOOLS_MERGE.out.versions)
 //    ch_merged_vcf = BCFTOOLS_MERGE.out.vcf
-
 
 //    //
 //    // MODULES: Run GetBaseCountsMultiSample

@@ -113,11 +113,11 @@ workflow COPYNUMBERALT {
     CONTROLFREEC_OT_FREEC2CIRCOS(ch_cfot_ratio)
     ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2CIRCOS.out.versions)
 
-    //
-    // MODULE: Run ControlFreec MakeGraph2
-    //
-    CONTROLFREEC_OT_MAKEGRAPH2(ch_cfot_ratio, ch_cfot_baf)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_MAKEGRAPH2.out.versions)
+//    //
+//    // MODULE: Run ControlFreec MakeGraph2
+//    //
+//    CONTROLFREEC_OT_MAKEGRAPH2(CONTROLFREEC_OT_FREEC.out.ratio.join(CONTROLFREEC_OT_FREEC.out.BAF, failOnDuplicate: true, failOnMismatch: true))
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_MAKEGRAPH2.out.versions)
 
 //    //
 //    // MODULE: Run CNVkit AntiTarget Module just once per panel
@@ -172,7 +172,7 @@ workflow COPYNUMBERALT {
     //
     // MODULE: Run Sequenzautils BAM2seqz
     //
-    SEQUENZAUTILS_BAM2SEQZ(ch_bam_pairs, ch_fasta, ch_fai, params.wigfile50)
+    SEQUENZAUTILS_BAM2SEQZ(ch_bam_pairs, ch_fasta, ch_fai, params.wigfile20)
     ch_seqz = SEQUENZAUTILS_BAM2SEQZ.out.seqz
     ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
 

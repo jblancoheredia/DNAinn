@@ -50,7 +50,6 @@ ch_fasta                                    = Channel.fromPath(params.fasta).map
 ch_msi_f                                    = Channel.fromPath(params.msi_list).map                         { it -> [[id:it.Name], it] }.collect()
 ch_targets                                  = Channel.fromPath(params.targets).map                          { it -> [[id:it.Name], it] }.collect()
 ch_intervals                                = Channel.fromPath(params.intervals).map                        { it -> [[id:it.Name], it] }.collect()
-ch_normal_bai                               = Channel.fromPath(params.normal_bai).map                       { it -> [[id:it.Name], it] }.collect()
 ch_known_sites                              = Channel.fromPath(params.known_sites).map                      { vcf -> def tbi = 
                                                                                                              file("${params.known_sites_tbi}") 
                                                                                                              [[id:vcf.Name], vcf, tbi] }.collect()
@@ -227,7 +226,7 @@ workflow DNAINN {
     }
 
     //
-    // Group tumours by patient and pair with normals or use backup
+    // Pair tumour samples with normal samples by patient meta key if only tumour use backup normal
     //
     def control_normal_bam = file(params.normal_con_bam)
     def control_normal_bai = file(params.normal_con_bai)
@@ -307,6 +306,7 @@ workflow DNAINN {
             ch_fasta,
             ch_targets,
             ch_intervals,
+            ch_bam_pairs,
             ch_bam_finalized
         )
         ch_varinats = VARIANTDSCVRY.out.variants
@@ -362,14 +362,13 @@ workflow DNAINN {
         ch_bwa2,
         ch_dict,
         ch_fasta,
+        ch_bam_pairs,
         ch_known_sites,
         ch_bcf_mpileup,
         ch_split_reads,
-        ch_normal_con_bam,
-        ch_normal_con_bai,
         ch_reads_finalized,
         ch_intervals_gunzip,
-        ch_intervals_gunzip_index       
+        ch_intervals_gunzip_index
     )
     ch_versions = ch_versions.mix(STRCTRLVARNTS.out.versions)
     } else {

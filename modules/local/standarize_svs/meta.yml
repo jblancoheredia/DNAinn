@@ -1,0 +1,35 @@
+name: standardize_svs
+description: Standardizes structural variant VCF files from multiple callers into a unified format with both VCF and TSV outputs.
+keywords:
+  - structural variants
+  - vcf
+  - tsv
+  - standardization
+tools:
+  - name: custom
+    description: Custom Python script for SV VCF standardization
+    homepage: https://github.com/your-org/your-repo
+    documentation: https://github.com/your-org/your-repo
+    licence: MIT
+input:
+  - meta:
+      type: map
+      description: Metadata map containing sample ID.
+  - vcf:
+      type: file
+      description: Input VCF file from structural variant caller.
+output:
+  - meta:
+      type: map
+      description: Same as input metadata.
+  - standardized_vcf:
+      type: file
+      description: Standardized VCF file.
+  - summary_tsv:
+      type: file
+      description: Summary TSV file with extracted fields.
+authors:
+  - your_name_here
+maintainers:
+  - your_github_handle_here
+
