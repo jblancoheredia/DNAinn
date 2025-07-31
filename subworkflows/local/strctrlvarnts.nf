@@ -18,6 +18,7 @@ include { TIDDIT_SV                                                             
 include { IANNOTATESV                                                                                                               } from '../../modules/local/iannotatesv/main'
 include { MANTA_SOMATIC                                                                                                             } from '../../modules/local/manta/somatic/main'
 include { SURVIVOR_MERGE                                                                                                            } from '../../modules/local/survivor/merge/main'
+include { SURVIVOR_STATS                                                                                                            } from '../../modules/local/survivor/stats/main'
 include { ANNOTSV_ANNOTSV                                                                                                           } from '../../modules/local/annotsv/annotsv/main' 
 include { MANTA_TUMORONLY                                                                                                           } from '../../modules/local/manta/tumoronly/main'
 include { SURVIVOR_FILTER                                                                                                           } from '../../modules/local/survivor/filter/main'
@@ -191,9 +192,15 @@ workflow STRCTRLVARNTS {
     //
     SURVIVOR_FILTER(ch_survivor_filter_input, 10000, 3, 1, 1, 0, 50)
     ch_versions = ch_versions.mix(SURVIVOR_FILTER.out.versions)
+    ch_filtered_all = SURVIVOR_FILTER.out.filtered_all
     ch_filtered_vcf = SURVIVOR_FILTER.out.filtered_vcf
-    ch_filtered_tsv = SURVIVOR_FILTER.out.filtered_tsv
-    ch_annote_input = SURVIVOR_FILTER.out.annote_input
+
+    //
+    // MODULE: Run Survivor Stats
+    //
+    SURVIVOR_STATS(ch_filtered_vcf, -1, -1, -1)
+    ch_versions = ch_versions.mix(SURVIVOR_STATS.out.versions)
+    ch_multiqc_files  = ch_multiqc_files.mix(SURVIVOR_STATS.out.stats.collect{it[1]}.ifEmpty([]))
 
     //
     // MODULE: Run AnnotSV
@@ -205,23 +212,58 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run iAnnotateSV 
     //
-    IANNOTATESV(ch_filtered_vcf, ch_filtered_tsv, ch_annote_input)
+    IANNOTATESV(ch_filtered_all)
     ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
     ch_annotated_tsv = IANNOTATESV.out.tsv
     ch_annotated_ann = IANNOTATESV.out.ann
 
     //
+    // Join annotated SVs with BAM pairs based on patient
+    //
+    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
+    ch_drawsv_input = ch_bam_pairs_by_patient
+        .join(ch_annotated_tsv
+        .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
+        )
+        .map { patient, meta_b, bam_t, bai_t, bam_n, bai_n, meta_t, tsv ->
+            tuple(
+                meta_b, 
+                meta_b, bam_t, bai_t, 
+                meta_b, bam_n, bai_n, 
+                meta_t, tsv
+            )
+        }
+
+    //
     // MODULE: Run DrawSV
     //
-    DRAWSV(ch_bam_pairs, ch_annotated_ann, params.annotations, params.genome, params.cytobands, params.protein_domains)
+    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
     ch_versions = ch_versions.mix(DRAWSV.out.versions)
     ch_drawsv_pdf = DRAWSV.out.pdf
+
+    //
+    // Check-Up for SeraCare samples only
+    //
+    ch_seracare_sample = ch_annotated_tsv
+        .filter { meta, file -> 
+            meta.id.contains("SeraCare") 
+        }
+
+    //
+    // MODULE: Run SeraCare Check-Up
+    //
+    SERACARE_CHECKUP(ch_seracare_sample)
+    ch_versions = ch_versions.mix(SERACARE_CHECKUP.out.versions)
   
     //
     // Collate and save software versions
     //
     softwareVersionsToYAML(ch_versions)
-        .collectFile(storeDir: "${params.outdir}/pipeline_info", name: 'software_versions.yml', sort: true, newLine: true)
+        .collectFile(
+            storeDir: "${params.outdir}/pipeline_info", 
+            name: 'software_versions.yml', 
+            sort: true, 
+            newLine: true)
         .set { ch_collated_versions }
 
     emit:

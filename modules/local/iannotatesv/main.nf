@@ -1,5 +1,5 @@
 process IANNOTATESV {
-    tag "$meta.patient_id"
+    tag "$meta.patient"
     label 'process_single'
 
     conda "${moduleDir}/environment.yml"
@@ -8,9 +8,7 @@ process IANNOTATESV {
         'blancojmskcc/iannotatesv:1.2.1' }"
 
     input:
-    tuple val(meta),  path(filtered_vcf), path(filtered_vcf_index)
-    tuple val(meta2), path(filtered_tsv)
-    tuple val(meta3), path(annote_input)
+    tuple val(meta),  path(filtered_vcf), path(filtered_vcf_index), path(filtered_tsv), path(annote_input)
 
     output:
     tuple val(meta), file("*_SOMTIC_SV_OUT.tsv"), emit: tsv
@@ -22,7 +20,7 @@ process IANNOTATESV {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     python /opt/iAnnotateSV/iAnnotateSV/iAnnotateSV.py \\
     -i ${annote_input} \\
@@ -56,7 +54,7 @@ process IANNOTATESV {
       print \"x_value: \" x_value, \"y_value: \" y_value, \"z_value: \" z_value;
       print \"Matches pattern? y_value: \" (y_value ~ pattern), \"z_value: \" (z_value ~ pattern);
 
-      if (x_value >= threshold || y_value ~ pattern || z_value ~ pattern) {
+      if (x_value > threshold || y_value ~ pattern || z_value ~ pattern) {
         print \"Line \" NR \" passed the filter.\";
         print \$0 > \"'\$output_file'\"
     } else {
@@ -71,10 +69,9 @@ process IANNOTATESV {
         iannotatesv: "1.2.1"
     END_VERSIONS
     """
-
     stub:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}_SOMTIC_SV_OUT.tsv
 

@@ -1,20 +1,20 @@
 process DRAWSV {
-    tag "$meta.patient_id"
+    tag "$meta.patient"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/drawsv:1.0.1':
-        'blancojmskcc/drawsv:1.0.1' }"
+        'docker://blancojmskcc/drawsv:6.0.6':
+        'blancojmskcc/drawsv:6.0.6' }"
 
     input:
-    tuple val(patient_id), 
-          val(meta_normal), path(normal_bam), path(normal_bai),
-          val(meta_tumour), path(tumour_bam), path(tumour_bai)
-    tuple val(meta), path(tsv)
+    tuple val(meta), 
+          val(meta0), path(tumour_bam), path(tumour_bai),
+          val(meta1), path(normal_bam), path(normal_bai),
+          val(meta2), path(tsv)
     path(gtf)
-    val(genome)
     path(cytobands)
+    path(chromosomes)
     path(protein_domains)
 
     output:
@@ -26,42 +26,31 @@ process DRAWSV {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def bam = "${tumour_bam}"
     """
-    cp "${workflow.projectDir}/bin/PRE_DRAWSVs.py" .
-    cp "${workflow.projectDir}/bin/DrawSVs.R" .
-
-    python3 PRE_DRAWSVs.py \\
-        --sample ${prefix} \\
-        --input ${tsv} \\
-        --genome ${genome} \\
-        --annotations ${gtf} \\
-        ${args}
-
-    Rscript DrawSVs.R \\
-        --SVs=${prefix}_DrawSVs.tsv \\
-        --alignments=${bam} \\
-        --annotation=${gtf}   \\
-        --cytobands=${cytobands} \\
-        --output=${prefix}_DrawSVs.pdf \\
-        --transcriptSelection=canonical \\
-        --minConfidenceForCircosPlot=High \\
-        --proteinDomains=${protein_domains} \\
+    DrawSVs \\
+        --SVs ${tsv} \\
+        --alignments ${bam} \\
+        --annotation ${gtf}   \\
+        --cytobands ${cytobands} \\
+        --chromosomes ${chromosomes} \\
+        --output ${prefix}_DrawSVs.pdf \\
+        --proteinDomains=${protein_domains}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        drawsv: "1.0.1"
+        drawsv: "6.0.6"
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}_DrawSVs.pdf
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        drawsv: "1.0.1"
+        drawsv: "6.0.6"
     END_VERSIONS
     """
 }

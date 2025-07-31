@@ -1,5 +1,5 @@
 process SURVIVOR_STATS {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_single'
 
     conda "${moduleDir}/environment.yml"
@@ -22,7 +22,7 @@ process SURVIVOR_STATS {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def is_compressed = vcf.getName().endsWith(".gz") ? true : false
     vcf_name = vcf.getName().replace(".gz", "")
 
@@ -48,7 +48,7 @@ process SURVIVOR_STATS {
     """
 
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
 
     """
     touch ${prefix}.stats
