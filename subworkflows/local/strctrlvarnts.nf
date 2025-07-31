@@ -58,7 +58,7 @@ workflow STRCTRLVARNTS {
 
     main:
     ch_versions = Channel.empty()
-//    ch_multiqc_files = Channel.empty()
+    ch_multiqc_files = Channel.empty()
 
     //
     // MODULE: Run Manta in Only Tumour mode
@@ -269,9 +269,7 @@ workflow STRCTRLVARNTS {
     emit:
 
     versions        = ch_collated_versions
-//    sv_annotated    = ch_sv_annotated
-//    draw_sv_pdf     = ch_draw_sv_pdf
-//    multiqc_files   = ch_multiqc_files 
+    multiqc_files   = ch_multiqc_files 
 
 }
 
