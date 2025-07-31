@@ -542,6 +542,12 @@
                     "fa_icon": "fas fa-book",
                     "help_text": "Index of targets BED file sorted and in specific format for the panel."
                 },
+                "drawsv_chr": {
+                    "type": "string",
+                    "description": "Chromosomes file for DrawSV.",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Chromosomes file for DrawSV."
+                },
                 "chr_fai": {
                     "type": "string",
                     "description": "Index file for chrgtf",
