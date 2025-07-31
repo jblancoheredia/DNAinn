@@ -1,20 +1,19 @@
 process SURVIVOR_FILTER {
-    tag "$meta.patient_id"
+    tag "$meta.patient"
     label 'process_low'
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/survivor_filter_dnainn:2.0':
-        'blancojmskcc/survivor_filter_dnainn:2.0' }"
+        'docker://blancojmskcc/survivor_filter_svtorm:6.3':
+        'blancojmskcc/survivor_filter_svtorm:6.3' }"
 
     input:
     tuple val(meta), 
           val(meta2), path('delly.vcf'),
-          val(meta3), path('gridss.vcf'),
+          val(meta5), path('gridss.vcf'),
           val(meta4), path('manta.vcf'),
-          val(meta5), path('recall.vcf'),
-          val(meta6), path('svaba.vcf'),
-          val(meta7), path('tiddit.vcf')
+          val(meta6), path('recall.vcf'),
+          val(meta3), path('svaba.vcf')
     val(max_distance_breakpoints)
     val(min_supporting_callers)
     val(account_for_type)
@@ -23,20 +22,20 @@ process SURVIVOR_FILTER {
     val(min_sv_size)
 
     output:
-    tuple val(meta), path("*_SURVOR_SV_FIL.sort.vcf.gz"), path("*_SURVOR_SV_FIL.sort.vcf.gz.tbi"), emit: filtered_vcf
-    tuple val(meta), path("*_SURVOR_SV_FIL.tsv")                                                 , emit: filtered_tsv
-    tuple val(meta), path("*_ANNOTE_SV_INN.tsv")                                                 , emit: annote_input
-    path "versions.yml"                                                                          , emit: versions
+    tuple val(meta), path("*_SURVOR_SV_FIL.sort.vcf.gz"), path("*_SURVOR_SV_FIL.sort.vcf.gz.tbi"), path("*_SURVOR_SV_FIL.tsv"), path("*_ANNOTE_SV_INN.tsv"), emit: filtered_all
+    tuple val(meta), path("*_SURVOR_SV_FIL.sort.vcf.gz"), path("*_SURVOR_SV_FIL.sort.vcf.gz.tbi")                                                          , emit: filtered_vcf
+    tuple val(meta), path("*_SURVOR_SV_FIL.tsv")                                                                                                           , emit: filtered_tsv
+    tuple val(meta), path("*_ANNOTE_SV_INN.tsv")                                                                                                           , emit: annote_input
+    path "versions.yml"                                                                                                                                    , emit: versions
 
     script:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 11) printf "%s%s", \$i, (i==NF || i==10 ? "\\n" : OFS)}' delly.vcf > ${prefix}_DELLY__SV_FIL.vcf
     awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' svaba.vcf > ${prefix}_SVABA__SV_FIL.vcf
     sed -i 's#${prefix}_TUMOUR.bam#TUMOUR#g' ${prefix}_SVABA__SV_FIL.vcf
     awk 'BEGIN {FS=OFS="\\t"} {print}' manta.vcf  > ${prefix}_MANTA__SV_FIL.vcf
     awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' gridss.vcf > ${prefix}_GRIDSS_SV_FIL.vcf
-    awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' tiddit.vcf > ${prefix}_TIDDIT_SV_FIL.vcf
     awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' recall.vcf > ${prefix}_RECALL_SV_FIL.vcf
 
     echo ${prefix}_DELLY__SV_FIL.vcf >> Original_VCFs_List.txt
@@ -44,7 +43,6 @@ process SURVIVOR_FILTER {
     echo ${prefix}_MANTA__SV_FIL.vcf >> Original_VCFs_List.txt
     echo ${prefix}_RECALL_SV_FIL.vcf >> Original_VCFs_List.txt
     echo ${prefix}_SVABA__SV_FIL.vcf >> Original_VCFs_List.txt
-    echo ${prefix}_TIDDIT_SV_FIL.vcf >> Original_VCFs_List.txt
 
     SURVIVOR merge \\
         <(ls *_SV_FIL.vcf) \\
@@ -54,7 +52,28 @@ process SURVIVOR_FILTER {
         ${account_for_sv_strands} \\
         ${estimate_distanced_by_sv_size} \\
         ${min_sv_size} \\
-        ${prefix}_SURVOR_SV_UNF.vcf || true
+        ${prefix}_SURVOR_SV_TMP.vcf || true
+
+    awk -v OFS='\\t' -v new_names=\"DELLY,GRIDSS,MANTA,RECALL,SVABA\" '
+    BEGIN {
+      split(new_names, names, \",\")
+    }
+    {
+      if (\$0 ~ /^##/) {
+        print
+      } else if (\$0 ~ /^#CHROM/) {
+        for (i = 1; i <= 9; i++) {
+          printf(\"%s%s\", \$i, OFS)
+        }
+        for (i = 1; i <= length(names); i++) {
+          printf(\"%s\", names[i])
+          if (i < length(names)) printf(\"%s\", OFS)
+        }
+        printf(\"\\n\")
+      } else {
+        print
+      }
+    }' ${prefix}_SURVOR_SV_TMP.vcf > ${prefix}_SURVOR_SV_UNF.vcf
 
     grep \"#\" ${prefix}_SURVOR_SV_UNF.vcf > ${prefix}_SURVOR_SV_FIL.vcf
 
@@ -66,8 +85,8 @@ process SURVIVOR_FILTER {
     
     SVRVOR2TSV \\
         --merged_vcf ${prefix}_SURVOR_SV_FIL.vcf \\
-        --original_vcf_list Original_VCFs_List.txt \\
-        --tsv ${prefix}_SURVOR_SV_FIL.tsv
+        --vcf_list Original_VCFs_List.txt \\
+        --output ${prefix}_SURVOR_SV_FIL.tsv
 
     VCF2iANN \\
         ${prefix}
@@ -86,7 +105,7 @@ process SURVIVOR_FILTER {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}_SURVOR_SV_FIL.vcf.gz
     touch ${prefix}_SURVOR_SV_FIL.vcf.gz.tbi
