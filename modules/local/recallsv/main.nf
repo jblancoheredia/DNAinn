@@ -31,7 +31,6 @@ process RECALL_SV {
     def prefix = task.ext.prefix ?: "${meta.patient}"
     def VERSION = '2.13.2' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     def bwa = bwa_index ? "cp -s ${bwa_index}/* ." : ""
-    def CollectGridssMetrics = "java -cp /opt/gridss/gridss--gridss-jar-with-dependencies.jar gridss.analysis.CollectGridssMetrics"
     """
     samtools view -h -F 256 -o ${prefix}_N_filtered.bam ${normal_bam}
     samtools index ${prefix}_N_filtered.bam
@@ -45,7 +44,7 @@ process RECALL_SV {
 
     mkdir ${prefix}-N.bam.gridss.working
 
-    ${CollectGridssMetrics} \\
+    CollectGridssMetrics \\
         INPUT=${prefix}_N_filtered.bam \\
         PROGRAM=RnaSeqMetrics \\
         THRESHOLD_COVERAGE=5000 \\
@@ -71,7 +70,7 @@ process RECALL_SV {
 
     mkdir ${prefix}-T.bam.gridss.working
 
-    ${CollectGridssMetrics} \\
+    CollectGridssMetrics \\
         INPUT=${prefix}_T_filtered.bam \\
         PROGRAM=RnaSeqMetrics \\
         THRESHOLD_COVERAGE=5000 \\
@@ -110,9 +109,25 @@ process RECALL_SV {
 
     gridss_annotate_vcf_kraken2 \\
         -t ${task.cpus} \\
-        -o ${prefix}.recall.unfiltered.vcf \\
+        -o ${prefix}.recall.all_calls_avk.vcf \\
         --kraken2db ${kraken2db} \\
         ${prefix}_all_calls.vcf
+
+    gridss_somatic_filter \\
+        -i ${prefix}.recall.all_calls_avk.vcf \\
+        --ref BSgenome.Hsapiens.UCSC.hg38 \\
+        -o ${prefix}_high_confidence_somatic.vcf.gz \\
+        -f ${prefix}_high_and_low_confidence_somatic.vcf.gz \\
+        -p ${pon_dir} \\
+        -s /opt/gridss/ \\
+        -n 1 \\
+        -t 2
+
+    mv ${prefix}_high_and_low_confidence_somatic.vcf.bgz ${prefix}_high_and_low_confidence_somatic.vcf.gz
+    gunzip ${prefix}_high_and_low_confidence_somatic.vcf.gz
+    grep "^#" ${prefix}_high_and_low_confidence_somatic.vcf >> ${prefix}_RECALL_SV_UNF.vcf
+    grep -v "^#" ${prefix}_high_and_low_confidence_somatic.vcf | grep "PASS" >> ${prefix}.recall.unfiltered.vcf
+
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
