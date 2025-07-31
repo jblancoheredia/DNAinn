@@ -22,6 +22,7 @@ include { SURVIVOR_STATS                                                        
 include { ANNOTSV_ANNOTSV                                                                                                           } from '../../modules/local/annotsv/annotsv/main' 
 include { MANTA_TUMORONLY                                                                                                           } from '../../modules/local/manta/tumoronly/main'
 include { SURVIVOR_FILTER                                                                                                           } from '../../modules/local/survivor/filter/main'
+include { SERACARE_CHECKUP                                                                                                          } from '../../modules/local/seracare/checkup/main'
 include { TABIX_BGZIPTABIX                                                                                                          } from '../../modules/nf-core/tabix/bgziptabix/main'
 include { GATK4_BEDTOINTERVALLIST                                                                                                   } from '../../modules/nf-core/gatk4/bedtointervallist/main'
 include { ANNOTSV_INSTALLANNOTATIONS                                                                                                } from '../../modules/nf-core/annotsv/installannotations/main'
