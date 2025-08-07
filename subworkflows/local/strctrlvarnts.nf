@@ -12,6 +12,7 @@ include { DELLY                                                                 
 include { SVABA                                                                                                                     } from '../../modules/local/svaba/main'
 include { DRAWSV                                                                                                                    } from '../../modules/local/drawsv/main'
 include { GRIDSS                                                                                                                    } from '../../modules/local/gridss/main'
+include { SVSOMF                                                                                                                    } from '../../modules/local/svsomf/main'
 include { BWAMEM2                                                                                                                   } from '../../modules/local/bwamem2/main' 
 include { RECALL_SV                                                                                                                 } from '../../modules/local/recallsv/main'
 include { TIDDIT_SV                                                                                                                 } from '../../modules/local/tiddit/sv/main'
@@ -164,7 +165,15 @@ workflow STRCTRLVARNTS {
     //
     RECALL_SV(ch_recall_input, ch_fasta, ch_fai, ch_known_sites, params.refflat, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db, params.pon_directory)
     ch_versions = ch_versions.mix(RECALL_SV.out.versions)
-    ch_recall_vcf = RECALL_SV.out.vcf
+    ch_prefilter_vcf = RECALL_SV.out.vcf
+
+    //
+    // MODULE: Run SV Somatic Filter
+    //
+    SVSOMF(ch_prefilter_vcf, ch_fasta, ch_fai, params.pon_directory)
+    ch_versions = ch_versions.mix(SVSOMF.out.versions)
+    ch_recall_vcf = SVSOMF.out.vcf
+    ch_recall_vcf = ch_recall_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // Combine the vcf by meta key patient
