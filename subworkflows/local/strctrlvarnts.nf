@@ -175,95 +175,95 @@ workflow STRCTRLVARNTS {
     ch_recall_vcf = SVSOMF.out.vcf
     ch_recall_vcf = ch_recall_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
-    //
-    // Combine the vcf by meta key patient
-    //
-    ch_survivor_filter_input = ch_delly_vcf
-        .map { meta, vcf -> [meta.patient, meta, vcf] }
-        .join(ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_manta_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_recall_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_svaba_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_recall, recall_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
-            tuple(
-                meta_delly,                 //
-                meta_delly,     delly_vcf,  //
-                meta_gridss,    gridss_vcf, //
-                meta_manta,     manta_vcf,  //
-                meta_recall,    recall_vcf, //
-                meta_svaba,     svaba_vcf,  //
-                meta_tiddit,    tiddit_vcf  
-            )
-        }
-
-    //
-    // MODULE: Run Survivor to filter Unfiltered VCFs
-    //
-    SURVIVOR_FILTER(ch_survivor_filter_input, 10000, 3, 1, 1, 0, 50)
-    ch_versions = ch_versions.mix(SURVIVOR_FILTER.out.versions)
-    ch_filtered_all = SURVIVOR_FILTER.out.filtered_all
-    ch_filtered_vcf = SURVIVOR_FILTER.out.filtered_vcf
-
-    //
-    // MODULE: Run Survivor Stats
-    //
-    SURVIVOR_STATS(ch_filtered_vcf, -1, -1, -1)
-    ch_versions = ch_versions.mix(SURVIVOR_STATS.out.versions)
-    ch_multiqc_files  = ch_multiqc_files.mix(SURVIVOR_STATS.out.stats.collect{it[1]}.ifEmpty([]))
-
-    //
-    // MODULE: Run AnnotSV
-    //
-    ANNOTSV_ANNOTSV(ch_filtered_vcf, ch_bcf_mpileup, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
-    ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
-    ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
-
-    //
-    // MODULE: Run iAnnotateSV 
-    //
-    IANNOTATESV(ch_filtered_all)
-    ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
-    ch_annotated_tsv = IANNOTATESV.out.tsv
-    ch_annotated_ann = IANNOTATESV.out.ann
-
-    //
-    // Join annotated SVs with BAM pairs based on patient
-    //
-    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
-    ch_drawsv_input = ch_bam_pairs_by_patient
-        .join(ch_annotated_tsv
-        .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
-        )
-        .map { patient, meta_b, bam_t, bai_t, bam_n, bai_n, meta_t, tsv ->
-            tuple(
-                meta_b, 
-                meta_b, bam_t, bai_t, 
-                meta_b, bam_n, bai_n, 
-                meta_t, tsv
-            )
-        }
-
-    //
-    // MODULE: Run DrawSV
-    //
-    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
-    ch_versions = ch_versions.mix(DRAWSV.out.versions)
-    ch_drawsv_pdf = DRAWSV.out.pdf
-
-    //
-    // Check-Up for SeraCare samples only
-    //
-    ch_seracare_sample = ch_annotated_tsv
-        .filter { meta, file -> 
-            meta.id.contains("SeraCare") 
-        }
-
-    //
-    // MODULE: Run SeraCare Check-Up
-    //
-    SERACARE_CHECKUP(ch_seracare_sample)
-    ch_versions = ch_versions.mix(SERACARE_CHECKUP.out.versions)
+//    //
+//    // Combine the vcf by meta key patient
+//    //
+//    ch_survivor_filter_input = ch_delly_vcf
+//        .map { meta, vcf -> [meta.patient, meta, vcf] }
+//        .join(ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_manta_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_recall_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_svaba_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_recall, recall_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
+//            tuple(
+//                meta_delly,                 //
+//                meta_delly,     delly_vcf,  //
+//                meta_gridss,    gridss_vcf, //
+//                meta_manta,     manta_vcf,  //
+//                meta_recall,    recall_vcf, //
+//                meta_svaba,     svaba_vcf,  //
+//                meta_tiddit,    tiddit_vcf  
+//            )
+//        }
+//
+//    //
+//    // MODULE: Run Survivor to filter Unfiltered VCFs
+//    //
+//    SURVIVOR_FILTER(ch_survivor_filter_input, 10000, 3, 1, 1, 0, 50)
+//    ch_versions = ch_versions.mix(SURVIVOR_FILTER.out.versions)
+//    ch_filtered_all = SURVIVOR_FILTER.out.filtered_all
+//    ch_filtered_vcf = SURVIVOR_FILTER.out.filtered_vcf
+//
+//    //
+//    // MODULE: Run Survivor Stats
+//    //
+//    SURVIVOR_STATS(ch_filtered_vcf, -1, -1, -1)
+//    ch_versions = ch_versions.mix(SURVIVOR_STATS.out.versions)
+//    ch_multiqc_files  = ch_multiqc_files.mix(SURVIVOR_STATS.out.stats.collect{it[1]}.ifEmpty([]))
+//
+//    //
+//    // MODULE: Run AnnotSV
+//    //
+//    ANNOTSV_ANNOTSV(ch_filtered_vcf, ch_bcf_mpileup, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
+//    ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
+//    ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
+//
+//    //
+//    // MODULE: Run iAnnotateSV 
+//    //
+//    IANNOTATESV(ch_filtered_all)
+//    ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
+//    ch_annotated_tsv = IANNOTATESV.out.tsv
+//    ch_annotated_ann = IANNOTATESV.out.ann
+//
+//    //
+//    // Join annotated SVs with BAM pairs based on patient
+//    //
+//    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
+//    ch_drawsv_input = ch_bam_pairs_by_patient
+//        .join(ch_annotated_tsv
+//        .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
+//        )
+//        .map { patient, meta_b, bam_t, bai_t, bam_n, bai_n, meta_t, tsv ->
+//            tuple(
+//                meta_b, 
+//                meta_b, bam_t, bai_t, 
+//                meta_b, bam_n, bai_n, 
+//                meta_t, tsv
+//            )
+//        }
+//
+//    //
+//    // MODULE: Run DrawSV
+//    //
+//    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
+//    ch_versions = ch_versions.mix(DRAWSV.out.versions)
+//    ch_drawsv_pdf = DRAWSV.out.pdf
+//
+//    //
+//    // Check-Up for SeraCare samples only
+//    //
+//    ch_seracare_sample = ch_annotated_tsv
+//        .filter { meta, file -> 
+//            meta.id.contains("SeraCare") 
+//        }
+//
+//    //
+//    // MODULE: Run SeraCare Check-Up
+//    //
+//    SERACARE_CHECKUP(ch_seracare_sample)
+//    ch_versions = ch_versions.mix(SERACARE_CHECKUP.out.versions)
   
     //
     // Collate and save software versions
