@@ -4,8 +4,8 @@ process SVSOMF {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/svsomf:1.5.0':
-        'blancojmskcc/svsomf:1.5.0' }"
+        'docker://blancojmskcc/svsomf:1.4.0':
+        'blancojmskcc/svsomf:1.4.0' }"
 
     input:
     tuple val(meta) , path(vcf)
@@ -34,7 +34,7 @@ process SVSOMF {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        svsomf: "1.5.0"
+        svsomf: "1.4.0"
     END_VERSIONS
     """
     stub:
@@ -44,7 +44,7 @@ process SVSOMF {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        svsomf: "1.5.0"
+        svsomf: "1.4.0"
     END_VERSIONS
     """
 }
