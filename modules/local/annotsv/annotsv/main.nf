@@ -8,8 +8,9 @@ process ANNOTSV_ANNOTSV {
         'community.wave.seqera.io/library/annotsv:3.4.2--6e6cee83703bd24c' }"
 
     input:
-    tuple val(meta) , path(sv_vcf), path(sv_vcf_tbi)
-    tuple val(meta1), path(snv_indel_vcf)
+    tuple val(meta) ,
+          val(meta1), path(sv_vcf), path(sv_vcf_tbi),
+          val(meta2), path(snv_indel_vcf)
     path(gene_transcripts)
     path(candidate_genes)
     val(genome_version)
