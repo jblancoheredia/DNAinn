@@ -14,7 +14,7 @@ process SURVIVOR_FILTER {
           val(meta4), path('manta.vcf'),
           val(meta5), path('recall.vcf'),
           val(meta6), path('svaba.vcf'),
-          val(meta7), path('tiddit.vcf'),
+          val(meta7), path('tiddit.vcf')
     val(max_distance_breakpoints)
     val(min_supporting_callers)
     val(account_for_type)
