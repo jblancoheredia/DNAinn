@@ -50,9 +50,8 @@ workflow STRCTRLVARNTS {
     ch_bwa2
     ch_dict
     ch_fasta
-    ch_bam_pairs
-    ch_known_sites
     ch_bcf_mpileup
+    ch_known_sites
     ch_split_reads
     ch_reads_finalized
     ch_intervals_gunzip
@@ -61,6 +60,56 @@ workflow STRCTRLVARNTS {
     main:
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
+
+    //
+    // MODULE: BWA-MEM2 mapping
+    //
+    sort_bam = 'sort'
+    BWAMEM2(ch_reads_finalized, ch_split_reads, ch_bwa2, ch_fasta, ch_fai, sort_bam)
+    ch_versions = ch_versions.mix(BWAMEM2.out.versions)
+    ch_bam_con_split = BWAMEM2.out.bam
+
+    //
+    // Pair tumour samples with normal samples by patient meta key if only tumour use backup normal
+    //
+    def control_normal_bam = file(params.normal_con_bam)
+    def control_normal_bai = file(params.normal_con_bai)
+
+    ch_bam_con_split
+        .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
+        .groupTuple(by: 0)
+        .map { patient, meta_list, bam_list, bai_list -> 
+            def samples = []
+            meta_list.eachWithIndex { meta, i ->
+                samples << [meta, bam_list[i], bai_list[i]]
+            }
+
+            def tumour = samples.find { it[0].sample_type == 'tumour' }
+            def normal = samples.find { it[0].sample_type == 'normal' }
+
+            if (tumour && normal) {
+                return [tumour, normal]
+            } else if (tumour && tumour[0].matched_normal == 0) {
+                return [tumour, null]
+            } else {
+                return null
+            }
+        }
+        .filter { it != null }
+        .map { tumour, normal ->
+            def meta_t = tumour[0]
+            def bam_t  = tumour[1]
+            def bai_t  = tumour[2]
+
+            if (normal) {
+                def bam_n = normal[1]
+                def bai_n = normal[2]
+                return [meta_t, bam_t, bai_t, bam_n, bai_n]
+            } else {
+                return [meta_t, bam_t, bai_t, control_normal_bam, control_normal_bai]
+            }
+        }
+        .set { ch_bam_pairs }
 
     //
     // MODULE: Run Manta in Only Tumour mode
