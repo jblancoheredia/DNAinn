@@ -260,52 +260,69 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(SURVIVOR_STATS.out.versions)
     ch_multiqc_files  = ch_multiqc_files.mix(SURVIVOR_STATS.out.stats.collect{it[1]}.ifEmpty([]))
 
-    //
-    // MODULE: Run AnnotSV
-    //
-    ANNOTSV_ANNOTSV(ch_filtered_vcf, ch_bcf_mpileup, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
-    ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
-    ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
 
     //
-    // MODULE: Run iAnnotateSV 
+    // Join filtered VCF with MpileUp based on patient
     //
-    IANNOTATESV(ch_filtered_all)
-    ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
-    ch_annotated_tsv = IANNOTATESV.out.tsv
-    ch_annotated_ann = IANNOTATESV.out.ann
-
-    //
-    // Filter TSV files that contain at least one SV
-    //
-    ch_annotated_tsv_with_svs = ch_annotated_tsv
-        .filter { meta, tsv ->
-            tsv.readLines().size() > 1  // Assuming header + at least one SV row
-        }
-
-    //
-    // Join annotated SVs with BAM pairs based on patient
-    //
-    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
-    ch_drawsv_input = ch_bam_pairs_by_patient
-        .join(ch_annotated_tsv_with_svs
-        .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
+    ch_filtered_vcf  = ch_filtered_vcf.map {meta, vcf, tbi -> tuple(meta.patient, meta, vcf, tbi) }
+    ch_annotsv_input = ch_filtered_vcf
+        .join(ch_bcf_mpileup
+        .map {meta, bcf -> tuple(meta.patient, meta, bcf)}
         )
-        .map { patient, meta_b, bam_t, bai_t, bam_n, bai_n, meta_t, tsv ->
+        .map { patient, meta_s, vcf, tbi, meta_b, bcf ->
             tuple(
-                meta_b, 
-                meta_b, bam_t, bai_t, 
-                meta_b, bam_n, bai_n, 
-                meta_t, tsv
+                meta_f, 
+                meta_f, vcf, tbi, 
+                meta_b, bcf
             )
         }
 
     //
-    // MODULE: Run DrawSV
+    // MODULE: Run AnnotSV
     //
-    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
-    ch_versions = ch_versions.mix(DRAWSV.out.versions)
-    ch_drawsv_pdf = DRAWSV.out.pdf
+    ANNOTSV_ANNOTSV(ch_annotsv_input, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
+    ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
+    ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
+
+//    //
+//    // MODULE: Run iAnnotateSV 
+//    //
+//    IANNOTATESV(ch_filtered_all)
+//    ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
+//    ch_annotated_tsv = IANNOTATESV.out.tsv
+//    ch_annotated_ann = IANNOTATESV.out.ann
+//
+//    //
+//    // Filter TSV files that contain at least one SV
+//    //
+//    ch_annotated_tsv_with_svs = ch_annotated_tsv
+//        .filter { meta, tsv ->
+//            tsv.readLines().size() > 1  // Assuming header + at least one SV row
+//        }
+//
+//    //
+//    // Join annotated SVs with BAM pairs based on patient
+//    //
+//    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
+//    ch_drawsv_input = ch_bam_pairs_by_patient
+//        .join(ch_annotated_tsv_with_svs
+//        .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
+//        )
+//        .map { patient, meta_b, bam_t, bai_t, bam_n, bai_n, meta_t, tsv ->
+//            tuple(
+//                meta_b, 
+//                meta_b, bam_t, bai_t, 
+//                meta_b, bam_n, bai_n, 
+//                meta_t, tsv
+//            )
+//        }
+//
+//    //
+//    // MODULE: Run DrawSV
+//    //
+//    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
+//    ch_versions = ch_versions.mix(DRAWSV.out.versions)
+//    ch_drawsv_pdf = DRAWSV.out.pdf
 
     //
     // Check-Up for SeraCare samples only
