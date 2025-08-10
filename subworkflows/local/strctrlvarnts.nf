@@ -323,20 +323,20 @@ workflow STRCTRLVARNTS {
 //    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
 //    ch_versions = ch_versions.mix(DRAWSV.out.versions)
 //    ch_drawsv_pdf = DRAWSV.out.pdf
-
-    //
-    // Check-Up for SeraCare samples only
-    //
-    ch_seracare_sample = ch_annotated_tsv
-        .filter { meta, file -> 
-            meta.id.contains("SeraCare") 
-        }
-
-    //
-    // MODULE: Run SeraCare Check-Up
-    //
-    SERACARE_CHECKUP(ch_seracare_sample)
-    ch_versions = ch_versions.mix(SERACARE_CHECKUP.out.versions)
+//
+//    //
+//    // Check-Up for SeraCare samples only
+//    //
+//    ch_seracare_sample = ch_annotated_tsv
+//        .filter { meta, file -> 
+//            meta.id.contains("SeraCare") 
+//        }
+//
+//    //
+//    // MODULE: Run SeraCare Check-Up
+//    //
+//    SERACARE_CHECKUP(ch_seracare_sample)
+//    ch_versions = ch_versions.mix(SERACARE_CHECKUP.out.versions)
   
     //
     // Collate and save software versions
