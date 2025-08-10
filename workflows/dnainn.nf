@@ -362,7 +362,6 @@ workflow DNAINN {
         ch_bwa2,
         ch_dict,
         ch_fasta,
-        ch_bam_pairs,
         ch_known_sites,
         ch_bcf_mpileup,
         ch_split_reads,
