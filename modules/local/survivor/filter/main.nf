@@ -10,10 +10,11 @@ process SURVIVOR_FILTER {
     input:
     tuple val(meta), 
           val(meta2), path('delly.vcf'),
-          val(meta5), path('gridss.vcf'),
+          val(meta3), path('gridss.vcf'),
           val(meta4), path('manta.vcf'),
-          val(meta6), path('recall.vcf'),
-          val(meta3), path('svaba.vcf')
+          val(meta5), path('recall.vcf'),
+          val(meta6), path('svaba.vcf'),
+          val(meta7), path('tiddit.vcf'),
     val(max_distance_breakpoints)
     val(min_supporting_callers)
     val(account_for_type)
@@ -37,12 +38,15 @@ process SURVIVOR_FILTER {
     awk 'BEGIN {FS=OFS="\\t"} {print}' manta.vcf  > ${prefix}_MANTA__SV_FIL.vcf
     awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' gridss.vcf > ${prefix}_GRIDSS_SV_FIL.vcf
     awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' recall.vcf > ${prefix}_RECALL_SV_FIL.vcf
+    awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' tiddit.vcf > ${prefix}_TIDDIT_SV_FIL.vcf
+    sed -i 's#${prefix},${prefix}_${prefix}#TUMOUR#g' ${prefix}_TIDDIT_SV_FIL.vcf
 
     echo ${prefix}_DELLY__SV_FIL.vcf >> Original_VCFs_List.txt
     echo ${prefix}_GRIDSS_SV_FIL.vcf >> Original_VCFs_List.txt
     echo ${prefix}_MANTA__SV_FIL.vcf >> Original_VCFs_List.txt
     echo ${prefix}_RECALL_SV_FIL.vcf >> Original_VCFs_List.txt
     echo ${prefix}_SVABA__SV_FIL.vcf >> Original_VCFs_List.txt
+    echo ${prefix}_TIDDIT_SV_FIL.vcf >> Original_VCFs_List.txt
 
     SURVIVOR merge \\
         <(ls *_SV_FIL.vcf) \\
