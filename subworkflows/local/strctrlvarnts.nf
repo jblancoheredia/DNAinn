@@ -269,7 +269,7 @@ workflow STRCTRLVARNTS {
         .join(ch_bcf_mpileup
         .map {meta, bcf -> tuple(meta.patient, meta, bcf)}
         )
-        .map { patient, meta_s, vcf, tbi, meta_b, bcf ->
+        .map { patient, meta_f, vcf, tbi, meta_b, bcf ->
             tuple(
                 meta_f, 
                 meta_f, vcf, tbi, 
