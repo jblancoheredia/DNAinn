@@ -291,52 +291,52 @@ workflow STRCTRLVARNTS {
 //    ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
 //    ch_annotated_tsv = IANNOTATESV.out.tsv
 //    ch_annotated_ann = IANNOTATESV.out.ann
-//
-//    //
-//    // Filter TSV files that contain at least one SV
-//    //
-//    ch_annotated_tsv_with_svs = ch_annotated_tsv
-//        .filter { meta, tsv ->
-//            tsv.readLines().size() > 1  // Assuming header + at least one SV row
-//        }
-//
-//    //
-//    // Join annotated SVs with BAM pairs based on patient
-//    //
-//    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
-//    ch_drawsv_input = ch_bam_pairs_by_patient
-//        .join(ch_annotated_tsv_with_svs
-//        .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
-//        )
-//        .map { patient, meta_b, bam_t, bai_t, bam_n, bai_n, meta_t, tsv ->
-//            tuple(
-//                meta_b, 
-//                meta_b, bam_t, bai_t, 
-//                meta_b, bam_n, bai_n, 
-//                meta_t, tsv
-//            )
-//        }
-//
-//    //
-//    // MODULE: Run DrawSV
-//    //
-//    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
-//    ch_versions = ch_versions.mix(DRAWSV.out.versions)
-//    ch_drawsv_pdf = DRAWSV.out.pdf
-//
-//    //
-//    // Check-Up for SeraCare samples only
-//    //
-//    ch_seracare_sample = ch_annotated_tsv
-//        .filter { meta, file -> 
-//            meta.id.contains("SeraCare") 
-//        }
-//
-//    //
-//    // MODULE: Run SeraCare Check-Up
-//    //
-//    SERACARE_CHECKUP(ch_seracare_sample)
-//    ch_versions = ch_versions.mix(SERACARE_CHECKUP.out.versions)
+
+    //
+    // Filter TSV files that contain at least one SV
+    //
+    ch_sv_annotated_with_svs = ch_sv_annotated
+        .filter { meta, tsv ->
+            tsv.readLines().size() > 1  // Assuming header + at least one SV row
+        }
+
+    //
+    // Join annotated SVs with BAM pairs based on patient
+    //
+    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
+    ch_drawsv_input = ch_bam_pairs_by_patient
+        .join(ch_sv_annotated_with_svs
+        .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
+        )
+        .map { patient, meta_b, bam_t, bai_t, bam_n, bai_n, meta_t, tsv ->
+            tuple(
+                meta_b, 
+                meta_b, bam_t, bai_t, 
+                meta_b, bam_n, bai_n, 
+                meta_t, tsv
+            )
+        }
+
+    //
+    // MODULE: Run DrawSV
+    //
+    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
+    ch_versions = ch_versions.mix(DRAWSV.out.versions)
+    ch_drawsv_pdf = DRAWSV.out.pdf
+
+    //
+    // Check-Up for SeraCare samples only
+    //
+    ch_seracare_sample = ch_sv_annotated_with_svs
+        .filter { meta, file -> 
+            meta.id.contains("SeraCare") 
+        }
+
+    //
+    // MODULE: Run SeraCare Check-Up
+    //
+    SERACARE_CHECKUP(ch_seracare_sample)
+    ch_versions = ch_versions.mix(SERACARE_CHECKUP.out.versions)
   
     //
     // Collate and save software versions
