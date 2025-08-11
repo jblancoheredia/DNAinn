@@ -46,17 +46,10 @@ process ANNOTSV_ANNOTSV {
         annotsv: \$(echo \$(AnnotSV -help 2>&1 | head -n1 | sed 's/^AnnotSV //'))
     END_VERSIONS
     """
-
     stub:
-    def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-
-    def create_vcf = args.contains("-vcf 1") ? "touch ${prefix}.vcf" : ""
-
     """
-    touch ${prefix}.tsv
-    touch ${prefix}.unannotated.tsv
-    ${create_vcf}
+    touch ${prefix}.annotated.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
