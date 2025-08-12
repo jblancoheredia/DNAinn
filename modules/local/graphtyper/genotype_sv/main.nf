@@ -4,18 +4,20 @@ process GRAPHTYPER_GENOTYPE_SV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/graphtyper:2.7.2--h7d7f7ad_0':
-        'biocontainers/graphtyper:2.7.2--h7d7f7ad_0' }"
+        'docker://blancojmskcc/graphtyper:2.7.7':
+        'blancojmskcc/graphtyper:2.7.7' }"
 
     input:
-    tuple val(meta), path(bam), path(bai), path(vcf)
-    tuple val(meta2), path(ref)
-    tuple val(meta3), path(ref_fai)
+    tuple val(meta) , 
+          val(meta2), path(bam), path(bai), 
+          val(meta3), path(vcf), path(tbi)
+    tuple val(meta4), path(ref)
+    tuple val(meta5), path(ref_fai)
     path region_file
 
     output:
-    tuple val(meta), path("results/*/*.vcf.gz")    , emit: vcf
-    tuple val(meta), path("results/*/*.vcf.gz.tbi"), emit: tbi
+    tuple val(meta), path("*sv_results_large.vcf.gz")    , emit: vcf
+    tuple val(meta), path("*sv_results_large.vcf.gz.tbi"), emit: tbi
     path "versions.yml", emit: versions
 
     when:
@@ -24,6 +26,7 @@ process GRAPHTYPER_GENOTYPE_SV {
     script:
     def args          = task.ext.args ?: ''
     def bam_path_text = bam.sort().join('\\n')
+    def prefix = task.ext.prefix ?: "${meta.id}"
     def region_text   = region_file.size() > 0 ? "--region_file ${region_file}" : ""
     if (region_file.size() == 0 && ! args.contains("region")) {
         error "GRAPHTYPER_GENOTYPE_SV requires either a region file or a region specified using '--region' in ext.args"
@@ -38,6 +41,12 @@ process GRAPHTYPER_GENOTYPE_SV {
         --sams bam_list.txt \\
         --threads ${task.cpus} \\
         ${region_text}
+
+    echo chr{1..22} chrX | tr ' ' '\\n' | while read chrom; do if [[ ! -d sv_results/\${chrom} ]]; then continue; fi; find sv_results/\${chrom} -name \"*.vcf.gz\" | sort; done > vcf_file_list
+
+    bcftools concat --naive --file-list vcf_file_list -Oz -o ${prefix}_sv_results_large.vcf.gz
+
+    tabix -p vcf ${prefix}_sv_results_large.vcf.gz
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
