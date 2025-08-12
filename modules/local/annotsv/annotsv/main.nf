@@ -4,8 +4,8 @@ process ANNOTSV_ANNOTSV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/b2/b202e030802ec909556961b542f15e0b37583755cebf08e899b3042a44f93ddb/data' :
-        'community.wave.seqera.io/library/annotsv:3.4.2--6e6cee83703bd24c' }"
+        'docker://blancojmskcc/dnainn_annotsv:3.5':
+        'blancojmskcc/dnainn_annotsv:3.5' }"
 
     input:
     tuple val(meta) ,
@@ -17,7 +17,9 @@ process ANNOTSV_ANNOTSV {
     path(annotations)
 
     output:
+    tuple val(meta), path("*.log")          , emit: log
     tuple val(meta), path("*.annotated.tsv"), emit: tsv
+    tuple val(meta), path("*.annotated.vcf"), emit: vcf
     path "versions.yml"                     , emit: versions
 
     when:
@@ -27,20 +29,15 @@ process ANNOTSV_ANNOTSV {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    AnnotSV \\
-        -SVinputFile ${sv_vcf}       \\
-        -txFile ${gene_transcripts}    \\
-        -genomeBuild ${genome_version}   \\
-        -annotationsDir ${annotations}     \\
-        -outputFile ${prefix}.annotated.tsv  \\
+    \$ANNOTSV/bin/AnnotSV \\
+        -SVinputFile ${sv_vcf} \\
+        -txFile ${gene_transcripts} \\
+        -genomeBuild ${genome_version} \\
+        -outputFile ${prefix}.annotated.tsv \\
         -candidateGenesFile ${candidate_genes} \\
         -candidateSnvIndelFiles ${snv_indel_vcf} \\
-        -SVminSize 50  \\
-        -outputDir ./    \\
-        -SVinputInfo 1     \\
-        -annotationMode full \\
-        ${args}
-
+        -vcf 1
+    
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         annotsv: \$(echo \$(AnnotSV -help 2>&1 | head -n1 | sed 's/^AnnotSV //'))
@@ -49,7 +46,9 @@ process ANNOTSV_ANNOTSV {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
+    touch ${prefix}.annotated.vcf
     touch ${prefix}.annotated.tsv
+    touch ${prefix}.annotated.variantconvert.log
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
