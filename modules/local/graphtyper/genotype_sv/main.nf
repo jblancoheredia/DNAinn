@@ -1,5 +1,5 @@
 process GRAPHTYPER_GENOTYPE_SV {
-    tag "$meta.id"
+    tag "$meta.patient_id"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
@@ -26,13 +26,14 @@ process GRAPHTYPER_GENOTYPE_SV {
     script:
     def args          = task.ext.args ?: ''
     def bam_path_text = bam.sort().join('\\n')
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient_id}"
     def region_text   = region_file.size() > 0 ? "--region_file ${region_file}" : ""
     if (region_file.size() == 0 && ! args.contains("region")) {
         error "GRAPHTYPER_GENOTYPE_SV requires either a region file or a region specified using '--region' in ext.args"
     }
     """
     printf "${bam_path_text}" > bam_list.txt
+    
     graphtyper \\
         genotype_sv \\
         ${ref} \\
