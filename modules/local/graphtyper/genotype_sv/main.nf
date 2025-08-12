@@ -16,9 +16,8 @@ process GRAPHTYPER_GENOTYPE_SV {
     path region_file
 
     output:
-    tuple val(meta), path("*sv_results_large.vcf.gz")    , emit: vcf
-    tuple val(meta), path("*sv_results_large.vcf.gz.tbi"), emit: tbi
-    path "versions.yml", emit: versions
+    tuple val(meta), path("*sv_results_large.vcf.gz"), path("*sv_results_large.vcf.gz.tbi"), emit: vcf
+    path "versions.yml"                                                                    , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -33,7 +32,7 @@ process GRAPHTYPER_GENOTYPE_SV {
     }
     """
     printf "${bam_path_text}" > bam_list.txt
-    
+
     graphtyper \\
         genotype_sv \\
         ${ref} \\
