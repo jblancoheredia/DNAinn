@@ -10,6 +10,7 @@
 
 include { DELLY                                                                                                                     } from '../../modules/local/delly/main'
 include { SVABA                                                                                                                     } from '../../modules/local/svaba/main'
+include { DEMOTE                                                                                                                    } from '../../modules/local/demote/main'
 include { DRAWSV                                                                                                                    } from '../../modules/local/drawsv/main'
 include { GRIDSS                                                                                                                    } from '../../modules/local/gridss/main'
 include { SVSOMF                                                                                                                    } from '../../modules/local/svsomf/main'
@@ -68,7 +69,14 @@ workflow STRCTRLVARNTS {
     sort_bam = 'sort'
     BWAMEM2(ch_reads_finalized, ch_split_reads, ch_bwa2, ch_fasta, ch_fai, sort_bam)
     ch_versions = ch_versions.mix(BWAMEM2.out.versions)
-    ch_bam_con_split = BWAMEM2.out.bam
+    ch_bwamem2_bam = BWAMEM2.out.bam
+
+    //
+    // MODULE: Run Demote to clean BAM file from multiple primary reads
+    //
+    DEMOTE(ch_bwamem2_bam)
+    ch_versions = ch_versions.mix(DEMOTE.out.versions)
+    ch_bam_con_split = DEMOTE.out.bam
 
     //
     // Pair tumour samples with normal samples by patient meta key if only tumour use backup normal

@@ -1,0 +1,41 @@
+name: demote
+description: |
+  Demote extra primary alignments per read-end (keep highest MAPQ), then name-sort,
+  fixmate, coordinate-sort, mark duplicates, and index. Produces a clean BAM suitable
+  for downstream SV calling/genotyping.
+keywords:
+  - BAM
+  - SAM
+  - pysam
+  - samtools
+  - flags
+  - duplicates
+tools:
+  - samtools:
+      description: Utilities for SAM/BAM/CRAM files
+      homepage: https://www.htslib.org/
+      licence: MIT
+  - pysam:
+      description: Python bindings for htslib
+      homepage: https://pysam.readthedocs.io/
+      licence: MIT
+inputs:
+  - meta:
+      type: map
+      description: Sample metadata map
+  - bam:
+      type: file
+      description: Input BAM (any sort order)
+  - bai:
+      type: file
+      description: BAM index
+outputs:
+  - bam:
+      type: file
+      description: Clean, coord-sorted, deduplicated BAM with ≤1 primary per read-end
+  - bai:
+      type: file
+      description: Index for the clean BAM
+authors:
+  - blancoj@mskcc.org
+
