@@ -10,7 +10,6 @@ process DEMOTE {
     input:
     tuple val(meta), path(bam), path(bai)
 
-
     output:
     tuple val(meta), path("*.demote.bam"), path("*.demote.bam.bai"), emit: bam
     path "versions.yml"                                            , emit: versions
@@ -21,7 +20,7 @@ process DEMOTE {
     script:
     def args     = task.ext.args ?: ''
     def fixbam   = "${prefix}.demoted.fixmate.bam"
-    def prefix   = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix   = "${meta.patient_id}"
     def namebam  = "${prefix}.demoted.name.bam"
     def unsorted = "${prefix}.demoted.unsorted.bam"
     def coordbam = "${prefix}.demoted.fixmate.sorted.bam"
@@ -49,7 +48,7 @@ process DEMOTE {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = "${meta.patient_id}"
     """
     touch ${prefix}.demoted.bam
     touch ${prefix}.demoted.bam.bai
