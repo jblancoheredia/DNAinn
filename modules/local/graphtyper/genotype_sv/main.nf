@@ -40,7 +40,7 @@ process GRAPHTYPER_GENOTYPE_SV {
         --region_file regions.bed \\
         ${args}
 
-    echo chr{1..22} chrX | tr ' ' '\\n' | while read chrom; do if [[ ! -d sv_results/\${chrom} ]]; then continue; fi; find sv_results/\${chrom} -name \"*.vcf.gz\" | sort; done > vcf_file_list
+    echo {1..22} X | tr ' ' '\\n' | while read chrom; do for prefix in \"\" \"chr\"; do dir=\"sv_results/\${prefix}\${chrom}\"; if [[ -d \"\$dir\" ]]; then find \"\$dir\" -name \"*.vcf.gz\" | sort; break; fi; done; done > vcf_file_list
 
     bcftools concat --naive --file-list vcf_file_list -Oz -o ${prefix}_sv_results_large.vcf.gz
 
