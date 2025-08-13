@@ -1,5 +1,5 @@
 process GRAPHTYPER_GENOTYPE_SV {
-    tag "$meta.patient_id"
+    tag "$meta.patient"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
@@ -25,7 +25,7 @@ process GRAPHTYPER_GENOTYPE_SV {
     script:
     def args = task.ext.args ?: ''
     def bam_path_text = bam.sort().join('\\n')
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     printf "${bam_path_text}" > bam_list.txt
 
