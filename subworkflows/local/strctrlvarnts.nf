@@ -295,7 +295,7 @@ workflow STRCTRLVARNTS {
     //
     // Join filtered VCF with MpileUp based on patient
     //
-    ch_genotyped_vcf  = ch_genotyped_vcf.map {meta, vcf, tbi -> tuple(meta.patient, meta, vcf, tbi) }
+    ch_genotyped_vcf = ch_genotyped_vcf.map {meta, vcf, tbi -> tuple(meta.patient, meta, vcf, tbi) }
     ch_annotsv_input = ch_genotyped_vcf
         .join(ch_bcf_mpileup)
         .map {meta, bcf -> tuple(meta.patient, meta, bcf)}
