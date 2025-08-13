@@ -11,7 +11,7 @@ process DEMOTE {
     tuple val(meta), path(bam), path(bai)
 
     output:
-    tuple val(meta), path("*.demote.bam"), path("*.demote.bam.bai"), emit: bam
+    tuple val(meta), path("*.demoted.bam"), path("*.demoted.bam.bai"), emit: bam
     path "versions.yml"                                            , emit: versions
 
     when:
