@@ -19,8 +19,8 @@ process DEMOTE {
 
     script:
     def args     = task.ext.args ?: ''
-    def fixbam   = "${prefix}.demoted.fixmate.bam"
     def prefix   = "${meta.patient_id}"
+    def fixbam   = "${prefix}.demoted.fixmate.bam"
     def namebam  = "${prefix}.demoted.name.bam"
     def unsorted = "${prefix}.demoted.unsorted.bam"
     def coordbam = "${prefix}.demoted.fixmate.sorted.bam"
