@@ -1,5 +1,5 @@
 process DEMOTE {
-    tag "$meta.patient_id"
+    tag "$meta.id"
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
@@ -19,7 +19,7 @@ process DEMOTE {
 
     script:
     def args     = task.ext.args ?: ''
-    def prefix   = "${meta.patient_id}"
+    def prefix   = "${meta.id}"
     def fixbam   = "${prefix}.demoted.fixmate.bam"
     def namebam  = "${prefix}.demoted.name.bam"
     def unsorted = "${prefix}.demoted.unsorted.bam"
@@ -48,7 +48,7 @@ process DEMOTE {
     END_VERSIONS
     """
     stub:
-    def prefix = "${meta.patient_id}"
+    def prefix = "${meta.id}"
     """
     touch ${prefix}.demoted.bam
     touch ${prefix}.demoted.bam.bai
