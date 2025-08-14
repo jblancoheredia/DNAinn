@@ -1,5 +1,5 @@
 process ANNOTSV_ANNOTSV {
-    tag "$meta.patient_id"
+    tag "$meta.patient"
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
@@ -25,7 +25,7 @@ process ANNOTSV_ANNOTSV {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     \$ANNOTSV/bin/AnnotSV \\
         -SVinputFile ${sv_vcf} \\
@@ -42,7 +42,7 @@ process ANNOTSV_ANNOTSV {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.patient_id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}.annotated.vcf
     touch ${prefix}.annotated.tsv
