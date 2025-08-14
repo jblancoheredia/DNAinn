@@ -26,7 +26,6 @@ include { MANTA_TUMORONLY                                                       
 include { SURVIVOR_FILTER                                                                                                           } from '../../modules/local/survivor/filter/main'
 include { SERACARE_CHECKUP                                                                                                          } from '../../modules/local/seracare/checkup/main'
 include { TABIX_BGZIPTABIX                                                                                                          } from '../../modules/nf-core/tabix/bgziptabix/main'
-include { GRAPHTYPER_GENOTYPE_SV                                                                                                    } from '../../modules/local/graphtyper/genotype_sv/main'
 include { GATK4_BEDTOINTERVALLIST                                                                                                   } from '../../modules/nf-core/gatk4/bedtointervallist/main'
 include { ANNOTSV_INSTALLANNOTATIONS                                                                                                } from '../../modules/nf-core/annotsv/installannotations/main'
 
@@ -269,33 +268,10 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(SURVIVOR_STATS.out.versions)
     ch_multiqc_files  = ch_multiqc_files.mix(SURVIVOR_STATS.out.stats.collect{it[1]}.ifEmpty([]))
 
-
-    //
-    // Join filtered VCF with BAM based on patient
-    //
-    ch_filtered_vcf  = ch_filtered_vcf.map {meta, vcf, tbi -> tuple(meta.patient, meta, vcf, tbi) }
-    ch_graphtyper_input = ch_bam_con_split
-        .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
-        .join(ch_filtered_vcf)
-        .map { patient, meta_bam, bam, bai, meta_vcf, vcf, tbi ->
-            tuple(
-                meta_bam, 
-                meta_bam, bam, bai, 
-                meta_vcf, vcf, tbi
-            )
-        }
-
-    //
-    // MODULE:
-    //
-    GRAPHTYPER_GENOTYPE_SV(ch_graphtyper_input, ch_fasta, ch_fai, params.intervals)
-    ch_versions = ch_versions.mix(GRAPHTYPER_GENOTYPE_SV.out.versions)
-    ch_genotyped_vcf = GRAPHTYPER_GENOTYPE_SV.out.vcf
-
     //
     // Join filtered VCF with MpileUp
     //
-    ch_annotsv_input = ch_genotyped_vcf
+    ch_annotsv_input = ch_filtered_vcf
         .join(ch_bcf_mpileup)
 
     //
