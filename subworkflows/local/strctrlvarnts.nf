@@ -293,19 +293,10 @@ workflow STRCTRLVARNTS {
     ch_genotyped_vcf = GRAPHTYPER_GENOTYPE_SV.out.vcf
 
     //
-    // Join filtered VCF with MpileUp based on patient
+    // Join filtered VCF with MpileUp
     //
-    ch_genotyped_vcf = ch_genotyped_vcf.map {meta, vcf, tbi -> tuple(meta.patient, meta, vcf, tbi) }
     ch_annotsv_input = ch_genotyped_vcf
         .join(ch_bcf_mpileup)
-        .map {meta, bcf -> tuple(meta.patient, meta, bcf)}
-        .map { patient, meta_f, vcf, tbi, meta_b, bcf ->
-            tuple(
-                meta_f, 
-                meta_f, vcf, tbi, 
-                meta_b, bcf
-            )
-        }
 
     //
     // MODULE: Run AnnotSV
