@@ -29,11 +29,10 @@ process ANNOTSV_ANNOTSV {
     """
     export TMPDIR=\${PWD}/tmp
     mkdir -p \$TMPDIR
-    
-    cp -r \$ANNOTSV/share/python3/variantconvert \$TMPDIR/
-    chmod -R 755 \$TMPDIR/variantconvert
-    
-    export PYTHONPATH=\$TMPDIR:\$PYTHONPATH
+    cp -r \$ANNOTSV \$TMPDIR/AnnotSV
+    chmod -R 755 \$TMPDIR/AnnotSV
+    export ANNOTSV=\$TMPDIR/AnnotSV
+    export PATH=\$TMPDIR/AnnotSV/bin:\$PATH
 
     AnnotSV \\
         -SVinputFile ${sv_vcf} \\
