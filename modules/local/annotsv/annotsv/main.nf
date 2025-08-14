@@ -27,7 +27,10 @@ process ANNOTSV_ANNOTSV {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
-    \$ANNOTSV/bin/AnnotSV \\
+    export TMPDIR=\${PWD}/tmp
+    mkdir -p \$TMPDIR
+
+    AnnotSV \\
         -SVinputFile ${sv_vcf} \\
         -txFile ${gene_transcripts} \\
         -genomeBuild ${genome_version} \\
