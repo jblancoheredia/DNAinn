@@ -43,6 +43,10 @@ process ANNOTSV_ANNOTSV {
         -candidateSnvIndelFiles ${snv_indel_vcf} \\
         -vcf 1
     
+    mv *_AnnotSV/${prefix}.annotated.tsv .
+    mv *_AnnotSV/${prefix}.annotated.vcf .
+    mv *_AnnotSV/${prefix}.annotated.variantconvert.log .
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         annotsv: \$(echo \$(AnnotSV -help 2>&1 | head -n1 | sed 's/^AnnotSV //'))
