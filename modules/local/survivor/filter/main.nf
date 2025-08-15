@@ -58,7 +58,7 @@ process SURVIVOR_FILTER {
         ${min_sv_size} \\
         ${prefix}_SURVOR_SV_TMP.vcf || true
 
-    awk -v OFS='\\t' -v new_names=\"DELLY,GRIDSS,MANTA,RECALL,SVABA\" '
+    awk -v OFS='\\t' -v new_names=\"DELLY,GRIDSS,MANTA,RECALL,SVABA,TIDDIT\" '
     BEGIN {
       split(new_names, names, \",\")
     }
