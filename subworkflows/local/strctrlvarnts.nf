@@ -122,8 +122,8 @@ workflow STRCTRLVARNTS {
     // MODULE: Run Manta in Only Tumour mode
     //
     MANTA(ch_bam_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
-    ch_versions = ch_versions.mix(MANTA_SOMATIC.out.versions)
-    ch_manta_vcf = MANTA_SOMATIC.out.vcf
+    ch_versions = ch_versions.mix(MANTA.out.versions)
+    ch_manta_vcf = MANTA.out.vcf
 
     //
     // MODULE: Run TIDDIT in SV mode
