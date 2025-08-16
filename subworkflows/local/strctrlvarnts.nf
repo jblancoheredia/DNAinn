@@ -326,7 +326,7 @@ workflow STRCTRLVARNTS {
     //
     ch_seracare_sample = ch_sv_annotated_with_svs
         .filter { meta, file -> 
-            meta.id.contains("SeraCare") 
+            meta.id.contains("SeraCare") || meta.id.contains("SRCR")
         }
 
     //
