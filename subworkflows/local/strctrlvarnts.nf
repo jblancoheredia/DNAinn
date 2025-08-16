@@ -9,6 +9,7 @@
 */
 
 include { DELLY                                                                                                                     } from '../../modules/local/delly/main'
+include { MANTA                                                                                                                     } from '../../modules/local/manta/main'
 include { SVABA                                                                                                                     } from '../../modules/local/svaba/main'
 include { DEMOTE                                                                                                                    } from '../../modules/local/demote/main'
 include { DRAWSV                                                                                                                    } from '../../modules/local/drawsv/main'
@@ -18,11 +19,9 @@ include { BWAMEM2                                                               
 include { RECALL_SV                                                                                                                 } from '../../modules/local/recallsv/main'
 include { TIDDIT_SV                                                                                                                 } from '../../modules/local/tiddit/sv/main'
 include { IANNOTATESV                                                                                                               } from '../../modules/local/iannotatesv/main'
-include { MANTA_SOMATIC                                                                                                             } from '../../modules/local/manta/somatic/main'
 include { SURVIVOR_MERGE                                                                                                            } from '../../modules/local/survivor/merge/main'
 include { SURVIVOR_STATS                                                                                                            } from '../../modules/local/survivor/stats/main'
 include { ANNOTSV_ANNOTSV                                                                                                           } from '../../modules/local/annotsv/annotsv/main' 
-include { MANTA_TUMORONLY                                                                                                           } from '../../modules/local/manta/tumoronly/main'
 include { SURVIVOR_FILTER                                                                                                           } from '../../modules/local/survivor/filter/main'
 include { SERACARE_CHECKUP                                                                                                          } from '../../modules/local/seracare/checkup/main'
 include { TABIX_BGZIPTABIX                                                                                                          } from '../../modules/nf-core/tabix/bgziptabix/main'
@@ -122,17 +121,9 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run Manta in Only Tumour mode
     //
-    MANTA_SOMATIC(ch_bam_pairs, ch_intervals_gunzip_index, ch_intervals_gunzip, ch_fasta, ch_fai, [])
+    MANTA(ch_bam_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
     ch_versions = ch_versions.mix(MANTA_SOMATIC.out.versions)
     ch_manta_vcf = MANTA_SOMATIC.out.vcf
-
-    //
-    // MODULE: Run Manta in Only Tumour mode
-    //
-    MANTA_TUMORONLY(ch_bam_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
-    ch_versions = ch_versions.mix(MANTA_TUMORONLY.out.versions)
-    ch_manta_candidate_small_indels_vcf = MANTA_TUMORONLY.out.candidate_small_indels_vcf
-    ch_manta_candidate_small_indels_vcf_tbi = MANTA_TUMORONLY.out.candidate_small_indels_vcf_tbi
 
     //
     // MODULE: Run TIDDIT in SV mode
