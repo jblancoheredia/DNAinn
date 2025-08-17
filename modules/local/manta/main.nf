@@ -25,6 +25,7 @@ process MANTA {
     tuple val(meta), path("*.diploid_sv.vcf.gz", optional: true)                 , emit: diploid_sv_vcf
     tuple val(meta), path("*.somatic_sv.vcf.gz", optional: true)                 , emit: somatic_sv_vcf
     tuple val(meta), path("*.tsv", optional: true)                               , emit: metrics_tsv
+    tuple val(meta), path("*.txt", optional: true)                               , emit: metrics_txt
     path "versions.yml"                                                          , emit: versions
     tuple val(meta), path("*.manta.unfiltered.vcf")                              , emit: vcf
 
@@ -41,25 +42,12 @@ process MANTA {
         --tumorBam ${tumour_bam} \\
         --reference ${fasta} \\
         ${config_option} \\
-        --runDir manta_tumor \\
+        --runDir manta_tumour \\
         ${options_manta} \\
         $args
     
-    python manta_tumor/runWorkflow.py -m local -j ${task.cpus}
-    
-    mv manta_tumor/results/variants/candidateSmallIndels.vcf.gz \\
-        ${prefix}.candidate_small_indels.vcf.gz
-    mv manta_tumor/results/variants/candidateSmallIndels.vcf.gz.tbi \\
-        ${prefix}.candidate_small_indels.vcf.gz.tbi
-    mv manta_tumor/results/variants/candidateSV.vcf.gz \\
-        ${prefix}.candidate_sv.vcf.gz
-    mv manta_tumor/results/variants/candidateSV.vcf.gz.tbi \\
-        ${prefix}.candidate_sv.vcf.gz.tbi
-    mv manta_tumor/results/variants/tumorSV.vcf.gz \\
-        ${prefix}.tumor_sv.vcf.gz
-    mv manta_tumor/results/variants/tumorSV.vcf.gz.tbi \\
-        ${prefix}.tumor_sv.vcf.gz.tbi
-    
+    python manta_tumour/runWorkflow.py -m local -j ${task.cpus}
+ 
     configManta.py \\
         --tumorBam ${tumour_bam} \\
         --normalBam ${normal_bam} \\
@@ -71,31 +59,27 @@ process MANTA {
     
     python manta_somatic/runWorkflow.py -m local -j ${task.cpus}
     
-    zcat manta_somatic/results/variants/candidateSmallIndels.vcf.gz | grep -v "#" \\
-        >> ${prefix}.candidate_small_indels.vcf.gz
-    mv manta_somatic/results/variants/candidateSmallIndels.vcf.gz.tbi \\
-        ${prefix}.candidate_small_indels.vcf.gz.tbi
-    zcat manta_somatic/results/variants/candidateSV.vcf.gz | grep -v "#" \\
-        >> ${prefix}.candidate_sv.vcf.gz
-    zcat ${prefix}.tumor_sv.vcf.gz | grep -v "#" \\
-        >> ${prefix}.candidate_sv.vcf.gz
-    mv manta_somatic/results/variants/candidateSV.vcf.gz.tbi \\
-        ${prefix}.candidate_sv.vcf.gz.tbi
-    mv manta_somatic/results/variants/diploidSV.vcf.gz \\
-        ${prefix}.diploid_sv.vcf.gz
-    mv manta_somatic/results/variants/diploidSV.vcf.gz.tbi \\
-        ${prefix}.diploid_sv.vcf.gz.tbi
-    mv manta_somatic/results/variants/somaticSV.vcf.gz \\
-        ${prefix}.somatic_sv.vcf.gz
-    mv manta_somatic/results/variants/somaticSV.vcf.gz.tbi \\
-        ${prefix}.somatic_sv.vcf.gz.tbi
-    mv manta_somatic/results/stats/alignmentStatsSummary.txt \\
-        ${prefix}.alignmentStatsSummary.tsv
-    mv manta_somatic/results/stats/svCandidateGenerationStats.tsv \\
-        ${prefix}.svCandidateGenerationStats.tsv
-    mv manta_somatic/results/stats/svLocusGraphStats.tsv \\
-        ${prefix}.svLocusGraphStats.tsv
-    
+    mv manta_tumour/results/stats/svCandidateGenerationStats.tsv ${prefix}.manta_tumour.svCandidateGenerationStats.tsv
+    mv manta_tumour/results/variants/candidateSmallIndels.vcf.gz.tbi ${prefix}.candidate_small_indels.vcf.gz.tbi
+    mv manta_tumour/results/stats/alignmentStatsSummary.txt ${prefix}.manta_tumour.alignmentStatsSummary.txt
+    zcat manta_tumour/results/variants/tumorSV.vcf.gz | grep -v "#" | gzip >> ${prefix}.candidate_sv.vcf.gz
+    mv manta_tumour/results/variants/candidateSmallIndels.vcf.gz ${prefix}.candidate_small_indels.vcf.gz
+    mv manta_tumour/results/stats/svLocusGraphStats.tsv ${prefix}.manta_tumour.svLocusGraphStats.tsv
+    mv manta_tumour/results/variants/candidateSV.vcf.gz.tbi ${prefix}.candidate_sv.vcf.gz.tbi
+    mv manta_tumour/results/variants/tumorSV.vcf.gz.tbi ${prefix}.tumour_only_sv.vcf.gz.tbi
+    mv manta_tumour/results/variants/candidateSV.vcf.gz ${prefix}.candidate_sv.vcf.gz
+    mv manta_tumour/results/variants/tumorSV.vcf.gz ${prefix}.tumour_only.sv.vcf.gz
+    zcat manta_somatic/results/variants/candidateSmallIndels.vcf.gz | grep -v "#" | gzip >> ${prefix}.candidate_small_indels.vcf.gz
+    zcat manta_somatic/results/variants/candidateSV.vcf.gz | grep -v "#" | gzip >> ${prefix}.candidate_sv.vcf.gz
+    zcat manta_somatic/results/variants/diploidSV.vcf.gz   | grep -v "#" | gzip >> ${prefix}.candidate_sv.vcf.gz
+    zcat manta_somatic/results/variants/somaticSV.vcf.gz   | grep -v "#" | gzip >> ${prefix}.candidate_sv.vcf.gz
+    mv manta_somatic/results/stats/svCandidateGenerationStats.tsv ${prefix}.manta_somatic.svCandidateGenerationStats.tsv
+    mv manta_somatic/results/stats/alignmentStatsSummary.txt ${prefix}.manta_somatic.alignmentStatsSummary.txt
+    mv manta_somatic/results/stats/svLocusGraphStats.tsv ${prefix}.manta_somatic.svLocusGraphStats.tsv
+    mv manta_somatic/results/variants/diploidSV.vcf.gz.tbi ${prefix}.diploid_sv.vcf.gz.tbi
+    mv manta_somatic/results/variants/somaticSV.vcf.gz.tbi ${prefix}.somatic_sv.vcf.gz.tbi
+    mv manta_somatic/results/variants/diploidSV.vcf.gz ${prefix}.diploid_sv.vcf.gz
+    mv manta_somatic/results/variants/somaticSV.vcf.gz ${prefix}.somatic_sv.vcf.gz
     cp ${prefix}.candidate_sv.vcf.gz ${prefix}.manta.unfiltered.vcf.gz
     gunzip ${prefix}.manta.unfiltered.vcf.gz
     
@@ -107,14 +91,7 @@ process MANTA {
     stub:
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
-    echo "" | gzip > ${prefix}.candidate_small_indels.vcf.gz
-    touch ${prefix}.candidate_small_indels.vcf.gz.tbi
-    echo "" | gzip > ${prefix}.candidate_sv.vcf.gz
-    touch ${prefix}.candidate_sv.vcf.gz.tbi
-    echo "" | gzip > ${prefix}.diploid_sv.vcf.gz
-    touch ${prefix}.diploid_sv.vcf.gz.tbi
-    echo "" | gzip > ${prefix}.somatic_sv.vcf.gz
-    touch ${prefix}.somatic_sv.vcf.gz.tbi
+    touch *.manta.unfiltered.vcf
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
