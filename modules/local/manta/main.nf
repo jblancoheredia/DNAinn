@@ -53,8 +53,6 @@ process MANTA {
     mv manta_tumour/results/variants/candidateSV.vcf.gz ${prefix}.manta.unfiltered.vcf.gz
     mv manta_tumour/results/variants/tumorSV.vcf.gz ${prefix}.tumour_only.sv.vcf.gz
 
-    zcat ${prefix}.tumour_only.sv.vcf.gz | grep -v "#" | gzip >> ${prefix}.manta.unfiltered.vcf.gz
-
     gunzip ${prefix}.manta.unfiltered.vcf.gz
     
     cat <<-END_VERSIONS > versions.yml
