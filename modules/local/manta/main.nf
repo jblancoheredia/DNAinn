@@ -36,12 +36,10 @@ process MANTA {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
     def options_manta = target_bed ? "--callRegions $target_bed" : ""
-    def config_option = config ? "--config ${config}" : ""
     """
     configManta.py \\
         --tumorBam ${tumour_bam} \\
         --reference ${fasta} \\
-        ${config_option} \\
         --runDir manta_tumour \\
         ${options_manta} \\
         $args
@@ -52,7 +50,6 @@ process MANTA {
         --tumorBam ${tumour_bam} \\
         --normalBam ${normal_bam} \\
         --reference ${fasta} \\
-        ${config_option} \\
         --runDir manta_somatic \\
         ${options_manta} \\
         $args
