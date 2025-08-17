@@ -1,5 +1,5 @@
 process MANTA {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
@@ -33,7 +33,7 @@ process MANTA {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def options_manta = target_bed ? "--callRegions $target_bed" : ""
     def config_option = config ? "--config ${config}" : ""
     """
@@ -105,7 +105,7 @@ process MANTA {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     echo "" | gzip > ${prefix}.candidate_small_indels.vcf.gz
     touch ${prefix}.candidate_small_indels.vcf.gz.tbi
