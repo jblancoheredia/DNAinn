@@ -127,6 +127,8 @@ workflow STRCTRLVARNTS {
     // MODULE: Run Manta in Only Tumour mode
     //
     MANTA(ch_bam_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
+    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_tsv.collect{it[1]}.ifEmpty([]))
+    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_txt.collect{it[1]}.ifEmpty([]))
     ch_versions = ch_versions.mix(MANTA.out.versions)
     ch_manta_vcf = MANTA.out.vcf
 
@@ -172,8 +174,8 @@ workflow STRCTRLVARNTS {
     ch_survivor_merge_input = ch_delly_vcf
         .map { meta, vcf -> [meta.patient, meta, vcf] }
         .join(ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_manta_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_svaba_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
+        .join( ch_manta_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+        .join( ch_svaba_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
         .join(ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
         .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
             tuple(
