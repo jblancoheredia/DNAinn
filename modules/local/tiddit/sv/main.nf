@@ -1,5 +1,5 @@
 process TIDDIT_SV {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
@@ -22,7 +22,7 @@ process TIDDIT_SV {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def bwa_command = bwa_index ? "[[ -d $bwa_index ]] && for i in $bwa_index/*; do [[ -f $fasta && ! \"\$i\" =~ .*\"$fasta.\".* ]] && ln -s \$i ${fasta}.\${i##*.} || ln -s \$i .; done" : ""
 
     """
@@ -43,7 +43,7 @@ process TIDDIT_SV {
     """
 
     stub:
-    def prefix ="${meta.id}"
+    def prefix ="${meta.patient}"
     """
     touch ${prefix}.tiddit.unfiltered.vcf
     touch ${prefix}.ploidies.tab
