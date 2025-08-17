@@ -33,7 +33,6 @@ process MANTA {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
     def options_manta = target_bed ? "--callRegions $target_bed" : ""
     """
@@ -41,9 +40,7 @@ process MANTA {
         --tumorBam ${tumour_bam} \\
         --reference ${fasta} \\
         --runDir manta_tumour \\
-        ${options_manta} \\
-        $args
-    
+        ${options_manta}    
     python manta_tumour/runWorkflow.py -m local -j ${task.cpus}
  
     configManta.py \\
@@ -51,9 +48,7 @@ process MANTA {
         --normalBam ${normal_bam} \\
         --reference ${fasta} \\
         --runDir manta_somatic \\
-        ${options_manta} \\
-        $args
-    
+        ${options_manta}    
     python manta_somatic/runWorkflow.py -m local -j ${task.cpus}
     
     mv manta_tumour/results/stats/svCandidateGenerationStats.tsv ${prefix}.manta_tumour.svCandidateGenerationStats.tsv
