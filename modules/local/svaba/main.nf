@@ -1,5 +1,5 @@
 process SVABA {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
@@ -24,7 +24,7 @@ process SVABA {
     script:
     def args   = task.ext.args ?: ''
     def args2  = task.ext.args2 ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     svaba run \\
         -t ${tbam} \\
@@ -47,7 +47,7 @@ process SVABA {
     """
     stub:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}.svaba.unfiltered.vcf
 

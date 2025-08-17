@@ -1,5 +1,5 @@
 process DELLY {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
@@ -25,7 +25,7 @@ process DELLY {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def suffix = task.ext.suffix ?: "bcf"
     def exclude = exclude_bed ? "--exclude ${exclude_bed}" : ""
     def bcf_output = suffix == "bcf" ? "--outfile ${prefix}.bcf" : ""
@@ -34,13 +34,13 @@ process DELLY {
 	cp ${tbam} tumor_modified.bam
 	cp ${nbam} normal_modified.bam
 	
-	samtools view -H ${tbam} | sed 's/SM:[^[:space:]]*/SM:${meta.id}/' > tumor_header.sam
+	samtools view -H ${tbam} | sed 's/SM:[^[:space:]]*/SM:${meta.patient}/' > tumor_header.sam
 	samtools view -H ${nbam} | sed 's/SM:[^[:space:]]*/SM:NORMAL/' > normal_header.sam
 	
 	samtools reheader tumor_header.sam tumor_modified.bam > tumor_final.bam
 	samtools reheader normal_header.sam normal_modified.bam > normal_final.bam
 	
-	echo -e "${meta.id}\\ttumor\\nNORMAL\\tcontrol" > sample_file.tsv
+	echo -e "${meta.patient}\\ttumor\\nNORMAL\\tcontrol" > sample_file.tsv
 
 	samtools index tumor_final.bam
 	samtools index normal_final.bam
@@ -77,7 +77,7 @@ process DELLY {
 	END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
 	touch ${prefix}.delly.vcf.gz
 	touch ${prefix}.delly.unfiltered.vcf

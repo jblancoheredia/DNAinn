@@ -1,5 +1,5 @@
 process GRIDSS {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
@@ -25,7 +25,7 @@ process GRIDSS {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def VERSION = '2.13.2' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     def bwa = bwa_index ? "cp -s ${bwa_index}/* ." : ""
     """
@@ -76,7 +76,7 @@ process GRIDSS {
     END_VERSIONS
     """
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def VERSION = '2.13.2' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     touch ${prefix}.gridss.unfiltered.vcf
