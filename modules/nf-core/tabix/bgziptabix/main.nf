@@ -1,5 +1,5 @@
 process TABIX_BGZIPTABIX {
-    tag "$meta.id"
+    tag "$meta.patient"
     label 'process_single'
 
     conda "${moduleDir}/environment.yml"
@@ -21,7 +21,7 @@ process TABIX_BGZIPTABIX {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     bgzip  --threads ${task.cpus} -c $args $input > ${prefix}.${input.getExtension()}.gz
     tabix --threads ${task.cpus} $args2 ${prefix}.${input.getExtension()}.gz
@@ -33,7 +33,7 @@ process TABIX_BGZIPTABIX {
     """
 
     stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.patient}"
     def args2 = task.ext.args2 ?: ''
     def index = args2.contains("-C ") || args2.contains("--csi") ? "csi" : "tbi"
     """
