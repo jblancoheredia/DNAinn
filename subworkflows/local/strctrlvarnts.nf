@@ -270,7 +270,7 @@ workflow STRCTRLVARNTS {
     //
     // Join filtered VCF with MpileUp
     //
-    ch_annotsv_input = ch_annote_input
+    ch_annotsv_input = ch_filtered_vcf
         .join(ch_bcf_mpileup)
 
     //
