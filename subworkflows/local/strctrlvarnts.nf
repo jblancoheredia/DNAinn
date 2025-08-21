@@ -270,7 +270,7 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run AnnotSV
     //
-    ANNOTSV_ANNOTSV(ch_annote_input, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
+    ANNOTSV_ANNOTSV(ch_filtered_vcf, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
     ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
     ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
 
