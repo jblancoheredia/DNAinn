@@ -8,7 +8,7 @@ process ANNOTSV_ANNOTSV {
         'blancojmskcc/dnainn_annotsv:3.5' }"
 
     input:
-    tuple val(meta), path(sv_tsv)
+    tuple val(meta), path(sv_tsv), path(sv_tbi)
     path(gene_transcripts)
     path(candidate_genes)
     val(genome_version)
