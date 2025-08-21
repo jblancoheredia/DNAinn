@@ -268,15 +268,9 @@ workflow STRCTRLVARNTS {
     ch_multiqc_files  = ch_multiqc_files.mix(SURVIVOR_STATS.out.stats.collect{it[1]}.ifEmpty([]))
 
     //
-    // Join filtered VCF with MpileUp
-    //
-    ch_annotsv_input = ch_filtered_vcf
-        .join(ch_bcf_mpileup)
-
-    //
     // MODULE: Run AnnotSV
     //
-    ANNOTSV_ANNOTSV(ch_annotsv_input, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
+    ANNOTSV_ANNOTSV(ch_annote_input, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
     ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
     ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
 
