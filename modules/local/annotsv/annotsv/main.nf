@@ -8,7 +8,7 @@ process ANNOTSV_ANNOTSV {
         'blancojmskcc/dnainn_annotsv:3.5' }"
 
     input:
-    tuple val(meta) , path(sv_vcf), path(sv_vcf_tbi), path(snv_indel_vcf)
+    tuple val(meta), path(sv_tsv)
     path(gene_transcripts)
     path(candidate_genes)
     val(genome_version)
@@ -35,13 +35,11 @@ process ANNOTSV_ANNOTSV {
     export PATH=\$TMPDIR/AnnotSV/bin:\$PATH
 
     AnnotSV \\
-        -SVinputFile ${sv_vcf} \\
+        -SVinputFile ${sv_tsv} \\
         -txFile ${gene_transcripts} \\
         -genomeBuild ${genome_version} \\
         -outputFile ${prefix}.annotated.tsv \\
-        -candidateGenesFile ${candidate_genes} \\
-        -candidateSnvIndelFiles ${snv_indel_vcf} \\
-        -vcf 1
+        -candidateGenesFile ${candidate_genes}
     
     mv *_AnnotSV/${prefix}.annotated.tsv .
     mv *_AnnotSV/${prefix}.annotated.vcf .
