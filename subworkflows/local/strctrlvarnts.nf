@@ -258,6 +258,7 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(SURVIVOR_FILTER.out.versions)
     ch_filtered_all = SURVIVOR_FILTER.out.filtered_all
     ch_filtered_vcf = SURVIVOR_FILTER.out.filtered_vcf
+    ch_annote_input = SURVIVOR_FILTER.out.annote_input
 
     //
     // MODULE: Run Survivor Stats
@@ -269,7 +270,7 @@ workflow STRCTRLVARNTS {
     //
     // Join filtered VCF with MpileUp
     //
-    ch_annotsv_input = ch_filtered_vcf
+    ch_annotsv_input = ch_annote_input
         .join(ch_bcf_mpileup)
 
     //
