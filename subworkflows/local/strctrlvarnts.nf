@@ -285,7 +285,7 @@ workflow STRCTRLVARNTS {
     //
     // Filter TSV files that contain at least one SV
     //
-    ch_sv_annotated_with_svs = ch_sv_annotated
+    ch_sv_annotated_with_svs = ch_annotated_tsv
         .filter { meta, tsv ->
             tsv.readLines().size() > 1  // Assuming header + at least one SV row
         }
