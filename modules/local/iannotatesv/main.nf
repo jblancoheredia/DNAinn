@@ -4,11 +4,12 @@ process IANNOTATESV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/iannotatesv:1.2.1':
-        'blancojmskcc/iannotatesv:1.2.1' }"
+        'docker://blancojmskcc/iannotatesv:2.0.0':
+        'blancojmskcc/iannotatesv:2.0.0' }"
 
     input:
     tuple val(meta),  path(filtered_vcf), path(filtered_vcf_index), path(filtered_tsv), path(annote_input)
+    val(refVersion)
 
     output:
     tuple val(meta), file("*_Annotated.txt")    , emit: txt
@@ -25,13 +26,16 @@ process IANNOTATESV {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
+    def ref = (refVersion == "GRCh37" || refVersion == "HG19VS") ? "hg19" : 
+              (refVersion == "GRCh38") ? "hg38" : "" 
     """
-    python /opt/iAnnotateSV/iAnnotateSV/iAnnotateSV.py \\
-    -i ${annote_input} \\
-    -ofp ${prefix} \
-    -o . \
-    -r hg19 \
-    -d 3000
+    iAnnotateSV \\
+        -i ${annote_input} \\
+        -ofp ${prefix} \\
+        -r  ${ref} \\
+        -d 3000 \\
+        -o . \\
+        ${args}
 
     paste ${filtered_tsv} ${prefix}_Annotated.txt > ${prefix}_SOMTIC_SV_ANN.tsv
 
@@ -40,7 +44,7 @@ process IANNOTATESV {
 
     supp_col=17
     gene1col=26
-    gene2col=30
+    gene2col=29
 
     int_threshold=3
 

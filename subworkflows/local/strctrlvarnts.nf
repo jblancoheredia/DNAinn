@@ -274,13 +274,13 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
     ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
 
-//    //
-//    // MODULE: Run iAnnotateSV 
-//    //
-//    IANNOTATESV(ch_filtered_all)
-//    ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
-//    ch_annotated_tsv = IANNOTATESV.out.tsv
-//    ch_annotated_ann = IANNOTATESV.out.ann
+    //
+    // MODULE: Run iAnnotateSV 
+    //
+    IANNOTATESV(ch_filtered_all, params.genome)
+    ch_versions = ch_versions.mix(IANNOTATESV.out.versions)
+    ch_annotated_tsv = IANNOTATESV.out.tsv
+    ch_annotated_ann = IANNOTATESV.out.ann
 
     //
     // Filter TSV files that contain at least one SV
