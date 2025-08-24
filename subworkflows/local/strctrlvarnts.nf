@@ -267,12 +267,12 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(SURVIVOR_STATS.out.versions)
     ch_multiqc_files  = ch_multiqc_files.mix(SURVIVOR_STATS.out.stats.collect{it[1]}.ifEmpty([]))
 
-    //
-    // MODULE: Run AnnotSV
-    //
-    ANNOTSV_ANNOTSV(ch_filtered_vcf, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
-    ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
-    ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
+//    //
+//    // MODULE: Run AnnotSV
+//    //
+//    ANNOTSV_ANNOTSV(ch_filtered_vcf, params.chrgtf, params.allow_list_genes, params.genome, params.annotsv_dir)
+//    ch_versions = ch_versions.mix(ANNOTSV_ANNOTSV.out.versions)
+//    ch_sv_annotated = ANNOTSV_ANNOTSV.out.tsv
 
     //
     // MODULE: Run iAnnotateSV 
