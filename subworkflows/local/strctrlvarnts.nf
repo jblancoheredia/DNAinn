@@ -149,6 +149,13 @@ workflow STRCTRLVARNTS {
     ch_manta_vcf = MANTA.out.vcf
 
     //
+    // MODULE: Run SvABA Note: version 1.2.0
+    //
+    SVABA(ch_bam_pairs, params.bwa, params.known_sites, params.known_sites_tbi, params.intervals)
+    ch_versions = ch_versions.mix(SVABA.out.versions)
+    ch_svaba_vcf = SVABA.out.vcf
+
+    //
     // MODULE: Run TIDDIT in SV mode
     //
     TIDDIT_SV(ch_bam_pairs, ch_fasta, ch_bwa)
@@ -162,13 +169,6 @@ workflow STRCTRLVARNTS {
     TABIX_BGZIPTABIX(ch_tiddit_vcf)
     ch_versions = ch_versions.mix(TABIX_BGZIPTABIX.out.versions)
     ch_tiddit_vcf_zip = TABIX_BGZIPTABIX.out.gz_tbi
-
-    //
-    // MODULE: Run SvABA Note: version 1.2.0
-    //
-    SVABA(ch_bam_pairs, params.bwa, params.known_sites, params.known_sites_tbi, params.intervals)
-    ch_versions = ch_versions.mix(SVABA.out.versions)
-    ch_svaba_vcf = SVABA.out.vcf
 
     //
     // Combine the vcf by meta key patient
