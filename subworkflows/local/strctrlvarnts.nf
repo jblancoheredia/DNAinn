@@ -126,6 +126,20 @@ workflow STRCTRLVARNTS {
     ch_bam_pairs = ch_bampairs
 
     //
+    // MODULE: Run Delly Call
+    //
+    DELLY(ch_bam_pairs, ch_fasta, ch_fai, params.exclude_bed)
+    ch_versions = ch_versions.mix(DELLY.out.versions)
+    ch_delly_vcf = DELLY.out.vcf
+
+    //
+    // MODULE: Run Gridds (Extract overlapping fragments & calling)
+    //
+    GRIDSS(ch_bam_pairs, ch_fasta, ch_fai, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
+    ch_versions = ch_versions.mix(GRIDSS.out.versions)
+    ch_gridss_vcf = GRIDSS.out.vcf
+
+    //
     // MODULE: Run Manta in Only Tumour & Somatic modes
     //
     MANTA(ch_bam_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
@@ -150,25 +164,11 @@ workflow STRCTRLVARNTS {
     ch_tiddit_vcf_zip = TABIX_BGZIPTABIX.out.gz_tbi
 
     //
-    // MODULE: Run Delly Call
-    //
-    DELLY(ch_bam_pairs, ch_fasta, ch_fai, params.exclude_bed)
-    ch_versions = ch_versions.mix(DELLY.out.versions)
-    ch_delly_vcf = DELLY.out.vcf
-
-    //
     // MODULE: Run SvABA Note: version 1.2.0
     //
     SVABA(ch_bam_pairs, params.bwa, params.known_sites, params.known_sites_tbi, params.intervals)
     ch_versions = ch_versions.mix(SVABA.out.versions)
     ch_svaba_vcf = SVABA.out.vcf
-
-    //
-    // MODULE: Run Gridds (Extract overlapping fragments & calling)
-    //
-    GRIDSS(ch_bam_pairs, ch_fasta, ch_fai, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
-    ch_versions = ch_versions.mix(GRIDSS.out.versions)
-    ch_gridss_vcf = GRIDSS.out.vcf
 
     //
     // Combine the vcf by meta key patient
