@@ -309,12 +309,12 @@ workflow STRCTRLVARNTS {
             )
         }
 
-    //
-    // MODULE: Run DrawSV
-    //
-    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
-    ch_versions = ch_versions.mix(DRAWSV.out.versions)
-    ch_drawsv_pdf = DRAWSV.out.pdf
+//    //
+//    // MODULE: Run DrawSV
+//    //
+//    DRAWSV(ch_drawsv_input, params.annotations, params.cytobands, params.drawsv_chr, params.protein_domains)
+//    ch_versions = ch_versions.mix(DRAWSV.out.versions)
+//    ch_drawsv_pdf = DRAWSV.out.pdf
 
     //
     // Check-Up for SeraCare samples only
