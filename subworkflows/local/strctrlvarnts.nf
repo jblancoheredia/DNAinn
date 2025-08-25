@@ -123,6 +123,8 @@ workflow STRCTRLVARNTS {
 //        ch_bam_pairs = ch_bampairs
 //    }
 
+    ch_bam_pairs = ch_bampairs
+
     //
     // MODULE: Run Manta in Only Tumour & Somatic modes
     //
