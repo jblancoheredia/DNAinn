@@ -12,20 +12,21 @@
   <img alt="Metro" src="assets/DNAinn_metro_light.svg" width="1500">
 </picture>
 
-**DNAinn** is a bioinformatics pipeline for processing DNA sequencing data from the MSKCC panels IMPACT and ACCESS.
+**CTI/DNAinn** is a bioinformatics pipeline for processing DNA sequencing data from the MSKCC panels IMPACT and ACCESS.
 
 ## Pipeline Steps
 
-0. DNAinn starts from seq data as FastQ files, in the 
+0. DNAinn starts from DNAseq data as FastQ files, in the 
 
 
-# Structural Variants Calling (SVtorm as stand-alone pipeline)
+# Structural Variants Calling (SVtorm as stand-alone pipeline also avairable)
 
 1. Calling SVs
    - ([`Delly`](https://github.com/dellytools/delly))
-   - ([`Svaba`](https://github.com/walaj/svaba))
-   - ([`Manta`](https://github.com/Illumina/manta))
    - ([`Gridss`](https://github.com/PapenfussLab/gridss))
+   - ([`Manta`](https://github.com/Illumina/manta))
+   - ([`Svaba`](https://github.com/walaj/svaba))
+   - ([`Tiddit`](https://github.com/SciLifeLab/TIDDIT))
 2. Merging Calls ([`SURVIVOR`](https://github.com/fritzsedlazeck/SURVIVOR))
 3. Bed to Interval list ([`GATK`](https://gatk.broadinstitute.org/hc/en-us/articles/360035531852-Intervals-and-interval-lists))
 4. ReCalling ([`Gridss`](https://github.com/PapenfussLab/gridss))
@@ -43,31 +44,62 @@
 > [!NOTE]
 > If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with `-profile test` before running the workflow on actual data.
 
-<!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
-     Explain what rows and columns represent. For instance (please edit as appropriate):
+To run DNAinn follow these steps:
 
-First, prepare a samplesheet with your input data that looks as follows:
+First, prepare the structure of the project, the ideal structure would be like follows:
+
+```
+PROJECT/
+├── 01_data/
+│   ├── samples.csv
+│   ├── SAMPLE1_TUMOUR_R1.fastq.gz
+│   ├── SAMPLE1_TUMOUR_R2.fastq.gz
+│   ├── SAMPLE1_NORMAL_R1.fastq.gz
+│   ├── SAMPLE1_NORMAL_R2.fastq.gz
+│   ├── SAMPLE2_TUMOUR_R1.fastq.gz
+│   └── SAMPLE2_TUMOUR_R2.fastq.gz
+├── 02_code/
+│   └── run_DNAinn.sh
+├── 03_outs/
+├── 04_logs/
+├── 05_work/
+└── 06_cach/
+```
+
+Note: Any other structure is also possible, just adjust the launching script accordingly.
+
+Second, prepare a samplesheet with your input data that looks as follows:
 
 `samples.csv`:
 
 ```csv
-sample,fastq_1,fastq_2
-CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
+patient,sample,fastq1,fastq2,tumour,matched
+PATIENT1,SAMPLE1,/path/to/normal/fastq1/file/SAMPLE1_NORMAL_R1.fastq.gz,/path/to/normal/fastq2/file/SAMPLE1_NORMAL_R2.fastq.gz,false,true
+PATIENT1,SAMPLE1,/path/to/tumour/fastq1/file/SAMPLE1_TUMOUR_R1.fastq.gz,/path/to/tumour/fastq2/file/SAMPLE1_TUMOUR_R2.fastq.gz,true,true
+PATIENT2,SAMPLE2,/path/to/tumour/fastq1/file/SAMPLE2_TUMOUR_R1.fastq.gz,/path/to/tumour/fastq2/file/SAMPLE2_TUMOUR_R2.fastq.gz,true,false
 ```
+Each row corresponds to a couple of paired FASTQ files per sample. The matched column indicates whether a matched normal is available (true/false), and the tumour column designates whether the sample is a tumour. If no normal is provided, a default putative normal will be automatically used to support somatic variant calling, structural variant, etc...
 
-Each row represents a fastq file (single-end) or a pair of fastq files (paired end).
-
--->
-
-Now, you can run the pipeline using:
-
-<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
+Third, now you can run the pipeline using the assets/run_DNAinn.sh script as a template, such script is:
 
 ```bash
-nextflow run CMOinn/dnainn \
-   -profile <docker/singularity/.../institute> \
-   --input samples.csv \
-   --outdir ../03_outs
+#!/bin/bash
+
+source activate <conda env for nf-core>
+
+export NXF_LOG_FILE="../04_logs/nextflow.log"
+export NXF_CACHE_DIR="../06_cach/nextflow-cache"
+
+nextflow run \
+    /path/to/DNAinn/main.nf \
+    --input ../01_data/samples.csv \
+    --outdir ../03_outs/ \
+    --email <user_name>@mskcc.org \
+    -profile <crater/iris/juno> \
+    -work-dir ../05_work \
+    --seq_library Av2 \
+    --genome HG19VS \
+    -resume
 ```
 
 > [!WARNING]
@@ -76,7 +108,7 @@ nextflow run CMOinn/dnainn \
 
 ## Credits
 
-SVtorm was originally written by Juan Blanco-Heredia at the Marie-Josée and Henry R. Kravis Center for Molecular Oncology, Technology Innovation Lab, Memorial Sloan Kettering Cancer Center.
+DNAinn was originally written by Juan Blanco-Heredia at the Marie-Josée and Henry R. Kravis Center for Molecular Oncology, Technology Innovation Lab, Memorial Sloan Kettering Cancer Center.
 
 Main developer:
 
