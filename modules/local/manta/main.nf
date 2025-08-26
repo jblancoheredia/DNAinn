@@ -16,17 +16,17 @@ process MANTA {
     path(config)
 
     output:
-    tuple val(meta), path("*.tsv",  optional: true)                              , emit: metrics_tsv
-    tuple val(meta), path("*.txt",  optional: true)                              , emit: metrics_txt
-    tuple val(meta), path("*.manta.unfiltered.vcf")                              , emit: vcf
-    path "versions.yml"                                                          , emit: versions
+    tuple val(meta), path("*.tsv",  optional: true), emit: metrics_tsv
+    tuple val(meta), path("*.txt",  optional: true), emit: metrics_txt
+    tuple val(meta), path("*.manta.unfiltered.vcf"), emit: vcf
+    path "versions.yml"                            , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
     def prefix = task.ext.prefix ?: "${meta.patient}"
-    def options_manta = target_bed ? "--callRegions $target_bed" : ""
+    def options_manta = target_bed ? "--callRegions ${target_bed}" : ""
     """
     configManta.py \\
         --tumorBam ${tumour_bam} \\
