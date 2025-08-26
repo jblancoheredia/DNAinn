@@ -51,7 +51,7 @@ process MANTA {
     stub:
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
-    touch *.manta.unfiltered.vcf
+    touch ${prefix}.manta.unfiltered.vcf
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
