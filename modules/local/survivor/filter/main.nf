@@ -96,8 +96,8 @@ process SURVIVOR_FILTER {
 
     SVRVOR2TSV \\
         --merged_vcf ${prefix}_SURVOR_SV_FIL.vcf \\
-        --vcf_list Original_VCFs_List.txt \\
-        --output ${prefix}_SURVOR_SV_FIL.tsv
+        --original_vcf_list Original_VCFs_List.txt \\
+        --tsv ${prefix}_SURVOR_SV_FIL.tsv
 
     VCF2iANN \\
         ${prefix}
