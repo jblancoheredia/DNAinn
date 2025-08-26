@@ -4,8 +4,8 @@ process DRAWSV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/dnainn_drawsv:6.0.6':
-        'blancojmskcc/dnainn_drawsv:6.0.6' }"
+        'docker://blancojmskcc/dnainn_drawsv:6.2.0':
+        'blancojmskcc/dnainn_drawsv:6.2.0' }"
 
     input:
     tuple val(meta), 
@@ -29,6 +29,8 @@ process DRAWSV {
     def prefix = task.ext.prefix ?: "${meta.patient}"
     def bam = "${tumour_bam}"
     """
+    touch ${prefix}_DrawSVs.pdf
+    
     DrawSV \\
         --SVs ${tsv} \\
         --alignments ${bam} \\
@@ -40,7 +42,7 @@ process DRAWSV {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        drawsv: "6.0.6"
+        drawsv: "6.2.0"
     END_VERSIONS
     """
     stub:
@@ -50,7 +52,7 @@ process DRAWSV {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        drawsv: "6.0.6"
+        drawsv: "6.2.0"
     END_VERSIONS
     """
 }
