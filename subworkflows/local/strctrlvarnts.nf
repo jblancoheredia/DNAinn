@@ -21,7 +21,6 @@ include { TIDDIT_SV                                                             
 include { IANNOTATESV                                                                                                               } from '../../modules/local/iannotatesv/main'
 include { SURVIVOR_MERGE                                                                                                            } from '../../modules/local/survivor/merge/main'
 include { SURVIVOR_STATS                                                                                                            } from '../../modules/local/survivor/stats/main'
-include { ANNOTSV_ANNOTSV                                                                                                           } from '../../modules/local/annotsv/annotsv/main' 
 include { SURVIVOR_FILTER                                                                                                           } from '../../modules/local/survivor/filter/main'
 include { SERACARE_CHECKUP                                                                                                          } from '../../modules/local/seracare/checkup/main'
 include { TABIX_BGZIPTABIX                                                                                                          } from '../../modules/nf-core/tabix/bgziptabix/main'
