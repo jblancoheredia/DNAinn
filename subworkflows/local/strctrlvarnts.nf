@@ -24,7 +24,7 @@ include { SURVIVOR_STATS                                                        
 include { SURVIVOR_FILTER                                                                                                           } from '../../modules/local/survivor/filter/main'
 include { SERACARE_CHECKUP                                                                                                          } from '../../modules/local/seracare/checkup/main'
 include { TABIX_BGZIPTABIX                                                                                                          } from '../../modules/nf-core/tabix/bgziptabix/main'
-include { GATK4_BEDTOINTERVALLIST                                                                                                   } from '../../modules/nf-core/gatk4/bedtointervallist/main'
+include { GATK4_BEDTOINTERVALLIST                                                                                                   } from '../../modules/local/gatk4/bedtointervallist/main'
 include { ANNOTSV_INSTALLANNOTATIONS                                                                                                } from '../../modules/nf-core/annotsv/installannotations/main'
 
 /*
