@@ -40,8 +40,7 @@ process MANTA {
     mv manta_tumour/results/stats/svCandidateGenerationStats.tsv ${prefix}.manta_tumour.svCandidateGenerationStats.tsv
     mv manta_tumour/results/stats/alignmentStatsSummary.txt ${prefix}.manta_tumour.alignmentStatsSummary.txt
     mv manta_tumour/results/stats/svLocusGraphStats.tsv ${prefix}.manta_tumour.svLocusGraphStats.tsv
-    mv manta_tumour/results/variants/candidateSV.vcf.gz.tbi ${prefix}.manta.unfiltered.vcf.gz.tbi
-    mv manta_tumour/results/variants/candidateSV.vcf.gz ${prefix}.manta.unfiltered.vcf.gz
+    zcat manta_tumour/results/variants/candidateSV.vcf.gz > ${prefix}.manta.unfiltered.vcf
     
     configManta.py \\
         --tumorBam ${tumour_bam} \\
@@ -51,12 +50,10 @@ process MANTA {
         ${options_manta}
     python manta_somatic/runWorkflow.py -m local -j ${task.cpus}
     
-    zcat manta_somatic/results/variants/candidateSV.vcf.gz | grep -v "#" \\
-        >> ${prefix}.manta.unfiltered.vcf.gz
-    zcat ${prefix}.tumor_sv.vcf.gz | grep -v "#" \\
-        >> ${prefix}.manta.unfiltered.vcf.gz
-    
-    gunzip ${prefix}.manta.unfiltered.vcf.gz
+    zcat manta_somatic/results/variants/candidateSV.vcf.gz | grep -v "#" >> ${prefix}.manta.unfiltered.vcf || true
+    zcat manta_somatic/results/variants/diploidSV.vcf.gz  | grep -v "#" >> ${prefix}.manta.unfiltered.vcf || true
+    zcat manta_somatic/results/variants/somaticSV.vcf.gz | grep -v "#" >> ${prefix}.manta.unfiltered.vcf || true
+    zcat manta_tumour/results/variants/tumorSV.vcf.gz   | grep -v "#" >> ${prefix}.manta.unfiltered.vcf || true
     
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
