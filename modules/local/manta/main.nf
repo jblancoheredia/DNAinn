@@ -25,8 +25,10 @@ process MANTA {
     task.ext.when == null || task.ext.when
 
     script:
+    def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
     def options_manta = target_bed ? "--callRegions ${target_bed}" : ""
+    def config_option = config ? "--config ${config}" : ""
     """
     configManta.py \\
         --tumorBam ${tumour_bam} \\
@@ -40,7 +42,20 @@ process MANTA {
     mv manta_tumour/results/stats/svLocusGraphStats.tsv ${prefix}.manta_tumour.svLocusGraphStats.tsv
     mv manta_tumour/results/variants/candidateSV.vcf.gz.tbi ${prefix}.manta.unfiltered.vcf.gz.tbi
     mv manta_tumour/results/variants/candidateSV.vcf.gz ${prefix}.manta.unfiltered.vcf.gz
-
+    
+    configManta.py \\
+        --tumorBam ${tumour_bam} \\
+        --normalBam ${normal_bam} \\
+        --reference ${fasta} \\
+        --runDir manta_somatic \\
+        ${options_manta}
+    python manta_somatic/runWorkflow.py -m local -j ${task.cpus}
+    
+    zcat manta_somatic/results/variants/candidateSV.vcf.gz | grep -v "#" \\
+        >> ${prefix}.manta.unfiltered.vcf.gz
+    zcat ${prefix}.tumor_sv.vcf.gz | grep -v "#" \\
+        >> ${prefix}.manta.unfiltered.vcf.gz
+    
     gunzip ${prefix}.manta.unfiltered.vcf.gz
     
     cat <<-END_VERSIONS > versions.yml
