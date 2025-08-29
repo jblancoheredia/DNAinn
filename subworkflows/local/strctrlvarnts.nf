@@ -257,7 +257,6 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(SURVIVOR_FILTER.out.versions)
     ch_filtered_all = SURVIVOR_FILTER.out.filtered_all
     ch_filtered_vcf = SURVIVOR_FILTER.out.filtered_vcf
-    ch_annote_input = SURVIVOR_FILTER.out.annote_input
 
     //
     // MODULE: Run Survivor Stats
@@ -333,8 +332,8 @@ workflow STRCTRLVARNTS {
 
     emit:
 
-    versions        = ch_collated_versions
     multiqc_files   = ch_multiqc_files 
+    versions        = ch_collated_versions
 
 }
 
