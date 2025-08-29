@@ -118,9 +118,9 @@ process SURVIVOR_FILTER {
     stub:
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
+    touch ${prefix}_ANNOTE_SV_INN.tsv
     touch ${prefix}_SURVOR_SV_FIL.vcf.gz
     touch ${prefix}_SURVOR_SV_FIL.vcf.gz.tbi
-    touch ${prefix}_ANNOTE_SV_INN.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
