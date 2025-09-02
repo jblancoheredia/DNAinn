@@ -40,8 +40,6 @@ process DEMOTE {
 
     samtools markdup -@ ${task.cpus} -r ${coordbam} ${cleanbam}
 
-    samtools view -@ ${task.cpus} -h ${cleanbam} | awk 'BEGIN{OFS="\\t"} /^@/{print; next} {for(i=1;i<=NF;i++) if(i==11) {gsub(/[K-~]/,\"F\",\$i)} print}' | samtools view -@ ${task.cpus} -b -o ${cleanbam}.tmp
-
     samtools index -@ ${task.cpus} ${cleanbam}
     
     cat <<-END_VERSIONS > versions.yml
