@@ -29,12 +29,18 @@ process IANNOTATESV {
     def ref = (refVersion == "GRCh37" || refVersion == "HG19VS") ? "hg19" : 
               (refVersion == "GRCh38") ? "hg38" : "" 
     """
+
+    sed -i 's/ /\\t/g' ${annote_input}
+
+    tr ' ' '\\t' < ${annote_input} > temp.tsv && mv temp.tsv ${annote_input}
+
     iAnnotateSV \\
         -i ${annote_input} \\
         -ofp ${prefix} \\
         -r  ${ref} \\
         -d 3000 \\
         -o . \\
+        -v \\
         ${args}
 
     paste ${filtered_tsv} ${prefix}_Annotated.txt > ${prefix}_SOMTIC_SV_ANN.tsv
