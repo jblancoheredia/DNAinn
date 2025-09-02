@@ -8,11 +8,13 @@ process SVABA {
         'blancojmskcc/svaba:1.2.0' }"
 
     input:
-    tuple val(meta),  path(tbam), path(tbai), path(nbam), path(nbai)
-    path(bwa)
-    path(dbsnp)
+    tuple val(meta) , path(tumour_bam), path(tumour_bai), path(normal_bam), path(normal_bai)
+    tuple val(meta2), path(fasta)
+    tuple val(meta3), path(fai)
     path(dbsnp_tbi)
+    path(dbsnp)
     path(bed)
+    path(bwa)
 
     output:
     tuple val(meta), path("*.svaba.unfiltered.vcf"), emit: vcf
@@ -23,21 +25,26 @@ process SVABA {
 
     script:
     def args   = task.ext.args ?: ''
-    def args2  = task.ext.args2 ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
+    rm ${fasta} ${fai}
+    
+    ${bwa_index}
+
     svaba run \\
-        -t ${tbam} \\
-        -n ${nbam} \\
-        $args \\
+        -t ${tumour_bam} \\
+        -n ${normal_bam} \\
+        --reference-genome ${fasta} \\
+        -p ${task.cpus} \\
         -a ${prefix} \\
         -D ${dbsnp} \\
         -k ${bed} \\
-        -p $task.cpus \\
-        $args2
+        ${args}
 
     awk 'BEGIN {FS=OFS=\"\\\\t\"}  /^#/ {print}' ${prefix}.svaba.unfiltered.somatic.sv.vcf > ${prefix}.svaba.unfiltered.vcf
+
     awk 'BEGIN {FS=OFS=\"\\\\t\"}  \$1 ~ /^(1?[0-9]|2[0-2]|X|Y)\$/ {print}' ${prefix}.svaba.unfiltered.somatic.sv.vcf  >> ${prefix}.svaba.unfiltered.vcf
+    
     awk 'BEGIN {FS=OFS=\"\\\\t\"}  \$1 ~ /^(1?[0-9]|2[0-2]|X|Y)\$/ {print}' ${prefix}.svaba.unfiltered.germline.sv.vcf >> ${prefix}.svaba.unfiltered.vcf
 
     cat <<-END_VERSIONS > versions.yml
