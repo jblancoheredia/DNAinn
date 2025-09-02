@@ -96,8 +96,8 @@ process SURVIVOR_FILTER {
 
     SVRVOR2TSV \\
         --merged_vcf ${prefix}_SURVOR_SV_FIL.vcf \\
-        --original_vcf_list Original_VCFs_List.txt \\
-        --tsv ${prefix}_SURVOR_SV_FIL.tsv
+        --vcf_list Original_VCFs_List.txt \\
+        --output ${prefix}_SURVOR_SV_FIL.tsv
 
     VCF2iANN \\
         ${prefix}
@@ -119,6 +119,7 @@ process SURVIVOR_FILTER {
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
     touch ${prefix}_ANNOTE_SV_INN.tsv
+    touch ${prefix}_SURVOR_SV_FIL.tsv
     touch ${prefix}_SURVOR_SV_FIL.vcf.gz
     touch ${prefix}_SURVOR_SV_FIL.vcf.gz.tbi
 
