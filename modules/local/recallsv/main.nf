@@ -8,16 +8,19 @@ process RECALL_SV {
         'blancojmskcc/gridss:2.13.2' }"
 
     input:
-    tuple val(meta) , path(tumour_bam), path(tumour_bai), path(normal_bam), path(normal_bai), path(interval_list)
-    tuple val(meta2), path(fasta)
-    tuple val(meta3), path(fasta_fai)
     tuple val(meta4), path(known_sites), path(known_sites_tbi)
-    path(refflat)
-    path(bed)
+    tuple val(meta) , path(tumour_bam), path(tumour_bai),
+                      path(normal_bam), path(normal_bai), 
+                      path(interval_list)
+    tuple val(meta3), path(fasta_fai)
+    tuple val(meta2), path(fasta)
     path(blocklist)
     path(bwa_index)
     path(kraken2db)
+    path(refflat)
     path(pon_dir)
+    path(bed)
+
 
     output:
     tuple val(meta), path("*.recall.all_calls_avk.vcf"), emit: vcf
@@ -35,10 +38,10 @@ process RECALL_SV {
     source activate gridss
 
     samtools view -@ ${task.cpus-1} -h -F 256 -o ${prefix}_N_filtered.bam ${normal_bam}
-    samtools index ${prefix}_N_filtered.bam
+    samtools index -@ ${task.cpus} ${prefix}_N_filtered.bam
 
     samtools view -@ ${task.cpus-1} -h -F 256 -o ${prefix}_T_filtered.bam ${tumour_bam}
-    samtools index ${prefix}_T_filtered.bam
+    samtools index -@ ${task.cpus} ${prefix}_T_filtered.bam
 
     rm ${fasta} ${fasta_fai}
 
