@@ -148,9 +148,10 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run SvABA Note: version 1.2.0
     //
-    SVABA(ch_bam_pairs, params.bwa, params.known_sites, params.known_sites_tbi, params.intervals)
+    SVABA(ch_bam_pairs, ch_fasta, ch_fai, params.known_sites_tbi, params.known_sites, params.intervals, params.bwa)
     ch_versions = ch_versions.mix(SVABA.out.versions)
     ch_svaba_vcf = SVABA.out.vcf
+    ch_svaba_vcf = ch_svaba_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run TIDDIT in SV mode
