@@ -190,7 +190,7 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run Survivor to merge Unfiltered VCFs
     //
-    SURVIVOR_MERGE(ch_survivor_merge_input, params.chromosomes, 1000, 2, 0, 0, 0, 30)
+    SURVIVOR_MERGE(ch_survivor_merge_input, params.chromosomes, 1000, 2, 1, 1, 0, 250)
     ch_versions = ch_versions.mix(SURVIVOR_MERGE.out.versions)
     ch_merged_bed = SURVIVOR_MERGE.out.bed
     ch_merged_vcf = SURVIVOR_MERGE.out.vcf
@@ -217,7 +217,7 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run Gridds in ReCall mode
     //
-    RECALL_SV(ch_recall_input, ch_fasta, ch_fai, ch_known_sites, params.refflat, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db, params.pon_directory)
+    RECALL_SV(ch_recall_input, ch_known_sites, ch_fasta, ch_fai, params.refflat, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db, params.pon_directory)
     ch_versions = ch_versions.mix(RECALL_SV.out.versions)
     ch_prefilter_vcf = RECALL_SV.out.vcf
 
