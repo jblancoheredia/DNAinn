@@ -217,7 +217,7 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run Gridds in ReCall mode
     //
-    RECALL_SV(ch_recall_input, ch_known_sites, ch_fasta, ch_fai, params.refflat, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db, params.pon_directory)
+    RECALL_SV(ch_known_sites, ch_recall_input, ch_fai, ch_fasta, params.blocklist_bed, params.bwa, params.kraken2db, params.refflat, params.pon_directory, params.intervals)
     ch_versions = ch_versions.mix(RECALL_SV.out.versions)
     ch_prefilter_vcf = RECALL_SV.out.vcf
 
