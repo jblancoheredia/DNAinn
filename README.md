@@ -103,13 +103,19 @@ nextflow run \
 > Please provide pipeline parameters via the CLI or Nextflow `-params-file` option. Custom config files including those provided by the `-c` Nextflow option can be used to provide any configuration _**except for parameters**_;
 > see [docs](https://nf-co.re/usage/configuration#custom-configuration-files).
 
+### Cluster Profiles
+
+The pipeline includes optimized configurations for MSKCC compute clusters. Each profile sets appropriate:
+- Job scheduler settings (LSF/SLURM)
+- Container configurations  
+- Reference data paths
+- Resource allocations
+
 ## Credits
 
 DNAinn was originally written by Juan Blanco-Heredia at the Marie-Josée and Henry R. Kravis Center for Molecular Oncology, Technology Innovation Lab, Memorial Sloan Kettering Cancer Center.
 
-Main developer:
-
-- [Juan Blanco-Heredia](blancoj@mskcc.org)
+**Lead Developer**: [Juan Blanco-Heredia](blancoj@mskcc.org)
 
 We thank the following people for their extensive assistance in the development of this pipeline:
 
@@ -126,6 +132,8 @@ If you would like to contribute to this pipeline, please see the [contributing g
 
 An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
 
+### Framework
+
 This pipeline uses code and infrastructure developed and maintained by the [nf-core](https://nf-co.re) community, reused here under the [MIT license](https://github.com/nf-core/tools/blob/main/LICENSE).
 
 > **The nf-core framework for community-curated bioinformatics pipelines.**
@@ -133,3 +141,7 @@ This pipeline uses code and infrastructure developed and maintained by the [nf-c
 > Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.
 >
 > _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
