@@ -36,9 +36,6 @@
 8. Check for expected SVs in Controls 
 9. Present QC for raw reads ([`MultiQC`](http://multiqc.info/)) 
 
-1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
-2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
-
 ## Usage
 
 > [!NOTE]
