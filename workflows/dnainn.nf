@@ -60,7 +60,9 @@ ch_bwa_dragen_hg38                          = Channel.fromPath(params.bwa_dragen
 ch_cnvkit_reference                         = Channel.fromPath(params.cnvkit_reference).map                 { it -> [[id:it.Name], it] }.collect()
 ch_intervals_gunzip                         = Channel.fromPath(params.intervals_bed_gunzip).map             { it -> [[id:it.Name], it] }.collect()
 ch_cnvkit_antitarget                        = Channel.fromPath(params.cnvkit_antitarget).map                { it -> [[id:it.Name], it] }.collect()
+ch_gatk_interval_list                       = Channel.fromPath(params.gatk_interval_list).map               { it -> [[id:it.Name], it] }.collect()
 ch_intervals_gunzip_index                   = Channel.fromPath(params.intervals_bed_gunzip_index).map       { it -> [[id:it.Name], it] }.collect()
+
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -307,7 +309,8 @@ workflow DNAINN {
             ch_targets,
             ch_intervals,
             ch_bam_pairs,
-            ch_bam_finalized
+            ch_bam_finalized,
+            ch_gatk_interval_list
         )
         ch_varinats = VARIANTDSCVRY.out.variants
         ch_versions = ch_versions.mix(VARIANTDSCVRY.out.versions)
