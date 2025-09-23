@@ -15,6 +15,8 @@ include { VCFCALLS2TSV                                                          
 include { FGBIO_CLIPBAM                                                                                                             } from '../../modules/local/fgbio/clipbam/main'
 include { GATK4_MUTECT2                                                                                                             } from '../../modules/local/gatk4/mutect2/main' 
 include { BCFTOOLS_MERGE                                                                                                            } from '../../modules/local/bcftools/merge/main' 
+include { GATK4_HAPLOTYPECALLER                                                                                                     } from '../../modules/local/gatk4/haplotypecaller/main'
+include { GATK4_VARIANTFILTRATION                                                                                                   } from '../../modules/nf-core/gatk4/variantfiltration/main'
 include { GATK4_FILTERMUTECTCALLS                                                                                                   } from '../../modules/local/gatk4/filtermutectcalls/main'   
 include { GATK4_GETPILEUPSUMMARIES                                                                                                  } from '../../modules/local/gatk4/getpileupsummaries/main'
 include { GETBASECOUNTS_MULTISAMPLE                                                                                                 } from '../../modules/local/getbasecounts/multisample/main'
@@ -45,6 +47,7 @@ workflow VARIANTDSCVRY {
     ch_intervals
     ch_bam_pairs
     ch_consensus_bam
+    ch_gatk_interval_list
 
     main:
     ch_versions = Channel.empty()
@@ -58,6 +61,25 @@ workflow VARIANTDSCVRY {
     ch_bam_clipped = FGBIO_CLIPBAM.out.bam
     ch_txt = FGBIO_CLIPBAM.out.txt
 // TO-DO:    multi_qc_files = FGBIO_CLIPBAM.out.metrics
+
+    //
+    // MODULE: Run Haplotypecaller
+    //
+    GATK4_HAPLOTYPECALLER(ch_bam_clipped, ch_fasta, ch_fai, ch_dict, ch_dbsnp, ch_dbsnp_tbi, ch_gatk_interval_list)
+    ch_versions  = ch_versions.mix(GATK4_HAPLOTYPECALLER.out.versions.ifEmpty(null))
+    ch_haplotypecaller_raw = GATK4_HAPLOTYPECALLER.out.vcf
+    ch_haplotypecaller_tbi = GATK4_HAPLOTYPECALLER.out.tbi
+    ch_haplotypecaller_raw_tbi_combined = ch_haplotypecaller_raw.join(ch_haplotypecaller_tbi)
+    ch_haplotypecaller_vcf_tbi = ch_haplotypecaller_raw_tbi_combined.map { meta, vcf, tbi ->
+        [meta, vcf, tbi]
+    }
+
+    //
+    // MODULE: VariantFiltration from GATK4 (Filter variant calls based on certain criteria.)
+    // 
+    GATK4_VARIANTFILTRATION(ch_haplotypecaller_vcf_tbi, ch_fasta, ch_fai, ch_dict)
+    ch_versions     = ch_versions.mix(GATK4_VARIANTFILTRATION.out.versions.ifEmpty(null))
+    ch_final_vcf = GATK4_VARIANTFILTRATION.out.vcf
 
     //
     // MODULE: Run Mutect2
@@ -143,13 +165,6 @@ workflow VARIANTDSCVRY {
     VCFCALLS2TSV(ch_pre_merge)
     ch_versions = ch_versions.mix(VCFCALLS2TSV.out.versions)
     ch_variants_tsv = VCFCALLS2TSV.out.tsv
-
-//    //
-//    // MODULE: Run BCFtools to merge the VCFs
-//    //
-//    BCFTOOLS_MERGE(ch_pre_merge, ch_fasta, ch_fai, params.targets_bed)
-//    ch_versions = ch_versions.mix(BCFTOOLS_MERGE.out.versions)
-//    ch_merged_vcf = BCFTOOLS_MERGE.out.vcf
 
 //    //
 //    // MODULES: Run GetBaseCountsMultiSample
