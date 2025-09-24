@@ -42,15 +42,15 @@ process SURVIVOR_FILTER {
     awk 'BEGIN {FS=OFS="\\t"} {for (i=1; i<=NF; i++) if (i != 10) printf "%s%s", \$i, (i == NF ? "\\n" : OFS)}' tiddit.vcf > ${prefix}_TIDDIT_SV_FIL.vcf
     sed -i 's#${prefix},${prefix}_${prefix}#TUMOUR#g' ${prefix}_TIDDIT_SV_FIL.vcf
 
-    echo ${prefix}_DELLY__SV_FIL.vcf >> Original_VCFs_List.txt
-    echo ${prefix}_GRIDSS_SV_FIL.vcf >> Original_VCFs_List.txt
-    echo ${prefix}_MANTA__SV_FIL.vcf >> Original_VCFs_List.txt
-    echo ${prefix}_RECALL_SV_FIL.vcf >> Original_VCFs_List.txt
-    echo ${prefix}_SVABA__SV_FIL.vcf >> Original_VCFs_List.txt
-    echo ${prefix}_TIDDIT_SV_FIL.vcf >> Original_VCFs_List.txt
+    echo delly.vcf  >> Original_VCFs_List.txt
+    echo gridss.vcf >> Original_VCFs_List.txt
+    echo manta.vcf  >> Original_VCFs_List.txt
+    echo recall.vcf >> Original_VCFs_List.txt
+    echo svaba.vcf  >> Original_VCFs_List.txt
+    echo tiddit.vcf >> Original_VCFs_List.txt
 
     SURVIVOR merge \\
-        <(ls *_SV_FIL.vcf) \\
+        Original_VCFs_List.txt \\
         ${max_distance_breakpoints} \\
         ${min_supporting_callers} \\
         ${account_for_type} \\
