@@ -46,6 +46,7 @@ workflow VARIANTDSCVRY {
     ch_targets
     ch_intervals
     ch_bam_pairs
+    ch_known_sites
     ch_consensus_bam
     ch_gatk_interval_list
 
@@ -65,7 +66,7 @@ workflow VARIANTDSCVRY {
     //
     // MODULE: Run Haplotypecaller
     //
-    GATK4_HAPLOTYPECALLER(ch_bam_clipped, ch_fasta, ch_fai, ch_dict, ch_dbsnp, ch_dbsnp_tbi, ch_gatk_interval_list)
+    GATK4_HAPLOTYPECALLER(ch_bam_clipped, ch_known_sites, ch_gatk_interval_list, ch_fasta, ch_dict, ch_fai)
     ch_versions  = ch_versions.mix(GATK4_HAPLOTYPECALLER.out.versions.ifEmpty(null))
     ch_haplotypecaller_raw = GATK4_HAPLOTYPECALLER.out.vcf
     ch_haplotypecaller_tbi = GATK4_HAPLOTYPECALLER.out.tbi

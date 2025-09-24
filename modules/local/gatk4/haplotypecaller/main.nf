@@ -9,12 +9,11 @@ process GATK4_HAPLOTYPECALLER {
 
     input:
     tuple val(meta),  path(input), path(input_index)
-    tuple val(meta2), path(fasta)
-    tuple val(meta3), path(fai)
-    tuple val(meta4), path(dict)
-    tuple val(meta5), path(dbsnp)
-    tuple val(meta6), path(dbsnp_tbi)
-    tuple val(meta7), path(intervals)
+    tuple val(meta2), path(dbsnp), path(dbsnp_tbi)
+    tuple val(meta3), path(intervals)
+    tuple val(meta4), path(fasta)
+    tuple val(meta5), path(dict)
+    tuple val(meta6), path(fai)
     
     output:
     tuple val(meta), path("*.vcf.gz"),        emit: vcf

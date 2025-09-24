@@ -309,6 +309,7 @@ workflow DNAINN {
             ch_targets,
             ch_intervals,
             ch_bam_pairs,
+            ch_known_sites,
             ch_bam_finalized,
             ch_gatk_interval_list
         )
