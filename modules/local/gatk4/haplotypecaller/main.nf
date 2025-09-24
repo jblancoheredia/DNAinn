@@ -8,7 +8,7 @@ process GATK4_HAPLOTYPECALLER {
         : 'community.wave.seqera.io/library/gatk4_gcnvkernel:edb12e4f0bf02cd3'}"
 
     input:
-    tuple val(meta),  path(input), path(input_index)
+    tuple val(meta),  path(t_bam), path(t_bai), path(n_bam), path(n_bai)
     tuple val(meta2), path(dbsnp), path(dbsnp_tbi)
     tuple val(meta3), path(intervals)
     tuple val(meta4), path(fasta)
@@ -42,7 +42,7 @@ process GATK4_HAPLOTYPECALLER {
     """
     gatk --java-options "-Xmx${avail_mem}M -XX:-UsePerfData" \\
         HaplotypeCaller \\
-        --input ${input} \\
+        --input ${t_bam} \\
         --output ${prefix}.vcf.gz \\
         --reference ${fasta} \\
         --native-pair-hmm-threads ${task.cpus} \\
