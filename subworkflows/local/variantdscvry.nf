@@ -16,7 +16,6 @@ include { FGBIO_CLIPBAM                                                         
 include { GATK4_MUTECT2                                                                                                             } from '../../modules/local/gatk4/mutect2/main' 
 include { BCFTOOLS_MERGE                                                                                                            } from '../../modules/local/bcftools/merge/main' 
 include { GATK4_HAPLOTYPECALLER                                                                                                     } from '../../modules/local/gatk4/haplotypecaller/main'
-include { GATK4_VARIANTFILTRATION                                                                                                   } from '../../modules/nf-core/gatk4/variantfiltration/main'
 include { GATK4_FILTERMUTECTCALLS                                                                                                   } from '../../modules/local/gatk4/filtermutectcalls/main'   
 include { GATK4_GETPILEUPSUMMARIES                                                                                                  } from '../../modules/local/gatk4/getpileupsummaries/main'
 include { GETBASECOUNTS_MULTISAMPLE                                                                                                 } from '../../modules/local/getbasecounts/multisample/main'
@@ -74,13 +73,6 @@ workflow VARIANTDSCVRY {
     ch_haplotypecaller_vcf_tbi = ch_haplotypecaller_raw_tbi_combined.map { meta, vcf, tbi ->
         [meta, vcf, tbi]
     }
-
-    //
-    // MODULE: VariantFiltration from GATK4 (Filter variant calls based on certain criteria.)
-    // 
-    GATK4_VARIANTFILTRATION(ch_haplotypecaller_vcf_tbi, ch_fasta, ch_fai, ch_dict)
-    ch_versions     = ch_versions.mix(GATK4_VARIANTFILTRATION.out.versions.ifEmpty(null))
-    ch_final_vcf = GATK4_VARIANTFILTRATION.out.vcf
 
     //
     // MODULE: Run Mutect2
