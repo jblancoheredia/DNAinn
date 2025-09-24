@@ -27,10 +27,6 @@ process GATK4_HAPLOTYPECALLER {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def dbsnp_command = dbsnp ? "--dbsnp ${dbsnp}" : ""
-    def interval_command = intervals ? "--intervals ${intervals}" : ""
-    def bamout_command = args.contains("--bam-writer-type") ? "--bam-output ${prefix.replaceAll('.g\\s*$', '')}.realigned.bam" : ""
-
     def avail_mem = 3072
     if (!task.memory) {
         log.info('[GATK HaplotypeCaller] Available memory not known - defaulting to 3GB. Specify process memory requirements to change this.')
@@ -41,13 +37,15 @@ process GATK4_HAPLOTYPECALLER {
     """
     gatk --java-options "-Xmx${avail_mem}M -XX:-UsePerfData" \\
         HaplotypeCaller \\
-        --input ${t_bam} \\
-        --output ${prefix}.vcf.gz \\
-        --reference ${fasta} \\
         --native-pair-hmm-threads ${task.cpus} \\
-        ${dbsnp_command} \\
-        ${interval_command} \\
-        ${bamout_command} \\
+        --bam-output ${prefix}.realigned.bam \\
+        --emit-ref-confidence BP_RESOLUTION \\
+        --output ${prefix}.vcf.gz \\
+        --intervals ${intervals} \\
+        --pcr-indel-model NONE \\
+        --reference ${fasta} \\
+        --dbsnp ${dbsnp} \\
+        --input ${t_bam} \\
         --tmp-dir . \\
         ${args}
 
