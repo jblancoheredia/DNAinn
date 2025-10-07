@@ -54,18 +54,9 @@ workflow VARIANTDSCVRY {
     ch_multiqc_files = Channel.empty()
 
     //
-    // MODULE: Run FgBio ClipBAM 
-    //
-    FGBIO_CLIPBAM(ch_bam_pairs, ch_fasta, ch_fai)
-    ch_versions = ch_versions.mix(FGBIO_CLIPBAM.out.versions)
-    ch_bam_clipped = FGBIO_CLIPBAM.out.bam
-    ch_txt = FGBIO_CLIPBAM.out.txt
-// TO-DO:    multi_qc_files = FGBIO_CLIPBAM.out.metrics
-
-    //
     // MODULE: Run Haplotypecaller
     //
-    GATK4_HAPLOTYPECALLER(ch_bam_clipped, ch_known_sites, ch_gatk_interval_list, ch_fasta, ch_dict, ch_fai)
+    GATK4_HAPLOTYPECALLER(ch_bam_pairs, ch_known_sites, ch_gatk_interval_list, ch_fasta, ch_dict, ch_fai)
     ch_versions  = ch_versions.mix(GATK4_HAPLOTYPECALLER.out.versions.ifEmpty(null))
     ch_haplotypecaller_raw = GATK4_HAPLOTYPECALLER.out.vcf
     ch_haplotypecaller_tbi = GATK4_HAPLOTYPECALLER.out.tbi
@@ -73,6 +64,15 @@ workflow VARIANTDSCVRY {
     ch_haplotypecaller_vcf_tbi = ch_haplotypecaller_raw_tbi_combined.map { meta, vcf, tbi ->
         [meta, vcf, tbi]
     }
+
+    //
+    // MODULE: Run FgBio ClipBAM 
+    //
+    FGBIO_CLIPBAM(ch_bam_pairs, ch_fasta, ch_fai)
+    ch_versions = ch_versions.mix(FGBIO_CLIPBAM.out.versions)
+    ch_bam_clipped = FGBIO_CLIPBAM.out.bam
+    ch_txt = FGBIO_CLIPBAM.out.txt
+// TO-DO:    multi_qc_files = FGBIO_CLIPBAM.out.metrics
 
     //
     // MODULE: Run Mutect2
