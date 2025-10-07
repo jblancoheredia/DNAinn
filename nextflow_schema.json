@@ -850,6 +850,11 @@
                     "description": "Self explicative...",
                     "fa_icon": "fas fa-book"
                 },
+                "gatk_interval_list": {
+                    "type": "string",
+                    "description": "Self explicative...",
+                    "fa_icon": "fas fa-book"
+                },
                 "ethnicity": {
                     "type": "string",
                     "description": "Polysolver input, no comments...",
