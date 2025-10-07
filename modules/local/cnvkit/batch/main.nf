@@ -101,8 +101,8 @@ process CNVKIT_BATCH {
 
     cat <<'END_VERSIONS' > versions.yml
     "${task.process}":
-        samtools: $(samtools --version 2>&1 | head -n1 | awk '{print $2}')
-        cnvkit: $(cnvkit.py version 2>&1 | sed -e 's/^cnvkit v//')
+        samtools: \$(samtools --version 2>&1 | head -n1 | awk '{print \$2}')
+        cnvkit: \$(cnvkit.py version 2>&1 | sed -e 's/^cnvkit v//')
     END_VERSIONS
     """
 }
