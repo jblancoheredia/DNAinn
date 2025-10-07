@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "fgbio_correctumis"
+description: Corrects the UMI based on the possible or known combinations.
+keywords:
+  - fgbio
+  - umi
+tools:
+  - "fgbio":
+      description: "A set of tools for working with genomic and high throughput sequencing
+        data, including UMIs"
+      homepage: http://fulcrumgenomics.github.io/fgbio/
+      documentation: http://fulcrumgenomics.github.io/fgbio/tools/latest/CallDuplexConsensusReads.html
+      tool_dev_url: https://github.com/fulcrumgenomics/fgbio
+      licence: ["MIT"]
+      identifier: biotools:fgbio
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+
+    - bam:
+        type: file
+        description: Mapped BAM/CRAM/SAM file
+        pattern: "*.{bam,cram,sam}"
+        ontologies:
+          - edam: "http://edamontology.org/format_2572" # BAM
+          - edam: "http://edamontology.org/format_2573" # CRAM
+          - edam: "http://edamontology.org/format_3462" # SAM
+
+  - - max_mismatch:
+        type: integrer
+        description: Max number of allowed mismatch
+
+  - -  min_distance:
+        type: integrer
+        description: Min number bases between mismatch
+
+  - -  min_corrected:
+        type: integrer
+        description: Min proportion of corrected UMIs
+
+output:
+  bam:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.bam":
+          type: file
+          description: UMI corrected BAM file
+          pattern: "*.{bam}"
+          ontologies:
+            - edam: "http://edamontology.org/format_2572"
+  metrics:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.metrics.txt":
+          type: file
+          description: Metrics text file of the proces
+          pattern: "*.metrics.txt"
+          ontologies:
+            - edam: "http://edamontology.org/format_1964" 
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+
+        ontologies:
+          - edam: http://edamontology.org/format_3750 
+authors:
+  - "@jblancoheredia"
+maintainers:
+  - "@jblancoheredia"
