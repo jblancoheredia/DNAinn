@@ -19,10 +19,10 @@ nextflow.enable.dsl = 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { DNAINN                  } from './workflows/dnainn'
-include { getGenomeAttribute      } from './subworkflows/local/utils_nfcore_dnainn_pipeline'
-include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_dnainn_pipeline'
-include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_dnainn_pipeline'
+include { DNAINN                    } from './workflows/dnainn'
+include { getGenomeAttribute        } from './subworkflows/local/utils_nfcore_dnainn_pipeline'
+include { PIPELINE_COMPLETION       } from './subworkflows/local/utils_nfcore_dnainn_pipeline'
+include { PIPELINE_INITIALISATION   } from './subworkflows/local/utils_nfcore_dnainn_pipeline'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,7 +30,7 @@ include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_dnai
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-params.refs_dir             = getGenomeAttribute('refs_dir')
+params.refs_dir                     = getGenomeAttribute('refs_dir')
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
