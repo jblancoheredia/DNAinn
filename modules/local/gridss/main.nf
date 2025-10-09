@@ -54,10 +54,12 @@ process GRIDSS {
     gridss \\
         --threads 8 \\
         -b ${blocklist} \\
-        --reference ${fasta} \\
+        --maxcoverage 100000 \\
+        --reference ${fasta}   \\
         --output ${prefix}.vcf.gz \\
         --jvmheap ${task.memory.toGiga() - 1}g \\
         --otherjvmheap ${task.memory.toGiga() - 1}g \\
+        --picardoptions VALIDATION_STRINGENCY=LENIENT  \\
         ${prefix}_GRIDSS-N.bam \\
         ${prefix}_GRIDSS-T.bam
 
