@@ -55,7 +55,6 @@ process GRIDSS {
         --threads 8 \\
         -b ${blocklist} \\
         --reference ${fasta} \\
-        --threads ${task.cpus} \\
         --output ${prefix}.vcf.gz \\
         --jvmheap ${task.memory.toGiga() - 1}g \\
         --otherjvmheap ${task.memory.toGiga() - 1}g \\
