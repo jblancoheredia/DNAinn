@@ -26,7 +26,7 @@ process GRIDSS {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
-    def VERSION = '2.13.2' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def VERSION = '2.13.2'
     def bwa = bwa_index ? "cp -s ${bwa_index}/* ." : ""
     """
     samtools view -h -F 256 -o ${prefix}_N_filtered.bam ${nbam}
