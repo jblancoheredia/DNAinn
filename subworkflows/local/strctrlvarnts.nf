@@ -132,7 +132,7 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run Gridds (Extract overlapping fragments & calling)
     //
-    GRIDSS(ch_bam_pairs, ch_fasta, ch_fai, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
+    GRIDSS(ch_bam_pairs, ch_fai, ch_fasta, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
     ch_versions = ch_versions.mix(GRIDSS.out.versions)
     ch_gridss_vcf = GRIDSS.out.vcf
 
