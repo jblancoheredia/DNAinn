@@ -274,19 +274,19 @@ workflow UMIPROCESSING {
     //
     FGBIO_CALLDUPLEXCONSENSUSREADS(ch_bam_grouped, params.call_min_reads, params.call_min_baseq)
     ch_versions = ch_versions.mix(FGBIO_CALLDUPLEXCONSENSUSREADS.out.versions.first())
-    FGBIO_CALLDUPLEXCONSENSUSREADS.out.bam.set { ch_consensus_bam }
+    FGBIO_CALLDUPLEXCONSENSUSREADS.out.bam.set { ch_bam_consensus }
 
     //
     // MODULE: Run fgbio SortBam
     //
-    FGBIO_SORTCONBAM(ch_consensus_bam)
+    FGBIO_SORTCONBAM(ch_bam_consensus)
     ch_versions = ch_versions.mix(FGBIO_SORTCONBAM.out.versions.first())
-    ch_consensus_bam_sorted = FGBIO_SORTCONBAM.out.bam
+    ch_bam_consensus_sorted = FGBIO_SORTCONBAM.out.bam
 
     //
     // MODULE: Run FgBIO FilterConsensusReads to produce the "Consensus", "Duplex" & "Simplex" BAM files
     //
-    FGBIO_FILTERCONSENSUSREADS(ch_consensus_bam_sorted, params.fasta, params.fai, params.filter_min_reads, params.filter_min_base_quality, params.filter_max_base_error_rate, params.filter_max_read_error_rate, params.filter_max_no_call_fraction)
+    FGBIO_FILTERCONSENSUSREADS(ch_bam_consensus_sorted, params.fasta, params.fai, params.filter_min_reads, params.filter_min_base_quality, params.filter_max_base_error_rate, params.filter_max_read_error_rate, params.filter_max_no_call_fraction)
     ch_versions = ch_versions.mix(FGBIO_FILTERCONSENSUSREADS.out.versions.first())
     ch_bam_bai_con_fil = FGBIO_FILTERCONSENSUSREADS.out.suplex_bam_bai
     ch_bam_bai_duplex_fil = FGBIO_FILTERCONSENSUSREADS.out.duplex_bam_bai
