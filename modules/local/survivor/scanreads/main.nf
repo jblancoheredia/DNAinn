@@ -8,9 +8,8 @@ process SURVIVOR_SCAN_READS {
         'blancojmskcc/survivor:1.0.7' }"
 
     input:
-    tuple val(meta),  path(bam)
-    tuple val(meta1), path(bai)
-    val(minrl)          // Min read lengt (-1 to disable)
+    tuple val(meta), path(bam), path(bai)
+    val(minrl) // Min read lengt (-1 to disable)
 
     output:
     tuple val(meta), path("*.error_profile.tsv"),   emit: error_profile
@@ -39,12 +38,11 @@ process SURVIVOR_SCAN_READS {
         survivor: \$(echo \$(SURVIVOR 2>&1 | grep "Version" | sed 's/^Version: //'))
     END_VERSIONS
     """
-
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
-
     """
     touch ${prefix}.error_profile.tsv
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         survivor: \$(echo \$(SURVIVOR 2>&1 | grep "Version" | sed 's/^Version: //'))

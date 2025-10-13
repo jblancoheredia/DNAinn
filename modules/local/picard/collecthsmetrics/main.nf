@@ -97,8 +97,7 @@ process COLLECTHSMETRICS_RAW {
         'quay.io/biocontainers/picard:3.3.0--hdfd78af_0' }"
 
     input:
-    tuple val(meta),  path(bam)
-    tuple val(meta1), path(bai)
+    tuple val(meta),  path(bam), path(bai)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
     tuple val(meta4), path(dict)
