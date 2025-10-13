@@ -314,7 +314,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run SamToools Sort & Index
     //
-    SAMTOOLS_SORT_INDEX_CON(ch_sort_index_in)
+    SAMTOOLS_SORT_INDEX_CON(ch_sort_index_in, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(SAMTOOLS_SORT_INDEX_CON.out.versions)
     ch_bam_con_sort = SAMTOOLS_SORT_INDEX_CON.out.bam
     ch_bam_con_indx = SAMTOOLS_SORT_INDEX_CON.out.bai
