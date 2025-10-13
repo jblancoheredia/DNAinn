@@ -296,33 +296,49 @@ workflow UMIPROCESSING {
     //
     ALIGN_BAM_CON(ch_bam_bai_final_fil, ch_bam_bai_duplex_fil, ch_bam_bai_simplex_fil, ch_fasta, ch_fai, ch_dict, ch_bwa2)
     ch_versions = ch_versions.mix(ALIGN_BAM_CON.out.versions.first())
-    ch_bam_fin = ALIGN_BAM_CON.out.bam
+    ch_bam_con = ALIGN_BAM_CON.out.bam
     ch_bam_duplex = ALIGN_BAM_CON.out.duplex_bam
     ch_bam_simplex = ALIGN_BAM_CON.out.simplex_bam
 
     //
     // MODULE: Run SamToools Sort & Index
     //
-    SAMTOOLS_SORT_INDEX_FIN(ch_bam_fin, ch_fai, ch_fasta, ch_bam_duplex, ch_bam_simplex)
+    SAMTOOLS_SORT_INDEX_FIN(ch_bam_con, ch_fai, ch_fasta, ch_bam_duplex, ch_bam_simplex)
     ch_versions = ch_versions.mix(SAMTOOLS_SORT_INDEX_FIN.out.versions)
-    ch_bam_fin_sort = SAMTOOLS_SORT_INDEX_FIN.out.bam
-    ch_bam_fin_indx = SAMTOOLS_SORT_INDEX_FIN.out.bai
-    ch_bam_fin_stix = SAMTOOLS_SORT_INDEX_FIN.out.bam_bai
+    ch_bam_con_sort = SAMTOOLS_SORT_INDEX_FIN.out.bam
+    ch_bam_con_indx = SAMTOOLS_SORT_INDEX_FIN.out.bai
+    ch_bam_con_stix = SAMTOOLS_SORT_INDEX_FIN.out.bam_bai
     ch_bam_dup_stix = SAMTOOLS_SORT_INDEX_FIN.out.bam_duplex
     ch_bam_sim_stix = SAMTOOLS_SORT_INDEX_FIN.out.bam_simplex
 
-    //
-    // MODULE: Run SamTools View to count reads accross the BAM files
-    //
-    UMI_READ_COUNTS(ch_ubam, ch_bam_fcu, ch_bam_grouped, ch_consensus_bam, ch_bam_bai_final_fil, ch_bam_fin_stix, ch_bam_dup_stix, ch_bam_sim_stix)
-    ch_versions = ch_versions.mix(UMI_READ_COUNTS.out.versions.first())
+    // Combine BAM fils by meta data
+	ch_umi_metrics_in = ch_bam_con_stix
+	    .join(ch_bam_dup_stix)
+	    .join(ch_bam_sim_stix)
 
     //
     // MODULE: Run SamTools View to count reads accross the BAM files
     //
-    COLLECT_UMI_METRICS(ch_bam_fin_stix, ch_bam_dup_stix, ch_bam_sim_stix)
+    COLLECT_UMI_METRICS(ch_umi_metrics_in)
     ch_versions = ch_versions.mix(COLLECT_UMI_METRICS.out.versions.first())
     ch_cons_family_sizes = COLLECT_UMI_METRICS.out.cons_family_sizes
+
+    // Combine BAM fils by meta data
+	ch_umi_read_counts_in = ch_ubam
+	    .join(ch_bam_fcu)
+	    .join(ch_bam_grouped)
+	    .join(ch_bam_consensus)
+	    .join(ch_bam_bai_final_fil)
+	    .join(ch_bam_con_stix)
+	    .join(ch_bam_dup_stix)
+	    .join(ch_bam_sim_stix)
+
+    //
+    // MODULE: Run SamTools View to count reads accross the BAM files
+    //
+    UMI_READ_COUNTS(ch_ubam, ch_bam_fcu, ch_bam_grouped, ch_consensus_bam, ch_bam_bai_final_fil, ch_bam_con_stix, ch_bam_dup_stix, ch_bam_sim_stix)
+    ch_versions = ch_versions.mix(UMI_READ_COUNTS.out.versions.first())
+
 
     //
     // MODULE: Run Preseq CCurve
@@ -339,7 +355,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH_FIN(ch_bam_fin_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH_FIN(ch_bam_con_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
     ch_versions = ch_versions.mix(MOSDEPTH_FIN.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_FIN.out.summary_txt)
 
@@ -360,13 +376,13 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run ErrorRateByReadPosition in Final BAM
     //
-    FGBIO_ERRORRATEBYREADPOSITION_CON(ch_bam_fin_sort, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
+    FGBIO_ERRORRATEBYREADPOSITION_CON(ch_bam_con_sort, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
     ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION_CON.out.versions)
 
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
     //
-    COLLECTHSMETRICS_CON(ch_bam_fin_stix, ch_fasta, ch_fai, ch_dict, params.hsmetrics_baits, params.hsmetrics_trgts, params.seq_library)
+    COLLECTHSMETRICS_CON(ch_bam_con_stix, ch_fasta, ch_fai, ch_dict, params.hsmetrics_baits, params.hsmetrics_trgts, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_CON.out.versions.first())
     ch_coverage_con  = COLLECTHSMETRICS_CON.out.coverage
     ch_hsmetrics_con = COLLECTHSMETRICS_CON.out.hsmetrics
@@ -428,7 +444,7 @@ workflow UMIPROCESSING {
     duplex_bam      = ch_bam_dup_stix
     split_reads     = ch_split_reads
     multiqc_files   = ch_multiqc_files
-    finalized_bam   = ch_bam_fin_stix
+    finalized_bam   = ch_bam_con_stix
     split_contigs   = ch_split_contigs
     reads_finalized = ch_consensus_reads
 
