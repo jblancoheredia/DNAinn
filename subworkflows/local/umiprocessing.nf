@@ -345,7 +345,7 @@ workflow UMIPROCESSING {
 	    .join(ch_bam_fcu)
 	    .join(ch_bam_grouped)
 	    .join(ch_bam_consensus)
-	    .join(ch_bam_bai_final_fil)
+	    .join(ch_bam_bai_con_fil)
 	    .join(ch_bam_con_stix)
 	    .join(ch_bam_dup_stix)
 	    .join(ch_bam_sim_stix)
