@@ -167,7 +167,7 @@ process MOSDEPTH_RAW {
     """
 }
 
-process MOSDEPTH_FIN {
+process MOSDEPTH_CON {
     tag "$meta.id"
     label 'process_medium'
 
