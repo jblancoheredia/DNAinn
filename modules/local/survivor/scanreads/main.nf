@@ -82,7 +82,7 @@ process SURVIVOR_SCAN_READS_RAW {
         SURVIVOR \\
         scanreads \\
         ${minrl} \\
-        ${prefix}.error_profile.tsv \\
+        ${prefix}.raw_error_profile.tsv \\
         $args
 
     cat <<-END_VERSIONS > versions.yml
@@ -93,7 +93,7 @@ process SURVIVOR_SCAN_READS_RAW {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.error_profile.tsv
+    touch ${prefix}.raw_error_profile.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
