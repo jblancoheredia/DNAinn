@@ -163,8 +163,8 @@ process SAMTOOLS_SORT_INDEX_CON {
 
     input:
     tuple val(meta) , path(bam), path(duplex_bam), path(simplex_bam)
-    tuple val(meta2), path(fai)
-    tuple val(meta3), path(fasta)
+    tuple val(meta2), path(fasta)
+    tuple val(meta3), path(fai)
 
     output:
     tuple val(meta), path("*_sort.bam")         , path("*_sort.bam.bai")        , emit: bam_bai
