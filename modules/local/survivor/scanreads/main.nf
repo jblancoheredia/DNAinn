@@ -64,8 +64,8 @@ process SURVIVOR_SCAN_READS_RAW {
     val(minrl) // Min read lengt (-1 to disable)
 
     output:
-    tuple val(meta), path("*.raw_error_profile.tsv"),   emit: error_profile
-    path "versions.yml",                            emit: versions
+    tuple val(meta), path("*.raw_error_profile.tsv"), emit: error_profile
+    path "versions.yml"                             , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -116,8 +116,8 @@ process SURVIVOR_SCAN_READS_CON {
     val(minrl) // Min read lengt (-1 to disable)
 
     output:
-    tuple val(meta), path("*.con_error_profile.tsv"),   emit: error_profile
-    path "versions.yml",                            emit: versions
+    tuple val(meta), path("*.con_error_profile.tsv"), emit: error_profile
+    path "versions.yml"                             , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -134,7 +134,7 @@ process SURVIVOR_SCAN_READS_CON {
         SURVIVOR \\
         scanreads \\
         ${minrl} \\
-        ${prefix}.error_profile.tsv \\
+        ${prefix}.con_error_profile.tsv \\
         $args
 
     cat <<-END_VERSIONS > versions.yml
@@ -145,7 +145,7 @@ process SURVIVOR_SCAN_READS_CON {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.error_profile.tsv
+    touch ${prefix}.con_error_profile.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
