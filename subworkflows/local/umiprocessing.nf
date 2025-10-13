@@ -30,7 +30,6 @@ include { MSISENSORPRO_CON                                                      
 include { MSISENSORPRO_RAW                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
 include { FGBIO_CORRECTUMIS                                                                                                         } from '../../modules/local/fgbio/correctumis/main' // <- New in use
 include { COLLECT_UMI_METRICS                                                                                                       } from '../../modules/local/collect_umi_metrics/main'
-include { SURVIVOR_SCAN_READS                                                                                                       } from '../../modules/local/survivor/scanreads/main' // <- In use
 include { COLLECTHSMETRICS_CON                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
 include { COLLECTHSMETRICS_DUP                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
 include { COLLECTHSMETRICS_RAW                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
@@ -39,6 +38,8 @@ include { FGBIO_GROUPREADSBYUMI                                                 
 include { SAMTOOLS_COLLATEFASTQ                                                                                                     } from '../../modules/nf-core/samtools/collatefastq/main' // <- In use
 include { SAMTOOLS_SORT_INDEX_CON                                                                                                   } from '../../modules/local/samtools/sort_index/main' // <- In use
 include { SAMTOOLS_SORT_INDEX_RAW                                                                                                   } from '../../modules/local/samtools/sort_index/main' // <- In use
+include { SURVIVOR_SCAN_READS_CON                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
+include { SURVIVOR_SCAN_READS_RAW                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
 include { FGBIO_FILTERCONSENSUSREADS                                                                                                } from '../../modules/local/fgbio/filterconsensusreads/main' // <- New in use
 include { FGBIO_COLLECTDUPLEXSEQMETRICS                                                                                             } from '../../modules/local/fgbio/collectduplexseqmetrics/main' // <- In use
 include { PICARD_COLLECTMULTIPLEMETRICS                                                                                             } from '../../modules/local/picard/collectmultiplemetrics/main' // <- In use
@@ -130,8 +131,8 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run Survivor ScanReads to get Error Profiles
     //
-    SURVIVOR_SCAN_READS(ch_bam_fcu_stix, params.read_length)
-    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS.out.versions.first())
+    SURVIVOR_SCAN_READS_RAW(ch_bam_fcu_stix, params.read_length)
+    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_RAW.out.versions.first())
 
     //
     // MODULE: Run Picard's Collect HS Metrics for raw BAM files
@@ -320,6 +321,12 @@ workflow UMIPROCESSING {
     ch_bam_con_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_bai
     ch_bam_dup_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_duplex
     ch_bam_sim_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_simplex
+
+    //
+    // MODULE: Run Survivor ScanReads to get Error Profiles
+    //
+    SURVIVOR_SCAN_READS_CON(ch_bam_con_stix, params.read_length)
+    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_CON.out.versions.first())
 
     // Combine BAM fils by meta data
 	ch_umi_metrics_in = ch_bam_con_stix

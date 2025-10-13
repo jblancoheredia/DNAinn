@@ -8,9 +8,8 @@ process MSISENSORPRO_RAW {
         'quay.io/biocontainers/msisensor-pro:1.2.0--hfc31af2_0' }"
 
     input:
-    tuple val(meta),   path(bam)
-    tuple val(meta1) , path(bai)
-    tuple val(meta2),  path(hom_ms)
+    tuple val(meta),  path(bam), path(bai)
+    tuple val(meta2), path(hom_ms)
 
     output:
     tuple val(meta), path("${meta.id}.summary.raw"), emit: summary
@@ -69,8 +68,8 @@ process MSISENSORPRO_CON {
         'quay.io/biocontainers/msisensor-pro:1.2.0--hfc31af2_0' }"
 
     input:
-    tuple val(meta),   path(bam), path(bai)
-    tuple val(meta2),  path(hom_ms)
+    tuple val(meta),  path(bam), path(bai)
+    tuple val(meta2), path(hom_ms)
 
     output:
     tuple val(meta), path("${meta.id}.summary.con"), emit: summary
