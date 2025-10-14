@@ -12,8 +12,8 @@ process SURVIVOR_SCAN_READS {
     val(minrl) // Min read lengt (-1 to disable)
 
     output:
-    tuple val(meta), path("*.error_profile.tsv"),   emit: error_profile
-    path "versions.yml",                            emit: versions
+    tuple val(meta), path("*.error_profile.tsv"), emit: error_profile
+    path "versions.yml"                         , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
