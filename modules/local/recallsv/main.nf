@@ -8,8 +8,8 @@ process RECALL_SV {
         'blancojmskcc/gridss:2.13.2' }"
 
     input:
-    tuple val(meta) , path(known_sites), path(known_sites_tbi)
-    tuple val(meta1), path(tumour_bam), path(tumour_bai),
+    tuple val(meta1), path(known_sites), path(known_sites_tbi)
+    tuple val(meta),  path(tumour_bam), path(tumour_bai),
                       path(normal_bam), path(normal_bai), 
                       path(interval_list)
     tuple val(meta2), path(fasta_fai)
