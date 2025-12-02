@@ -47,7 +47,9 @@ include { FGBIO_COLLECTDUPLEXSEQMETRICS                                         
 include { PICARD_COLLECTMULTIPLEMETRICS                                                                                             } from '../../modules/local/picard/collectmultiplemetrics/main' // <- In use
 include { FGBIO_CALLDUPLEXCONSENSUSREADS                                                                                            } from '../../modules/nf-core/fgbio/callduplexconsensusreads/main' // <- In use
 include { FGBIO_ERRORRATEBYREADPOSITION_CON                                                                                         } from '../../modules/local/fgbio/errorratebyreadposition/main' // <- In use
+include { FGBIO_ERRORRATEBYREADPOSITION_DUP                                                                                         } from '../../modules/local/fgbio/errorratebyreadposition/main' // <- In use
 include { FGBIO_ERRORRATEBYREADPOSITION_RAW                                                                                         } from '../../modules/local/fgbio/errorratebyreadposition/main' // <- In use
+include { FGBIO_ERRORRATEBYREADPOSITION_SIM                                                                                         } from '../../modules/local/fgbio/errorratebyreadposition/main' // <- In use
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -408,6 +410,18 @@ workflow UMIPROCESSING {
     //
     FGBIO_ERRORRATEBYREADPOSITION_CON(ch_bam_con_sort, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
     ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION_CON.out.versions)
+
+    //
+    // MODULE: Run ErrorRateByReadPosition in Final BAM
+    //
+    FGBIO_ERRORRATEBYREADPOSITION_DUP(ch_bam_dup_stix, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
+    ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION_DUP.out.versions)
+
+    //
+    // MODULE: Run ErrorRateByReadPosition in Final BAM
+    //
+    FGBIO_ERRORRATEBYREADPOSITION_SIM(ch_bam_sim_stix, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
+    ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION_SIM.out.versions)
 
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
