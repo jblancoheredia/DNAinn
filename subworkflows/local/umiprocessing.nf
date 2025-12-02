@@ -39,7 +39,9 @@ include { SAMTOOLS_COLLATEFASTQ                                                 
 include { SAMTOOLS_SORT_INDEX_CON                                                                                                   } from '../../modules/local/samtools/sort_index/main' // <- In use
 include { SAMTOOLS_SORT_INDEX_RAW                                                                                                   } from '../../modules/local/samtools/sort_index/main' // <- In use
 include { SURVIVOR_SCAN_READS_CON                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
+include { SURVIVOR_SCAN_READS_DUP                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
 include { SURVIVOR_SCAN_READS_RAW                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
+include { SURVIVOR_SCAN_READS_SIM                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
 include { FGBIO_FILTERCONSENSUSREADS                                                                                                } from '../../modules/local/fgbio/filterconsensusreads/main' // <- New in use
 include { FGBIO_COLLECTDUPLEXSEQMETRICS                                                                                             } from '../../modules/local/fgbio/collectduplexseqmetrics/main' // <- In use
 include { PICARD_COLLECTMULTIPLEMETRICS                                                                                             } from '../../modules/local/picard/collectmultiplemetrics/main' // <- In use
@@ -327,6 +329,18 @@ workflow UMIPROCESSING {
     //
     SURVIVOR_SCAN_READS_CON(ch_bam_con_stix, params.read_length)
     ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_CON.out.versions.first())
+
+    //
+    // MODULE: Run Survivor ScanReads to get Error Profiles
+    //
+    SURVIVOR_SCAN_READS_DUP(ch_bam_dup_stix, params.read_length)
+    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_DUP.out.versions.first())
+
+    //
+    // MODULE: Run Survivor ScanReads to get Error Profiles
+    //
+    SURVIVOR_SCAN_READS_SIM(ch_bam_sim_stix, params.read_length)
+    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_SIM.out.versions.first())
 
     // Combine BAM fils by meta data
 	ch_umi_metrics_in = ch_bam_con_stix
