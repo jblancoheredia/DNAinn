@@ -157,7 +157,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
     //
-    COLLECTHSMETRICS_CON(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
+    COLLECTHSMETRICS_CON(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.baits, params.targets)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_CON.out.versions.first())
     ch_coverage_con  = COLLECTHSMETRICS_CON.out.coverage
     ch_hsmetrics_con = COLLECTHSMETRICS_CON.out.hsmetrics
