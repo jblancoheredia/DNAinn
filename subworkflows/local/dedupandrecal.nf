@@ -70,12 +70,13 @@ workflow DEDUPANDRECAL {
     SAMTOOLS_SORT_INDEX(ch_bam, ch_fasta, params.fai)
     ch_versions = ch_versions.mix(SAMTOOLS_SORT_INDEX.out.versions.first())
     ch_bam_raw = SAMTOOLS_SORT_INDEX.out.bam
+    ch_bam_bai = SAMTOOLS_SORT_INDEX.out.bam_bai 
     ch_bam_raw_index = SAMTOOLS_SORT_INDEX.out.bai
 
     //
     // MODULE: Run Survivor ScanReads to get Error Profiles
     //
-    SURVIVOR_SCAN_READS(ch_bam_raw, ch_bam_raw_index, params.read_length)
+    SURVIVOR_SCAN_READS(ch_bam_bai, params.read_length)
     ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS.out.versions.first())
 
     //
