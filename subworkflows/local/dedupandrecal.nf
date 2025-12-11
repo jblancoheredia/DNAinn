@@ -194,6 +194,7 @@ workflow DEDUPANDRECAL {
 
     emit:
 
+    raw_bam         = ch_bam_raw
     versions        = ch_collated_versions
     bam_final       = ch_bam_bai_dr
     reads_final     = ch_reads_dr
