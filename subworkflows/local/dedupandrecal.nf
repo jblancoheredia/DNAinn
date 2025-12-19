@@ -82,7 +82,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run Picard's Collect HS Metrics for raw BAM files
     //
-    COLLECTHSMETRICS_RAW(ch_bam_raw, ch_bam_raw_index, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.targets)
+    COLLECTHSMETRICS_RAW(ch_bam_bai, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_RAW.out.versions.first())
     ch_coverage_raw  = COLLECTHSMETRICS_RAW.out.coverage
     ch_hsmetrics_raw = COLLECTHSMETRICS_RAW.out.hsmetrics
@@ -157,7 +157,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
     //
-    COLLECTHSMETRICS_CON(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.blocklist_bed, params.baits, params.targets)
+    COLLECTHSMETRICS_CON(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_CON.out.versions.first())
     ch_coverage_con  = COLLECTHSMETRICS_CON.out.coverage
     ch_hsmetrics_con = COLLECTHSMETRICS_CON.out.hsmetrics
