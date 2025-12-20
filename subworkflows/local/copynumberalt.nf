@@ -86,33 +86,33 @@ workflow COPYNUMBERALT {
     ch_sam_mpileup = SAMTOOLS_MPILEUP.out.pup
     ch_sam_mpileup_tbi = SAMTOOLS_MPILEUP.out.tbi
   
-    //
-    // MODULE: Run ControlFreec Freec 
-    //
-    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
-    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
-    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
-    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
-
-    //
-    // MODULE: Run ControlFreec Assess Significance
-    //
-    CONTROLFREEC_OT_ASSESSSIGNIFICANCE(ch_cfot_cnvs, ch_cfot_ratio)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_ASSESSSIGNIFICANCE.out.versions)
-
-    //
-    // MODULE: Run ControlFreec Freec2BED
-    //
-    CONTROLFREEC_OT_FREEC2BED(ch_cfot_ratio)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2BED.out.versions)
-
-    //
-    // MODULE: Run ControlFreec Freec2Circos
-    //
-    CONTROLFREEC_OT_FREEC2CIRCOS(ch_cfot_ratio)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2CIRCOS.out.versions)
-
+//    //
+//    // MODULE: Run ControlFreec Freec 
+//    //
+//    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
+//    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
+//    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
+//    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
+//
+//    //
+//    // MODULE: Run ControlFreec Assess Significance
+//    //
+//    CONTROLFREEC_OT_ASSESSSIGNIFICANCE(ch_cfot_cnvs, ch_cfot_ratio)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_ASSESSSIGNIFICANCE.out.versions)
+//
+//    //
+//    // MODULE: Run ControlFreec Freec2BED
+//    //
+//    CONTROLFREEC_OT_FREEC2BED(ch_cfot_ratio)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2BED.out.versions)
+//
+//    //
+//    // MODULE: Run ControlFreec Freec2Circos
+//    //
+//    CONTROLFREEC_OT_FREEC2CIRCOS(ch_cfot_ratio)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2CIRCOS.out.versions)
+//
 //    //
 //    // MODULE: Run ControlFreec MakeGraph2
 //    //
