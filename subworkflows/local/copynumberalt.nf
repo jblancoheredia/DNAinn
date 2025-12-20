@@ -119,19 +119,19 @@ workflow COPYNUMBERALT {
 //    CONTROLFREEC_OT_MAKEGRAPH2(CONTROLFREEC_OT_FREEC.out.ratio.join(CONTROLFREEC_OT_FREEC.out.BAF, failOnDuplicate: true, failOnMismatch: true))
 //    ch_versions = ch_versions.mix(CONTROLFREEC_OT_MAKEGRAPH2.out.versions)
 
-//    //
-//    // MODULE: Run CNVkit AntiTarget Module just once per panel
-//    //
-//    CNVKIT_ANTITARGET(ch_targets_bed)
-//    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
-//    ch_antitargets = CNVKIT_ANTITARGET.out.bed
+    //
+    // MODULE: Run CNVkit AntiTarget Module just once per panel
+    //
+    CNVKIT_ANTITARGET(ch_targets_bed)
+    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
+    ch_antitargets = CNVKIT_ANTITARGET.out.bed
 
-//    //
-//    // MODULE: Run CNVkit Reference Module just once per panel
-//    //
-//    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_cnvkit_antitarget)
-//    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
-//    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
+    //
+    // MODULE: Run CNVkit Reference Module just once per panel
+    //
+    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_cnvkit_antitarget)
+    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
+    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
 
     //
     // MODULE: Run CNVKIT Batch
