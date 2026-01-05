@@ -1,4 +1,4 @@
 patient,sample,fastq_1,fastq_2,matched_normal,sample_type 
-MATCH_ID,SAMPLE_MATCHED_PAIRED_END_N,/path/to/fastq/files/AEG588A1N_S1_L002_R1_001.fastq.gz,/path/to/fastq/files/AEG588A1N_S1_L002_R2_001.fastq.gz,1,normal
-MATCH_ID,SAMPLE_MATCHED_PAIRED_END_T,/path/to/fastq/files/AEG588A1T_S1_L002_R1_001.fastq.gz,/path/to/fastq/files/AEG588A1T_S1_L002_R2_001.fastq.gz,1,tumour
-MATCH_ID,SAMPLE_UNMATCHED_SINGLE_END,/path/to/fastq/files/AEG588A4_S4_L003_R1_001.fastq.gz,,0,tumour
+PATIENT1,SAMPLE_MATCHED_PAIRED_END_N,/path/to/fastq/files/SAMPLE_N_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/SAMPLE_N_S1_L001_R2_001.fastq.gz,1,normal
+PATIENT1,SAMPLE_MATCHED_PAIRED_END_T,/path/to/fastq/files/SAMPLE_T_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/SAMPLE_T_S1_L001_R2_001.fastq.gz,1,tumour
+PATIENT2,SAMPLE_UNMATCHED_SINGLE_END,/path/to/fastq/files/SAMPLE_U_S1_L001_R1_001.fastq.gz,,0,tumour

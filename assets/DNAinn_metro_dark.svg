@@ -20,8 +20,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="6.15"
-     inkscape:cx="324.87805"
-     inkscape:cy="556.34146"
+     inkscape:cx="479.34959"
+     inkscape:cy="223.00813"
      inkscape:window-width="2176"
      inkscape:window-height="1312"
      inkscape:window-x="1167"
@@ -13931,7 +13931,8 @@
     <polygon
        id="polygon37-0"
        class="st47"
-       points="475.8 184.5 486 194.5 477.4 194.5 467.2 184.5 477.4 174.5 486 174.5 475.8 184.5" />
+       points="486,194.5 477.4,194.5 467.2,184.5 477.4,174.5 486,174.5 475.8,184.5 "
+       transform="translate(-8.028)" />
     <path
        id="rect294"
        class="st17"
@@ -17491,7 +17492,8 @@
     <polygon
        id="polygon292"
        class="st50"
-       points="421.8 707.2 432 717.4 442.1 707.2 442.1 715.9 432 726 421.8 715.9 421.8 707.2" />
+       points="432,717.4 442.1,707.2 442.1,715.9 432,726 421.8,715.9 421.8,707.2 "
+       transform="translate(0,-10)" />
     <polygon
        id="polygon37-02"
        class="st56"
