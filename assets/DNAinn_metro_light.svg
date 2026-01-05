@@ -20,14 +20,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="6.18"
-     inkscape:cx="-11.245955"
-     inkscape:cy="16.909385"
+     inkscape:cx="337.62136"
+     inkscape:cy="736.97411"
      inkscape:window-width="2176"
      inkscape:window-height="1312"
      inkscape:window-x="1167"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg334" />
+     inkscape:current-layer="Stop" />
   <!-- Generator: Adobe Illustrator 29.6.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 207)  -->
   <defs
      id="defs101">
@@ -17051,7 +17051,8 @@
     <polygon
        id="polygon292"
        class="st50"
-       points="421.8 707.2 432 717.4 442.1 707.2 442.1 715.9 432 726 421.8 715.9 421.8 707.2" />
+       points="432,717.4 442.1,707.2 442.1,715.9 432,726 421.8,715.9 421.8,707.2 "
+       transform="translate(0,-10)" />
     <polygon
        id="polygon37-03"
        class="st0"
