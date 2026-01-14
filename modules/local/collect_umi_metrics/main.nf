@@ -23,8 +23,8 @@ process COLLECT_UMI_METRICS {
     tuple val(meta), path("*.simplex_umi_counts.txt")     , emit: simplex_umi_counts
     tuple val(meta), path("*.simplex_family_sizes.txt")   , emit: simplex_family_sizes
     tuple val(meta), path("*.simplex_yield_metrics.txt")  , emit: simplex_yield_metrics
-    tuple val(meta), path("*.cons_umi_counts.txt")        , emit: cons_umi_counts
-    tuple val(meta), path("*.cons_family_sizes.txt")      , emit: cons_family_sizes
+    tuple val(meta), path("*.con_umi_counts.txt")         , emit: con_umi_counts
+    tuple val(meta), path("*.con_family_sizes.txt")       , emit: con_family_sizes
     tuple val(meta), path("*.consensus_umi_counts.txt")   , emit: consensus_umi_counts
     tuple val(meta), path("*.consensus_family_sizes.txt") , emit: consensus_family_sizes
     tuple val(meta), path("*.consensus_yield_metrics.txt"), emit: consensus_yield_metrics
@@ -59,8 +59,8 @@ process COLLECT_UMI_METRICS {
     mv simplex/${prefix}.duplex_family_sizes.txt ${prefix}.simplex_family_sizes.txt
     mv simplex/${prefix}.duplex_yield_metrics.txt ${prefix}.simplex_yield_metrics.txt
 
-    mv consensus/${prefix}.umi_counts.txt ${prefix}.cons_umi_counts.txt
-    mv consensus/${prefix}.family_sizes.txt ${prefix}.cons_family_sizes.txt
+    mv consensus/${prefix}.umi_counts.txt ${prefix}.con_umi_counts.txt
+    mv consensus/${prefix}.family_sizes.txt ${prefix}.con_family_sizes.txt
     mv consensus/${prefix}.duplex_umi_counts.txt ${prefix}.consensus_umi_counts.txt
     mv consensus/${prefix}.duplex_family_sizes.txt ${prefix}.consensus_family_sizes.txt
     mv consensus/${prefix}.duplex_yield_metrics.txt ${prefix}.consensus_yield_metrics.txt
@@ -84,8 +84,8 @@ process COLLECT_UMI_METRICS {
     touch ${prefix}.simplex_umi_counts.txt
     touch ${prefix}.simplex_family_sizes.txt
     touch ${prefix}.simplex_yield_metrics.txt
-    touch ${prefix}.cons_umi_counts.txt
-    touch ${prefix}.cons_family_sizes.txt
+    touch ${prefix}.con_umi_counts.txt
+    touch ${prefix}.con_family_sizes.txt
     touch ${prefix}.consensus_umi_counts.txt
     touch ${prefix}.consensus_family_sizes.txt
     touch ${prefix}.consensus_yield_metrics.txt

@@ -320,26 +320,24 @@ workflow UMIPROCESSING {
     //
     SAMTOOLS_SORT_INDEX_CON(ch_sort_index_in, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(SAMTOOLS_SORT_INDEX_CON.out.versions)
-    ch_bam_con_sort = SAMTOOLS_SORT_INDEX_CON.out.bam
-    ch_bam_con_indx = SAMTOOLS_SORT_INDEX_CON.out.bai
-    ch_bam_con_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_bai
     ch_bam_dup_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_duplex
     ch_bam_sim_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_simplex
+    ch_bam_con_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_consensus
 
     //
-    // MODULE: Run Survivor ScanReads to get Error Profiles
+    // MODULE: Run Survivor ScanReads to get Consensus Error Profiles
     //
     SURVIVOR_SCAN_READS_CON(ch_bam_con_stix, params.read_length)
     ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_CON.out.versions.first())
 
     //
-    // MODULE: Run Survivor ScanReads to get Error Profiles
+    // MODULE: Run Survivor ScanReads to get Duplex Error Profiles
     //
     SURVIVOR_SCAN_READS_DUP(ch_bam_dup_stix, params.read_length)
     ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_DUP.out.versions.first())
 
     //
-    // MODULE: Run Survivor ScanReads to get Error Profiles
+    // MODULE: Run Survivor ScanReads to get Simplex Error Profiles
     //
     SURVIVOR_SCAN_READS_SIM(ch_bam_sim_stix, params.read_length)
     ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_SIM.out.versions.first())
@@ -408,7 +406,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run ErrorRateByReadPosition in Final BAM
     //
-    FGBIO_ERRORRATEBYREADPOSITION_CON(ch_bam_con_sort, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
+    FGBIO_ERRORRATEBYREADPOSITION_CON(ch_bam_con_stix, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
     ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION_CON.out.versions)
 
     //

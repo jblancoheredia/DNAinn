@@ -167,12 +167,10 @@ process SAMTOOLS_SORT_INDEX_CON {
     tuple val(meta3), path(fai)
 
     output:
-    tuple val(meta), path("*_sort.bam")         , path("*_sort.bam.bai")        , emit: bam_bai
-    tuple val(meta), path("*_sort.bam")                                         , emit: bam
-    tuple val(meta), path("*_sort.bam.bai")                                     , emit: bai
-    tuple val(meta), path("*_sort.duplex.bam")  , path("*_sort.duplex.bam.bai") , emit: bam_duplex
-    tuple val(meta), path("*_sort.simplex.bam") , path("*_sort.simplex.bam.bai"), emit: bam_simplex
-    path  "versions.yml"                                                        , emit: versions
+    tuple val(meta), path("*_sort.duplex.bam")   , path("*_sort.duplex.bam.bai")   , emit: bam_duplex
+    tuple val(meta), path("*_sort.simplex.bam")  , path("*_sort.simplex.bam.bai")  , emit: bam_simplex
+    tuple val(meta), path("*_sort.consensus.bam"), path("*_sort.consensus.bam.bai"), emit: bam_consensus
+    path  "versions.yml"                                                           , emit: versions
 
     when:
     task.ext.when == null || task.ext.when

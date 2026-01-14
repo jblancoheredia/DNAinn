@@ -140,7 +140,7 @@ process FGBIO_ERRORRATEBYREADPOSITION_CON {
         'quay.io/biocontainers/fgbio:2.0.2--hdfd78af_0' }"
 
     input:
-    tuple val(meta),  path(bam)
+    tuple val(meta) , path(bam), path(bai)
     tuple val(meta1), path(fasta)
     tuple val(meta2), path(fasta_fai)
     tuple val(meta3), path(fasta_dict)
@@ -205,7 +205,7 @@ process FGBIO_ERRORRATEBYREADPOSITION_DUP {
         'quay.io/biocontainers/fgbio:2.0.2--hdfd78af_0' }"
 
     input:
-    tuple val(meta),  path(bam), path(bai)
+    tuple val(meta) , path(bam), path(bai)
     tuple val(meta1), path(fasta)
     tuple val(meta2), path(fasta_fai)
     tuple val(meta3), path(fasta_dict)
@@ -270,7 +270,7 @@ process FGBIO_ERRORRATEBYREADPOSITION_SIM {
         'quay.io/biocontainers/fgbio:2.0.2--hdfd78af_0' }"
 
     input:
-    tuple val(meta),  path(bam), path(bai)
+    tuple val(meta) , path(bam), path(bai)
     tuple val(meta1), path(fasta)
     tuple val(meta2), path(fasta_fai)
     tuple val(meta3), path(fasta_dict)

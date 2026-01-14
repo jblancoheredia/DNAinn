@@ -26,6 +26,7 @@ include { COLLECTHSMETRICS_RAW                                                  
 include { GATK4_MARKDUPLICATES          	                                                                                        } from '../../modules/local/gatk4/markduplicates/main'
 include { SAMTOOLS_COLLATEFASTQ                                                                                                     } from '../../modules/nf-core/samtools/collatefastq/main'   
 include { GATK4_BASERECALIBRATOR                                                                                                    } from '../../modules/local/gatk4/baserecalibrator/main'
+include { PICARD_COLLECTMULTIPLEMETRICS                                                                                             } from '../../modules/local/picard/collectmultiplemetrics/main'
 include { FGBIO_ERRORRATEBYREADPOSITION                                                                                             } from '../../modules/local/fgbio/errorratebyreadposition/main'
 
 /*
@@ -161,6 +162,12 @@ workflow DEDUPANDRECAL {
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_CON.out.versions.first())
     ch_coverage_con  = COLLECTHSMETRICS_CON.out.coverage
     ch_hsmetrics_con = COLLECTHSMETRICS_CON.out.hsmetrics
+
+    //
+    // MODULE: Run Picard Tool CollectMultipleMetrics
+    //
+    PICARD_COLLECTMULTIPLEMETRICS(ch_bam_bai_dr, ch_fasta, ch_fai)
+    ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS.out.versions.first())
 
     //
     // MODULE: Run MSI Sensor PRO
