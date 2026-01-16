@@ -352,7 +352,7 @@ workflow UMIPROCESSING {
     //
     COLLECT_UMI_METRICS(ch_umi_metrics_in)
     ch_versions = ch_versions.mix(COLLECT_UMI_METRICS.out.versions.first())
-    ch_cons_family_sizes = COLLECT_UMI_METRICS.out.cons_family_sizes
+    ch_con_family_sizes = COLLECT_UMI_METRICS.out.con_family_sizes
 
     // Combine BAM fils by meta data
 	ch_umi_read_counts_in = ch_ubam
@@ -373,7 +373,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run Preseq CCurve
     //
-    PRESEQ_CCURVE(ch_cons_family_sizes)
+    PRESEQ_CCURVE(ch_con_family_sizes)
     ch_versions = ch_versions.mix(PRESEQ_CCURVE.out.versions.first())
 
     //
