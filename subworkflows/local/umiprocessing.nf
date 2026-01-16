@@ -73,7 +73,7 @@ workflow UMIPROCESSING {
     ch_dict
     ch_fasta
     ch_msi_f
-    ch_fastp_fastq
+    ch_fastqs
 
     main:
     ch_versions = Channel.empty()
@@ -82,7 +82,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run fgbio FastqToBam
     //
-    FGBIO_FASTQTOBAM(ch_fastp_fastq)
+    FGBIO_FASTQTOBAM(ch_fastqs)
     ch_versions = ch_versions.mix(FGBIO_FASTQTOBAM.out.versions.first())
     ch_ubam = FGBIO_FASTQTOBAM.out.bam
 
