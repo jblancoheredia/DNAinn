@@ -51,7 +51,7 @@ workflow DEDUPANDRECAL {
     ch_dict
     ch_fasta
     ch_msi_f
-    ch_fastp_fastq
+    ch_fastqs
 
     main:
     ch_versions = Channel.empty()
@@ -61,7 +61,7 @@ workflow DEDUPANDRECAL {
     // MODULE: BWA-MEM2 mapping
     //
     sort_bam = 'sort'
-    BWAMEM2_MEM(ch_fastp_fastq, ch_bwa2, ch_fasta, ch_fai, sort_bam)
+    BWAMEM2_MEM(ch_fastqs, ch_bwa2, ch_fasta, ch_fai, sort_bam)
     ch_versions = ch_versions.mix(BWAMEM2_MEM.out.versions)
     ch_bam = BWAMEM2_MEM.out.bam
 
