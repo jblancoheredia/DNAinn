@@ -26,9 +26,15 @@ include { UMI_READ_COUNTS                                                       
 include { FASTQC_CONSENSUS                                                                                                          } from '../../modules/local/fastqc_consensus/main' // <- In use
 include { FGBIO_FASTQTOBAM                                                                                                          } from '../../modules/nf-core/fgbio/fastqtobam/main' // <- In use
 include { FGBIO_SORTCONBAM                                                                                                          } from '../../modules/local/fgbio/sortconbam/main.nf' // <- In use
+include { MSISENSORPRO_DUP                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
 include { MSISENSORPRO_CON                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
 include { MSISENSORPRO_RAW                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
+include { MSISENSORPRO_SIM                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
 include { FGBIO_CORRECTUMIS                                                                                                         } from '../../modules/local/fgbio/correctumis/main' // <- New in use
+include { SAMTOOLS_STATS_CON                                                                                                        } from '../../modules/local/samtools/stats/main'
+include { SAMTOOLS_STATS_DUP                                                                                                        } from '../../modules/local/samtools/stats/main'
+include { SAMTOOLS_STATS_RAW                                                                                                        } from '../../modules/local/samtools/stats/main'
+include { SAMTOOLS_STATS_SIM                                                                                                        } from '../../modules/local/samtools/stats/main'
 include { COLLECT_UMI_METRICS                                                                                                       } from '../../modules/local/collect_umi_metrics/main'
 include { COLLECTHSMETRICS_CON                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
 include { COLLECTHSMETRICS_DUP                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
@@ -448,11 +454,29 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run MSI Sensor PRO
     ///
-    MSISENSORPRO_CON(ch_bam_dup_stix, ch_msi_f)
+    MSISENSORPRO_CON(ch_bam_con_stix, ch_msi_f)
     ch_versions = ch_versions.mix(MSISENSORPRO_CON.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.summary.map{it[1]}.collect())
     ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.msi_uns.map{it[1]}.collect())
     ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.msi_all.map{it[1]}.collect())
+
+    //
+    // MODULE: Run MSI Sensor PRO
+    ///
+    MSISENSORPRO_DUP(ch_bam_dup_stix, ch_msi_f)
+    ch_versions = ch_versions.mix(MSISENSORPRO_DUP.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_DUP.out.summary.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_DUP.out.msi_uns.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_DUP.out.msi_all.map{it[1]}.collect())
+
+    //
+    // MODULE: Run MSI Sensor PRO
+    ///
+    MSISENSORPRO_SIM(ch_bam_sim_stix, ch_msi_f)
+    ch_versions = ch_versions.mix(MSISENSORPRO_SIM.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_SIM.out.summary.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_SIM.out.msi_uns.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_SIM.out.msi_all.map{it[1]}.collect())
 
     //
     // MODULE: Extract FastQ reads from BAM
