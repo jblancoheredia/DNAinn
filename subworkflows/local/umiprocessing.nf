@@ -120,6 +120,13 @@ workflow UMIPROCESSING {
     ch_bam_fcu_stix = SAMTOOLS_SORT_INDEX_RAW.out.bam_bai
 
     //
+    // MODULE: Run SAMtools Stats
+    //
+    SAMTOOLS_STATS_RAW(ch_bam_fcu_stix, ch_fasta)
+    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS_RAW.out.stats)
+    ch_versions = ch_versions.mix(SAMTOOLS_STATS_RAW.out.versions.first())
+
+    //
     // MODULE: Run Picard Tool CollectMultipleMetrics
     //
     PICARD_COLLECTMULTIPLEMETRICS(ch_bam_fcu_stix, ch_fasta, ch_fai)
@@ -387,6 +394,27 @@ workflow UMIPROCESSING {
     //
     PRESEQ_LCEXTRAP(ch_grouped_family_sizes)
     ch_versions = ch_versions.mix(PRESEQ_LCEXTRAP.out.versions.first())
+
+    //
+    // MODULE: Run SAMtools Stats
+    //
+    SAMTOOLS_STATS_CON(ch_bam_con_stix, ch_fasta)
+    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS_CON.out.stats)
+    ch_versions = ch_versions.mix(SAMTOOLS_STATS_CON.out.versions.first())
+
+    //
+    // MODULE: Run SAMtools Stats
+    //
+    SAMTOOLS_STATS_DUP(ch_bam_dup_stix, ch_fasta)
+    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS_DUP.out.stats)
+    ch_versions = ch_versions.mix(SAMTOOLS_STATS_DUP.out.versions.first())
+
+    //
+    // MODULE: Run SAMtools Stats
+    //
+    SAMTOOLS_STATS_SIM(ch_bam_sim_stix, ch_fasta)
+    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS_SIM.out.stats)
+    ch_versions = ch_versions.mix(SAMTOOLS_STATS_SIM.out.versions.first())
 
     //
     // MODULE: Run MosDepth
