@@ -14,7 +14,7 @@ include { MOSDEPTH_DR                                                           
 include { SAMTOOLS_SORT                                                                                                             } from '../../modules/nf-core/samtools/sort/main' 
 include { SAMTOOLS_INDEX                                                                                                            } from '../../modules/nf-core/samtools/index/main'
 include { SAMTOOLS_STATS                                                                                                            } from '../../modules/nf-core/samtools/stats/main'
-include { FASTQ_CONSENSUS                                                                                                           } from '../../modules/local/fastqc_consensus/main'
+include { FASTQC_CONSENSUS                                                                                                          } from '../../modules/local/fastqc_consensus/main'
 include { GATK4_APPLYBQSR                                                                                                           } from '../../modules/local/gatk4/applybqsr/main'
 include { MSISENSORPRO_CON                                                                                                          } from '../../modules/local/msisensorpro/pro/main'   
 include { MSISENSORPRO_RAW                                                                                                          } from '../../modules/local/msisensorpro/pro/main'   
@@ -188,9 +188,9 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run FastQC
     //
-    FASTQ_CONSENSUS(ch_reads_dr)
-    ch_multiqc_files = ch_multiqc_files.mix(FASTQ_CONSENSUS.out.zip.collect{it[1]})
-    ch_versions = ch_versions.mix(FASTQ_CONSENSUS.out.versions)
+    FASTQC_CONSENSUS(ch_reads_dr)
+    ch_multiqc_files = ch_multiqc_files.mix(FASTQC_CONSENSUS.out.zip.collect{it[1]})
+    ch_versions = ch_versions.mix(FASTQC_CONSENSUS.out.versions)
 
     //
     // Collate and save software versions
