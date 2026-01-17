@@ -21,9 +21,9 @@ include { ALIGN_BAM_CON                                                         
 include { ALIGN_BAM_RAW                                                                                                             } from '../../modules/local/umi_align_bam/main' // <- In use
 include { PRESEQ_CCURVE                                                                                                             } from '../../modules/local/preseq/ccurve/main' // <- In use
 include { FILTER_CONTIGS                                                                                                            } from '../../modules/local/filter_contigs/main' // <- In use
-include { FASTQ_CONSENSUS                                                                                                           } from '../../modules/local/fastqc_consensus/main' // <- In use
 include { PRESEQ_LCEXTRAP                                                                                                           } from '../../modules/local/preseq/lcextrap/main' // <- In use
 include { UMI_READ_COUNTS                                                                                                           } from '../../modules/local/umi_read_counts/main'
+include { FASTQC_CONSENSUS                                                                                                          } from '../../modules/local/fastqc_consensus/main' // <- In use
 include { FGBIO_FASTQTOBAM                                                                                                          } from '../../modules/nf-core/fgbio/fastqtobam/main' // <- In use
 include { FGBIO_SORTCONBAM                                                                                                          } from '../../modules/local/fgbio/sortconbam/main.nf' // <- In use
 include { MSISENSORPRO_CON                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
@@ -464,9 +464,9 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run FastQC
     //
-    FASTQ_CONSENSUS(ch_consensus_reads)
-    ch_multiqc_files = ch_multiqc_files.mix(FASTQ_CONSENSUS.out.zip.collect{it[1]})
-    ch_versions = ch_versions.mix(FASTQ_CONSENSUS.out.versions)
+    FASTQC_CONSENSUS(ch_consensus_reads)
+    ch_multiqc_files = ch_multiqc_files.mix(FASTQC_CONSENSUS.out.zip.collect{it[1]})
+    ch_versions = ch_versions.mix(FASTQC_CONSENSUS.out.versions)
 
     //
     // Collate and save software versions
