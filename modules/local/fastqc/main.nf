@@ -1,4 +1,4 @@
-process FASTQ_CONSENSUS {
+process FASTQ_CON {
     tag "$meta.id"
     label 'process_medium'
 
