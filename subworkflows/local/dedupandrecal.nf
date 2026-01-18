@@ -9,25 +9,28 @@
 */
 
 include { MOSDEPTH                                                                                                                  } from '../../modules/local/mosdepth/main'
+include { FASTQC_DR                                                                                                                 } from '../../modules/local/fastqc/main'
 include { BWAMEM2_MEM                                                                                                               } from '../../modules/nf-core/bwamem2/mem/main' 
 include { MOSDEPTH_DR                                                                                                               } from '../../modules/local/mosdepth/main'
+include { MSISENSORPRO                                                                                                              } from '../../modules/local/msisensorpro/pro/main'   
 include { SAMTOOLS_SORT                                                                                                             } from '../../modules/nf-core/samtools/sort/main' 
 include { SAMTOOLS_INDEX                                                                                                            } from '../../modules/nf-core/samtools/index/main'
 include { SAMTOOLS_STATS                                                                                                            } from '../../modules/local/samtools/stats/main'
-include { FASTQC_CONSENSUS                                                                                                          } from '../../modules/local/fastqc_consensus/main'
 include { GATK4_APPLYBQSR                                                                                                           } from '../../modules/local/gatk4/applybqsr/main'
-include { MSISENSORPRO_CON                                                                                                          } from '../../modules/local/msisensorpro/pro/main'   
-include { MSISENSORPRO_RAW                                                                                                          } from '../../modules/local/msisensorpro/pro/main'   
+include { MSISENSORPRO_DR                                                                                                           } from '../../modules/local/msisensorpro/pro/main'   
+include { COLLECTHSMETRICS                                                                                                          } from '../../modules/local/picard/collecthsmetrics/main'
 include { SAMTOOLS_STATS_DR                                                                                                         } from '../../modules/local/samtools/stats/main'
+include { COLLECTHSMETRICS_DR                                                                                                       } from '../../modules/local/picard/collecthsmetrics/main'
 include { SAMTOOLS_SORT_INDEX                                                                                                       } from '../../modules/local/samtools/sort_index/main'
 include { SURVIVOR_SCAN_READS                                                                                                       } from '../../modules/local/survivor/scanreads/main'
-include { COLLECTHSMETRICS_CON                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main'
-include { COLLECTHSMETRICS_RAW                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main'
 include { GATK4_MARKDUPLICATES          	                                                                                        } from '../../modules/local/gatk4/markduplicates/main'
 include { SAMTOOLS_COLLATEFASTQ                                                                                                     } from '../../modules/nf-core/samtools/collatefastq/main'   
 include { GATK4_BASERECALIBRATOR                                                                                                    } from '../../modules/local/gatk4/baserecalibrator/main'
-include { PICARD_COLLECTMULTIPLEMETRICS                                                                                             } from '../../modules/local/picard/collectmultiplemetrics/main'
+include { SURVIVOR_SCAN_READS_DR                                                                                                    } from '../../modules/local/survivor/scanreads/main'
 include { FGBIO_ERRORRATEBYREADPOSITION                                                                                             } from '../../modules/local/fgbio/errorratebyreadposition/main'
+include { PICARD_COLLECTMULTIPLEMETRICS                                                                                             } from '../../modules/local/picard/collectmultiplemetrics/main'
+include { FGBIO_ERRORRATEBYREADPOSITION_DR                                                                                          } from '../../modules/local/fgbio/errorratebyreadposition/main'
+include { PICARD_COLLECTMULTIPLEMETRICS_DR                                                                                          } from '../../modules/local/picard/collectmultiplemetrics/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -71,38 +74,57 @@ workflow DEDUPANDRECAL {
     SAMTOOLS_SORT_INDEX(ch_bam, ch_fasta, params.fai)
     ch_versions = ch_versions.mix(SAMTOOLS_SORT_INDEX.out.versions.first())
     ch_bam_raw = SAMTOOLS_SORT_INDEX.out.bam
-    ch_bam_bai = SAMTOOLS_SORT_INDEX.out.bam_bai 
-    ch_bam_raw_index = SAMTOOLS_SORT_INDEX.out.bai
+    ch_bai_raw = SAMTOOLS_SORT_INDEX.out.bai
+    ch_bam_bai_raw = SAMTOOLS_SORT_INDEX.out.bam_bai 
 
     //
-    // MODULE: Run Survivor ScanReads to get Error Profiles
+    // MODULE: Run SAMtools Stats
     //
-    SURVIVOR_SCAN_READS(ch_bam_bai, params.read_length)
-    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS.out.versions.first())
-
-    //
-    // MODULE: Run Picard's Collect HS Metrics for raw BAM files
-    //
-    COLLECTHSMETRICS_RAW(ch_bam_bai, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
-    ch_versions = ch_versions.mix(COLLECTHSMETRICS_RAW.out.versions.first())
-    ch_coverage_raw  = COLLECTHSMETRICS_RAW.out.coverage
-    ch_hsmetrics_raw = COLLECTHSMETRICS_RAW.out.hsmetrics
-
-    //
-    // MODULE: Run MSI Sensor PRO
-    ///
-    MSISENSORPRO_RAW(ch_bam_bai, ch_msi_f)
-    ch_versions = ch_versions.mix(MSISENSORPRO_RAW.out.versions.first())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_RAW.out.summary.map{it[1]}.collect())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_RAW.out.msi_uns.map{it[1]}.collect())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_RAW.out.msi_all.map{it[1]}.collect())
+    SAMTOOLS_STATS(ch_bam_raw, ch_fasta)
+    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS.out.stats)
+    ch_versions = ch_versions.mix(SAMTOOLS_STATS.out.versions.first())
 
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH(ch_bam_raw, ch_bam_raw_index, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH(ch_bam_raw, ch_bai_raw, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
     ch_versions = ch_versions.mix(MOSDEPTH.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt)
+
+    //
+    // MODULE: Run ErrorRateByReadPosition 
+    //
+    FGBIO_ERRORRATEBYREADPOSITION(ch_bam_bai_raw, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
+    ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION.out.versions.first())
+
+    //
+    // MODULE: Run Survivor ScanReads to get Error Profiles
+    //
+    SURVIVOR_SCAN_READS(ch_bam_bai_raw, params.read_length)
+    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS.out.versions.first())
+
+    //
+    // MODULE: Run MSI Sensor PRO
+    ///
+    MSISENSORPRO(ch_bam_bai_raw, ch_msi_f)
+    ch_versions = ch_versions.mix(MSISENSORPRO.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO.out.summary.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO.out.msi_uns.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO.out.msi_all.map{it[1]}.collect())
+
+    //
+    // MODULE: Run Picard's Collect HS Metrics for raw BAM files
+    //
+    COLLECTHSMETRICS(ch_bam_bai_raw, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
+    ch_versions = ch_versions.mix(COLLECTHSMETRICS.out.versions.first())
+    ch_coverage_raw  = COLLECTHSMETRICS.out.coverage
+    ch_hsmetrics_raw = COLLECTHSMETRICS.out.hsmetrics
+
+    //
+    // MODULE: Run Picard Tool CollectMultipleMetrics
+    //
+    PICARD_COLLECTMULTIPLEMETRICS(ch_bam_raw, ch_fasta, ch_fai)
+    ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS.out.versions.first())
 
     //
     // MODULE: Run GATK4 MarkDuplicates
@@ -112,13 +134,6 @@ workflow DEDUPANDRECAL {
     ch_multiqc_files = ch_multiqc_files.mix(GATK4_MARKDUPLICATES.out.complex_metrics.collect{it[1]})
     ch_versions = ch_versions.mix(GATK4_MARKDUPLICATES.out.versions.first())
     ch_bam_dedup =  GATK4_MARKDUPLICATES.out.bam
-
-    //
-    // MODULE: Run SAMtools Stats
-    //
-    SAMTOOLS_STATS(ch_bam_dedup, ch_fasta)
-    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS.out.stats)
-    ch_versions = ch_versions.mix(SAMTOOLS_STATS.out.versions.first())
 
     //
     // MODULE: Run BaseRecalibrator
@@ -145,8 +160,8 @@ workflow DEDUPANDRECAL {
     // MODULE: Run SAMtools Stats
     //
     SAMTOOLS_STATS_DR(ch_bam_bai_dr, ch_fasta)
-    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS.out.stats)
-    ch_versions = ch_versions.mix(SAMTOOLS_STATS.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS_DR.out.stats)
+    ch_versions = ch_versions.mix(SAMTOOLS_STATS_DR.out.versions.first())
 
     //
     // MODULE: Run MosDepth after MarkDup & ReCal
@@ -156,56 +171,68 @@ workflow DEDUPANDRECAL {
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_DR.out.summary_txt)
 
     //
-    // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
+    // MODULE: Run ErrorRateByReadPosition 
     //
-    COLLECTHSMETRICS_CON(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
-    ch_versions = ch_versions.mix(COLLECTHSMETRICS_CON.out.versions.first())
-    ch_coverage_con  = COLLECTHSMETRICS_CON.out.coverage
-    ch_hsmetrics_con = COLLECTHSMETRICS_CON.out.hsmetrics
+    FGBIO_ERRORRATEBYREADPOSITION_DR(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
+    ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION_DR.out.versions.first())
 
     //
-    // MODULE: Run Picard Tool CollectMultipleMetrics
+    // MODULE: Run Survivor ScanReads to get Error Profiles
     //
-    PICARD_COLLECTMULTIPLEMETRICS(ch_bam_bai_dr, ch_fasta, ch_fai)
-    ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS.out.versions.first())
+    SURVIVOR_SCAN_READS_DR(ch_bam_bai_dr, params.read_length)
+    ch_versions = ch_versions.mix(SURVIVOR_SCAN_READS_DR.out.versions.first())
 
     //
     // MODULE: Run MSI Sensor PRO
     ///
-    MSISENSORPRO_CON(ch_bam_bai_dr, ch_msi_f)
-    ch_versions = ch_versions.mix(MSISENSORPRO_CON.out.versions.first())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.summary.map{it[1]}.collect())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.msi_uns.map{it[1]}.collect())
-    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_CON.out.msi_all.map{it[1]}.collect())
+    MSISENSORPRO_DR(ch_bam_bai_dr, ch_msi_f)
+    ch_versions = ch_versions.mix(MSISENSORPRO_DR.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_DR.out.summary.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_DR.out.msi_uns.map{it[1]}.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(MSISENSORPRO_DR.out.msi_all.map{it[1]}.collect())
+
+    //
+    // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
+    //
+    COLLECTHSMETRICS_DR(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
+    ch_versions = ch_versions.mix(COLLECTHSMETRICS_DR.out.versions.first())
+    ch_coverage_con  = COLLECTHSMETRICS_DR.out.coverage
+    ch_hsmetrics_con = COLLECTHSMETRICS_DR.out.hsmetrics
+
+    //
+    // MODULE: Run Picard Tool CollectMultipleMetrics
+    //
+    PICARD_COLLECTMULTIPLEMETRICS_DR(ch_bam_bai_dr, ch_fasta, ch_fai)
+    ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_DR.out.versions.first())
 
     //
     // MODULE: Extract FastQ reads from BAM
     //
     SAMTOOLS_COLLATEFASTQ(ch_bam_bai_dr, ch_fasta, [])
     ch_versions = ch_versions.mix(SAMTOOLS_COLLATEFASTQ.out.versions)
-    ch_reads_dr = SAMTOOLS_COLLATEFASTQ.out.fastq
+    ch_reads_dandr = SAMTOOLS_COLLATEFASTQ.out.fastq
 
     //
     // MODULE: Run FastQC
     //
-    FASTQC_CONSENSUS(ch_reads_dr)
-    ch_multiqc_files = ch_multiqc_files.mix(FASTQC_CONSENSUS.out.zip.collect{it[1]})
-    ch_versions = ch_versions.mix(FASTQC_CONSENSUS.out.versions)
+    FASTQC_DR(ch_reads_dandr)
+    ch_versions = ch_versions.mix(FASTQC_DR.out.versions)
+    ch_multiqc_files = ch_multiqc_files.mix(FASTQC_DR.out.zip.collect{it[1]})
 
     //
     // Collate and save software versions
     //
     softwareVersionsToYAML(ch_versions)
         .collectFile(storeDir: "${params.outdir}/pipeline_info", name: 'software_versions.yml', sort: true, newLine: true)
-        .set { ch_collated_versions }
+        .set { ch_vers_coll }
 
     emit:
 
     raw_bam         = ch_bam_raw
-    raw_bai         = ch_bam_raw_index
-    versions        = ch_collated_versions
+    raw_bai         = ch_bai_raw
+    versions        = ch_vers_coll
     bam_final       = ch_bam_bai_dr
-    reads_final     = ch_reads_dr
+    reads_final     = ch_reads_dandr
     multiqc_files   = ch_multiqc_files 
 
 }
