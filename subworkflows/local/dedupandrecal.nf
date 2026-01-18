@@ -8,6 +8,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+include { FASTP                                                                                                                     } from '../../modules/nf-core/fastp/main'   
 include { MOSDEPTH                                                                                                                  } from '../../modules/local/mosdepth/main'
 include { FASTQC_DR                                                                                                                 } from '../../modules/local/fastqc/main'
 include { BWAMEM2_MEM                                                                                                               } from '../../modules/nf-core/bwamem2/mem/main' 
@@ -63,8 +64,19 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: BWA-MEM2 mapping
     //
+    save_merged = 'false'
+    save_trimmed_fail = 'false'
+    discard_trimmed_pass = 'true'
+    FASTP(ch_fastqs, discard_trimmed_pass, save_trimmed_fail, save_merged)
+    ch_fastqs_fastp = FASTP.out.reads
+    ch_versions = ch_versions.mix(FASTP.out.versions)
+    ch_multiqc_files = ch_multiqc_files.mix(FASTP.out.json)
+
+    //
+    // MODULE: BWA-MEM2 mapping
+    //
     sort_bam = 'sort'
-    BWAMEM2_MEM(ch_fastqs, ch_bwa2, ch_fasta, ch_fai, sort_bam)
+    BWAMEM2_MEM(ch_fastqs_fastp, ch_bwa2, ch_fasta, ch_fai, sort_bam)
     ch_versions = ch_versions.mix(BWAMEM2_MEM.out.versions)
     ch_bam = BWAMEM2_MEM.out.bam
 
