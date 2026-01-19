@@ -11,32 +11,23 @@ process SAMBLASTER {
     tuple val(meta), path(bam)
 
     output:
-    path "versions.yml"                         , emit: versions
-    tuple val(meta), path("*tagged.bam")        , emit: bam
-    tuple val(meta), path("*.split.bam")        , emit: split_bam
-    tuple val(meta), path('*.split.fastq.gz')   , emit: split_reads
+    tuple val(meta), path('*splits.fastq.gz'), emit: split_reads
+    tuple val(meta), path("*splits.bam")     , emit: split_bam
+    tuple val(meta), path("*tagged.bam")     , emit: bam
+    path "versions.yml"                      , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
     def args = task.ext.args ?: ''
-    def args2 = task.ext.args2 ?: ''
-    def args3 = task.ext.args3 ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    if( "$bam" == "${prefix}.bam" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
-    samtools view -h $args2 $bam | \\
-    samblaster $args -s ${prefix}_split.sam | \\
-    samtools view $args3 -Sb - > ${prefix}.tmp.bam
+    samtools view -h ${bam} | \\
+    samblaster ${args} -s ${prefix}_splits.sam | \\
+    samtools view -Sb - > ${prefix}_tagged.bam
 
-    rm ${prefix}.tmp.bam
-
-    samtools view -h $args2 $bam | \\
-    samblaster $args | \\
-    samtools view $args3 -Sb - > ${prefix}.bam
-
-    samtools view ${prefix}_split.sam | \\
+    samtools view ${prefix}_splits.sam | \\
         awk '{
             name=\$1;
             sub(/_[12]\$/, "", name);
@@ -44,23 +35,23 @@ process SAMBLASTER {
             quality=\$11;
 
             if (NR % 2 == 1) {
-                print "@" name >> "${prefix}_R1.split.fastq";
-                print sequence >> "${prefix}_R1.split.fastq";
-                print "+" >> "${prefix}_R1.split.fastq";
-                print quality >> "${prefix}_R1.split.fastq"
+                print "@" name >> "${prefix}_R1.splits.fastq";
+                print sequence >> "${prefix}_R1.splits.fastq";
+                print "+" >> "${prefix}_R1.splits.fastq";
+                print quality >> "${prefix}_R1.splits.fastq"
             }
             else {
-                print "@" name >> "${prefix}_R2.split.fastq";
-                print sequence >> "${prefix}_R2.split.fastq";
-                print "+" >> "${prefix}_R2.split.fastq";
-                print quality >> "${prefix}_R2.split.fastq"
+                print "@" name >> "${prefix}_R2.splits.fastq";
+                print sequence >> "${prefix}_R2.splits.fastq";
+                print "+" >> "${prefix}_R2.splits.fastq";
+                print quality >> "${prefix}_R2.splits.fastq"
             }
         }'
 
-    gzip ${prefix}_R1.split.fastq
-    gzip ${prefix}_R2.split.fastq
+    gzip ${prefix}_R1.splits.fastq
+    gzip ${prefix}_R2.splits.fastq
 
-    samtools view -b ${prefix}_split.sam -o ${prefix}.split.bam
+    samtools view -b ${prefix}_splits.sam -o ${prefix}_splits.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -68,14 +59,13 @@ process SAMBLASTER {
         samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
     END_VERSIONS
     """
-
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    if( "$bam" == "${prefix}.bam" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
-    touch ${prefix}.bam
-    touch ${prefix}_R1.split.fastq.gz
-    touch ${prefix}_R2.split.fastq.gz
+    touch ${prefix}_R1.splits.fastq.gz
+    touch ${prefix}_R2.splits.fastq.gz
+    touch ${prefix}_splits.bam
+    touch ${prefix}_tagged.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
