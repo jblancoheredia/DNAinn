@@ -57,3 +57,52 @@ process UMI_READ_COUNTS {
     END_VERSIONS
     """
 }
+
+process DR_READ_COUNTS {
+    tag "$meta.id"
+    label 'process_low'
+
+    conda "${moduleDir}/environment.yml"
+    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'https://depot.galaxyproject.org/singularity/samtools:1.21--h50ea8bc_0' :
+        'quay.io/biocontainers/samtools:1.21--h50ea8bc_0' }"
+
+    input:
+    tuple val(meta) , path(trimm_bam),
+                      path(dedup_bam),
+                      path(recal_bam)
+
+    output:
+    tuple val(meta), path("*.total_dr_counts.tsv"), emit: tsv
+    path  "versions.yml"                          , emit: versions
+
+    when:
+    task.ext.when == null || task.ext.when
+
+    script:
+    def args = task.ext.args ?: ''
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    total_trimm=\$(samtools view -c "${trimm_bam}")
+    total_dedup=\$(samtools view -c "${dedup_bam}")
+    total_recal=\$(samtools view -c "${recal_bam}")
+    echo -e "Sample\tTotal_Trimmed_Reads\tTotal_DeDuplicated_Reads\tTotal_ReCallibrated_Reads" > ${prefix}.total_dr_counts.tsv
+    echo -e "${prefix}\t\${total_trimm}\t\${total_dedup}\t\${total_recal}" >> ${prefix}.total_dr_counts.tsv
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+    END_VERSIONS
+    """
+    stub:
+    def args = task.ext.args ?: ''
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch ${prefix}.total_dr_counts.tsv
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+    END_VERSIONS
+    """
+}
