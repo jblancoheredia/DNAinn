@@ -25,7 +25,7 @@ include { ALIGN_BAM_RAW                                                         
 include { PRESEQ_CCURVE                                                                                                             } from '../../modules/local/preseq/ccurve/main' // <- In use
 include { FILTER_CONTIGS                                                                                                            } from '../../modules/local/filter_contigs/main' // <- In use
 include { PRESEQ_LCEXTRAP                                                                                                           } from '../../modules/local/preseq/lcextrap/main' // <- In use
-include { UMI_READ_COUNTS                                                                                                           } from '../../modules/local/umi_read_counts/main'
+include { UMI_READ_COUNTS                                                                                                           } from '../../modules/local/read_counts/main'
 include { FGBIO_FASTQTOBAM                                                                                                          } from '../../modules/nf-core/fgbio/fastqtobam/main' // <- In use
 include { FGBIO_SORTCONBAM                                                                                                          } from '../../modules/local/fgbio/sortconbam/main.nf' // <- In use
 include { MSISENSORPRO_DUP                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
