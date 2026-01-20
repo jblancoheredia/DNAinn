@@ -8,7 +8,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { FASTP                                                                                                                     } from '../../modules/nf-core/fastp/main'   
+include { FASTP                                                                                                                     } from '../../modules/local/fastp/main'   
 include { SPADES                                                                                                                    } from '../../modules/local/spades/main'
 include { MOSDEPTH                                                                                                                  } from '../../modules/local/mosdepth/main'
 include { FASTQC_DR                                                                                                                 } from '../../modules/local/fastqc/main'
