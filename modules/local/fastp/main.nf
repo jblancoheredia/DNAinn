@@ -35,7 +35,6 @@ process FASTP {
         --failed_out ${prefix}.paired.fail.fastq.gz \\
         --unpaired1 ${prefix}_R1.fail.fastq.gz \\
         --unpaired2 ${prefix}_R2.fail.fastq.gz \\
-        ${fail_fastq} \\
         $args
 
     zcat ${prefix}_1.unfiltered.fastq.gz | \\
