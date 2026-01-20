@@ -97,7 +97,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run SAMtools Stats
     //
-    SAMTOOLS_STATS(ch_bam_raw, ch_fasta)
+    SAMTOOLS_STATS(ch_bam_bai_raw, ch_fasta)
     ch_multiqc_files = ch_multiqc_files.mix(SAMTOOLS_STATS.out.stats)
     ch_versions = ch_versions.mix(SAMTOOLS_STATS.out.versions.first())
 
@@ -111,7 +111,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run ErrorRateByReadPosition 
     //
-    FGBIO_ERRORRATEBYREADPOSITION(ch_bam_bai_raw, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
+    FGBIO_ERRORRATEBYREADPOSITION(ch_bam_raw, ch_fasta, ch_fai, ch_dict, params.known_sites, params.known_sites_tbi, params.interval_list)
     ch_versions = ch_versions.mix(FGBIO_ERRORRATEBYREADPOSITION.out.versions.first())
 
     //
@@ -140,7 +140,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics
     //
-    PICARD_COLLECTMULTIPLEMETRICS(ch_bam_raw, ch_fasta, ch_fai)
+    PICARD_COLLECTMULTIPLEMETRICS(ch_bam_bai_raw, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS.out.versions.first())
 
 //    //
