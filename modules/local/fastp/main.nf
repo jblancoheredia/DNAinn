@@ -24,7 +24,6 @@ process FASTP {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def fail_fastq = save_trimmed_fail && meta.single_end ? "--failed_out ${prefix}.fail.fastq.gz" : save_trimmed_fail && !meta.single_end ? "--failed_out ${prefix}.paired.fail.fastq.gz --unpaired1 ${prefix}_R1.fail.fastq.gz --unpaired2 ${prefix}_R2.fail.fastq.gz" : ''
     """
     fastp \\
         --in1 ${reads[0]} \\
@@ -33,6 +32,9 @@ process FASTP {
         ${meta.single_end ? "" : "--out2 ${prefix}_2.unfiltered.fastq.gz"} \\
         --json ${prefix}.fastp.json \\
         --html ${prefix}.fastp.html \\
+        --failed_out ${prefix}.paired.fail.fastq.gz \\
+        --unpaired1 ${prefix}_R1.fail.fastq.gz \\
+        --unpaired2 ${prefix}_R2.fail.fastq.gz \\
         ${fail_fastq} \\
         $args
 
