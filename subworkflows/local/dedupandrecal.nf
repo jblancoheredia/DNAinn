@@ -72,10 +72,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: FastP
     //
-    save_merged = 'false'
-    save_trimmed_fail = 'false'
-    discard_trimmed_pass = 'true'
-    FASTP(ch_fastqs, discard_trimmed_pass, save_trimmed_fail, save_merged)
+    FASTP(ch_fastqs)
     ch_fastqs_fastp = FASTP.out.reads
     ch_versions = ch_versions.mix(FASTP.out.versions)
     ch_multiqc_files = ch_multiqc_files.mix(FASTP.out.json)

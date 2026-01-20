@@ -11,10 +11,12 @@ process FASTP {
     tuple val(meta), path(reads)
 
     output:
-    tuple val(meta), path('*.fastp.fastq.gz') , emit: reads
+    path "versions.yml"                       , emit: versions
     tuple val(meta), path('*.html')           , emit: html
     tuple val(meta), path('*.json')           , emit: json
-    path "versions.yml"                       , emit: versions
+    tuple val(meta), path('*.fail.fastq.gz')  , optional:true, emit: reads_fail
+    tuple val(meta), path('*.fastp.fastq.gz') , optional:true, emit: reads
+    tuple val(meta), path('*.merged.fastq.gz'), optional:true, emit: reads_merged
 
     when:
     task.ext.when == null || task.ext.when
@@ -22,7 +24,7 @@ process FASTP {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-
+    def fail_fastq = save_trimmed_fail && meta.single_end ? "--failed_out ${prefix}.fail.fastq.gz" : save_trimmed_fail && !meta.single_end ? "--failed_out ${prefix}.paired.fail.fastq.gz --unpaired1 ${prefix}_R1.fail.fastq.gz --unpaired2 ${prefix}_R2.fail.fastq.gz" : ''
     """
     fastp \\
         --in1 ${reads[0]} \\
@@ -31,12 +33,7 @@ process FASTP {
         ${meta.single_end ? "" : "--out2 ${prefix}_2.unfiltered.fastq.gz"} \\
         --json ${prefix}.fastp.json \\
         --html ${prefix}.fastp.html \\
-        --thread $task.cpus \\
-        --umi \\
-        --umi_loc per_read \\
-        --umi_len 3 \\
-        --trim_front1 7 \\
-        --trim_front2 7 \\
+        ${fail_fastq} \\
         $args
 
     zcat ${prefix}_1.unfiltered.fastq.gz | \\
