@@ -28,7 +28,7 @@ process FASTP {
         --in1 ${reads[0]} \\
         --out1 ${prefix}_R1.fastp.fastq.gz \\
         ${meta.single_end ? "" : "--in2 ${reads[1]}"} \\
-        ${meta.single_end ? "" : "--out2 ${prefix}_2.fastp.fastq.gz"} \\
+        ${meta.single_end ? "" : "--out2 ${prefix}_R2.fastp.fastq.gz"} \\
         --json ${prefix}.fastp.json \\
         --html ${prefix}.fastp.html \\
         --failed_out ${prefix}.paired.fail.fastq.gz \\
