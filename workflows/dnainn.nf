@@ -222,8 +222,9 @@ workflow DNAINN {
         ch_raw_bam					= DEDUPANDRECAL.out.raw_bam
         ch_raw_bai					= DEDUPANDRECAL.out.raw_bai
         ch_versions					= ch_versions.mix(DEDUPANDRECAL.out.versions)
-        ch_split_reads              = Channel.empty()
+        ch_split_reads              = DEDUPANDRECAL.out.split_reads
         ch_multiqc_files			= ch_multiqc_files.mix(DEDUPANDRECAL.out.multiqc_files)
+        ch_split_contigs            = DEDUPANDRECAL.out.split_contigs
         ch_bam_finalized			= DEDUPANDRECAL.out.bam_final
         ch_reads_finalized			= DEDUPANDRECAL.out.reads_final
 
