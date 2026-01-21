@@ -323,10 +323,12 @@ workflow DEDUPANDRECAL {
     PICARD_COLLECTMULTIPLEMETRICS_DR(ch_bam_bai_dr, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_DR.out.versions.first())
 
-    // Combine BAM fils by meta data
-	ch_dr_read_counts_in = ch_trimm_bam
-	    .join(ch_bam_dedup)
-	    .join(ch_bam_recal)
+    // Combine BAM fils by meta data and ditch the dedup bai
+    ch_bam_dedup_no_bai = ch_bam_dedup.map { meta, bam, bai ->
+        tuple(meta, bam)}
+    ch_dr_read_counts_in = ch_trimm_bam
+        .join(ch_bam_dedup_no_bai)
+        .join(ch_bam_recal)
 
     //
     // MODULE: Run SamTools View to count reads accross the BAM files
