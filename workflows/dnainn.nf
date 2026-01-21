@@ -373,6 +373,7 @@ workflow DNAINN {
         ch_bcf_mpileup,
         ch_known_sites,
         ch_split_reads,
+        ch_split_contigs,
         ch_reads_finalized,
         ch_intervals_gunzip,
         ch_intervals_gunzip_index
