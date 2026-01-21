@@ -323,17 +323,17 @@ workflow DEDUPANDRECAL {
     PICARD_COLLECTMULTIPLEMETRICS_DR(ch_bam_bai_dr, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_DR.out.versions.first())
 
-    // Combine BAM fils by meta data
-	ch_dr_read_counts_in = ch_trimm_bam
-	    .join(ch_bam_dedup)
-	    .join(ch_bam_recal)
-
-    //
-    // MODULE: Run SamTools View to count reads accross the BAM files
-    //
-    DR_READ_COUNTS(ch_dr_read_counts_in)
-    ch_versions = ch_versions.mix(DR_READ_COUNTS.out.versions.first())
-
+//    // Combine BAM fils by meta data
+//	ch_dr_read_counts_in = ch_trimm_bam
+//	    .join(ch_bam_dedup)
+//	    .join(ch_bam_recal)
+//
+//    //
+//    // MODULE: Run SamTools View to count reads accross the BAM files
+//    //
+//    DR_READ_COUNTS(ch_dr_read_counts_in)
+//    ch_versions = ch_versions.mix(DR_READ_COUNTS.out.versions.first())
+//
 //    //
 //    // MODULE: Run Preseq CCurve
 //    //
