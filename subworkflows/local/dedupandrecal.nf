@@ -376,6 +376,7 @@ workflow DEDUPANDRECAL {
     versions        = ch_vers_coll
     bam_final       = ch_bam_bai_dr
     reads_final     = ch_reads_dandr
+    split_reads     = ch_split_reads
     multiqc_files   = ch_multiqc_files
     split_contigs   = ch_split_contigs 
 
