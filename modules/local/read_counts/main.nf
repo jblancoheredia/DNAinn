@@ -68,9 +68,10 @@ process DR_READ_COUNTS {
         'quay.io/biocontainers/samtools:1.21--h50ea8bc_0' }"
 
     input:
-    tuple val(meta) , path(trimm_bam),
-                      path(dedup_bam),
-                      path(recal_bam)
+    tuple val(meta),
+          path(trimm_bam, stageAs: "trimm.bam"),
+          path(dedup_bam, stageAs: "dedup.bam"),
+          path(recal_bam, stageAs: "recal.bam")
 
     output:
     tuple val(meta), path("*.total_dr_counts.tsv"), emit: tsv
