@@ -69,7 +69,7 @@ process DR_READ_COUNTS {
 
     input:
     tuple val(meta) , path(trimm_bam),
-                      path(dedup_bam),
+                      path(dedup_bam), path(dedup_bai),
                       path(recal_bam)
 
     output:
