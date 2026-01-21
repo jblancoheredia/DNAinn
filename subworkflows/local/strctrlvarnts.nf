@@ -279,7 +279,7 @@ workflow STRCTRLVARNTS {
     //
     ch_sv_annotated_with_svs = ch_annotated_tsv
         .filter { meta, tsv ->
-            tsv.readLines().size() > 1  // Assuming header + at least one SV row
+            tsv.readLines().size() > 1
         }
 
     //
