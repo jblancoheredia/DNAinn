@@ -23,7 +23,9 @@ process SAMBLASTER {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    samtools view -h ${bam} | \\
+    samtools sort -n -@ 8 -o ${prefix}_qname.bam ${bam}
+
+    samtools view -h ${prefix}_qname.bam | \\
     samblaster ${args} -s ${prefix}_splits.sam | \\
     samtools view -Sb - > ${prefix}_tagged.bam
 
