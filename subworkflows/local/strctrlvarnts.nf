@@ -67,7 +67,7 @@ workflow STRCTRLVARNTS {
         // MODULE: BWA-MEM2 mapping
         //
         sort_bam = 'sort'
-        BWAMEM2(ch_reads_finalized, ch_split_reads, ch_bwa2, ch_fasta, ch_fai, sort_bam)
+        BWAMEM2(ch_reads_finalized, ch_split_contigs, ch_bwa2, ch_fasta, ch_fai, sort_bam)
         ch_versions = ch_versions.mix(BWAMEM2.out.versions)
         ch_bwamem2_bam = BWAMEM2.out.bam
 
