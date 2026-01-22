@@ -62,66 +62,62 @@ workflow STRCTRLVARNTS {
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
 
-    if (params.run_umiprocessing) {
-        //
-        // MODULE: BWA-MEM2 mapping
-        //
-        sort_bam = 'sort'
-        BWAMEM2(ch_reads_finalized, ch_split_contigs, ch_bwa2, ch_fasta, ch_fai, sort_bam)
-        ch_versions = ch_versions.mix(BWAMEM2.out.versions)
-        ch_bwamem2_bam = BWAMEM2.out.bam
+//    if (params.run_umiprocessing) {
+    //
+    // MODULE: BWA-MEM2 mapping
+    //
+    sort_bam = 'sort'
+    BWAMEM2(ch_reads_finalized, ch_split_contigs, ch_bwa2, ch_fasta, ch_fai, sort_bam)
+    ch_versions = ch_versions.mix(BWAMEM2.out.versions)
+    ch_bwamem2_bam = BWAMEM2.out.bam
 
-        //
-        // MODULE: Run Demote to clean BAM file from multiple primary reads
-        //
-        DEMOTE(ch_bwamem2_bam)
-        ch_versions = ch_versions.mix(DEMOTE.out.versions)
-        ch_bam_con_split = DEMOTE.out.bam
+    //
+    // MODULE: Run Demote to clean BAM file from multiple primary reads
+    //
+    DEMOTE(ch_bwamem2_bam)
+    ch_versions = ch_versions.mix(DEMOTE.out.versions)
+    ch_bam_con_split = DEMOTE.out.bam
 
-        //
-        // Pair tumour samples with normal samples by patient meta key if only tumour use backup normal
-        //
-        def control_normal_bam = file(params.normal_con_bam)
-        def control_normal_bai = file(params.normal_con_bai)
-
-        ch_bam_con_split
-            .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
-            .groupTuple(by: 0)
-            .map { patient, meta_list, bam_list, bai_list -> 
-                def samples = []
-                meta_list.eachWithIndex { meta, i ->
-                    samples << [meta, bam_list[i], bai_list[i]]
-                }
-
-                def tumour = samples.find { it[0].sample_type == 'tumour' }
-                def normal = samples.find { it[0].sample_type == 'normal' }
-
-                if (tumour && normal) {
-                    return [tumour, normal]
-                } else if (tumour && tumour[0].matched_normal == 0) {
-                    return [tumour, null]
-                } else {
-                    return null
-                }
+    //
+    // Pair tumour samples with normal samples by patient meta key if only tumour use backup normal
+    //
+    def control_normal_bam = file(params.normal_con_bam)
+    def control_normal_bai = file(params.normal_con_bai)
+    ch_bam_con_split
+        .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
+        .groupTuple(by: 0)
+        .map { patient, meta_list, bam_list, bai_list -> 
+            def samples = []
+            meta_list.eachWithIndex { meta, i ->
+                samples << [meta, bam_list[i], bai_list[i]]
             }
-            .filter { it != null }
-            .map { tumour, normal ->
-                def meta_t = tumour[0]
-                def bam_t  = tumour[1]
-                def bai_t  = tumour[2]
-
-                if (normal) {
-                    def bam_n = normal[1]
-                    def bai_n = normal[2]
-                    return [meta_t, bam_t, bai_t, bam_n, bai_n]
-                } else {
-                    return [meta_t, bam_t, bai_t, control_normal_bam, control_normal_bai]
-                }
+            def tumour = samples.find { it[0].sample_type == 'tumour' }
+            def normal = samples.find { it[0].sample_type == 'normal' }
+            if (tumour && normal) {
+                return [tumour, normal]
+            } else if (tumour && tumour[0].matched_normal == 0) {
+                return [tumour, null]
+            } else {
+                return null
             }
-            .set { ch_bam_pairs }
-    } else {
-        ch_bam_pairs = ch_bampairs
-    }
+        }
+        .filter { it != null }
+        .map { tumour, normal ->
+            def meta_t = tumour[0]
+            def bam_t  = tumour[1]
+            def bai_t  = tumour[2]
+            if (normal) {
+                def bam_n = normal[1]
+                def bai_n = normal[2]
+                return [meta_t, bam_t, bai_t, bam_n, bai_n]
+            } else {
+                return [meta_t, bam_t, bai_t, control_normal_bam, control_normal_bai]
+            }
+        }
+        .set { ch_bam_pairs }
+//    } else {
+//        ch_bam_pairs = ch_bampairs
+//    }
 
     //
     // MODULE: Run Delly Call
