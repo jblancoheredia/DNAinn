@@ -3,7 +3,7 @@
    viewBox="0 0 965.98 1747.28"
    version="1.1"
    id="svg500"
-   sodipodi:docname="DNAinn.svg"
+   sodipodi:docname="DNAinn_metro_light copy.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -20,7 +20,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="6.67"
-     inkscape:cx="17.466267"
+     inkscape:cx="11.094453"
      inkscape:cy="26.011994"
      inkscape:window-width="1200"
      inkscape:window-height="1186"
@@ -35,11 +35,11 @@
        inkscape:collect="always">
       <stop
          style="stop-color:#eaf0f8;stop-opacity:1;"
-         offset="0.32121211"
+         offset="0.22505826"
          id="stop118" />
       <stop
-         style="stop-color:#808080;stop-opacity:0;"
-         offset="1"
+         style="stop-color:#000027;stop-opacity:0;"
+         offset="0.98076922"
          id="stop119" />
     </linearGradient>
     <style
