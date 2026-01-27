@@ -12,7 +12,7 @@
 include { DELLY                                                                                                                     } from '../../modules/local/delly/main'
 include { MANTA                                                                                                                     } from '../../modules/local/manta/main'
 include { SVABA                                                                                                                     } from '../../modules/local/svaba/main'
-include { CROSSV                                                                                                                    } from '../modules/local/crossv/main'
+include { CROSSV                                                                                                                    } from '../../modules/local/crossv/main'
 include { DEMOTE                                                                                                                    } from '../../modules/local/demote/main'
 include { DRAWSV                                                                                                                    } from '../../modules/local/drawsv/main'
 include { GRIDSS                                                                                                                    } from '../../modules/local/gridss/main'
