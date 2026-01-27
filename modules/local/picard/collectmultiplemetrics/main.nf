@@ -39,6 +39,12 @@ process PICARD_COLLECTMULTIPLEMETRICS {
         --OUTPUT ${prefix}.CollectMultipleMetrics \\
         $reference
 
+    picard \\
+        -Xmx${avail_mem}M \\
+        EstimateLibraryComplexity \\
+        --INPUT $bam \\
+        --OUTPUT ${prefix}.EstimateLibraryComplexity
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         picard: \$(picard CollectMultipleMetrics --version 2>&1 | grep -o 'Version.*' | cut -f2- -d:)
@@ -106,6 +112,12 @@ process PICARD_COLLECTMULTIPLEMETRICS_RAW {
         --INPUT $bam \\
         --OUTPUT ${prefix}.raw.CollectMultipleMetrics \\
         $reference
+
+    picard \\
+        -Xmx${avail_mem}M \\
+        EstimateLibraryComplexity \\
+        --INPUT $bam \\
+        --OUTPUT ${prefix}.raw.EstimateLibraryComplexity
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -184,6 +196,12 @@ process PICARD_COLLECTMULTIPLEMETRICS_CON {
         --OUTPUT ${prefix}.con.CollectMultipleMetrics \\
         ${reference}
 
+    picard \\
+        -Xmx${avail_mem}M \\
+        EstimateLibraryComplexity \\
+        --INPUT ${prefix}.sorted.bam \\
+        --OUTPUT ${prefix}.con.EstimateLibraryComplexity
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         picard: \$(picard CollectMultipleMetrics --version 2>&1 | grep -o 'Version.*' | cut -f2- -d:)
@@ -260,6 +278,12 @@ process PICARD_COLLECTMULTIPLEMETRICS_DUP {
         --INPUT ${prefix}.sorted.bam \\
         --OUTPUT ${prefix}.dup.CollectMultipleMetrics \\
         ${reference}
+
+    picard \\
+        -Xmx${avail_mem}M \\
+        EstimateLibraryComplexity \\
+        --INPUT ${prefix}.sorted.bam \\
+        --OUTPUT ${prefix}.dup.EstimateLibraryComplexity
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -338,6 +362,12 @@ process PICARD_COLLECTMULTIPLEMETRICS_SIM {
         --OUTPUT ${prefix}.sim.CollectMultipleMetrics \\
         ${reference}
 
+    picard \\
+        -Xmx${avail_mem}M \\
+        EstimateLibraryComplexity \\
+        --INPUT ${prefix}.sorted.bam \\
+        --OUTPUT ${prefix}.sim.EstimateLibraryComplexity
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         picard: \$(picard CollectMultipleMetrics --version 2>&1 | grep -o 'Version.*' | cut -f2- -d:)
@@ -414,6 +444,12 @@ process PICARD_COLLECTMULTIPLEMETRICS_DR {
         --INPUT ${prefix}.sorted.bam \\
         --OUTPUT ${prefix}.dr.CollectMultipleMetrics \\
         ${reference}
+
+    picard \\
+        -Xmx${avail_mem}M \\
+        EstimateLibraryComplexity \\
+        --INPUT ${prefix}.sorted.bam \\
+        --OUTPUT ${prefix}.dr.EstimateLibraryComplexity
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
