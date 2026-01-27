@@ -141,8 +141,8 @@ workflow STRCTRLVARNTS {
     // MODULE: Run Manta in Only Tumour & Somatic modes
     //
     MANTA(ch_bam_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
-    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_tsv.collect{it[1]}.ifEmpty([]))
-    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_txt.collect{it[1]}.ifEmpty([]))
+//    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_tsv.collect{it[1]}.ifEmpty([]))
+//    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_txt.collect{it[1]}.ifEmpty([]))
     ch_versions = ch_versions.mix(MANTA.out.versions)
     ch_manta_vcf = MANTA.out.vcf
     ch_manta_vcf = ch_manta_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
