@@ -17,6 +17,7 @@ process CROSSV {
                      path(manta_vcf)   ,
                      path(recall_vcf)  ,
                      path(svaba_vcf)   ,
+                     path(tiddit_vcf)  ,
                      path(tsv)         ,
                      path(bed_file)
 
@@ -37,11 +38,12 @@ process CROSSV {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.patient}"
     """
-    ln -sf \$(basename ${delly_vcf}) ${prefix}_DELLY__SV_UNF.vcf
+    ln -sf \$(basename ${delly_vcf})  ${prefix}_DELLY__SV_UNF.vcf
     ln -sf \$(basename ${gridss_vcf}) ${prefix}_GRIDSS_SV_UNF.vcf
-    ln -sf \$(basename ${manta_vcf}) ${prefix}_MANTA__SV_UNF.vcf
+    ln -sf \$(basename ${manta_vcf})  ${prefix}_MANTA__SV_UNF.vcf
     ln -sf \$(basename ${recall_vcf}) ${prefix}_RECALL_SV_UNF.vcf
-    ln -sf \$(basename ${svaba_vcf}) ${prefix}_SVABA__SV_UNF.vcf
+    ln -sf \$(basename ${svaba_vcf})  ${prefix}_SVABA__SV_UNF.vcf
+    ln -sf \$(basename ${tiddit_vcf}) ${prefix}_TIDDIT_SV_UNF.vcf
     
     CrosSV \\
       --slop 100 \\
