@@ -1,6 +1,7 @@
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                                                                        STRCTRLVARNTS SUBWORKFLOW                                                    
+                                                                                              AKA SVtorm
 *******************************************************************************************************************************************************************************************************
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -11,6 +12,7 @@
 include { DELLY                                                                                                                     } from '../../modules/local/delly/main'
 include { MANTA                                                                                                                     } from '../../modules/local/manta/main'
 include { SVABA                                                                                                                     } from '../../modules/local/svaba/main'
+include { CROSSV                                                                                                                    } from '../modules/local/crossv/main'
 include { DEMOTE                                                                                                                    } from '../../modules/local/demote/main'
 include { DRAWSV                                                                                                                    } from '../../modules/local/drawsv/main'
 include { GRIDSS                                                                                                                    } from '../../modules/local/gridss/main'
@@ -79,7 +81,7 @@ workflow STRCTRLVARNTS {
     ch_bam_con_split = DEMOTE.out.bam
 
     //
-    // Pair tumour samples with normal samples by patient meta key if only tumour use backup normal
+    // Pair tumour samples with normal samples by patient meta key. If tumour only use backup normal
     //
     def control_normal_bam = file(params.normal_con_bam)
     def control_normal_bai = file(params.normal_con_bai)
@@ -125,6 +127,7 @@ workflow STRCTRLVARNTS {
     DELLY(ch_bam_pairs, ch_fasta, ch_fai, params.exclude_bed)
     ch_versions = ch_versions.mix(DELLY.out.versions)
     ch_delly_vcf = DELLY.out.vcf
+    ch_delly_vcf = ch_delly_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run Gridds (Extract overlapping fragments & calling)
@@ -132,6 +135,7 @@ workflow STRCTRLVARNTS {
     GRIDSS(ch_bam_pairs, ch_fai, ch_fasta, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
     ch_versions = ch_versions.mix(GRIDSS.out.versions)
     ch_gridss_vcf = GRIDSS.out.vcf
+    ch_gridss_vcf = ch_gridss_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run Manta in Only Tumour & Somatic modes
@@ -141,6 +145,7 @@ workflow STRCTRLVARNTS {
     ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_txt.collect{it[1]}.ifEmpty([]))
     ch_versions = ch_versions.mix(MANTA.out.versions)
     ch_manta_vcf = MANTA.out.vcf
+    ch_manta_vcf = ch_manta_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run SvABA Note: version 1.2.0
@@ -148,14 +153,16 @@ workflow STRCTRLVARNTS {
     SVABA(ch_bam_pairs, ch_fasta, ch_fai, params.known_sites_tbi, params.known_sites, params.intervals, params.bwa)
     ch_versions = ch_versions.mix(SVABA.out.versions)
     ch_svaba_vcf = SVABA.out.vcf
+    ch_svaba_vcf = ch_svaba_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run TIDDIT in SV mode
     //
     TIDDIT_SV(ch_bam_pairs, ch_fasta, ch_bwa)
     ch_versions = ch_versions.mix(TIDDIT_SV.out.versions)
-    ch_tiddit_vcf = TIDDIT_SV.out.vcf
     ch_tiddit_ploidy = TIDDIT_SV.out.ploidy
+    ch_tiddit_vcf = TIDDIT_SV.out.vcf
+    ch_tiddit_vcf = ch_tiddit_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run BGZIP & Tabix
@@ -164,23 +171,42 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(TABIX_BGZIPTABIX.out.versions)
     ch_tiddit_vcf_zip = TABIX_BGZIPTABIX.out.gz_tbi
 
+//    //
+//    // Combine the vcf by meta key patient
+//    //
+//    ch_survivor_merge_input = ch_delly_vcf
+//        .map {                     meta, vcf -> [meta.patient, meta, vcf] }
+//        .join( ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join( ch_manta_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join( ch_svaba_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join( ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
+//            tuple(
+//                meta_delly,                 //
+//                meta_delly,     delly_vcf,  //
+//                meta_gridss,    gridss_vcf, //
+//                meta_manta,     manta_vcf,  //  
+//                meta_svaba,     svaba_vcf,  //
+//                meta_tiddit,    tiddit_vcf  
+//            )
+//        }
+
     //
     // Combine the vcf by meta key patient
     //
     ch_survivor_merge_input = ch_delly_vcf
-        .map { meta, vcf -> [meta.patient, meta, vcf] }
-        .join(ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join( ch_manta_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join( ch_svaba_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+        .join(ch_gridss_vcf)
+        .join(ch_manta_vcf )
+        .join(ch_svaba_vcf )
+        .join(ch_tiddit_vcf)
         .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
             tuple(
-                meta_delly,                 //
-                meta_delly,     delly_vcf,  //
-                meta_gridss,    gridss_vcf, //
-                meta_manta,     manta_vcf,  //  
-                meta_svaba,     svaba_vcf,  //
-                meta_tiddit,    tiddit_vcf  
+                meta_delly , 
+                meta_delly , delly_vcf ,
+                meta_gridss, gridss_vcf,
+                meta_manta , manta_vcf ,
+                meta_svaba , svaba_vcf ,
+                meta_tiddit, tiddit_vcf
             )
         }
 
@@ -225,25 +251,46 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(SVSOMF.out.versions)
     ch_recall_vcf = SVSOMF.out.vcf
 
+//    //
+//    // Combine the vcf by meta key patient
+//    //
+//    ch_survivor_filter_input = ch_delly_vcf
+//        .map { meta, vcf -> [meta.patient, meta, vcf] }
+//        .join(ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_manta_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_recall_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_svaba_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
+//        .join(ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+//        .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_recall, recall_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
+//            tuple(
+//                meta_delly,                 //
+//                meta_delly,     delly_vcf,  //
+//                meta_gridss,    gridss_vcf, //
+//                meta_manta,     manta_vcf,  //
+//                meta_recall,    recall_vcf, //
+//                meta_svaba,     svaba_vcf,  //
+//                meta_tiddit,    tiddit_vcf  
+//            )
+//        }
+
     //
     // Combine the vcf by meta key patient
     //
     ch_survivor_filter_input = ch_delly_vcf
-        .map { meta, vcf -> [meta.patient, meta, vcf] }
-        .join(ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_manta_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_recall_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_svaba_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
-        .join(ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
+        .join(ch_gridss_vcf)
+        .join(ch_manta_vcf )
+        .join(ch_recall_vcf)
+        .join(ch_svaba_vcf )
+        .join(ch_tiddit_vcf)
         .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_recall, recall_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
             tuple(
-                meta_delly,                 //
-                meta_delly,     delly_vcf,  //
-                meta_gridss,    gridss_vcf, //
-                meta_manta,     manta_vcf,  //
-                meta_recall,    recall_vcf, //
-                meta_svaba,     svaba_vcf,  //
-                meta_tiddit,    tiddit_vcf  
+                meta_delly , 
+                meta_delly , delly_vcf ,
+                meta_gridss, gridss_vcf,
+                meta_manta , manta_vcf ,
+                meta_recall, recall_vcf,
+                meta_svaba , svaba_vcf ,
+                meta_tiddit, tiddit_vcf
             )
         }
 
@@ -254,6 +301,7 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(SURVIVOR_FILTER.out.versions)
     ch_filtered_all = SURVIVOR_FILTER.out.filtered_all
     ch_filtered_vcf = SURVIVOR_FILTER.out.filtered_vcf
+    ch_filtered_tsv = SURVIVOR_FILTER.out.filtered_tsv
 
     //
     // MODULE: Run Survivor Stats
