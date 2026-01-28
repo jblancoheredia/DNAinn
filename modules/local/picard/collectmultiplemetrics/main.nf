@@ -14,6 +14,7 @@ process PICARD_COLLECTMULTIPLEMETRICS {
 
     output:
     tuple val(meta), path("*_metrics"), emit: metrics
+    tuple val(meta), path("*mplexity"), emit: complexity
     tuple val(meta), path("*.pdf")    , emit: pdf, optional: true
     path  "versions.yml"              , emit: versions
 
@@ -88,6 +89,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_RAW {
 
     output:
     tuple val(meta), path("*_metrics"), emit: metrics
+    tuple val(meta), path("*mplexity"), emit: complexity
     tuple val(meta), path("*.pdf")    , emit: pdf, optional: true
     path  "versions.yml"              , emit: versions
 
@@ -162,6 +164,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_CON {
 
     output:
     tuple val(meta), path("*_metrics"), emit: metrics
+    tuple val(meta), path("*mplexity"), emit: complexity
     tuple val(meta), path("*.pdf")    , emit: pdf, optional: true
     path  "versions.yml"              , emit: versions
 
@@ -245,6 +248,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_DUP {
 
     output:
     tuple val(meta), path("*_metrics"), emit: metrics
+    tuple val(meta), path("*mplexity"), emit: complexity
     tuple val(meta), path("*.pdf")    , emit: pdf, optional: true
     path  "versions.yml"              , emit: versions
 
@@ -328,6 +332,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_SIM {
 
     output:
     tuple val(meta), path("*_metrics"), emit: metrics
+    tuple val(meta), path("*mplexity"), emit: complexity
     tuple val(meta), path("*.pdf")    , emit: pdf, optional: true
     path  "versions.yml"              , emit: versions
 
@@ -411,6 +416,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_DR {
 
     output:
     tuple val(meta), path("*_metrics"), emit: metrics
+    tuple val(meta), path("*mplexity"), emit: complexity
     tuple val(meta), path("*.pdf")    , emit: pdf, optional: true
     path  "versions.yml"              , emit: versions
 
