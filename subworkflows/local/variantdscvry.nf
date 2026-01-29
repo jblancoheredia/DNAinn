@@ -148,11 +148,11 @@ workflow VARIANTDSCVRY {
     //
     // Pre-Merge: collect all callers and reshape to proper tuple
     //
-    ch_all_vcfs = ch_lofreq_snvs_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'lofreq', vcf: vcf, idx: idx]] }
-        .mix(ch_lofreq_snvs_indels.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'lofreq', vcf: vcf, idx: idx]] })
-        .mix(ch_mutect2_filtered_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'mutect2', vcf: vcf, idx: idx]] })
-        .mix(ch_freebayes_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'freebayes', vcf: vcf, idx: idx]] })
-        .mix(ch_vardict_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'vardict', vcf: vcf, idx: idx]] })
+    ch_all_vcfs = ch_lofreq_snvs_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'lofreq'   , vcf: vcf, idx: idx]] }
+        .mix(ch_lofreq_snvs_indels.map   { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'lofreq'   , vcf: vcf, idx: idx]] })
+        .mix(ch_mutect2_filtered_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'mutect2'  , vcf: vcf, idx: idx]] })
+        .mix(ch_freebayes_vcf.map        { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'freebayes', vcf: vcf, idx: idx]] })
+        .mix(ch_vardict_vcf.map          { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'vardict'  , vcf: vcf, idx: idx]] })
         .groupTuple()
         .map { id, calls ->
             def meta = calls[0].meta
