@@ -3,7 +3,7 @@
    viewBox="0 0 965.98 1747.28"
    version="1.1"
    id="svg500"
-   sodipodi:docname="DNAinn_metro_light copy.svg"
+   sodipodi:docname="DNAinn_metro_light.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,18 +30,6 @@
      inkscape:current-layer="Ball" />
   <defs
      id="defs114">
-    <linearGradient
-       id="linearGradient118"
-       inkscape:collect="always">
-      <stop
-         style="stop-color:#eaf0f8;stop-opacity:1;"
-         offset="0.22505826"
-         id="stop118" />
-      <stop
-         style="stop-color:#000027;stop-opacity:0;"
-         offset="0.98076922"
-         id="stop119" />
-    </linearGradient>
     <style
        id="style1">
       .cls-1 {
@@ -1064,16 +1052,6 @@
        x2="948.3"
        y2="-786.24"
        xlink:href="#linear-gradient-16" />
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient118"
-       id="radialGradient119"
-       cx="3.25"
-       cy="3.25"
-       fx="3.25"
-       fy="3.25"
-       r="3"
-       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      id="Paths">
@@ -1273,1966 +1251,1966 @@
     <g
        id="_R_G"
        transform="translate(-2,-4)"
-       style="fill:url(#radialGradient119);stroke:none">
+       style="fill:#ffffff;stroke:#ffffff">
       <g
          id="_R_G_L_130_G"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <path
            id="_R_G_L_130_G_D_0_P_0"
            fill="#ffffff"
            fill-opacity="1"
            fill-rule="nonzero"
            d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-           style="fill:url(#radialGradient119);stroke:none" />
+           style="fill:#ffffff;stroke:#ffffff" />
       </g>
       <g
          id="_R_G_L_129_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_129_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_129_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_128_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_128_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_128_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_127_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_127_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_127_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_126_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_126_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_126_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_125_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_125_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_125_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_124_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_124_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_124_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_123_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_123_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_123_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_122_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_122_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_122_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_121_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_121_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_121_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_120_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_120_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_120_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_119_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_119_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_119_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_118_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_118_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_118_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_117_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_117_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_117_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_116_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_116_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_116_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_115_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_115_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_115_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_114_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_114_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_114_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_113_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_113_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_113_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_112_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_112_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_112_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_111_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_111_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_111_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_110_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_110_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_110_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_109_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_109_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_109_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_108_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_108_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_108_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_107_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_107_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_107_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_106_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_106_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_106_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_105_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_105_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_105_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_104_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_104_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_104_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_103_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_103_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_103_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_102_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_102_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_102_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_101_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_101_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_101_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_100_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_100_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_100_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_99_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_99_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_99_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_98_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_98_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_98_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_97_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_97_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_97_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_96_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_96_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_96_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_95_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_95_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_95_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_94_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_94_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_94_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_93_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_93_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_93_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_92_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_92_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_92_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_91_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_91_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_91_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_90_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_90_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_90_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_89_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_89_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_89_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_88_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_88_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_88_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_87_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_87_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_87_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_86_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_86_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_86_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_85_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_85_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_85_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_84_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_84_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_84_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_83_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_83_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_83_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_82_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_82_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_82_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_81_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_81_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_81_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_80_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_80_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_80_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_79_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_79_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_79_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_78_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_78_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_78_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_77_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_77_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_77_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_76_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_76_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_76_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_75_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_75_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_75_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_74_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_74_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_74_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_73_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_73_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_73_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_72_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_72_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_72_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_71_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_71_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_71_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_70_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_70_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_70_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_69_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_69_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_69_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_68_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_68_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_68_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_67_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_67_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_67_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_66_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_66_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_66_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_65_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_65_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_65_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_64_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_64_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_64_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_63_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_63_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_63_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_62_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_62_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_62_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_61_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_61_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_61_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_60_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_60_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_60_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_59_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_59_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_59_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_58_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_58_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_58_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_57_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_57_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_57_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_56_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_56_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_56_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_55_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_55_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_55_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_54_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_54_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_54_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_53_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_53_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_53_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_52_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_52_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_52_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_51_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_51_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_51_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_50_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_50_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_50_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_49_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_49_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_49_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_48_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_48_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_48_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_47_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_47_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_47_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_46_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_46_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_46_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_45_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_45_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_45_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_44_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_44_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_44_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_43_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_43_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_43_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_42_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_42_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_42_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_41_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_41_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_41_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_40_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_40_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_40_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_39_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_39_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_39_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_38_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_38_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_38_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_37_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_37_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_37_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_36_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_36_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_36_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_35_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_35_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_35_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_34_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_34_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_34_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_33_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_33_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_33_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_32_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_32_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_32_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_31_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_31_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_31_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_30_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_30_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_30_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_29_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_29_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_29_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_28_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_28_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_28_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_27_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_27_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_27_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_26_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_26_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_26_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_25_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_25_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_25_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_24_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_24_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_24_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_23_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_23_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_23_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_22_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_22_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_22_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_21_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_21_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_21_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_20_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_20_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_20_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_19_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_19_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_19_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_18_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_18_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_18_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_17_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_17_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_17_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_16_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_16_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_16_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_15_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_15_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_15_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_14_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_14_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_14_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_13_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_13_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_13_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_12_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_12_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_12_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_11_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_11_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_11_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_10_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_10_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_10_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_9_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_9_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_9_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_8_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_8_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_8_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_7_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_7_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_7_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_6_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_6_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_6_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_5_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_5_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_5_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_4_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_4_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_4_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_3_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_3_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_3_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_2_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_2_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_2_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_1_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_1_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_1_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
       <g
          id="_R_G_L_0_G_M"
-         style="fill:url(#radialGradient119);stroke:none">
+         style="fill:#ffffff;stroke:#ffffff">
         <g
            id="_R_G_L_0_G"
-           style="fill:url(#radialGradient119);stroke:none">
+           style="fill:#ffffff;stroke:#ffffff">
           <path
              id="_R_G_L_0_G_D_0_P_0"
              fill="#ffffff"
              fill-opacity="1"
              fill-rule="nonzero"
              d="m 3.25,0.25 c 0,0 0,0 0,0 1.64,0 3,1.36 3,3 0,1.64 -1.36,3 -3,3 -1.64,0 -3,-1.36 -3,-3 0,-1.64 1.36,-3 3,-3 z"
-             style="fill:url(#radialGradient119);stroke:none" />
+             style="fill:#ffffff;stroke:#ffffff" />
         </g>
       </g>
     </g>

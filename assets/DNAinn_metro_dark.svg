@@ -20,14 +20,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="1.92"
-     inkscape:cx="539.0625"
-     inkscape:cy="226.04167"
+     inkscape:cx="549.47917"
+     inkscape:cy="61.458333"
      inkscape:window-width="3104"
      inkscape:window-height="1325"
      inkscape:window-x="1512"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg500" />
+     inkscape:current-layer="Stops" />
   <defs
      id="defs114">
     <style
@@ -5250,7 +5250,8 @@
        y="246.2"
        width="15"
        height="15"
-       id="rect252" />
+       id="rect252"
+       style="fill:#e6e6e6;stroke:#e6e6e6" />
     <g
        id="text132"
        class="cls-39"
@@ -6797,7 +6798,8 @@
     <polygon
        class="cls-27"
        points="927.99 1443.68 927.93 1451.18 920.93 1454.89 913.99 1451.09 914.04 1443.59 921.04 1439.89 927.99 1443.68"
-       id="polygon368" />
+       id="polygon368"
+       style="fill:#e6e6e6;stroke:#e6e6e6" />
     <g
        id="text132-8"
        data-name="text132"
@@ -9088,23 +9090,28 @@
     <polygon
        class="cls-26"
        points="499.02 151.6 498.97 159.1 491.97 162.81 485.02 159.02 485.08 151.52 492.08 147.81 499.02 151.6"
-       id="polygon496" />
+       id="polygon496"
+       style="fill:#e6e6e6;stroke:#e6e6e6" />
     <polygon
        class="cls-27"
        points="491.5 1407.3 491.44 1414.8 484.44 1418.5 477.5 1414.71 477.55 1407.21 484.55 1403.5 491.5 1407.3"
-       id="polygon497" />
+       id="polygon497"
+       style="fill:#e6e6e6;stroke:#e6e6e6" />
     <polygon
        class="cls-27"
        points="146.67 1335.9 146.61 1343.54 139.68 1347.4 132.67 1343.31 132.97 1335.68 139.95 1331.99 146.67 1335.9"
-       id="polygon498" />
+       id="polygon498"
+       style="fill:#e6e6e6;stroke:#e6e6e6" />
     <polygon
        class="cls-27"
        points="146.67 1563.85 146.61 1571.35 139.61 1575.05 132.67 1571.26 132.72 1563.76 139.72 1560.05 146.67 1563.85"
-       id="polygon499" />
+       id="polygon499"
+       style="fill:#e6e6e6;stroke:#e6e6e6" />
     <polygon
        class="cls-27"
        points="491.5 1641.74 491.44 1649.24 484.44 1652.94 477.5 1649.15 477.55 1641.65 484.55 1637.94 491.5 1641.74"
-       id="polygon500" />
+       id="polygon500"
+       style="fill:#e6e6e6;stroke:#e6e6e6" />
   </g>
   <sodipodi:namedview
      id="namedview1"
