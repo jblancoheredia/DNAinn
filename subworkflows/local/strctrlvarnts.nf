@@ -162,12 +162,12 @@ workflow STRCTRLVARNTS {
     ch_versions = ch_versions.mix(TIDDIT_SV.out.versions)
     ch_tiddit_ploidy = TIDDIT_SV.out.ploidy
     ch_tiddit_vcf = TIDDIT_SV.out.vcf
-    ch_tiddit_vcf = ch_tiddit_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run BGZIP & Tabix
     //
     TABIX_BGZIPTABIX(ch_tiddit_vcf)
+    ch_tiddit_vcf = ch_tiddit_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
     ch_versions = ch_versions.mix(TABIX_BGZIPTABIX.out.versions)
     ch_tiddit_vcf_zip = TABIX_BGZIPTABIX.out.gz_tbi
 
