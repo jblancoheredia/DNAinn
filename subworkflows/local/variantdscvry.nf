@@ -108,7 +108,17 @@ workflow VARIANTDSCVRY {
     //
     // MODULE: Run Filter MUTECT2 Calls
     //
-    GATK4_FILTERMUTECTCALLS(ch_mutect2_vcf, ch_fasta, ch_fai, ch_dict, ch_mutect2_stats, ch_orientation, ch_segmentation, ch_contamination, [])
+    ch_filtermutect_joined = ch_mutect2_vcf
+        .join(ch_mutect2_stats, by: 0)
+        .join(ch_orientation  , by: 0)
+        .join(ch_segmentation , by: 0)
+        .join(ch_contamination, by: 0)
+    ch_filtermutect_vcf           = ch_filtermutect_joined.map { meta, vcf, tbi, stats, orientation, segmentation, contamination -> tuple(meta, vcf, tbi)      }
+    ch_filtermutect_stats         = ch_filtermutect_joined.map { meta, vcf, tbi, stats, orientation, segmentation, contamination -> tuple(meta, stats)         }
+    ch_filtermutect_orientation   = ch_filtermutect_joined.map { meta, vcf, tbi, stats, orientation, segmentation, contamination -> tuple(meta, orientation)   }
+    ch_filtermutect_segmentation  = ch_filtermutect_joined.map { meta, vcf, tbi, stats, orientation, segmentation, contamination -> tuple(meta, segmentation)  }
+    ch_filtermutect_contamination = ch_filtermutect_joined.map { meta, vcf, tbi, stats, orientation, segmentation, contamination -> tuple(meta, contamination) }
+    GATK4_FILTERMUTECTCALLS(ch_filtermutect_vcf, ch_fasta, ch_fai, ch_dict, ch_filtermutect_stats, ch_filtermutect_orientation, ch_filtermutect_segmentation, ch_filtermutect_contamination, [])
     ch_versions = ch_versions.mix(GATK4_FILTERMUTECTCALLS.out.versions)
     ch_mutect2_filtered_vcf = GATK4_FILTERMUTECTCALLS.out.vcf
     ch_mutect2_filtered_stats = GATK4_FILTERMUTECTCALLS.out.stats
