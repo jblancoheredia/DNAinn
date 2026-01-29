@@ -104,7 +104,10 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH(ch_bam_raw, ch_bai_raw, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    ch_bam_bai_raw_mosdepth = ch_bam_raw.join(ch_bai_raw, by: 0)
+    ch_bam_raw_mosdepth = ch_bam_bai_raw_mosdepth.map { meta, bam, bai -> tuple(meta, bam) }
+    ch_bai_raw_mosdepth = ch_bam_bai_raw_mosdepth.map { meta, bam, bai -> tuple(meta, bai) }
+    MOSDEPTH(ch_bam_raw_mosdepth, ch_bai_raw_mosdepth, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
     ch_versions = ch_versions.mix(MOSDEPTH.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt)
 
@@ -263,7 +266,10 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run ApplyBaseRecalibrator
     //
-    GATK4_APPLYBQSR(ch_bam_dedup, ch_bqsr_table, params.fasta, params.fai, params.dict)
+    ch_bam_dedup_joined = ch_bam_dedup.join(ch_bqsr_table, by: 0)
+    ch_bam_dedup_for_apply = ch_bam_dedup_joined.map { meta, bam, bai, table -> tuple(meta, bam, bai) }
+    ch_bqsr_table_for_apply = ch_bam_dedup_joined.map { meta, bam, bai, table -> tuple(meta, table) }
+    GATK4_APPLYBQSR(ch_bam_dedup_for_apply, ch_bqsr_table_for_apply, params.fasta, params.fai, params.dict)
     ch_versions = ch_versions.mix(GATK4_APPLYBQSR.out.versions.first())
     ch_bam_recal = GATK4_APPLYBQSR.out.bam
 
