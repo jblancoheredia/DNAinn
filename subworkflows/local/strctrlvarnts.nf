@@ -213,7 +213,7 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run Survivor to merge Unfiltered VCFs
     //
-    SURVIVOR_MERGE(ch_survivor_merge_input, params.chromosomes, 1000, 2, 1, 1, 0, 250)
+    SURVIVOR_MERGE(ch_survivor_merge_input, 1000, 2, 1, 1, 0, 250)
     ch_versions = ch_versions.mix(SURVIVOR_MERGE.out.versions)
     ch_merged_bed = SURVIVOR_MERGE.out.bed
     ch_merged_vcf = SURVIVOR_MERGE.out.vcf
