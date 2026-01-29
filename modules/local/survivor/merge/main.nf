@@ -14,7 +14,6 @@ process SURVIVOR_MERGE {
           val(meta_manta),  path('manta.vcf'),
           val(meta_svaba),  path('svaba.vcf'),
           val(meta_tiddit), path('tiddit.vcf')
-    path(chr_length)
     val(max_distance_breakpoints)
     val(min_supporting_callers)
     val(account_for_type)
