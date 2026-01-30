@@ -29,6 +29,7 @@ process GRIDSS {
     def VERSION = '2.13.2'
     def bwa = bwa_index ? "cp -s ${bwa_index}/* ." : ""
     """
+    export TMPDIR=${task.workDir}
     samtools view -@ ${task.cpus} -h -F 256 -o ${prefix}_N_filtered.bam ${normal_bam}
     samtools index -@ ${task.cpus} ${prefix}_N_filtered.bam
 
