@@ -22,7 +22,7 @@ process FASTQC_CON {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     // Make list of old name and new name pairs to use for renaming in the bash while loop
-    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_con.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_cons_${index + 1}.${entry.extension}" ] }
+    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_con.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_con_${index + 1}.${entry.extension}" ] }
     def rename_to = old_new_pairs*.join(' ').join(' ')
     def renamed_files = old_new_pairs.collect{ old_name, new_name -> new_name }.join(' ')
 
@@ -84,7 +84,7 @@ process FASTQC_DUP {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     // Make list of old name and new name pairs to use for renaming in the bash while loop
-    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_dup.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_cons_${index + 1}.${entry.extension}" ] }
+    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_dup.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_dup_${index + 1}.${entry.extension}" ] }
     def rename_to = old_new_pairs*.join(' ').join(' ')
     def renamed_files = old_new_pairs.collect{ old_name, new_name -> new_name }.join(' ')
 
@@ -146,7 +146,7 @@ process FASTQC_SIM {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     // Make list of old name and new name pairs to use for renaming in the bash while loop
-    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_sim.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_cons_${index + 1}.${entry.extension}" ] }
+    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_sim.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_sim_${index + 1}.${entry.extension}" ] }
     def rename_to = old_new_pairs*.join(' ').join(' ')
     def renamed_files = old_new_pairs.collect{ old_name, new_name -> new_name }.join(' ')
 
@@ -208,7 +208,7 @@ process FASTQC_DR {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     // Make list of old name and new name pairs to use for renaming in the bash while loop
-    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_dr.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_cons_${index + 1}.${entry.extension}" ] }
+    def old_new_pairs = reads instanceof Path || reads.size() == 1 ? [[ reads, "${prefix}_dr.${reads.extension}" ]] : reads.withIndex().collect { entry, index -> [ entry, "${prefix}_dr_${index + 1}.${entry.extension}" ] }
     def rename_to = old_new_pairs*.join(' ').join(' ')
     def renamed_files = old_new_pairs.collect{ old_name, new_name -> new_name }.join(' ')
 
