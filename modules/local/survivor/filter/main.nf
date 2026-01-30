@@ -102,9 +102,9 @@ process SURVIVOR_FILTER {
     VCF2iANN \\
         ${prefix}
     
-    grep \"#\" ${prefix}_SURVOR_SV_FIL.vcf > ${prefix}_SURVOR_SV_FIL.sort.vcf
+    grep \"#\" ${prefix}_SURVOR_SV_FIL.vcf > ${prefix}_SURVOR_SV_FIL.sort.vcf || true
 
-    grep -v \"#\" ${prefix}_SURVOR_SV_FIL.vcf | sort -k1,1V -k2,2n >> ${prefix}_SURVOR_SV_FIL.sort.vcf
+    grep -v \"#\" ${prefix}_SURVOR_SV_FIL.vcf | sort -k1,1V -k2,2n >> ${prefix}_SURVOR_SV_FIL.sort.vcf || true
 
     bgzip ${prefix}_SURVOR_SV_FIL.sort.vcf
 
