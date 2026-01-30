@@ -127,7 +127,6 @@ workflow STRCTRLVARNTS {
     DELLY(ch_bam_pairs, ch_fasta, ch_fai, params.exclude_bed)
     ch_versions = ch_versions.mix(DELLY.out.versions)
     ch_delly_vcf = DELLY.out.vcf
-    ch_delly_vcf = ch_delly_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run Gridds (Extract overlapping fragments & calling)
@@ -135,7 +134,6 @@ workflow STRCTRLVARNTS {
     GRIDSS(ch_bam_pairs, ch_fai, ch_fasta, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
     ch_versions = ch_versions.mix(GRIDSS.out.versions)
     ch_gridss_vcf = GRIDSS.out.vcf
-    ch_gridss_vcf = ch_gridss_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run Manta in Only Tumour & Somatic modes
@@ -145,7 +143,6 @@ workflow STRCTRLVARNTS {
 //    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_txt.collect{it[1]}.ifEmpty([]))
     ch_versions = ch_versions.mix(MANTA.out.versions)
     ch_manta_vcf = MANTA.out.vcf
-    ch_manta_vcf = ch_manta_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run SvABA Note: version 1.2.0
@@ -153,7 +150,6 @@ workflow STRCTRLVARNTS {
     SVABA(ch_bam_pairs, ch_fasta, ch_fai, params.known_sites_tbi, params.known_sites, params.intervals, params.bwa)
     ch_versions = ch_versions.mix(SVABA.out.versions)
     ch_svaba_vcf = SVABA.out.vcf
-    ch_svaba_vcf = ch_svaba_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
 
     //
     // MODULE: Run TIDDIT in SV mode
@@ -167,29 +163,8 @@ workflow STRCTRLVARNTS {
     // MODULE: Run BGZIP & Tabix
     //
     TABIX_BGZIPTABIX(ch_tiddit_vcf)
-    ch_tiddit_vcf = ch_tiddit_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) }
     ch_versions = ch_versions.mix(TABIX_BGZIPTABIX.out.versions)
     ch_tiddit_vcf_zip = TABIX_BGZIPTABIX.out.gz_tbi
-
-//    //
-//    // Combine the vcf by meta key patient
-//    //
-//    ch_survivor_merge_input = ch_delly_vcf
-//        .map {                     meta, vcf -> [meta.patient, meta, vcf] }
-//        .join( ch_gridss_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-//        .join( ch_manta_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
-//        .join( ch_svaba_vcf.map  { meta, vcf -> [meta.patient, meta, vcf] })
-//        .join( ch_tiddit_vcf.map { meta, vcf -> [meta.patient, meta, vcf] })
-//        .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
-//            tuple(
-//                meta_delly,                 //
-//                meta_delly,     delly_vcf,  //
-//                meta_gridss,    gridss_vcf, //
-//                meta_manta,     manta_vcf,  //  
-//                meta_svaba,     svaba_vcf,  //
-//                meta_tiddit,    tiddit_vcf  
-//            )
-//        }
 
     //
     // Combine the vcf by meta key patient
