@@ -170,10 +170,11 @@ workflow STRCTRLVARNTS {
     // Combine the vcf by meta key patient
     //
     ch_survivor_merge_input = ch_delly_vcf
-        .join(ch_gridss_vcf)
-        .join(ch_manta_vcf )
-        .join(ch_svaba_vcf )
-        .join(ch_tiddit_vcf)
+        .map { meta, vcf -> tuple(meta.patient, meta, vcf) }
+        .join(ch_gridss_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) })
+        .join(ch_manta_vcf.map  { meta, vcf -> tuple(meta.patient, meta, vcf) })
+        .join(ch_svaba_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) })
+        .join(ch_tiddit_vcf.map { meta, vcf -> tuple(meta.patient, meta, vcf) })
         .map { patient, meta_delly, delly_vcf, meta_gridss, gridss_vcf, meta_manta, manta_vcf, meta_svaba, svaba_vcf, meta_tiddit, tiddit_vcf ->
             tuple(
                 meta_delly , 
