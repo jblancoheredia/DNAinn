@@ -296,7 +296,7 @@ workflow UMIPROCESSING {
     //
     FGBIO_CALLDUPLEXCONSENSUSREADS(ch_bam_grouped, params.call_min_reads, params.call_min_baseq)
     ch_versions = ch_versions.mix(FGBIO_CALLDUPLEXCONSENSUSREADS.out.versions.first())
-    FGBIO_CALLDUPLEXCONSENSUSREADS.out.bam.set { ch_bam_consensus }
+    ch_bam_consensus = FGBIO_CALLDUPLEXCONSENSUSREADS.out.bam
 
     //
     // MODULE: Run fgbio SortBam
@@ -474,19 +474,19 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics
     //
-    PICARD_COLLECTMULTIPLEMETRICS_CON(ch_bam_fcu_stix, ch_fasta, ch_fai)
+    PICARD_COLLECTMULTIPLEMETRICS_CON(ch_bam_con_stix, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_CON.out.versions.first())
 
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics
     //
-    PICARD_COLLECTMULTIPLEMETRICS_DUP(ch_bam_fcu_stix, ch_fasta, ch_fai)
+    PICARD_COLLECTMULTIPLEMETRICS_DUP(ch_bam_dup_stix, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_DUP.out.versions.first())
 
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics
     //
-    PICARD_COLLECTMULTIPLEMETRICS_SIM(ch_bam_fcu_stix, ch_fasta, ch_fai)
+    PICARD_COLLECTMULTIPLEMETRICS_SIM(ch_bam_sim_stix, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_SIM.out.versions.first())
 
     // Combine BAM fils by meta data
