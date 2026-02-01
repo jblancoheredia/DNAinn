@@ -158,7 +158,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_CON {
         'quay.io/biocontainers/picard:3.3.0--hdfd78af_0' }"
 
     input:
-    tuple val(meta) , path(bam)
+    tuple val(meta) , path(bam), path(bai)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
 
@@ -242,7 +242,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_DUP {
         'quay.io/biocontainers/picard:3.3.0--hdfd78af_0' }"
 
     input:
-    tuple val(meta) , path(bam)
+    tuple val(meta) , path(bam), path(bai)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
 
@@ -326,7 +326,7 @@ process PICARD_COLLECTMULTIPLEMETRICS_SIM {
         'quay.io/biocontainers/picard:3.3.0--hdfd78af_0' }"
 
     input:
-    tuple val(meta) , path(bam)
+    tuple val(meta) , path(bam), path(bai)
     tuple val(meta2), path(fasta)
     tuple val(meta3), path(fai)
 
