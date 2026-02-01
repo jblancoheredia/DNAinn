@@ -193,13 +193,13 @@ process SAMTOOLS_SORT_INDEX_CON {
         -T ${prefix} \\
         --threads $task.cpus \\
         ${reference} \\
-        -o ${prefix}.${extension} \\
+        -o ${prefix}.consensus.${extension} \\
         -
     
     samtools index \\
         -@ ${task.cpus-1} \\
         $args \\
-        ${prefix}.${extension}
+        ${prefix}.consensus.${extension}
 
     samtools cat \\
         ${duplex_bam} \\
@@ -245,12 +245,12 @@ process SAMTOOLS_SORT_INDEX_CON {
                     args.contains("--output-fmt cram") ? "cram" :
                     "bam"
     """
-    touch ${prefix}.${extension}
     touch ${prefix}.duplex.${extension}
     touch ${prefix}.simplex.${extension}
+    touch ${prefix}.consensus.${extension}
     if [ "${extension}" == "bam" ];
     then
-        touch ${prefix}.${extension}.csi
+        touch ${prefix}.${extension}.bai
     elif [ "${extension}" == "cram" ];
     then
         touch ${prefix}.${extension}.crai
