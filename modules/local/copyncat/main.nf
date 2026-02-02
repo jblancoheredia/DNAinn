@@ -1,17 +1,18 @@
-process VCFCALLS2TSV {
+process COPYNCAT {
     tag "$meta.id"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/vcfcalls2tsv:1.0.0':
-        'blancojmskcc/vcfcalls2tsv:1.0.0' }"
+        'docker://blancojmskcc/copyncat_dnainn:1.0.0':
+        'blancojmskcc/copyncat_dnainn:1.0.0' }"
 
     input:
     tuple val(meta), path(vcfs), path(tbis)
 
     output:
-    tuple val(meta), path("*.merged_variants.tsv")  , emit: tsv
+    tuple val(meta), path("*_CNV_MERGED.tsv")       , emit: tsv
+    tuple val(meta), path("*_CNV_PLOIDY_PURITY.tsv"), emit: tsv
     path "versions.yml"                             , emit: versions
 
     when:
@@ -27,28 +28,36 @@ process VCFCALLS2TSV {
     
     rm *.vcf.gz.tbi
 
-    vcfcalls2tsv.py \\
-        ${prefix}.freebayes.vcf  \\
-        ${prefix}.lofreq.somatic_final.snvs.vcf \\
-        ${prefix}.lofreq.somatic_final.indels.vcf \\
-        ${prefix}.mutect2.filtered.vcf \\
-        ${prefix}.vardict.vcf \\
-        --output ${prefix}.merged_variants.tsv
+    CopyNcat \\
+        --sample ${prefix} \\
+        --cnvkit-call ${prefix}_sort.call.cns \\
+        --cnvkit-cns ${prefix}_sort.cns \\
+        --cnvkit-vcf ${prefix}.cnvcall.vcf \\
+        --controlfreec-cnv ${prefix}.pileup.gz_CNVs \\
+        --controlfreec-config config.txt \\
+        --sequenza-segments ${prefix}_segments.txt \\
+        --sequenza-confints ${prefix}_confints_CP.txt \\
+        --sequenza-alternative ${prefix}_alternative_solutions.txt \\
+        --oncocnv-profile ${prefix}_sort.profile.txt \\
+        --facets-vcf ${prefix}.vcf.gz \\
+        --out-tsv ${prefix}_CNV_MERGED.tsv \\
+        --out-summary ${prefix}_CNV_PLOIDY_PURITY.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        vcfcalls2tsv: "1.0.0"
+        copyncat: "1.0.0"
     END_VERSIONS
     """
     stub:
     def args = task.ext.args   ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.merged_variants.tsv
+    touch ${prefix}_CNV_MERGED.tsv
+    touch ${prefix}_CNV_PLOIDY_PURITY.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        vcfcalls2tsv: "1.0.0"
+        copyncat: "1.0.0"
     END_VERSIONS
     """
 }
