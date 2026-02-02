@@ -316,7 +316,7 @@ workflow DNAINN {
             ch_bam_finalized,
             ch_gatk_interval_list
         )
-        ch_varinats = VARIANTDSCVRY.out.variants
+        ch_variants = VARIANTDSCVRY.out.variants
         ch_versions = ch_versions.mix(VARIANTDSCVRY.out.versions)
 //    ch_multiqc_files = ch_multiqc_files.mix(VARIANTDSCVRY.out.multiqc_files)
     } else {
