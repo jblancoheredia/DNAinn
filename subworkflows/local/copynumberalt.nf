@@ -9,6 +9,7 @@
 */
 
 include { ONCOCNV                                                                                                                   } from '../../modules/nf-core/oncocnv/main'
+include { COPYNCAT                                                                                                                  } from '../../modules/local/copyncat/main'
 include { FACETS_CNV                                                                                                                } from '../../modules/local/facets/main'
 include { CNVKIT_CALL                                                                                                               } from '../../modules/nf-core/cnvkit/call/main'
 include { CNVKIT_BATCH                                                                                                              } from '../../modules/local/cnvkit/batch/main'
@@ -181,6 +182,12 @@ workflow COPYNUMBERALT {
     //
     SEQUENZA_FITS(ch_seqz)
     ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
+
+//    //
+//    // MODULE: Run Sequenzautils BAM2seqz
+//    //
+//    COPYNCAT(ch_seqz)
+//    ch_versions = ch_versions.mix(COPYNCAT.out.versions.first())
 
     //
     // Collate and save software versions
