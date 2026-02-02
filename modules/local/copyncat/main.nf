@@ -45,7 +45,7 @@ process COPYNCAT {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        copyncat: "1.0.0"
+        copyncat: \$(CopyNcat --version 2>&1 | sed -e "s/CopyNcat v//g")
     END_VERSIONS
     """
     stub:
@@ -57,7 +57,7 @@ process COPYNCAT {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        copyncat: "1.0.0"
+        copyncat: \$(CopyNcat --version 2>&1 | sed -e "s/CopyNcat v//g")
     END_VERSIONS
     """
 }
