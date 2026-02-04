@@ -134,7 +134,7 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH_RAW(ch_bam_fcu_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH_RAW(ch_bam_fcu_stix, ch_fasta, params.fai, params.mosdepth_canonical_exomes)
     ch_versions = ch_versions.mix(MOSDEPTH_RAW.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_RAW.out.summary_txt)
 
@@ -366,21 +366,21 @@ workflow UMIPROCESSING {
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH_CON(ch_bam_con_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH_CON(ch_bam_con_stix, ch_fasta, params.fai, params.mosdepth_canonical_exomes)
     ch_versions = ch_versions.mix(MOSDEPTH_CON.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_CON.out.summary_txt)
 
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH_DUP(ch_bam_dup_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH_DUP(ch_bam_dup_stix, ch_fasta, params.fai, params.mosdepth_canonical_exomes)
     ch_versions = ch_versions.mix(MOSDEPTH_DUP.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_DUP.out.summary_txt)
 
     //
     // MODULE: Run MosDepth
     //
-    MOSDEPTH_SIM(ch_bam_sim_stix, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH_SIM(ch_bam_sim_stix, ch_fasta, params.fai, params.mosdepth_canonical_exomes)
     ch_versions = ch_versions.mix(MOSDEPTH_SIM.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_SIM.out.summary_txt)
 

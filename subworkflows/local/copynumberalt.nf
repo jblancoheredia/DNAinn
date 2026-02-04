@@ -87,38 +87,38 @@ workflow COPYNUMBERALT {
     ch_sam_mpileup = SAMTOOLS_MPILEUP.out.pup
     ch_sam_mpileup_tbi = SAMTOOLS_MPILEUP.out.tbi
   
-//    //
-//    // MODULE: Run ControlFreec Freec 
-//    //
-//    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
-//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
-//    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
-//    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
-//    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
-//
-//    //
-//    // MODULE: Run ControlFreec Assess Significance
-//    //
-//    CONTROLFREEC_OT_ASSESSSIGNIFICANCE(ch_cfot_cnvs, ch_cfot_ratio)
-//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_ASSESSSIGNIFICANCE.out.versions)
-//
-//    //
-//    // MODULE: Run ControlFreec Freec2BED
-//    //
-//    CONTROLFREEC_OT_FREEC2BED(ch_cfot_ratio)
-//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2BED.out.versions)
-//
-//    //
-//    // MODULE: Run ControlFreec Freec2Circos
-//    //
-//    CONTROLFREEC_OT_FREEC2CIRCOS(ch_cfot_ratio)
-//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2CIRCOS.out.versions)
-//
-//    //
-//    // MODULE: Run ControlFreec MakeGraph2
-//    //
-//    CONTROLFREEC_OT_MAKEGRAPH2(CONTROLFREEC_OT_FREEC.out.ratio.join(CONTROLFREEC_OT_FREEC.out.BAF, failOnDuplicate: true, failOnMismatch: true))
-//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_MAKEGRAPH2.out.versions)
+    //
+    // MODULE: Run ControlFreec Freec 
+    //
+    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
+    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
+    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
+    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
+    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
+
+    //
+    // MODULE: Run ControlFreec Assess Significance
+    //
+    CONTROLFREEC_OT_ASSESSSIGNIFICANCE(ch_cfot_cnvs, ch_cfot_ratio)
+    ch_versions = ch_versions.mix(CONTROLFREEC_OT_ASSESSSIGNIFICANCE.out.versions)
+
+    //
+    // MODULE: Run ControlFreec Freec2BED
+    //
+    CONTROLFREEC_OT_FREEC2BED(ch_cfot_ratio)
+    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2BED.out.versions)
+
+    //
+    // MODULE: Run ControlFreec Freec2Circos
+    //
+    CONTROLFREEC_OT_FREEC2CIRCOS(ch_cfot_ratio)
+    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC2CIRCOS.out.versions)
+
+    //
+    // MODULE: Run ControlFreec MakeGraph2
+    //
+    CONTROLFREEC_OT_MAKEGRAPH2(CONTROLFREEC_OT_FREEC.out.ratio.join(CONTROLFREEC_OT_FREEC.out.BAF, failOnDuplicate: true, failOnMismatch: true))
+    ch_versions = ch_versions.mix(CONTROLFREEC_OT_MAKEGRAPH2.out.versions)
 
 //    //
 //    // MODULE: Run CNVkit AntiTarget Module just once per panel
@@ -178,16 +178,28 @@ workflow COPYNUMBERALT {
     ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
 
     //
-    // MODULE: Run Sequenzautils BAM2seqz
+    // MODULE: Run Sequenza Fits
     //
     SEQUENZA_FITS(ch_seqz)
     ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
 
-//    //
-//    // MODULE: Run Sequenzautils BAM2seqz
-//    //
-//    COPYNCAT(ch_seqz)
-//    ch_versions = ch_versions.mix(COPYNCAT.out.versions.first())
+    // Build CopyNcat input
+    ch_copyncat_input = CNVKIT_CALL.out.cns
+        .join(CNVKIT_BATCH.out.cns).map { l, r -> tuple(l[0], l[1], r[1]) }
+        .join(CNVKIT_EXPORT.out.output).map { l, r -> tuple(l[0], l[1], l[2], r[1]) }
+        .join(CONTROLFREEC_OT_FREEC.out.CNV).map { l, r -> tuple(l[0], l[1], l[2], l[3], r[1]) }
+        .join(CONTROLFREEC_OT_FREEC.out.config).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], r[1]) }
+        .join(SEQUENZA_FITS.out.segments).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], r[1]) }
+        .join(SEQUENZA_FITS.out.confints_cp).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], r[1]) }
+        .join(SEQUENZA_FITS.out.alt_solutions).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], r[1]) }
+        .join(ONCOCNV.out.profile).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], r[1]) }
+        .join(FACETS_CNV.out.vcf).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], l[9], r[1]) }
+
+    //
+    // MODULE: Run CopyNcat (merge CNV calls from CNVkit, ControlFreec, Sequenza, OncoCNV, FACETS)
+    //
+    COPYNCAT(ch_copyncat_input)
+    ch_versions = ch_versions.mix(COPYNCAT.out.versions.first())
 
     //
     // Collate and save software versions
@@ -202,6 +214,8 @@ workflow COPYNUMBERALT {
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files
+    copyncat_tsv        = COPYNCAT.out.tsv
+    copyncat_summary    = COPYNCAT.out.summary
 
 }
 

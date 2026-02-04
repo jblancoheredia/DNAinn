@@ -107,7 +107,7 @@ workflow DEDUPANDRECAL {
     ch_bam_bai_raw_mosdepth = ch_bam_raw.join(ch_bai_raw, by: 0)
     ch_bam_raw_mosdepth = ch_bam_bai_raw_mosdepth.map { meta, bam, bai -> tuple(meta, bam) }
     ch_bai_raw_mosdepth = ch_bam_bai_raw_mosdepth.map { meta, bam, bai -> tuple(meta, bai) }
-    MOSDEPTH(ch_bam_raw_mosdepth, ch_bai_raw_mosdepth, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH(ch_bam_raw_mosdepth, ch_bai_raw_mosdepth, ch_fasta, params.fai, params.mosdepth_canonical_exomes)
     ch_versions = ch_versions.mix(MOSDEPTH.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH.out.summary_txt)
 
@@ -290,7 +290,7 @@ workflow DEDUPANDRECAL {
     //
     // MODULE: Run MosDepth after MarkDup & ReCal
     //
-    MOSDEPTH_DR(ch_bam_bai_dr, ch_fasta, params.fai, params.intervals_bed_gunzip, params.intervals_bed_gunzip_index)
+    MOSDEPTH_DR(ch_bam_bai_dr, ch_fasta, params.fai, params.mosdepth_canonical_exomes)
     ch_versions = ch_versions.mix(MOSDEPTH_DR.out.versions.first())
     ch_multiqc_files = ch_multiqc_files.mix(MOSDEPTH_DR.out.summary_txt)
 

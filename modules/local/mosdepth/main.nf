@@ -13,7 +13,6 @@ process MOSDEPTH {
     tuple val(meta2), path(fasta)
     path(fai)
     path(bed)
-    path(bed_index)
 
     output:
     tuple val(meta), path('*.global.dist.txt')      , emit: global_txt
@@ -97,7 +96,6 @@ process MOSDEPTH_RAW {
     tuple val(meta2), path(fasta)
     path(fai)
     path(bed)
-    path(bed_index)
 
     output:
     tuple val(meta), path('*.global.dist.txt')      , emit: global_txt
@@ -181,7 +179,6 @@ process MOSDEPTH_CON {
     tuple val(meta2), path(fasta)
     path(fai)
     path(bed)
-    path(bed_index)
 
     output:
     tuple val(meta), path('*.global.dist.txt')      , emit: global_txt
@@ -265,7 +262,6 @@ process MOSDEPTH_DUP {
     tuple val(meta2), path(fasta)
     path(fai)
     path(bed)
-    path(bed_index)
 
     output:
     tuple val(meta), path('*.global.dist.txt')      , emit: global_txt
@@ -349,7 +345,6 @@ process MOSDEPTH_SIM {
     tuple val(meta2), path(fasta)
     path(fai)
     path(bed)
-    path(bed_index)
 
     output:
     tuple val(meta), path('*.global.dist.txt')      , emit: global_txt
@@ -433,7 +428,6 @@ process MOSDEPTH_DR {
     tuple val(meta2), path(fasta)
     path(fai)
     path(bed)
-    path(bed_index)
 
     output:
     tuple val(meta), path('*.global.dist.txt')      , emit: global_txt
