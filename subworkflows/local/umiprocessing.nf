@@ -8,6 +8,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+include { FASTP                                                                                                                     } from '../../modules/local/fastp/main'   
 include { BAMCUT                                                                                                                    } from '../../modules/local/bamcut/main' // <- In Beta
 include { SPADES                                                                                                                    } from '../../modules/local/spades/main' // <- In use
 include { REPEATSEQ                                                                                                                 } from '../../modules/local/repeatseq/main' // <- In Beta
@@ -91,9 +92,17 @@ workflow UMIPROCESSING {
     ch_multiqc_files = Channel.empty()
 
     //
+    // MODULE: FastP
+    //
+    FASTP(ch_fastqs)
+    ch_fastqs_fastp = FASTP.out.reads
+    ch_versions = ch_versions.mix(FASTP.out.versions)
+    ch_multiqc_files = ch_multiqc_files.mix(FASTP.out.json)
+
+    //
     // MODULE: Run fgbio FastqToBam
     //
-    FGBIO_FASTQTOBAM(ch_fastqs)
+    FGBIO_FASTQTOBAM(ch_fastqs_fastp)
     ch_versions = ch_versions.mix(FGBIO_FASTQTOBAM.out.versions.first())
     ch_ubam = FGBIO_FASTQTOBAM.out.bam
 
