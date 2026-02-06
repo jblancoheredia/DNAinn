@@ -61,7 +61,7 @@ process CONTROLFREEC_OT_FREEC {
     def shiftinquality             = task.ext.args?["BAF"]?["shiftinquality"]                   ? "shiftInQuality = ${task.ext.args["BAF"]["shiftinquality"]}"                                  : ""
     def snpfile                    = known_snps                                                 ? "SNPfile = \$PWD/${known_snps}"                                                               : ""
     def target_bed                 = target_bed                                                 ? "captureRegions = ${target_bed}"                                                              : ""
-    def VERSION = '11.6b'
+    def VERSION                    = "11.6b"
     """
 
     cat > config.txt <<EOF
