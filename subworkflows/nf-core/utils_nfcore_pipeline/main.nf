@@ -100,12 +100,10 @@ def getWorkflowVersion() {
 
 //
 // Get software versions for pipeline
-// (Read file content so yaml.load parses YAML, not the path string — avoids "special characters are not allowed")
 //
 def processVersionsFromYAML(yaml_file) {
     Yaml yaml = new Yaml()
-    def content = (yaml_file instanceof String) ? yaml_file : yaml_file.text
-    versions = yaml.load(content).collectEntries { k, v -> [ k.tokenize(':')[-1], v ] }
+    versions = yaml.load(yaml_file).collectEntries { k, v -> [ k.tokenize(':')[-1], v ] }
     return yaml.dumpAsMap(versions).trim()
 }
 
