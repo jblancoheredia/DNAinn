@@ -242,16 +242,16 @@ workflow COPYNUMBERALT {
     //
     softwareVersionsToYAML(ch_versions)
         .collectFile(storeDir: "${params.outdir}/pipeline_info", name: 'software_versions.yml', sort: true, newLine: true)
-        .set { ch_collated_versions }
+        .set { ch_col_vers }
 
     emit:
 
-    versions            = ch_collated_versions
+    versions            = ch_col_vers
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files
-    copyncat_tsv        = COPYNCAT.out.tsv
-    copyncat_summary    = COPYNCAT.out.summary
+//    copyncat_tsv        = COPYNCAT.out.tsv
+//    copyncat_summary    = COPYNCAT.out.summary
 
 }
 
