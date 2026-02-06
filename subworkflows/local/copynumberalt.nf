@@ -208,16 +208,17 @@ workflow COPYNUMBERALT {
     COPYNCAT(ch_copyncat_input)
     ch_versions = ch_versions.mix(COPYNCAT.out.versions)
 
-    //
-    // Collate and save software versions
-    //
-    softwareVersionsToYAML(ch_versions)
-        .collectFile(storeDir: "${params.outdir}/pipeline_info", name: 'software_versions.yml', sort: true, newLine: true)
-        .set { ch_col_vers }
+//    //
+//    // Collate and save software versions
+//    //
+//    softwareVersionsToYAML(ch_versions)
+//        .collectFile(storeDir: "${params.outdir}/pipeline_info", name: 'software_versions.yml', sort: true, newLine: true)
+//        .set { ch_col_vers }
 
     emit:
 
-    versions            = ch_col_vers
+//    versions            = ch_col_vers
+    versions            = ch_versions
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files
