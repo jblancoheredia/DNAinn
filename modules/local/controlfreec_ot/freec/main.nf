@@ -128,7 +128,7 @@ EOF
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: ${VERSION}
+        controlfreec: "${VERSION}"
     END_VERSIONS
     """
 
@@ -147,7 +147,7 @@ EOF
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: ${VERSION}
+        controlfreec: "${VERSION}"
     END_VERSIONS
     """
 }
