@@ -20,25 +20,25 @@ process CONTROLFREEC_OT_FREEC2BED {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def VERSION = '11.6b' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def VERSION = '11.6' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     freec2bed.pl -f ${ratio} ${args} > ${prefix}.bed
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: $VERSION
+        controlfreec: ${VERSION}
     END_VERSIONS
     """
 
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def VERSION = '11.6b' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def VERSION = '11.6' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     touch ${prefix}.bed
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: $VERSION
+        controlfreec: ${VERSION}
     END_VERSIONS
     """
 }
