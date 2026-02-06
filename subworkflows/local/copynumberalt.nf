@@ -95,7 +95,6 @@ workflow COPYNUMBERALT {
     ch_cfot_cnvs   = CONTROLFREEC_OT_FREEC.out.CNV
     ch_cfot_ratio  = CONTROLFREEC_OT_FREEC.out.ratio
     ch_cfot_config = CONTROLFREEC_OT_FREEC.out.config
-    ch_versions    = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
 
     //
     // MODULE: Run ControlFreec Assess Significance
