@@ -29,7 +29,7 @@ process CONTROLFREEC_OT_ASSESSSIGNIFICANCE {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: $VERSION
+        controlfreec: ${VERSION}
     END_VERSIONS
     """
 
@@ -41,7 +41,7 @@ process CONTROLFREEC_OT_ASSESSSIGNIFICANCE {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: $VERSION
+        controlfreec: ${VERSION}
     END_VERSIONS
     """
 }
