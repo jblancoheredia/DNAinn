@@ -63,8 +63,7 @@ process CONTROLFREEC_OT_FREEC {
     def target_bed                 = target_bed                                                 ? "captureRegions = ${target_bed}"                                                              : ""
     def VERSION                    = "11.6b"
     """
-
-    cat > config.txt <<EOF
+    cat <<-EOF > config.txt
 [general]
 noisyData = TRUE
 BedGraphOutput = TRUE
