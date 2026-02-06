@@ -65,7 +65,7 @@ workflow COPYNUMBERALT {
     // MODULE: Run OncoCNV
     //
     ONCOCNV(ch_bam_pairs, ch_fasta, ch_targets_bed, ch_fai)
-    ch_versions = ch_versions.mix(ONCOCNV.out.versions)
+    ch_versions = ch_versions.mix(ONCOCNV.out.versions.first())
     ch_oncocnv_png      = ONCOCNV.out.png
     ch_oncocnv_profile  = ONCOCNV.out.profile
     ch_oncocnv_summary  = ONCOCNV.out.summary
@@ -149,14 +149,14 @@ workflow COPYNUMBERALT {
     // MODULE: Run CNVkit Call
     //
     CNVKIT_CALL(ch_cnvkit_call_input)
-    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions.first())
+    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions)
     ch_cnvkit_call = CNVKIT_CALL.out.cns
 
     //
     // MODULE: Run CNVkit Export
     //
     CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
-    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions.first())
+    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions)
     ch_cnvkit_vcf = CNVKIT_EXPORT.out.output
 
     //
@@ -164,7 +164,7 @@ workflow COPYNUMBERALT {
     //
     ch_genemetrics_input = CNVKIT_BATCH.out.cnr.join(CNVKIT_BATCH.out.cns).map{ meta, cnr, cns -> [meta, cnr, cns[2]]}
     CNVKIT_GENEMETRICS(ch_genemetrics_input)
-    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions.first())
+    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions)
     ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
 
     //
@@ -185,7 +185,7 @@ workflow COPYNUMBERALT {
     // MODULE: Run Sequenza Fits
     //
     SEQUENZA_FITS(ch_seqz)
-    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
+    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions)
     ch_sequenza_segments = SEQUENZA_FITS.out.segments
     ch_sequenza_confints = SEQUENZA_FITS.out.confints_cp
     ch_sequenza_alternative = SEQUENZA_FITS.out.alt_solutions
@@ -206,7 +206,7 @@ workflow COPYNUMBERALT {
     // MODULE: Run CopyNcat (merge CNV calls from CNVkit, ControlFreec, Sequenza, OncoCNV, FACETS)
     //
     COPYNCAT(ch_copyncat_input)
-    ch_versions = ch_versions.mix(COPYNCAT.out.versions.first())
+    ch_versions = ch_versions.mix(COPYNCAT.out.versions)
 
     //
     // Collate and save software versions
@@ -221,8 +221,8 @@ workflow COPYNUMBERALT {
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files
-//    copyncat_tsv        = COPYNCAT.out.tsv
-//    copyncat_summary    = COPYNCAT.out.summary
+    copyncat_tsv        = COPYNCAT.out.tsv
+    copyncat_summary    = COPYNCAT.out.summary
 
 }
 
