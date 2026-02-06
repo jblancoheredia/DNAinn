@@ -87,16 +87,16 @@ workflow COPYNUMBERALT {
     ch_sam_mpileup = SAMTOOLS_MPILEUP.out.pup
     ch_sam_mpileup_tbi = SAMTOOLS_MPILEUP.out.tbi
   
-    //
-    // MODULE: Run ControlFreec Freec 
-    //
-    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
-    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
-    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
-    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
-    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
-    ch_cfot_config = CONTROLFREEC_OT_FREEC.out.config
-
+//    //
+//    // MODULE: Run ControlFreec Freec 
+//    //
+//    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
+//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
+//    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
+//    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
+//    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
+//    ch_cfot_config = CONTROLFREEC_OT_FREEC.out.config
+//
 //    //
 //    // MODULE: Run ControlFreec Assess Significance
 //    //
@@ -135,13 +135,13 @@ workflow COPYNUMBERALT {
 //    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
 //    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
 
-//    //
-//    // MODULE: Run CNVKIT Batch
-//    //
-//    generate_pon = false
-//    CNVKIT_BATCH(ch_bam_pairs, ch_fasta, ch_fai, ch_cnvkit_antitarget, ch_cnvkit_reference, generate_pon)
-//    ch_versions = ch_versions.mix(CNVKIT_BATCH.out.versions.first())
-//    ch_cnvkit_call_input = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2], []]}
+    //
+    // MODULE: Run CNVKIT Batch
+    //
+    generate_pon = false
+    CNVKIT_BATCH(ch_bam_pairs, ch_fasta, ch_fai, ch_cnvkit_antitarget, ch_cnvkit_reference, generate_pon)
+    ch_versions = ch_versions.mix(CNVKIT_BATCH.out.versions.first())
+    ch_cnvkit_call_input = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2], []]}
 //
 //    //
 //    // MODULE: Run CNVkit Call
@@ -170,6 +170,7 @@ workflow COPYNUMBERALT {
     //
     FACETS_CNV(ch_bam_pairs, ch_intervals, params.common_vcf, params.common_vcf_tbi)
     ch_versions = ch_versions.mix(FACETS_CNV.out.versions.first())
+    ch_facets_vcf = FACETS_CNV.out.vcf
 
     //
     // MODULE: Run Sequenzautils BAM2seqz
@@ -183,6 +184,10 @@ workflow COPYNUMBERALT {
     //
     SEQUENZA_FITS(ch_seqz)
     ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
+    ch_sequenza_segments = SEQUENZA_FITS.out.segments
+    ch_sequenza_confints = SEQUENZA_FITS.out.confints_cp
+    ch_sequenza_alternative = SEQUENZA_FITS.out.alt_solutions
+
 
     // Build CopyNcat input
 //    ch_copyncat_input = ch_cnvkit_call
