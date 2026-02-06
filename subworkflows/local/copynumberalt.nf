@@ -171,18 +171,18 @@ workflow COPYNUMBERALT {
     FACETS_CNV(ch_bam_pairs, ch_intervals, params.common_vcf, params.common_vcf_tbi)
     ch_versions = ch_versions.mix(FACETS_CNV.out.versions.first())
 
-//    //
-//    // MODULE: Run Sequenzautils BAM2seqz
-//    //
-//    SEQUENZAUTILS_BAM2SEQZ(ch_bam_pairs, ch_fasta, ch_fai, params.wigfile20)
-//    ch_seqz = SEQUENZAUTILS_BAM2SEQZ.out.seqz
-//    ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
-//
-//    //
-//    // MODULE: Run Sequenza Fits
-//    //
-//    SEQUENZA_FITS(ch_seqz)
-//    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
+    //
+    // MODULE: Run Sequenzautils BAM2seqz
+    //
+    SEQUENZAUTILS_BAM2SEQZ(ch_bam_pairs, ch_fasta, ch_fai, params.wigfile20)
+    ch_seqz = SEQUENZAUTILS_BAM2SEQZ.out.seqz
+    ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
+
+    //
+    // MODULE: Run Sequenza Fits
+    //
+    SEQUENZA_FITS(ch_seqz)
+    ch_versions = ch_versions.mix(SEQUENZA_FITS.out.versions.first())
 
     // Build CopyNcat input
 //    ch_copyncat_input = ch_cnvkit_call
