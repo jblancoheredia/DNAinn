@@ -157,16 +157,16 @@ workflow COPYNUMBERALT {
     //
     CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
     ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions.first())
-    ch_cnvkit_cns = CNVKIT_EXPORT.out.output
+    ch_cnvkit_vcf = CNVKIT_EXPORT.out.output
 
-//    //
-//    // MODULE: Run CNVkit GeneMetrics
-//    //
-//    ch_genemetrics_input = CNVKIT_BATCH.out.cnr.join(CNVKIT_BATCH.out.cns).map{ meta, cnr, cns -> [meta, cnr, cns[2]]}
-//    CNVKIT_GENEMETRICS(ch_genemetrics_input)
-//    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions.first())
-//    ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
-//
+    //
+    // MODULE: Run CNVkit GeneMetrics
+    //
+    ch_genemetrics_input = CNVKIT_BATCH.out.cnr.join(CNVKIT_BATCH.out.cns).map{ meta, cnr, cns -> [meta, cnr, cns[2]]}
+    CNVKIT_GENEMETRICS(ch_genemetrics_input)
+    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions.first())
+    ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
+
     //
     // MODULE: Run FACETS 
     //
@@ -194,7 +194,7 @@ workflow COPYNUMBERALT {
     // Build CopyNcat input
 //    ch_copyncat_input = ch_cnvkit_call
 //        .join(cnvkit_cns)
-//        .join(CNVKIT_EXPORT.out.output).map { l, r -> tuple(l[0], l[1], l[2], r[1]) }
+//        .join(cnvkit_vcf)
 //        .join(CONTROLFREEC_OT_FREEC.out.CNV).map { l, r -> tuple(l[0], l[1], l[2], l[3], r[1]) }
 //        .join(CONTROLFREEC_OT_FREEC.out.config).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], r[1]) }
 //        .join(SEQUENZA_FITS.out.segments).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], r[1]) }
