@@ -61,7 +61,7 @@ process CONTROLFREEC_OT_FREEC {
     def shiftinquality             = task.ext.args?["BAF"]?["shiftinquality"]                   ? "shiftInQuality = ${task.ext.args["BAF"]["shiftinquality"]}"                                  : ""
     def snpfile                    = known_snps                                                 ? "SNPfile = \$PWD/${known_snps}"                                                               : ""
     def target_bed                 = target_bed                                                 ? "captureRegions = ${target_bed}"                                                              : ""
-    def VERSION                    = "11.6b"
+    def VERSION                    = '11.6'
     """
     cat <<-EOF > config.txt
 [general]
@@ -127,13 +127,13 @@ EOF
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: "${VERSION}"
+        controlfreec: ${VERSION}
     END_VERSIONS
     """
 
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def VERSION = '11.6b'
+    def VERSION = '11.6'
     """
     touch ${prefix}_ratio.BedGraph
     touch ${prefix}_sample.cpn
@@ -146,7 +146,7 @@ EOF
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        controlfreec: "${VERSION}"
+        controlfreec: ${VERSION}
     END_VERSIONS
     """
 }
