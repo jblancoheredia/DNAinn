@@ -542,6 +542,12 @@
                     "fa_icon": "fas fa-book",
                     "help_text": "Index of targets BED file sorted and in specific format for the panel."
                 },
+                "mosdepth_canonical_exomes": {
+                    "type": "string",
+                    "description": "Index of canonical MANE exomes bed file",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Index of canonical MANE exomes BED file."
+                },
                 "drawsv_chr": {
                     "type": "string",
                     "description": "Chromosomes file for DrawSV.",
