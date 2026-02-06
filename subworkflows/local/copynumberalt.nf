@@ -95,6 +95,7 @@ workflow COPYNUMBERALT {
 //    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
 //    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
 //    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
+//    ch_cfot_config = CONTROLFREEC_OT_FREEC.out.config
 //
 //    //
 //    // MODULE: Run ControlFreec Assess Significance
@@ -164,12 +165,12 @@ workflow COPYNUMBERALT {
 //    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions.first())
 //    ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
 //
-//    //
-//    // MODULE: Run FACETS 
-//    //
-//    FACETS_CNV(ch_bam_pairs, ch_intervals, params.common_vcf, params.common_vcf_tbi)
-//    ch_versions = ch_versions.mix(FACETS_CNV.out.versions.first())
-//
+    //
+    // MODULE: Run FACETS 
+    //
+    FACETS_CNV(ch_bam_pairs, ch_intervals, params.common_vcf, params.common_vcf_tbi)
+    ch_versions = ch_versions.mix(FACETS_CNV.out.versions.first())
+
 //    //
 //    // MODULE: Run Sequenzautils BAM2seqz
 //    //
