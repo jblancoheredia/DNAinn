@@ -125,7 +125,10 @@ EOF
 
     freec -conf config.txt -sample ${bam}
 
-    printf '"%s":\n  controlfreec: "%s"\n' "${task.process}" "${VERSION}" > versions.yml
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        controlfreec: "${VERSION}"
+    END_VERSIONS
     """
 
     stub:
@@ -141,6 +144,9 @@ EOF
     touch ${prefix}_ratio.txt
     touch config.txt
 
-    printf '"%s":\n  controlfreec: "%s"\n' "${task.process}" "${VERSION}" > versions.yml
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        controlfreec: "${VERSION}"
+    END_VERSIONS
     """
 }
