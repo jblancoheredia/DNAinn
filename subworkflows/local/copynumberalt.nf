@@ -145,13 +145,13 @@ workflow COPYNUMBERALT {
     ch_cnvkit_call = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[1]]}
     ch_cnvkit_call_input = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2], []]}
 
-//    //
-//    // MODULE: Run CNVkit Call
-//    //
-//    CNVKIT_CALL(ch_cnvkit_call_input)
-//    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions.first())
-//    ch_cnvkit_call = CNVKIT_CALL.out.cns
-//
+    //
+    // MODULE: Run CNVkit Call
+    //
+    CNVKIT_CALL(ch_cnvkit_call_input)
+    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions.first())
+    ch_cnvkit_call = CNVKIT_CALL.out.cns
+
 //    //
 //    // MODULE: Run CNVkit Export
 //    //
