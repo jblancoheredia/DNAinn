@@ -152,13 +152,13 @@ workflow COPYNUMBERALT {
     ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions.first())
     ch_cnvkit_call = CNVKIT_CALL.out.cns
 
-//    //
-//    // MODULE: Run CNVkit Export
-//    //
-//    CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
-//    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions.first())
-//    ch_cnvkit_cns = CNVKIT_EXPORT.out.output
-//
+    //
+    // MODULE: Run CNVkit Export
+    //
+    CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
+    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions.first())
+    ch_cnvkit_cns = CNVKIT_EXPORT.out.output
+
 //    //
 //    // MODULE: Run CNVkit GeneMetrics
 //    //
