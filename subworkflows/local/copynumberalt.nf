@@ -87,16 +87,16 @@ workflow COPYNUMBERALT {
     ch_sam_mpileup = SAMTOOLS_MPILEUP.out.pup
     ch_sam_mpileup_tbi = SAMTOOLS_MPILEUP.out.tbi
   
-//    //
-//    // MODULE: Run ControlFreec Freec 
-//    //
-//    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
-//    ch_versions = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
-//    ch_cfot_baf   = CONTROLFREEC_OT_FREEC.out.BAF
-//    ch_cfot_cnvs  = CONTROLFREEC_OT_FREEC.out.CNV
-//    ch_cfot_ratio = CONTROLFREEC_OT_FREEC.out.ratio
-//    ch_cfot_config = CONTROLFREEC_OT_FREEC.out.config
-//
+    //
+    // MODULE: Run ControlFreec Freec 
+    //
+    CONTROLFREEC_OT_FREEC(ch_sam_mpileup, ch_consensus_bam, params.fasta, params.chr_fai, params.known_sites, params.known_sites_tbi, params.by_chr_dir, params.cf_mappability, params.intervals, params.cf_control_mpileup, params.cf_coeff, params.cf_contamination, params.cf_contamination_adjustment, params.cf_ploidy)
+    ch_versions    = ch_versions.mix(CONTROLFREEC_OT_FREEC.out.versions)
+    ch_cfot_baf    = CONTROLFREEC_OT_FREEC.out.BAF
+    ch_cfot_cnvs   = CONTROLFREEC_OT_FREEC.out.CNV
+    ch_cfot_ratio  = CONTROLFREEC_OT_FREEC.out.ratio
+    ch_cfot_config = CONTROLFREEC_OT_FREEC.out.config
+
 //    //
 //    // MODULE: Run ControlFreec Assess Significance
 //    //
@@ -193,52 +193,15 @@ workflow COPYNUMBERALT {
 
     // Build CopyNcat input
 //    ch_copyncat_input = ch_cnvkit_call
-//        .join(cnvkit_cns)
-//        .join(cnvkit_vcf)
+//        .join(ch_cnvkit_cns)
+//        .join(ch_cnvkit_vcf)
 //        .join(CONTROLFREEC_OT_FREEC.out.CNV).map { l, r -> tuple(l[0], l[1], l[2], l[3], r[1]) }
 //        .join(CONTROLFREEC_OT_FREEC.out.config).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], r[1]) }
-//        .join(SEQUENZA_FITS.out.segments).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], r[1]) }
-//        .join(SEQUENZA_FITS.out.confints_cp).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], r[1]) }
-//        .join(SEQUENZA_FITS.out.alt_solutions).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], r[1]) }
-//        .join(ONCOCNV.out.profile).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], r[1]) }
-//        .join(FACETS_CNV.out.vcf).map { l, r -> tuple(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], l[9], r[1]) }
-//    ch_copyncat_input = CNVKIT_CALL.out.cns
-//        .join(CNVKIT_BATCH.out.cns)
-//        .map { meta, call_cns, batch_cns ->
-//            tuple(meta, call_cns, batch_cns)
-//        }
-//        .join(CNVKIT_EXPORT.out.output)
-//        .map { meta, call_cns, batch_cns, export_out ->
-//            tuple(meta, call_cns, batch_cns, export_out)
-//        }
-//        .join(CONTROLFREEC_OT_FREEC.out.CNV)
-//        .map { meta, call_cns, batch_cns, export_out, freec_cnv ->
-//            tuple(meta, call_cns, batch_cns, export_out, freec_cnv)
-//        }
-//        .join(CONTROLFREEC_OT_FREEC.out.config)
-//        .map { meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg ->
-//            tuple(meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg)
-//        }
-//        .join(SEQUENZA_FITS.out.segments)
-//        .map { meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments ->
-//            tuple(meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments)
-//        }
-//        .join(SEQUENZA_FITS.out.confints_cp)
-//        .map { meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints ->
-//            tuple(meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints)
-//        }
-//        .join(SEQUENZA_FITS.out.alt_solutions)
-//        .map { meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints, seq_alt ->
-//            tuple(meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints, seq_alt)
-//        }
-//        .join(ONCOCNV.out.profile)
-//        .map { meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints, seq_alt, oncocnv_profile ->
-//            tuple(meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints, seq_alt, oncocnv_profile)
-//        }
-//        .join(FACETS_CNV.out.vcf)
-//        .map { meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints, seq_alt, oncocnv_profile, facets_vcf ->
-//            tuple(meta, call_cns, batch_cns, export_out, freec_cnv, freec_cfg, seq_segments, seq_confints, seq_alt, oncocnv_profile, facets_vcf)
-//        }
+//        .join(ch_sequenza_segments)
+//        .join(ch_sequenza_confints)
+//        .join(ch_sequenza_alternative)
+//        .join(ch_oncocnv_profile)
+//        .join(ch_facets_vcf)
 //    //
 //    // MODULE: Run CopyNcat (merge CNV calls from CNVkit, ControlFreec, Sequenza, OncoCNV, FACETS)
 //    //
