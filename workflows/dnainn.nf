@@ -291,7 +291,7 @@ workflow DNAINN {
             ch_cnvkit_reference,
             ch_cnvkit_antitarget
         )
-        ch_versions = ch_versions.mix(COPYNUMBERALT.out.versions)
+//        ch_versions = ch_versions.mix(COPYNUMBERALT.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(COPYNUMBERALT.out.multiqc_files)
         ch_sam_mpileup = COPYNUMBERALT.out.sam_mpileup
         ch_bcf_mpileup = COPYNUMBERALT.out.bcf_mpileup
