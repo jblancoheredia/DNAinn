@@ -8,7 +8,7 @@
 ## Introduction
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/DNAinn_metro_dark.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/JNCviz_dark.svg">
   <img alt="Metro" src="assets/DNAinn_metro_light.svg" width="1500">
 </picture>
 
