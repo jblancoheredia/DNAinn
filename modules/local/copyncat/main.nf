@@ -30,7 +30,7 @@ process COPYNCAT {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def facets_vcf_decompressed = facets_vcf.name.endsWith('.gz') ? facets_vcf.name.replaceAll(/[.]gz$/, '') : facets_vcf.name
+    def facets_vcf_decompressed = facets_vcf.name.endsWith('.gz') ? facets_vcf.name.replaceFirst(/\.gz$/, '') : facets_vcf.name
     """
     if [[ "${facets_vcf}" == *.gz ]]; then
         bgzip -d -f ${facets_vcf}
