@@ -59,7 +59,8 @@ process CONTROLFREEC_OT_FREEC {
     def minimalcoverageperposition = task.ext.args?["BAF"]?["minimalcoverageperposition"]       ? "minimalCoveragePerPosition = ${task.ext.args["BAF"]["minimalcoverageperposition"]}"          : ""
     def minimalqualityperposition  = task.ext.args?["BAF"]?["minimalqualityperposition"]        ? "minimalQualityPerPosition = ${task.ext.args["BAF"]["minimalqualityperposition"]}"            : ""
     def shiftinquality             = task.ext.args?["BAF"]?["shiftinquality"]                   ? "shiftInQuality = ${task.ext.args["BAF"]["shiftinquality"]}"                                  : ""
-    def snpfile                    = known_snps                                                 ? "SNPfile = \$PWD/${known_snps}"                                                               : ""
+    // Use absolute path to SNP VCF (expand ${PWD} in shell), avoid literal "$PWD" in config which can break FREEC
+    def snpfile                    = known_snps                                                 ? "SNPfile = \${PWD}/${known_snps}"                                                             : ""
     def target_bed                 = target_bed                                                 ? "captureRegions = ${target_bed}"                                                              : ""
     def VERSION                    = '11.6'
     """
