@@ -87,7 +87,7 @@ maxThreads = ${task.cpus}
 outputDir = \${PWD}/
 ploidy = ${cf_ploidy}
 printNA = TRUE
-readCountThreshold = 10
+readCountThreshold = 50
 ${sex}
 ${step}
 ${telocentromeric}
