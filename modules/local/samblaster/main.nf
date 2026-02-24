@@ -13,7 +13,7 @@ process SAMBLASTER {
     output:
     tuple val(meta), path('*splits.fastq.gz'), emit: split_reads
     tuple val(meta), path("*splits.bam")     , emit: split_bam
-    tuple val(meta), path("*tagged.bam")     , emit: bam
+    tuple val(meta), path("*finals.bam")     , emit: bam
     path "versions.yml"                      , emit: versions
 
     when:
@@ -27,7 +27,7 @@ process SAMBLASTER {
 
     samtools view -h ${prefix}_qname.bam | \\
     samblaster ${args} -s ${prefix}_splits.sam | \\
-    samtools view -Sb - > ${prefix}_tagged.bam
+    samtools view -Sb - > ${prefix}_finals.bam
 
     samtools view ${prefix}_splits.sam | \\
         awk '{
@@ -67,7 +67,7 @@ process SAMBLASTER {
     touch ${prefix}_R1.splits.fastq.gz
     touch ${prefix}_R2.splits.fastq.gz
     touch ${prefix}_splits.bam
-    touch ${prefix}_tagged.bam
+    touch ${prefix}_finals.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
