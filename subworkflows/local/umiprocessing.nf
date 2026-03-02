@@ -289,6 +289,7 @@ workflow UMIPROCESSING {
     FGBIO_GROUPREADSBYUMI(SAMBLASTER.out.bam, params.group_strategy, params.group_edits, params.group_include_secondary, params.group_allow_inter_contig, params.group_include_supplementary, params.group_min_map_q, params.group_include_non_pf_reads, params.group_mark_duplicates)
     ch_multiqc_files = ch_multiqc_files.mix(FGBIO_GROUPREADSBYUMI.out.histogram.map{it[1]}.collect())
     ch_versions = ch_versions.mix(FGBIO_GROUPREADSBYUMI.out.versions.first())
+    ch_bam_bai_deduped = FGBIO_GROUPREADSBYUMI.out.bam_bai_deduped
     ch_grouped_family_sizes = FGBIO_GROUPREADSBYUMI.out.histogram
     ch_bam_grouped = FGBIO_GROUPREADSBYUMI.out.bam
 
@@ -580,6 +581,7 @@ workflow UMIPROCESSING {
     raw_bai         = ch_raw_sort_bai
     raw_baix        = ch_bam_fcu_stix
     versions        = ch_collated_versions
+    bam_dedup       = ch_bam_bai_deduped
     group_bam       = ch_bam_grouped
     duplex_bam      = ch_bam_dup_stix
     split_reads     = ch_split_reads
