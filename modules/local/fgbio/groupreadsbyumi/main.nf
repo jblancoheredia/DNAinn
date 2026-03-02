@@ -19,9 +19,10 @@ process FGBIO_GROUPREADSBYUMI {
     val(mark_duplicates)
 
     output:
-    tuple val(meta), path("*.grouped.bam")              , emit: bam
-    tuple val(meta), path("*.grouped-family-sizes.txt") , emit: histogram
-    path "versions.yml"                                 , emit: versions
+    tuple val(meta), path("*.deduped.bam"), path("*.deduped.bam.bai"), emit: bam_bai_deduped
+    tuple val(meta), path("*.grouped-family-sizes.txt")              , emit: histogram
+    tuple val(meta), path("*.grouped.bam")                           , emit: bam
+    path "versions.yml"                                              , emit: versions
 
     script:
     def args = task.ext.args ?: ''
@@ -59,11 +60,11 @@ process FGBIO_GROUPREADSBYUMI {
         -f 3 \\
         -F 1024 \\
         -F 2048 \\
-        -o ${prefix}_deduped.bam \\
+        -o ${prefix}.deduped.bam \\
         ${prefix}.grouped.bam
 
     samtools index \\
-        ${prefix}_deduped.bam 
+        ${prefix}.deduped.bam 
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
