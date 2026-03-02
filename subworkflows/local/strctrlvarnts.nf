@@ -51,11 +51,11 @@ workflow STRCTRLVARNTS {
     ch_bwa2
     ch_dict
     ch_fasta
-    ch_bampairs
     ch_bcf_mpileup
     ch_known_sites
     ch_split_reads
     ch_split_contigs
+    ch_bam_dedup_pairs
     ch_reads_finalized
     ch_intervals_gunzip
     ch_intervals_gunzip_index
@@ -65,80 +65,80 @@ workflow STRCTRLVARNTS {
     ch_multiqc_files = Channel.empty()
 
 //    if (params.run_umiprocessing) {
-    //
-    // MODULE: BWA-MEM2 mapping
-    //
-    sort_bam = 'sort'
-    BWAMEM2(ch_reads_finalized, ch_split_contigs, ch_bwa2, ch_fasta, ch_fai, sort_bam)
-    ch_versions = ch_versions.mix(BWAMEM2.out.versions)
-    ch_bwamem2_bam = BWAMEM2.out.bam
-
-    //
-    // MODULE: Run Demote to clean BAM file from multiple primary reads
-    //
-    DEMOTE(ch_bwamem2_bam)
-    ch_versions = ch_versions.mix(DEMOTE.out.versions)
-    ch_bam_con_split = DEMOTE.out.bam
-
-    //
-    // Pair tumour samples with normal samples by patient meta key. If tumour only use backup normal
-    //
-    def control_normal_bam = file(params.normal_con_bam)
-    def control_normal_bai = file(params.normal_con_bai)
-    ch_bam_con_split
-        .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
-        .groupTuple(by: 0)
-        .map { patient, meta_list, bam_list, bai_list -> 
-            def samples = []
-            meta_list.eachWithIndex { meta, i ->
-                samples << [meta, bam_list[i], bai_list[i]]
-            }
-            def tumour = samples.find { it[0].sample_type == 'tumour' }
-            def normal = samples.find { it[0].sample_type == 'normal' }
-            if (tumour && normal) {
-                return [tumour, normal]
-            } else if (tumour && tumour[0].matched_normal == 0) {
-                return [tumour, null]
-            } else {
-                return null
-            }
-        }
-        .filter { it != null }
-        .map { tumour, normal ->
-            def meta_t = tumour[0]
-            def bam_t  = tumour[1]
-            def bai_t  = tumour[2]
-            if (normal) {
-                def bam_n = normal[1]
-                def bai_n = normal[2]
-                return [meta_t, bam_t, bai_t, bam_n, bai_n]
-            } else {
-                return [meta_t, bam_t, bai_t, control_normal_bam, control_normal_bai]
-            }
-        }
-        .set { ch_bam_pairs }
+//    //
+//    // MODULE: BWA-MEM2 mapping
+//    //
+//    sort_bam = 'sort'
+//    BWAMEM2(ch_reads_finalized, ch_split_contigs, ch_bwa2, ch_fasta, ch_fai, sort_bam)
+//    ch_versions = ch_versions.mix(BWAMEM2.out.versions)
+//    ch_bwamem2_bam = BWAMEM2.out.bam
+//
+//    //
+//    // MODULE: Run Demote to clean BAM file from multiple primary reads
+//    //
+//    DEMOTE(ch_bwamem2_bam)
+//    ch_versions = ch_versions.mix(DEMOTE.out.versions)
+//    ch_bam_con_split = DEMOTE.out.bam
+//
+//    //
+//    // Pair tumour samples with normal samples by patient meta key. If tumour only use backup normal
+//    //
+//    def control_normal_bam = file(params.normal_con_bam)
+//    def control_normal_bai = file(params.normal_con_bai)
+//    ch_bam_con_split
+//        .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
+//        .groupTuple(by: 0)
+//        .map { patient, meta_list, bam_list, bai_list -> 
+//            def samples = []
+//            meta_list.eachWithIndex { meta, i ->
+//                samples << [meta, bam_list[i], bai_list[i]]
+//            }
+//            def tumour = samples.find { it[0].sample_type == 'tumour' }
+//            def normal = samples.find { it[0].sample_type == 'normal' }
+//            if (tumour && normal) {
+//                return [tumour, normal]
+//            } else if (tumour && tumour[0].matched_normal == 0) {
+//                return [tumour, null]
+//            } else {
+//                return null
+//            }
+//        }
+//        .filter { it != null }
+//        .map { tumour, normal ->
+//            def meta_t = tumour[0]
+//            def bam_t  = tumour[1]
+//            def bai_t  = tumour[2]
+//            if (normal) {
+//                def bam_n = normal[1]
+//                def bai_n = normal[2]
+//                return [meta_t, bam_t, bai_t, bam_n, bai_n]
+//            } else {
+//                return [meta_t, bam_t, bai_t, control_normal_bam, control_normal_bai]
+//            }
+//        }
+//        .set { ch_bam_pairs }
 //    } else {
-//        ch_bam_pairs = ch_bampairs
+//        ch_bam_pairs = ch_bam_dedup_pairs
 //    }
 
     //
     // MODULE: Run Delly Call
     //
-    DELLY(ch_bam_pairs, ch_fasta, ch_fai, params.exclude_bed)
+    DELLY(ch_bam_dedup_pairs, ch_fasta, ch_fai, params.exclude_bed)
     ch_versions = ch_versions.mix(DELLY.out.versions)
     ch_delly_vcf = DELLY.out.vcf
 
     //
     // MODULE: Run Gridds (Extract overlapping fragments & calling)
     //
-    GRIDSS(ch_bam_pairs, ch_fai, ch_fasta, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
+    GRIDSS(ch_bam_dedup_pairs, ch_fai, ch_fasta, params.intervals, params.blocklist_bed, params.bwa, params.kraken2db)
     ch_versions = ch_versions.mix(GRIDSS.out.versions)
     ch_gridss_vcf = GRIDSS.out.vcf
 
     //
     // MODULE: Run Manta in Only Tumour & Somatic modes
     //
-    MANTA(ch_bam_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
+    MANTA(ch_bam_dedup_pairs, ch_intervals_gunzip, ch_intervals_gunzip_index, ch_fasta, ch_fai, [])
 //    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_tsv.collect{it[1]}.ifEmpty([]))
 //    ch_multiqc_files  = ch_multiqc_files.mix(MANTA.out.metrics_txt.collect{it[1]}.ifEmpty([]))
     ch_versions = ch_versions.mix(MANTA.out.versions)
@@ -147,14 +147,14 @@ workflow STRCTRLVARNTS {
     //
     // MODULE: Run SvABA Note: version 1.2.0
     //
-    SVABA(ch_bam_pairs, ch_fasta, ch_fai, params.known_sites_tbi, params.known_sites, params.intervals, params.bwa)
+    SVABA(ch_bam_dedup_pairs, ch_fasta, ch_fai, params.known_sites_tbi, params.known_sites, params.intervals, params.bwa)
     ch_versions = ch_versions.mix(SVABA.out.versions)
     ch_svaba_vcf = SVABA.out.vcf
 
     //
     // MODULE: Run TIDDIT in SV mode
     //
-    TIDDIT_SV(ch_bam_pairs, ch_fasta, ch_bwa)
+    TIDDIT_SV(ch_bam_dedup_pairs, ch_fasta, ch_bwa)
     ch_versions = ch_versions.mix(TIDDIT_SV.out.versions)
     ch_tiddit_ploidy = TIDDIT_SV.out.ploidy
     ch_tiddit_vcf = TIDDIT_SV.out.vcf
@@ -204,7 +204,7 @@ workflow STRCTRLVARNTS {
     //
     // Join interval lists with BAM pairs based on patient
     //
-    ch_recall_input = ch_bam_pairs
+    ch_recall_input = ch_bam_dedup_pairs
         .map {meta, tbam, tbai, nbam, nbai -> [meta.patient, meta, tbam, tbai, nbam, nbai] }
         .join(ch_merged_int_list.map { meta, interval_list -> [meta.patient, meta, interval_list] })
         .map { patient, meta_bam_pairs, tbam, tbai, nbam, nbai, meta_interval_list, interval_list ->
@@ -305,8 +305,8 @@ workflow STRCTRLVARNTS {
     //
     // Join annotated SVs with BAM pairs based on patient
     //
-    ch_bam_pairs_by_patient = ch_bam_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
-    ch_drawsv_input = ch_bam_pairs_by_patient
+    ch_bam_dedup_pairs_by_patient = ch_bam_dedup_pairs.map {meta, bam_t, bai_t, bam_n, bai_n -> tuple(meta.patient, meta, bam_t, bai_t, bam_n, bai_n) }
+    ch_drawsv_input = ch_bam_dedup_pairs_by_patient
         .join(ch_sv_annotated_with_svs
         .map {meta, tsv -> tuple(meta.patient, meta, tsv)}
         )
