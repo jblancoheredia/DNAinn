@@ -4,8 +4,8 @@ process FGBIO_GROUPREADSBYUMI {
 
     conda "bioconda::fgbio=2.2.1"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/fgbio:2.2.1--hdfd78af_0' :
-        'quay.io/biocontainers/fgbio:2.2.1--hdfd78af_0' }"
+        'docker://blancojmskcc/fgbio:2.4.0' :
+        'blancojmskcc/fgbio:2.4.0' }"
 
     input:
     tuple val(meta), path(mapped_bam)
@@ -54,9 +54,21 @@ process FGBIO_GROUPREADSBYUMI {
         --family-size-histogram ${prefix}.grouped-family-sizes.txt \\
         ${args}
     
+    samtools view \\
+        -b \\
+        -f 3 \\
+        -F 1024 \\
+        -F 2048 \\
+        -o ${prefix}_deduped.bam \\
+        ${prefix}.grouped.bam
+
+    samtools index \\
+        ${prefix}_deduped.bam 
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         fgbio: \$( echo \$(fgbio --version 2>&1 | tr -d '[:cntrl:]' ) | sed -e 's/^.*Version: //;s/\\[.*\$//')
+        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
     END_VERSIONS
     """
 
@@ -69,6 +81,7 @@ process FGBIO_GROUPREADSBYUMI {
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         fgbio: \$( echo \$(fgbio --version 2>&1 | tr -d '[:cntrl:]' ) | sed -e 's/^.*Version: //;s/\\[.*\$//')
+        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
     END_VERSIONS
     """
 }
