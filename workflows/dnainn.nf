@@ -201,7 +201,7 @@ workflow DNAINN {
         ch_bam_duplex               = UMIPROCESSING.out.duplex_bam
         ch_bam_grouped				= UMIPROCESSING.out.group_bam
         ch_split_reads              = UMIPROCESSING.out.split_reads
-        ch_bam_bai_dedup            = DEDUPANDRECAL.out.bam_dedup
+        ch_bam_bai_dedup            = UMIPROCESSING.out.bam_dedup
         ch_multiqc_files			= ch_multiqc_files.mix(UMIPROCESSING.out.multiqc_files)
         ch_bam_finalized			= UMIPROCESSING.out.finalized_bam
         ch_split_contigs            = UMIPROCESSING.out.split_contigs
