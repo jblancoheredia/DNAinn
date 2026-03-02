@@ -15,8 +15,8 @@ process GATK4_MARKDUPLICATES {
     output:
     path "versions.yml",                                    emit: versions
     tuple val(meta), path("*.metrics"),                     emit: metrics
-    tuple val(meta), path("*_deduped.bam"), path("*.bai"),  emit: bam
     tuple val(meta), path("*_complex_metrics.txt"),         emit: complex_metrics
+    tuple val(meta), path("*_deduped.bam"), path("*.bai"),  emit: bam
 
     when:
     task.ext.when == null || task.ext.when
@@ -73,8 +73,9 @@ process GATK4_MARKDUPLICATES {
     stub:
     prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}_md.bam
     touch ${prefix}.metrics
+    touch ${prefix}_deduped.bam
+    touch ${prefix}_deduped.bam.bai
     touch ${prefix}_est_lib_complex_metrics.txt
 
     cat <<-END_VERSIONS > versions.yml
