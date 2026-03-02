@@ -201,10 +201,12 @@ workflow DNAINN {
         ch_bam_duplex               = UMIPROCESSING.out.duplex_bam
         ch_bam_grouped				= UMIPROCESSING.out.group_bam
         ch_split_reads              = UMIPROCESSING.out.split_reads
+        ch_bam_bai_dedup            = DEDUPANDRECAL.out.bam_dedup
         ch_multiqc_files			= ch_multiqc_files.mix(UMIPROCESSING.out.multiqc_files)
         ch_bam_finalized			= UMIPROCESSING.out.finalized_bam
         ch_split_contigs            = UMIPROCESSING.out.split_contigs
         ch_reads_finalized          = UMIPROCESSING.out.reads_finalized
+
 
     } else {
 
@@ -225,6 +227,7 @@ workflow DNAINN {
         ch_split_reads              = DEDUPANDRECAL.out.split_reads
         ch_multiqc_files			= ch_multiqc_files.mix(DEDUPANDRECAL.out.multiqc_files)
         ch_split_contigs            = DEDUPANDRECAL.out.split_contigs
+        ch_bam_bai_dedup            = DEDUPANDRECAL.out.bam_dedup
         ch_bam_finalized			= DEDUPANDRECAL.out.bam_final
         ch_reads_finalized			= DEDUPANDRECAL.out.reads_final
 
@@ -271,6 +274,42 @@ workflow DNAINN {
             }
         }
         .set { ch_bam_pairs }
+
+    ch_bam_bai_dedup
+        .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
+        .groupTuple(by: 0)
+        .map { patient, meta_list, bam_list, bai_list -> 
+            def samples = []
+            meta_list.eachWithIndex { meta, i ->
+                samples << [meta, bam_list[i], bai_list[i]]
+            }
+
+            def tumour = samples.find { it[0].sample_type == 'tumour' }
+            def normal = samples.find { it[0].sample_type == 'normal' }
+
+            if (tumour && normal) {
+                return [tumour, normal]
+            } else if (tumour && tumour[0].matched_normal == 0) {
+                return [tumour, null]
+            } else {
+                return null
+            }
+        }
+        .filter { it != null }
+        .map { tumour, normal ->
+            def meta_t = tumour[0]
+            def bam_t  = tumour[1]
+            def bai_t  = tumour[2]
+
+            if (normal) {
+                def bam_n = normal[1]
+                def bai_n = normal[2]
+                return [meta_t, bam_t, bai_t, bam_n, bai_n]
+            } else {
+                return [meta_t, bam_t, bai_t, control_normal_bam, control_normal_bai]
+            }
+        }
+        .set { ch_bam_dedup_pairs }
 
     if (params.run_copynumberalt) {
 
@@ -369,11 +408,11 @@ workflow DNAINN {
         ch_bwa2,
         ch_dict,
         ch_fasta,
-        ch_bam_pairs,
         ch_bcf_mpileup,
         ch_known_sites,
         ch_split_reads,
         ch_split_contigs,
+        ch_bam_dedup_pairs,
         ch_reads_finalized,
         ch_intervals_gunzip,
         ch_intervals_gunzip_index
