@@ -64,7 +64,7 @@ process FGBIO_GROUPREADSBYUMI {
         ${prefix}.grouped.bam
 
     samtools index \\
-        ${prefix}.deduped.bam 
+        ${prefix}.deduped.bam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -77,6 +77,8 @@ process FGBIO_GROUPREADSBYUMI {
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
     touch ${prefix}.grouped.bam
+    touch ${prefix}.deduped.bam
+    touch ${prefix}.deduped.bam.bai
     touch ${prefix}.grouped-family-sizes.txt
 
     cat <<-END_VERSIONS > versions.yml
