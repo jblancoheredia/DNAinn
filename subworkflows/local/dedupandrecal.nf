@@ -380,11 +380,12 @@ workflow DEDUPANDRECAL {
     raw_bam         = ch_bam_raw
     raw_bai         = ch_bai_raw
     versions        = ch_vers_coll
+    bam_dedup       = ch_bam_dedup
     bam_final       = ch_bam_bai_dr
     reads_final     = ch_reads_dandr
     split_reads     = ch_split_reads
     multiqc_files   = ch_multiqc_files
-    split_contigs   = ch_split_contigs 
+    split_contigs   = ch_split_contigs
 
 }
 
