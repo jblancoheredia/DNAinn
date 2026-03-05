@@ -21,10 +21,10 @@ process VARDICTJAVA {
     task.ext.when == null || task.ext.when
 
     script:
+    def threads = task.cpus / 2
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
     def prefix = task.ext.prefix ?: '${meta.id}'
-    def threads = task.ext.threads ?: task.cpus / 2
     """
     export JAVA_OPTS='"-Xms${task.memory.toMega()/4}m" "-Xmx${task.memory.toGiga()/2}g" "-Dsamjdk.reference_fasta=${fasta}"'
 
