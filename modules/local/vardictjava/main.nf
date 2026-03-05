@@ -23,19 +23,20 @@ process VARDICTJAVA {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: '${meta.id}'
+    def threads = task.ext.args ?: task.cpus / 2
     """
-    export JAVA_OPTS='"-Xms${task.memory.toMega()/4}m" "-Xmx${task.memory.toGiga()}g" "-Dsamjdk.reference_fasta=${fasta}"'
+    export JAVA_OPTS='"-Xms${task.memory.toMega()/4}m" "-Xmx${task.memory.toGiga()/2}g" "-Dsamjdk.reference_fasta=${fasta}"'
 
     vardict-java \\
         ${args} \\
         -b \"${tbam}|${nbam}\" \\
-        -th ${task.cpus} \\
+        -th ${threads} \\
         -G ${fasta} \\
         ${bed} \\
         | var2vcf_paired.pl \\
         ${args2} \\
-        | bgzip --threads ${task.cpus} > ${prefix}.vcf.gz
+        | bgzip --threads ${threads} > ${prefix}.vcf.gz
 
     tabix -p vcf ${prefix}.vcf.gz
 
