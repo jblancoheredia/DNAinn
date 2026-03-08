@@ -27,6 +27,7 @@ include { DOWNSAMPLINGS_SEQTK                                                   
 include { COPYNUMBERALT                                                                 } from '../subworkflows/local/copynumberalt'
 include { DEDUPANDRECAL                                                                 } from '../subworkflows/local/dedupandrecal'
 include { IMMUNONCOLOGY                                                                 } from '../subworkflows/local/immunoncology'
+include { PREPROCESSING                                                                 } from '../subworkflows/local/preprocessing'
 include { STRCTRLVARNTS                                                                 } from '../subworkflows/local/strctrlvarnts'
 include { TELOMEREFEATS                                                                 } from '../subworkflows/local/telomerefeats'
 include { UMIPROCESSING                                                                 } from '../subworkflows/local/umiprocessing'
@@ -109,6 +110,22 @@ workflow DNAINN {
     ch_fastq_single     = ch_fastq.single.map   {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
     ch_fastq_multiple   = ch_fastq.multiple.map {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
 
+
+    //
+    // SUBWORKFLOW: PRE processing
+    //
+    PREPROCESSING(
+        ch_fastq,
+        ch_fastq_multiple
+    )
+    ch_ubam						= UMIPROCESSING.out.ubam
+    ch_raw_bam					= UMIPROCESSING.out.raw_bam
+    ch_raw_bai					= UMIPROCESSING.out.raw_bai
+    ch_raw_baix                 = UMIPROCESSING.out.raw_baix
+    ch_versions					= ch_versions.mix(PREPROCESSING.out.versions)
+    ch_multiqc_files			= ch_multiqc_files.mix(DEDUPANDRECAL.out.multiqc_files)
+
+
     //
     // MODULE: Run FastQC
     //
@@ -174,6 +191,7 @@ workflow DNAINN {
     }
 
     // Subworkflow Channels
+    ch_preprocessing_output = Channel.empty()
     ch_umiprocessing_output = Channel.empty()
     ch_dedupandrecal_output = Channel.empty()
     ch_copynumberalt_output = Channel.empty()
