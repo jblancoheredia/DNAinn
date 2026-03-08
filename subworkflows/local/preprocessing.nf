@@ -22,12 +22,39 @@ include { DOWNSAMPLINGS_SEQTK                                                   
 workflow PREPROCESSING {
 
     take:
-    ch_fastq
-    ch_fastq
-
+    ch_samplesheet
+    
     main:
-    ch_versions       = Channel.empty()
-    ch_multiqc_files  = Channel.empty()
+    ch_reports          = Channel.empty()
+    ch_versions         = Channel.empty()
+    ch_multiqc_files    = Channel.empty()
+
+    //
+    // Create channel from input file provided through params.input
+    //
+    Channel
+        .fromSamplesheet("input")
+        .map {
+            meta, fastq_1, fastq_2 ->
+                if (!fastq_2) {
+                    return [ meta.id, meta + [ single_end:true ], [ fastq_1 ] ]
+                } else {
+                    return [ meta.id, meta + [ single_end:false ], [ fastq_1, fastq_2 ] ]
+                }
+        }
+        .groupTuple()
+        .map {
+            validateInputSamplesheet(it)
+        }
+        .branch {
+            meta, fastqs ->
+                single  : fastqs.size() == 1
+                    return [ meta, fastqs.flatten() ]
+                multiple: fastqs.size() > 1
+                    return [ meta, fastqs.flatten() ]
+        }
+        .set { ch_fastq }
+
     ch_fastq_single   = ch_fastq.single.map   {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
     ch_fastq_multiple = ch_fastq.multiple.map {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
 
