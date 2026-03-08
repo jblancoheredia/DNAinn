@@ -103,8 +103,6 @@ workflow DNAINN {
                     return [ meta, fastqs.flatten() ]
         }
         .set { ch_fastq }
-    ch_fastq_single     = ch_fastq.single.map   {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
-    ch_fastq_multiple   = ch_fastq.multiple.map {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
 
     // Subworkflow Channels
     ch_preprocessing_output = Channel.empty()
@@ -118,9 +116,7 @@ workflow DNAINN {
     // SUBWORKFLOW: PRE processing
     //
     PREPROCESSING(
-        ch_fastq,
-        ch_fastq_single,
-        ch_fastq_multiple
+        ch_fastq
     )
     ch_fastqs                   = PREPROCESSING.out.fastqs
     ch_versions					= ch_versions.mix(PREPROCESSING.out.versions)
