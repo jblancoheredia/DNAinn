@@ -81,8 +81,8 @@ workflow DNAINN {
         ch_samplesheet
     )
     ch_fastqs                   = PREPROCESSING.out.fastqs
-    ch_versions					= ch_versions.mix(PREPROCESSING.out.versions)
-    ch_multiqc_files			= ch_multiqc_files.mix(PREPROCESSING.out.multiqc_files)
+    ch_versions					= PREPROCESSING.out.versions
+    ch_multiqc_files			= PREPROCESSING.out.multiqc_files
 
     if (params.run_umiprocessing) {
         
