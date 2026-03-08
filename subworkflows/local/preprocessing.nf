@@ -10,8 +10,8 @@
 
 include { FASTQC                                                                                                                    } from '../../modules/nf-core/fastqc/main'
 include { CAT_FASTQ                                                                                                                 } from '../../modules/local/cat/fastq/main'
-include { DOWNSAMPLINGS_COUNT                                                           } from '../modules/local/downsamplings/count'
-include { DOWNSAMPLINGS_SEQTK                                                           } from '../modules/local/downsamplings/seqtk'
+include { DOWNSAMPLINGS_COUNT                                                                                                       } from '../../modules/local/downsamplings/count'
+include { DOWNSAMPLINGS_SEQTK                                                                                                       } from '../../modules/local/downsamplings/seqtk'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
