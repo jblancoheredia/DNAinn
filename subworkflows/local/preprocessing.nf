@@ -23,6 +23,7 @@ workflow PREPROCESSING {
 
     take:
     ch_fastq
+    ch_fastq
 
     main:
     ch_versions       = Channel.empty()
