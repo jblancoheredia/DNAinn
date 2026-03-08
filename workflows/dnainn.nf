@@ -12,11 +12,7 @@ include { paramsSummaryMap                                                      
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { FASTQC                                                                        } from '../modules/nf-core/fastqc/main'
 include { MULTIQC                                                                       } from '../modules/nf-core/multiqc/main'
-include { CAT_FASTQ                                                                     } from '../modules/local/cat/fastq/main'
-include { DOWNSAMPLINGS_COUNT                                                           } from '../modules/local/downsamplings/count'
-include { DOWNSAMPLINGS_SEQTK                                                           } from '../modules/local/downsamplings/seqtk'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,86 +106,6 @@ workflow DNAINN {
     ch_fastq_single     = ch_fastq.single.map   {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
     ch_fastq_multiple   = ch_fastq.multiple.map {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
 
-
-    //
-    // SUBWORKFLOW: PRE processing
-    //
-    PREPROCESSING(
-        ch_fastq,
-        ch_fastq_multiple
-    )
-    ch_ubam						= UMIPROCESSING.out.ubam
-    ch_raw_bam					= UMIPROCESSING.out.raw_bam
-    ch_raw_bai					= UMIPROCESSING.out.raw_bai
-    ch_raw_baix                 = UMIPROCESSING.out.raw_baix
-    ch_versions					= ch_versions.mix(PREPROCESSING.out.versions)
-    ch_multiqc_files			= ch_multiqc_files.mix(DEDUPANDRECAL.out.multiqc_files)
-
-
-    //
-    // MODULE: Run FastQC
-    //
-    FASTQC(ch_fastq.mix())
-    ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[1]})
-    ch_versions = ch_versions.mix(FASTQC.out.versions)
-
-    //
-    // MODULE: Concatenate FastQ files from same sample if required
-    //
-    CAT_FASTQ (ch_fastq_multiple)
-    .reads
-    .mix(ch_fastq_single)
-    .set { ch_cat_fastq }
-    ch_versions = ch_versions.mix(CAT_FASTQ.out.versions)
-
-    //
-    // MODULE: Run in-house script for counting reads
-    //
-    DOWNSAMPLINGS_COUNT(ch_cat_fastq)
-    ch_versions = ch_versions.mix(DOWNSAMPLINGS_COUNT.out.versions)
-    ch_global_min_reads = DOWNSAMPLINGS_COUNT.out.total_reads
-        .map { file -> 
-            def count = file.text.trim()
-            count.toInteger()
-        }
-        .collect()
-        .map { counts -> 
-            def min_count = counts.min()
-            min_count
-        }
-
-    if (params.run_downsamplings) {
-
-        if (params.downsampling_total_reads) {
-
-            //
-            // MODULE: Run Downsampling with seqtk
-            //
-            DOWNSAMPLINGS_SEQTK(ch_cat_fastq, params.downsampling_total_reads)
-            ch_versions = ch_versions.mix(DOWNSAMPLINGS_SEQTK.out.versions)
-            ch_downsampled_reads = DOWNSAMPLINGS_SEQTK.out.downsampled_reads
-
-            ch_fastqs = ch_downsampled_reads
-
-        } else {
-
-            //
-            // MODULE: Run Downsampling with seqtk
-            //
-            DOWNSAMPLINGS_SEQTK(ch_cat_fastq, ch_global_min_reads)
-            ch_versions = ch_versions.mix(DOWNSAMPLINGS_SEQTK.out.versions)
-            ch_downsampled_reads = DOWNSAMPLINGS_SEQTK.out.downsampled_reads
-
-            ch_fastqs = ch_downsampled_reads
-
-        }
-
-    } else {
-
-        ch_fastqs = ch_cat_fastq
-
-    }
-
     // Subworkflow Channels
     ch_preprocessing_output = Channel.empty()
     ch_umiprocessing_output = Channel.empty()
@@ -197,6 +113,18 @@ workflow DNAINN {
     ch_copynumberalt_output = Channel.empty()
     ch_variantdscvry_output = Channel.empty()
     ch_strctrlvarnts_output = Channel.empty()
+
+    //
+    // SUBWORKFLOW: PRE processing
+    //
+    PREPROCESSING(
+        ch_fastq,
+        ch_fastq_single,
+        ch_fastq_multiple
+    )
+    ch_fastqs                   = PREPROCESSING.out.fastqs
+    ch_versions					= ch_versions.mix(PREPROCESSING.out.versions)
+    ch_multiqc_files			= ch_multiqc_files.mix(PREPROCESSING.out.multiqc_files)
 
     if (params.run_umiprocessing) {
         
