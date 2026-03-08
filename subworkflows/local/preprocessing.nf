@@ -23,12 +23,13 @@ workflow PREPROCESSING {
 
     take:
     ch_fastq
-    ch_fastq_single
-    ch_fastq_multiple
 
     main:
-    ch_versions = Channel.empty()
-    ch_multiqc_files = Channel.empty()
+    ch_versions       = Channel.empty()
+    ch_multiqc_files  = Channel.empty()
+    ch_fastq_single   = ch_fastq.single.map   {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
+    ch_fastq_multiple = ch_fastq.multiple.map {meta, fastqs -> addReadgroupToMeta(meta, fastqs)}
+
     //
     // MODULE: Run FastQC
     //
