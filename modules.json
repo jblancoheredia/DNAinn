@@ -25,9 +25,24 @@
             "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
             "installed_by": ["modules"]
           },
+          "bcftools/annotate": {
+            "branch": "master",
+            "git_sha": "3d9c2f4beaa4f62b3f006928fd9095a496d1e5a8",
+            "installed_by": ["modules"]
+          },
+          "bcftools/concat": {
+            "branch": "master",
+            "git_sha": "6383d8fe58f9498eecd5aa303e71a4a932d1e9f6",
+            "installed_by": ["modules"]
+          },
           "bcftools/merge": {
             "branch": "master",
             "git_sha": "8656636f0d0a86aa3966052b5c2cd06141647c70",
+            "installed_by": ["modules"]
+          },
+          "bcftools/norm": {
+            "branch": "master",
+            "git_sha": "6383d8fe58f9498eecd5aa303e71a4a932d1e9f6",
             "installed_by": ["modules"]
           },
           "bwamem2/index": {
@@ -113,6 +128,11 @@
           "deepvariant/rundeepvariant": {
             "branch": "master",
             "git_sha": "666652151335353eef2fcd58880bcef5bc2928e1",
+            "installed_by": ["modules"]
+          },
+          "ensemblvep/vep": {
+            "branch": "master",
+            "git_sha": "890fdcff71928fc1470d3e669d4c430c8c770297",
             "installed_by": ["modules"]
           },
           "fastp": {
@@ -278,6 +298,16 @@
           "sequenzautils/bam2seqz": {
             "branch": "master",
             "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d",
+            "installed_by": ["modules"]
+          },
+          "snpeff/snpeff": {
+            "branch": "master",
+            "git_sha": "b9d6ae8d65f33e04068aa5fe86dcc87c43ee81b0",
+            "installed_by": ["modules"]
+          },
+          "snpsift/annmem": {
+            "branch": "master",
+            "git_sha": "4bf89b5119412bc96a0a91d2f7661edb4fa0183b",
             "installed_by": ["modules"]
           },
           "survivor/merge": {

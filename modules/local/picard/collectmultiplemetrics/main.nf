@@ -13,10 +13,11 @@ process PICARD_COLLECTMULTIPLEMETRICS {
     tuple val(meta3), path(fai)
 
     output:
-    tuple val(meta), path("*_metrics"), emit: metrics
-    tuple val(meta), path("*mplexity"), emit: complexity
-    tuple val(meta), path("*.pdf")    , emit: pdf, optional: true
-    path  "versions.yml"              , emit: versions
+    tuple val(meta), path("*Metrics*")   , emit: metrics
+    tuple val(meta), path("*Complexity*"), emit: complexity
+    tuple val(meta), path("*InsertSize*"), emit: insertsize
+    tuple val(meta), path("*.pdf")       , emit: pdf, optional: true
+    path  "versions.yml"                 , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -45,6 +46,14 @@ process PICARD_COLLECTMULTIPLEMETRICS {
         EstimateLibraryComplexity \\
         --INPUT $bam \\
         --OUTPUT ${prefix}.EstimateLibraryComplexity
+
+    picard \\
+        -Xmx${avail_mem}M \\
+        CollectInsertSizeMetrics \\
+        --INPUT $bam \\
+        --OUTPUT ${prefix}_InsertSize.txt \\
+        --Histogram_FILE ${prefix}_InsertSize.pdf \\
+        $args
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
