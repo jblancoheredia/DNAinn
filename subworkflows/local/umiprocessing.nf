@@ -182,85 +182,85 @@ workflow UMIPROCESSING {
     PICARD_COLLECTMULTIPLEMETRICS_RAW(ch_bam_fcu_stix, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_RAW.out.versions.first())
 
-//    //
-//    // MODULE: Run BAMCUT to split by Chromosome
-//    //
-//    BAMCUT(ch_bam_fcu_stix)
-//    ch_versions = ch_versions.mix(BAMCUT.out.versions)
-//    ch_bams = BAMCUT.out.bams
-//    ch_bais = BAMCUT.out.bais
-//
-//    ch_bam_by_chrom = ch_bams.flatMap { meta, bamList ->
-//        bamList.collect { bam ->
-//            def chrom = bam.name.replace(meta.id + "_", "").replace(".bam", "")
-//            tuple(meta, chrom, bam)
-//        }
-//    }
-//    
-//    ch_bai_by_chrom = ch_bais.flatMap { meta, baiList ->
-//        baiList.collect { bai ->
-//            def chrom = bai.name.replace(meta.id + "_", "").replace(".bai", "")
-//            tuple(meta, chrom, bai)
-//        }
-//    }
-//
-//    //
-//    // MODULE: Run RepeatSeq
-//    //
-//    REPEATSEQ(ch_bam_by_chrom, ch_bai_by_chrom, ch_fasta, ch_fai, params.rep_regions)
-//    ch_repeats_vcfs = REPEATSEQ.out.vcf.collect()
-//    ch_repeats_calls = REPEATSEQ.out.calls.collect()
-//    ch_repeats_repeatseqs = REPEATSEQ.out.repeatseq.collect()
-//    ch_versions = ch_versions.mix(REPEATSEQ.out.versions.first())
-//    REPEATSEQ.out.vcf
-//        .map { meta, file -> [meta.id, meta, file] }  
-//        .groupTuple()
-//        .map { id, metas, files -> [metas[0], files] }
-//        .branch {
-//            meta, files -> 
-//                complete: files.size() > 0
-//                    return [meta, files]
-//                failed: true
-//                    return meta
-//        }
-//        .set { grouped_vcfs }
-//    REPEATSEQ.out.calls
-//        .map { meta, file -> [meta.id, meta, file] }  
-//        .groupTuple()
-//        .map { id, metas, files -> [metas[0], files] }
-//        .branch {
-//            meta, files -> 
-//                complete: files.size() > 0
-//                    return [meta, files]
-//                failed: true
-//                    return meta
-//        }
-//        .set { grouped_calls }
-//    REPEATSEQ.out.repeatseq
-//        .map { meta, file -> [meta.id, meta, file] }  
-//        .groupTuple()
-//        .map { id, metas, files -> [metas[0], files] }
-//        .branch {
-//            meta, files -> 
-//                complete: files.size() > 0
-//                    return [meta, files]
-//                failed: true
-//                    return meta
-//        }
-//        .set { grouped_repeatseq }
-//
-//    //
-//    // MODULE: Run MergeBams to collect the outputs from RepeatSeq
-//    //
-//    grouped_vcfs.complete
-//        .join(grouped_calls.complete)
-//        .join(grouped_repeatseq.complete)
-//        .set { complete_sets }
-//    MERGE_REPS(
-//        complete_sets.map { meta, vcfs, calls, repeatseqs -> [meta, vcfs] },
-//        complete_sets.map { meta, vcfs, calls, repeatseqs -> [meta, calls] },
-//        complete_sets.map { meta, vcfs, calls, repeatseqs -> [meta, repeatseqs] }
-//    )
+    //
+    // MODULE: Run BAMCUT to split by Chromosome
+    //
+    BAMCUT(ch_bam_fcu_stix)
+    ch_versions = ch_versions.mix(BAMCUT.out.versions)
+    ch_bams = BAMCUT.out.bams
+    ch_bais = BAMCUT.out.bais
+
+    ch_bam_by_chrom = ch_bams.flatMap { meta, bamList ->
+        bamList.collect { bam ->
+            def chrom = bam.name.replace(meta.id + "_", "").replace(".bam", "")
+            tuple(meta, chrom, bam)
+        }
+    }
+    
+    ch_bai_by_chrom = ch_bais.flatMap { meta, baiList ->
+        baiList.collect { bai ->
+            def chrom = bai.name.replace(meta.id + "_", "").replace(".bai", "")
+            tuple(meta, chrom, bai)
+        }
+    }
+
+    //
+    // MODULE: Run RepeatSeq
+    //
+    REPEATSEQ(ch_bam_by_chrom, ch_bai_by_chrom, ch_fasta, ch_fai, params.rep_regions)
+    ch_repeats_vcfs = REPEATSEQ.out.vcf.collect()
+    ch_repeats_calls = REPEATSEQ.out.calls.collect()
+    ch_repeats_repeatseqs = REPEATSEQ.out.repeatseq.collect()
+    ch_versions = ch_versions.mix(REPEATSEQ.out.versions.first())
+    REPEATSEQ.out.vcf
+        .map { meta, file -> [meta.id, meta, file] }  
+        .groupTuple()
+        .map { id, metas, files -> [metas[0], files] }
+        .branch {
+            meta, files -> 
+                complete: files.size() > 0
+                    return [meta, files]
+                failed: true
+                    return meta
+        }
+        .set { grouped_vcfs }
+    REPEATSEQ.out.calls
+        .map { meta, file -> [meta.id, meta, file] }  
+        .groupTuple()
+        .map { id, metas, files -> [metas[0], files] }
+        .branch {
+            meta, files -> 
+                complete: files.size() > 0
+                    return [meta, files]
+                failed: true
+                    return meta
+        }
+        .set { grouped_calls }
+    REPEATSEQ.out.repeatseq
+        .map { meta, file -> [meta.id, meta, file] }  
+        .groupTuple()
+        .map { id, metas, files -> [metas[0], files] }
+        .branch {
+            meta, files -> 
+                complete: files.size() > 0
+                    return [meta, files]
+                failed: true
+                    return meta
+        }
+        .set { grouped_repeatseq }
+
+    //
+    // MODULE: Run MergeBams to collect the outputs from RepeatSeq
+    //
+    grouped_vcfs.complete
+        .join(grouped_calls.complete)
+        .join(grouped_repeatseq.complete)
+        .set { complete_sets }
+    MERGE_REPS(
+        complete_sets.map { meta, vcfs, calls, repeatseqs -> [meta, vcfs] },
+        complete_sets.map { meta, vcfs, calls, repeatseqs -> [meta, calls] },
+        complete_sets.map { meta, vcfs, calls, repeatseqs -> [meta, repeatseqs] }
+    )
 
     //
     // MODULE: Run SamBlaster
