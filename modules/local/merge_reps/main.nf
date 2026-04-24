@@ -21,7 +21,7 @@ process MERGE_REPS {
     """
     head -n 8 ${vcfs[0]} > ${prefix}_repeatseq.vcf
     for vcf in ${vcfs}; do
-        grep -v "^#" \$vcf >> ${prefix}_repeatseq.vcf
+        grep -v "^#" \$vcf >> ${prefix}_repeatseq.vcf || [ \$? -eq 1 ]
     done
 
     cat ${calls} > ${prefix}_repeatseq.calls
@@ -70,7 +70,7 @@ process MERGE_REPS_RAW {
     """
     head -n 8 ${vcfs[0]} > ${prefix}_repeatseq.raw.vcf
     for vcf in ${vcfs}; do
-        grep -v "^#" \$vcf >> ${prefix}_repeatseq.raw.vcf
+        grep -v "^#" \$vcf >> ${prefix}_repeatseq.raw.vcf || [ \$? -eq 1 ]
     done
 
     cat ${calls} > ${prefix}_repeatseq.raw.calls
@@ -119,7 +119,7 @@ process MERGE_REPS_CON {
     """
     head -n 8 ${vcfs[0]} > ${prefix}_repeatseq.con.vcf
     for vcf in ${vcfs}; do
-        grep -v "^#" \$vcf >> ${prefix}_repeatseq.con.vcf
+        grep -v "^#" \$vcf >> ${prefix}_repeatseq.con.vcf || [ \$? -eq 1 ]
     done
 
     cat ${calls} > ${prefix}_repeatseq.con.calls
@@ -168,7 +168,7 @@ process MERGE_REPS_DUP {
     """
     head -n 8 ${vcfs[0]} > ${prefix}_repeatseq.dup.vcf
     for vcf in ${vcfs}; do
-        grep -v "^#" \$vcf >> ${prefix}_repeatseq.dup.vcf
+        grep -v "^#" \$vcf >> ${prefix}_repeatseq.dup.vcf || [ \$? -eq 1 ]
     done
 
     cat ${calls} > ${prefix}_repeatseq.dup.calls
@@ -217,7 +217,7 @@ process MERGE_REPS_SIM {
     """
     head -n 8 ${vcfs[0]} > ${prefix}_repeatseq.sim.vcf
     for vcf in ${vcfs}; do
-        grep -v "^#" \$vcf >> ${prefix}_repeatseq.sim.vcf
+        grep -v "^#" \$vcf >> ${prefix}_repeatseq.sim.vcf || [ \$? -eq 1 ]
     done
 
     cat ${calls} > ${prefix}_repeatseq.sim.calls
