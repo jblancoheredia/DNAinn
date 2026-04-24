@@ -192,31 +192,36 @@ workflow UMIPROCESSING {
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_RAW.out.versions.first())
 
     //
-    // MODULE: Run BAMCUT to split by Chromosome
+    // MODULE: Run BAMCUT to split by Chunks
     //
     BAMCUT_RAW(ch_bam_fcu_stix)
     ch_versions = ch_versions.mix(BAMCUT_RAW.out.versions)
     ch_bams = BAMCUT_RAW.out.bams
     ch_bais = BAMCUT_RAW.out.bais
 
-    ch_bam_by_chrom = ch_bams.flatMap { meta, bamList ->
-        bamList.collect { bam ->
-            def chrom = bam.name.replace(meta.id + "_", "").replace(".bam", "")
-            tuple(meta, chrom, bam)
+    ch_bam_bai_by_chrom_raw = ch_bams.flatMap { meta, bamList ->
+        def bams = bamList instanceof List ? bamList : [bamList]
+        bams.collect { bam ->
+            def chrom = bam.name.replace("${meta.id}_", "").replace(".bam", "")
+            tuple(tuple(meta.id, chrom), meta, chrom, bam)
         }
-    }
-    
-    ch_bai_by_chrom = ch_bais.flatMap { meta, baiList ->
-        baiList.collect { bai ->
-            def chrom = bai.name.replace(meta.id + "_", "").replace(".bai", "")
-            tuple(meta, chrom, bai)
+    }.join(
+        ch_bais.flatMap { meta, baiList ->
+            def bais = baiList instanceof List ? baiList : [baiList]
+            bais.collect { bai ->
+                def n = bai.name.replace("${meta.id}_", "")
+                def chrom = n.endsWith('.bam.bai') ? n.replace('.bam.bai', '') : n.replace('.bai', '')
+                tuple(tuple(meta.id, chrom), meta, chrom, bai)
+            }
         }
+    ).map { key, meta, chrom, bam, meta2, chrom2, bai ->
+        tuple(meta, chrom, bam, bai)
     }
 
     //
     // MODULE: Run RepeatSeq
     //
-    REPEATSEQ_RAW(ch_bam_by_chrom, ch_bai_by_chrom, ch_fasta, ch_fai, params.rep_regions)
+    REPEATSEQ_RAW(ch_bam_bai_by_chrom_raw, ch_fasta, ch_fai, params.rep_regions)
     ch_repeats_vcfs = REPEATSEQ_RAW.out.vcf.collect()
     ch_repeats_calls = REPEATSEQ_RAW.out.calls.collect()
     ch_repeats_repeatseqs = REPEATSEQ_RAW.out.repeatseq.collect()
@@ -370,24 +375,29 @@ workflow UMIPROCESSING {
     ch_bams_con = BAMCUT_CON.out.bams
     ch_bais_con = BAMCUT_CON.out.bais
 
-    ch_bam_by_chrom_con = ch_bams_con.flatMap { meta, bamList ->
-        bamList.collect { bam ->
-            def chrom = bam.name.replace(meta.id + "_", "").replace(".bam", "")
-            tuple(meta, chrom, bam)
+    ch_bam_bai_by_chrom_con = ch_bams_con.flatMap { meta, bamList ->
+        def bams = bamList instanceof List ? bamList : [bamList]
+        bams.collect { bam ->
+            def chrom = bam.name.replace("${meta.id}_", "").replace(".bam", "")
+            tuple(tuple(meta.id, chrom), meta, chrom, bam)
         }
-    }
-    
-    ch_bai_by_chrom_con = ch_bais_con.flatMap { meta, baiList ->
-        baiList.collect { bai ->
-            def chrom = bai.name.replace(meta.id + "_", "").replace(".bai", "")
-            tuple(meta, chrom, bai)
+    }.join(
+        ch_bais_con.flatMap { meta, baiList ->
+            def bais = baiList instanceof List ? baiList : [baiList]
+            bais.collect { bai ->
+                def n = bai.name.replace("${meta.id}_", "")
+                def chrom = n.endsWith('.bam.bai') ? n.replace('.bam.bai', '') : n.replace('.bai', '')
+                tuple(tuple(meta.id, chrom), meta, chrom, bai)
+            }
         }
+    ).map { key, meta, chrom, bam, meta2, chrom2, bai ->
+        tuple(meta, chrom, bam, bai)
     }
 
     //
     // MODULE: Run RepeatSeq
     //
-    REPEATSEQ_CON(ch_bam_by_chrom_con, ch_bai_by_chrom_con, ch_fasta, ch_fai, params.rep_regions)
+    REPEATSEQ_CON(ch_bam_bai_by_chrom_con, ch_fasta, ch_fai, params.rep_regions)
     ch_repeats_vcfs_con = REPEATSEQ_CON.out.vcf.collect()
     ch_repeats_calls_con = REPEATSEQ_CON.out.calls.collect()
     ch_repeats_repeatseqs_con = REPEATSEQ_CON.out.repeatseq.collect()
@@ -451,24 +461,29 @@ workflow UMIPROCESSING {
     ch_bams_dup = BAMCUT_DUP.out.bams
     ch_bais_dup = BAMCUT_DUP.out.bais
 
-    ch_bam_by_chrom_dup = ch_bams_dup.flatMap { meta, bamList ->
-        bamList.collect { bam ->
-            def chrom = bam.name.replace(meta.id + "_", "").replace(".bam", "")
-            tuple(meta, chrom, bam)
+    ch_bam_bai_by_chrom_dup = ch_bams_dup.flatMap { meta, bamList ->
+        def bams = bamList instanceof List ? bamList : [bamList]
+        bams.collect { bam ->
+            def chrom = bam.name.replace("${meta.id}_", "").replace(".bam", "")
+            tuple(tuple(meta.id, chrom), meta, chrom, bam)
         }
-    }
-
-    ch_bai_by_chrom_dup = ch_bais_dup.flatMap { meta, baiList ->
-        baiList.collect { bai ->
-            def chrom = bai.name.replace(meta.id + "_", "").replace(".bai", "")
-            tuple(meta, chrom, bai)
+    }.join(
+        ch_bais_dup.flatMap { meta, baiList ->
+            def bais = baiList instanceof List ? baiList : [baiList]
+            bais.collect { bai ->
+                def n = bai.name.replace("${meta.id}_", "")
+                def chrom = n.endsWith('.bam.bai') ? n.replace('.bam.bai', '') : n.replace('.bai', '')
+                tuple(tuple(meta.id, chrom), meta, chrom, bai)
+            }
         }
+    ).map { key, meta, chrom, bam, meta2, chrom2, bai ->
+        tuple(meta, chrom, bam, bai)
     }
 
     //
     // MODULE: Run RepeatSeq
     //
-    REPEATSEQ_DUP(ch_bam_by_chrom_dup, ch_bai_by_chrom_dup, ch_fasta, ch_fai, params.rep_regions)
+    REPEATSEQ_DUP(ch_bam_bai_by_chrom_dup, ch_fasta, ch_fai, params.rep_regions)
     ch_repeats_vcfs_dup = REPEATSEQ_DUP.out.vcf.collect()
     ch_repeats_calls_dup = REPEATSEQ_DUP.out.calls.collect()
     ch_repeats_repeatseqs_dup = REPEATSEQ_DUP.out.repeatseq.collect()
@@ -532,24 +547,29 @@ workflow UMIPROCESSING {
     ch_bams_sim = BAMCUT_SIM.out.bams
     ch_bais_sim = BAMCUT_SIM.out.bais
 
-    ch_bam_by_chrom_sim = ch_bams_sim.flatMap { meta, bamList ->
-        bamList.collect { bam ->
-            def chrom = bam.name.replace(meta.id + "_", "").replace(".bam", "")
-            tuple(meta, chrom, bam)
+    ch_bam_bai_by_chrom_sim = ch_bams_sim.flatMap { meta, bamList ->
+        def bams = bamList instanceof List ? bamList : [bamList]
+        bams.collect { bam ->
+            def chrom = bam.name.replace("${meta.id}_", "").replace(".bam", "")
+            tuple(tuple(meta.id, chrom), meta, chrom, bam)
         }
-    }
-
-    ch_bai_by_chrom_sim = ch_bais_sim.flatMap { meta, baiList ->
-        baiList.collect { bai ->
-            def chrom = bai.name.replace(meta.id + "_", "").replace(".bai", "")
-            tuple(meta, chrom, bai)
+    }.join(
+        ch_bais_sim.flatMap { meta, baiList ->
+            def bais = baiList instanceof List ? baiList : [baiList]
+            bais.collect { bai ->
+                def n = bai.name.replace("${meta.id}_", "")
+                def chrom = n.endsWith('.bam.bai') ? n.replace('.bam.bai', '') : n.replace('.bai', '')
+                tuple(tuple(meta.id, chrom), meta, chrom, bai)
+            }
         }
+    ).map { key, meta, chrom, bam, meta2, chrom2, bai ->
+        tuple(meta, chrom, bam, bai)
     }
 
     //
     // MODULE: Run RepeatSeq
     //
-    REPEATSEQ_SIM(ch_bam_by_chrom_sim, ch_bai_by_chrom_sim, ch_fasta, ch_fai, params.rep_regions)
+    REPEATSEQ_SIM(ch_bam_bai_by_chrom_sim, ch_fasta, ch_fai, params.rep_regions)
     ch_repeats_vcfs_sim = REPEATSEQ_SIM.out.vcf.collect()
     ch_repeats_calls_sim = REPEATSEQ_SIM.out.calls.collect()
     ch_repeats_repeatseqs_sim = REPEATSEQ_SIM.out.repeatseq.collect()

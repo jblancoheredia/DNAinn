@@ -7,8 +7,7 @@ process REPEATSEQ {
         'blancojmskcc/repeatseq:0.8.2' }"
 
     input:
-    tuple val(meta),  val(chunk), path(bam)
-    tuple val(meta0), val(chunk), path(bai)
+    tuple val(meta), val(chunk), path(bam, stageAs: 'repeatseq_inputs/chunk.bam'), path(bai, stageAs: 'repeatseq_inputs/chunk.bam.bai')
     tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
     tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
     path(rep_regions, stageAs: 'reference/repeat_regions')
@@ -25,7 +24,6 @@ process REPEATSEQ {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     set +e
     repeatseq \\
@@ -53,7 +51,6 @@ process REPEATSEQ {
     stub:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     touch ${prefix}_${chunk}_repeatseq.vcf
     touch ${prefix}_${chunk}_repeatseq.calls
@@ -75,8 +72,7 @@ process REPEATSEQ_RAW {
         'blancojmskcc/repeatseq:0.8.2' }"
 
     input:
-    tuple val(meta),  val(chunk), path(bam)
-    tuple val(meta0), val(chunk), path(bai)
+    tuple val(meta), val(chunk), path(bam, stageAs: 'repeatseq_inputs/chunk.bam'), path(bai, stageAs: 'repeatseq_inputs/chunk.bam.bai')
     tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
     tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
     path(rep_regions, stageAs: 'reference/repeat_regions')
@@ -93,7 +89,6 @@ process REPEATSEQ_RAW {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     set +e
     repeatseq \\
@@ -121,7 +116,6 @@ process REPEATSEQ_RAW {
     stub:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     touch ${prefix}_${chunk}_repeatseq.raw.vcf
     touch ${prefix}_${chunk}_repeatseq.raw.calls
@@ -143,8 +137,7 @@ process REPEATSEQ_CON {
         'blancojmskcc/repeatseq:0.8.2' }"
 
     input:
-    tuple val(meta),  val(chunk), path(bam)
-    tuple val(meta0), val(chunk), path(bai)
+    tuple val(meta), val(chunk), path(bam, stageAs: 'repeatseq_inputs/chunk.bam'), path(bai, stageAs: 'repeatseq_inputs/chunk.bam.bai')
     tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
     tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
     path(rep_regions, stageAs: 'reference/repeat_regions')
@@ -161,7 +154,6 @@ process REPEATSEQ_CON {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     set +e
     repeatseq \\
@@ -189,7 +181,6 @@ process REPEATSEQ_CON {
     stub:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     touch ${prefix}_${chunk}_repeatseq.con.vcf
     touch ${prefix}_${chunk}_repeatseq.con.calls
@@ -211,8 +202,7 @@ process REPEATSEQ_DUP {
         'blancojmskcc/repeatseq:0.8.2' }"
 
     input:
-    tuple val(meta),  val(chunk), path(bam)
-    tuple val(meta0), val(chunk), path(bai)
+    tuple val(meta), val(chunk), path(bam, stageAs: 'repeatseq_inputs/chunk.bam'), path(bai, stageAs: 'repeatseq_inputs/chunk.bam.bai')
     tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
     tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
     path(rep_regions, stageAs: 'reference/repeat_regions')
@@ -229,7 +219,6 @@ process REPEATSEQ_DUP {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     set +e
     repeatseq \\
@@ -257,7 +246,6 @@ process REPEATSEQ_DUP {
     stub:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     touch ${prefix}_${chunk}_repeatseq.dup.vcf
     touch ${prefix}_${chunk}_repeatseq.dup.calls
@@ -279,8 +267,7 @@ process REPEATSEQ_SIM {
         'blancojmskcc/repeatseq:0.8.2' }"
 
     input:
-    tuple val(meta),  val(chunk), path(bam)
-    tuple val(meta0), val(chunk), path(bai)
+    tuple val(meta), val(chunk), path(bam, stageAs: 'repeatseq_inputs/chunk.bam'), path(bai, stageAs: 'repeatseq_inputs/chunk.bam.bai')
     tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
     tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
     path(rep_regions, stageAs: 'reference/repeat_regions')
@@ -297,7 +284,6 @@ process REPEATSEQ_SIM {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     set +e
     repeatseq \\
@@ -325,7 +311,6 @@ process REPEATSEQ_SIM {
     stub:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
     touch ${prefix}_${chunk}_repeatseq.sim.vcf
     touch ${prefix}_${chunk}_repeatseq.sim.calls
