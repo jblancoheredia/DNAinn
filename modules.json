@@ -27,22 +27,22 @@
           },
           "bcftools/annotate": {
             "branch": "master",
-            "git_sha": "3d9c2f4beaa4f62b3f006928fd9095a496d1e5a8",
+            "git_sha": "4b21e2cd1a9ea70e22b502cb45ee147410824760",
             "installed_by": ["modules"]
           },
           "bcftools/concat": {
             "branch": "master",
-            "git_sha": "6383d8fe58f9498eecd5aa303e71a4a932d1e9f6",
+            "git_sha": "4b21e2cd1a9ea70e22b502cb45ee147410824760",
             "installed_by": ["modules"]
           },
           "bcftools/merge": {
             "branch": "master",
-            "git_sha": "8656636f0d0a86aa3966052b5c2cd06141647c70",
+            "git_sha": "4b21e2cd1a9ea70e22b502cb45ee147410824760",
             "installed_by": ["modules"]
           },
           "bcftools/norm": {
             "branch": "master",
-            "git_sha": "6383d8fe58f9498eecd5aa303e71a4a932d1e9f6",
+            "git_sha": "4b21e2cd1a9ea70e22b502cb45ee147410824760",
             "installed_by": ["modules"]
           },
           "bwamem2/index": {
@@ -327,7 +327,7 @@
           },
           "tabix/bgziptabix": {
             "branch": "master",
-            "git_sha": "f448e846bdadd80fc8be31fbbc78d9f5b5131a45",
+            "git_sha": "91a902fb32d6717da38a9694eb4ad3fade53a8db",
             "installed_by": ["modules"]
           },
           "tiddit/sv": {
