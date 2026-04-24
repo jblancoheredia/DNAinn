@@ -464,6 +464,12 @@
                     "fa_icon": "fas fa-book",
                     "help_text": "CDNA transcript file to use for alignment."
                 },
+                "wigfile10": {
+                    "type": "string",
+                    "description": "GCbin10",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Sequenza wig GCbin file at 10."
+                },
                 "wigfile20": {
                     "type": "string",
                     "description": "GCbin20",
