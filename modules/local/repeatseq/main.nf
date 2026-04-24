@@ -27,17 +27,24 @@ process REPEATSEQ {
     def prefix = task.ext.prefix ?: "${meta.id}"
     def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
+    # Some repeatseq inputs can trigger a segfault; keep the pipeline moving and
+    # let downstream merge only the chunks that produced outputs.
+    set +e
     repeatseq \\
         -repeatseq \\
         -calls \\
         ${bam} \\
         ${fasta} \\
         ${rep_regions}
+    repeatseq_exit=\$?
+    set -e
     
-    if [ \$? -eq 0 ]; then
+    if [ \$repeatseq_exit -eq 0 ]; then
         mv *.vcf ${prefix}_${chunk}_repeatseq.vcf
         mv *.calls ${prefix}_${chunk}_repeatseq.calls
         mv *.repeatseq ${prefix}_${chunk}_repeatseq.repeatseq
+    else
+        echo "[WARN] repeatseq failed for ${prefix}_${chunk} (exit \$repeatseq_exit); continuing without this chunk." >&2
     fi
 
     cat <<-END_VERSIONS > versions.yml
