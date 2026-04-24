@@ -27,8 +27,6 @@ process REPEATSEQ {
     def prefix = task.ext.prefix ?: "${meta.id}"
     def chunk = bam.name.replace(meta.id + "_", "").replace(".bam", "")
     """
-    # Some repeatseq inputs can trigger a segfault; keep the pipeline moving and
-    # let downstream merge only the chunks that produced outputs.
     set +e
     repeatseq \\
         -repeatseq \\
