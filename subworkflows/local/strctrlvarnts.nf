@@ -163,9 +163,7 @@ workflow STRCTRLVARNTS {
     // MODULE: Run BGZIP & Tabix
     //
     TABIX_BGZIPTABIX(ch_tiddit_vcf)
-    ch_versions = ch_versions
-        .mix(TABIX_BGZIPTABIX.out.versions_tabix)
-        .mix(TABIX_BGZIPTABIX.out.versions_bgzip)
+    ch_versions = ch_versions.mix(TABIX_BGZIPTABIX.out.versions)
     ch_tiddit_vcf_zip = TABIX_BGZIPTABIX.out.gz_index
 
     //
