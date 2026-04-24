@@ -9,9 +9,9 @@ process REPEATSEQ {
     input:
     tuple val(meta),  val(chunk), path(bam)
     tuple val(meta0), val(chunk), path(bai)
-    tuple val(meta1), path(fasta)
-    tuple val(meta2), path(fai)
-    path(rep_regions)
+    tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
+    tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
+    path(rep_regions, stageAs: 'reference/repeat_regions')
 
     output:
     tuple val(meta), path("*_repeatseq.vcf"), optional: true,       emit: vcf
@@ -77,9 +77,9 @@ process REPEATSEQ_RAW {
     input:
     tuple val(meta),  val(chunk), path(bam)
     tuple val(meta0), val(chunk), path(bai)
-    tuple val(meta1), path(fasta)
-    tuple val(meta2), path(fai)
-    path(rep_regions)
+    tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
+    tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
+    path(rep_regions, stageAs: 'reference/repeat_regions')
 
     output:
     tuple val(meta), path("*_repeatseq.raw.vcf")      , optional: true, emit: vcf
@@ -145,9 +145,9 @@ process REPEATSEQ_CON {
     input:
     tuple val(meta),  val(chunk), path(bam)
     tuple val(meta0), val(chunk), path(bai)
-    tuple val(meta1), path(fasta)
-    tuple val(meta2), path(fai)
-    path(rep_regions)
+    tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
+    tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
+    path(rep_regions, stageAs: 'reference/repeat_regions')
 
     output:
     tuple val(meta), path("*_repeatseq.con.vcf")      , optional: true, emit: vcf
@@ -213,9 +213,9 @@ process REPEATSEQ_DUP {
     input:
     tuple val(meta),  val(chunk), path(bam)
     tuple val(meta0), val(chunk), path(bai)
-    tuple val(meta1), path(fasta)
-    tuple val(meta2), path(fai)
-    path(rep_regions)
+    tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
+    tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
+    path(rep_regions, stageAs: 'reference/repeat_regions')
 
     output:
     tuple val(meta), path("*_repeatseq.dup.vcf")      , optional: true, emit: vcf
@@ -281,9 +281,9 @@ process REPEATSEQ_SIM {
     input:
     tuple val(meta),  val(chunk), path(bam)
     tuple val(meta0), val(chunk), path(bai)
-    tuple val(meta1), path(fasta)
-    tuple val(meta2), path(fai)
-    path(rep_regions)
+    tuple val(meta1), path(fasta, stageAs: 'reference/genome.fasta')
+    tuple val(meta2), path(fai, stageAs: 'reference/genome.fasta.fai')
+    path(rep_regions, stageAs: 'reference/repeat_regions')
 
     output:
     tuple val(meta), path("*_repeatseq.sim.vcf")      , optional: true, emit: vcf
