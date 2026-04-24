@@ -175,7 +175,7 @@ workflow COPYNUMBERALT {
     //
     // MODULE: Run Sequenzautils BAM2seqz
     //
-    SEQUENZAUTILS_BAM2SEQZ(ch_bam_pairs, ch_fasta, ch_fai, params.wigfile20)
+    SEQUENZAUTILS_BAM2SEQZ(ch_bam_pairs, ch_fasta, ch_fai, params.wigfile10)
     ch_seqz = SEQUENZAUTILS_BAM2SEQZ.out.seqz
     ch_versions = ch_versions.mix(SEQUENZAUTILS_BAM2SEQZ.out.versions)
 
