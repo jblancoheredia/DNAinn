@@ -111,7 +111,6 @@ workflow DNAINN {
         ch_split_contigs            = UMIPROCESSING.out.split_contigs
         ch_reads_finalized          = UMIPROCESSING.out.reads_finalized
 
-
     } else {
 
         //
