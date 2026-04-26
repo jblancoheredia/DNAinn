@@ -847,6 +847,32 @@
                     "description": "Self explicative...",
                     "fa_icon": "fas fa-book"
                 },
+                "snpeff_db": {
+                    "type": "string",
+                    "description": "SnpEff genome database name",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Database name used by SnpEff (e.g. GRCh38.99)."
+                },
+                "snpeff_cache": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "SnpEff cache directory",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Path to the SnpEff data directory containing the selected database."
+                },
+                "vep_cache": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "VEP cache directory",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Path to Ensembl VEP offline cache."
+                },
+                "vep_species": {
+                    "type": "string",
+                    "description": "VEP species",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Species passed to VEP --species (e.g. homo_sapiens)."
+                },
                 "ilcoan_dir": {
                     "type": "string",
                     "description": "Self explicative...",

@@ -14,7 +14,9 @@ include { VARDICTJAVA                                                           
 include { VCFCALLS2TSV                                                                                                              } from '../../modules/local/vcfcalls2tsv/main'
 include { FGBIO_CLIPBAM                                                                                                             } from '../../modules/local/fgbio/clipbam/main'
 include { GATK4_MUTECT2                                                                                                             } from '../../modules/local/gatk4/mutect2/main' 
+include { SNPEFF_SNPEFF                                                                                                             } from '../../modules/nf-core/snpeff/snpeff/main'
 include { BCFTOOLS_MERGE                                                                                                            } from '../../modules/local/bcftools/merge/main' 
+include { ENSEMBLVEP_VEP                                                                                                            } from '../../modules/nf-core/ensemblvep/vep/main'
 include { GATK4_HAPLOTYPECALLER                                                                                                     } from '../../modules/local/gatk4/haplotypecaller/main'
 include { GATK4_FILTERMUTECTCALLS                                                                                                   } from '../../modules/local/gatk4/filtermutectcalls/main'   
 include { GATK4_GETPILEUPSUMMARIES                                                                                                  } from '../../modules/local/gatk4/getpileupsummaries/main'
@@ -146,18 +148,42 @@ workflow VARIANTDSCVRY {
     ch_lofreq_snvs_indels = LOFREQ.out.vcf_indels
 
     //
+    // Build per-caller channel and annotate with SnpEff + VEP
+    //
+    ch_callers_vcf = ch_lofreq_snvs_vcf.map      { meta, vcf, idx -> tuple(meta + [caller: 'lofreq.somatic_final.snvs'], vcf, idx) }
+        .mix(ch_lofreq_snvs_indels.map           { meta, vcf, idx -> tuple(meta + [caller: 'lofreq.somatic_final.indels'], vcf, idx) })
+        .mix(ch_mutect2_filtered_vcf.map         { meta, vcf, idx -> tuple(meta + [caller: 'mutect2.filtered'], vcf, idx) })
+        .mix(ch_freebayes_vcf.map                { meta, vcf, idx -> tuple(meta + [caller: 'freebayes'], vcf, idx) })
+        .mix(ch_vardict_vcf.map                  { meta, vcf, idx -> tuple(meta + [caller: 'vardict'], vcf, idx) })
+
+    ch_snpeff_in = ch_callers_vcf.map { meta, vcf, idx -> tuple(meta, vcf) }
+    ch_snpeff_cache = ch_callers_vcf.map { meta, vcf, idx -> tuple(meta, file(params.snpeff_cache)) }
+    SNPEFF_SNPEFF(ch_snpeff_in, params.snpeff_db, ch_snpeff_cache)
+    ch_multiqc_files = ch_multiqc_files.mix(SNPEFF_SNPEFF.out.report.map{ it[3] }.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(SNPEFF_SNPEFF.out.summary_html.map{ it[3] }.collect())
+    ch_multiqc_files = ch_multiqc_files.mix(SNPEFF_SNPEFF.out.genes_txt.map{ it[3] }.collect())
+
+    ch_vep_in = SNPEFF_SNPEFF.out.vcf.map { meta, vcf ->
+        tuple(meta, vcf, [])
+    }
+    ch_vep_cache = SNPEFF_SNPEFF.out.vcf.map { meta, vcf -> tuple(meta, file(params.vep_cache)) }
+    ch_vep_fasta = SNPEFF_SNPEFF.out.vcf.map { meta, vcf -> tuple(meta, file(params.fasta)) }
+    ENSEMBLVEP_VEP(ch_vep_in, params.genome, params.vep_species, params.ensembl_version, ch_vep_cache, ch_vep_fasta, [])
+    ch_multiqc_files = ch_multiqc_files.mix(ENSEMBLVEP_VEP.out.report.map{ it[3] }.collect())
+
+    //
     // Pre-Merge: collect all callers and reshape to proper tuple
     //
-    ch_all_vcfs = ch_lofreq_snvs_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'lofreq'   , vcf: vcf, idx: idx]] }
-        .mix(ch_lofreq_snvs_indels.map   { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'lofreq'   , vcf: vcf, idx: idx]] })
-        .mix(ch_mutect2_filtered_vcf.map { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'mutect2'  , vcf: vcf, idx: idx]] })
-        .mix(ch_freebayes_vcf.map        { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'freebayes', vcf: vcf, idx: idx]] })
-        .mix(ch_vardict_vcf.map          { meta, vcf, idx -> [meta.id, [meta: meta, caller: 'vardict'  , vcf: vcf, idx: idx]] })
+    def caller_order = ['freebayes', 'lofreq.somatic_final.snvs', 'lofreq.somatic_final.indels', 'mutect2.filtered', 'vardict']
+    ch_all_vcfs = ENSEMBLVEP_VEP.out.vcf
+        .join(ENSEMBLVEP_VEP.out.tbi, by: 0)
+        .map { meta, vcf, tbi -> [meta.id, [meta: [id: meta.id], caller: meta.caller, vcf: vcf, idx: tbi]] }
         .groupTuple()
         .map { id, calls ->
-            def meta = calls[0].meta
-            def vcfs = calls.collect { it.vcf }
-            def tbis = calls.collect { it.idx }
+            def sorted_calls = calls.sort { caller_order.indexOf(it.caller) }
+            def meta = sorted_calls[0].meta
+            def vcfs = sorted_calls.collect { it.vcf }
+            def tbis = sorted_calls.collect { it.idx }
             tuple(meta, vcfs, tbis)
         }
         .set { ch_pre_merge }
