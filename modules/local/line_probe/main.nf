@@ -9,6 +9,7 @@ process LINE_PROBE_RAW {
 
     input:
     tuple val(meta), path(bam), path(bai)
+    path probe_fasta
     path bwa_dir
 
     output:
@@ -89,6 +90,7 @@ process LINE_PROBE_CON {
 
     input:
     tuple val(meta), path(bam), path(bai)
+    path probe_fasta
     path bwa_dir
 
     output:
@@ -169,6 +171,7 @@ process LINE_PROBE_DUP {
 
     input:
     tuple val(meta), path(bam), path(bai)
+    path probe_fasta
     path bwa_dir
 
     output:
@@ -249,6 +252,7 @@ process LINE_PROBE_SIM {
 
     input:
     tuple val(meta), path(bam), path(bai)
+    path probe_fasta
     path bwa_dir
 
     output:
