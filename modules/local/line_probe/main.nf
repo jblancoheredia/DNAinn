@@ -4,8 +4,8 @@ process LINE_PROBE_RAW {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' :
-        'quay.io/biocontainers/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' }"
+        'https://depot.galaxyproject.org/singularity/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' :
+        'quay.io/biocontainers/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -84,8 +84,8 @@ process LINE_PROBE_CON {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' :
-        'biocontainers/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' }"
+        'https://depot.galaxyproject.org/singularity/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' :
+        'quay.io/biocontainers/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -164,8 +164,8 @@ process LINE_PROBE_DUP {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' :
-        'biocontainers/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' }"
+        'https://depot.galaxyproject.org/singularity/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' :
+        'quay.io/biocontainers/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -244,8 +244,8 @@ process LINE_PROBE_SIM {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' :
-        'biocontainers/mulled-v2-03c1273c07251a8300c4d7f43f9dc53f6ad0c5fb:6c4c2f21b8c06bc7a548d9440f0f0ef6a70517e9-0' }"
+        'https://depot.galaxyproject.org/singularity/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' :
+        'quay.io/biocontainers/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
