@@ -30,7 +30,7 @@ process LINE_PROBE_RAW {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools fastq -@ ${task.cpus} ${prefix}.sorted.bam \\
+    samtools fastq ${prefix}.sorted.bam \\
         | bwa mem -t ${task.cpus} -B 3 -K 100000000 -Y -M -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.raw.bam
 
@@ -111,7 +111,7 @@ process LINE_PROBE_CON {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools fastq -@ ${task.cpus} ${prefix}.sorted.bam \\
+    samtools fastq ${prefix}.sorted.bam \\
         | bwa mem -t ${task.cpus} -B 3 -K 100000000 -Y -M -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.con.bam
 
@@ -192,7 +192,7 @@ process LINE_PROBE_DUP {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools fastq -@ ${task.cpus} ${prefix}.sorted.bam \\
+    samtools fastq ${prefix}.sorted.bam \\
         | bwa mem -t ${task.cpus} -B 3 -K 100000000 -Y -M -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.dup.bam
 
@@ -273,7 +273,7 @@ process LINE_PROBE_SIM {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools fastq -@ ${task.cpus} ${prefix}.sorted.bam \\
+    samtools fastq ${prefix}.sorted.bam \\
         | bwa mem -t ${task.cpus} -B 3 -K 100000000 -Y -M -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.sim.bam
 
