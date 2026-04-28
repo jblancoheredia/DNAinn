@@ -954,6 +954,9 @@
                     "description": "Genomic reference divided by chromosomes",
                     "fa_icon": "fas fa-book",
                     "help_text": "Some parts of the pipeline requirement"
+                },
+                "bwa_line_probe": {
+                    "type": "string"
                 }
             }
         },
