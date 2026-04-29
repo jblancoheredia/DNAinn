@@ -4,8 +4,8 @@ process VCFCALLS2TSV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/vcfcalls2tsv:1.0.0':
-        'blancojmskcc/vcfcalls2tsv:1.0.0' }"
+        'docker://blancojmskcc/vcfcalls2tsv:2.0.0':
+        'blancojmskcc/vcfcalls2tsv:2.0.0' }"
 
     input:
     tuple val(meta), path(vcfs), path(tbis)
@@ -21,23 +21,18 @@ process VCFCALLS2TSV {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    for f in *.vcf.gz; do
-        bgzip -d \"\$f\"
-    done
-    
-    rm *.vcf.gz.tbi
 
     vcfcalls2tsv.py \\
-        ${prefix}.freebayes.vcf  \\
-        ${prefix}.lofreq.somatic_final.snvs.vcf \\
-        ${prefix}.lofreq.somatic_final.indels.vcf \\
-        ${prefix}.mutect2.filtered.vcf \\
-        ${prefix}.vardict.vcf \\
+        ${prefix}.freebayes.vcf.gz  \\
+        ${prefix}.lofreq.somatic_final.snvs.vcf.gz \\
+        ${prefix}.lofreq.somatic_final.indels.vcf.gz \\
+        ${prefix}.mutect2.filtered.vcf.gz \\
+        ${prefix}.vardict.vcf.gz \\
         --output ${prefix}.merged_variants.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        vcfcalls2tsv: "1.0.0"
+        vcfcalls2tsv: \$(echo \$(vcfcalls2tsv.py -v 2>&1 | grep "vcfcalls2tsv.py" | sed 's/^vcfcalls2tsv.py //'))
     END_VERSIONS
     """
     stub:
@@ -48,7 +43,7 @@ process VCFCALLS2TSV {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        vcfcalls2tsv: "1.0.0"
+        vcfcalls2tsv: \$(echo \$(vcfcalls2tsv.py -v 2>&1 | grep "vcfcalls2tsv.py" | sed 's/^vcfcalls2tsv.py //'))
     END_VERSIONS
     """
 }
