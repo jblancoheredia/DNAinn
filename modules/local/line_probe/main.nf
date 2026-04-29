@@ -30,9 +30,8 @@ process LINE_PROBE_RAW {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -@ ${task.cpus} -u -O ${bam} \\
+    samtools collate -u -O ${bam} \\
         | samtools fastq \\
-            -@ ${task.cpus} \\
             -n \\
             -F 0x900 \\
             -1 /dev/stdout \\
@@ -162,9 +161,8 @@ process LINE_PROBE_CON {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -@ ${task.cpus} -u -O ${bam} \\
+    samtools collate -u -O ${bam} \\
         | samtools fastq \\
-            -@ ${task.cpus} \\
             -n \\
             -F 0x900 \\
             -1 /dev/stdout \\
@@ -294,9 +292,8 @@ process LINE_PROBE_DUP {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -@ ${task.cpus} -u -O ${bam} \\
+    samtools collate -u -O ${bam} \\
         | samtools fastq \\
-            -@ ${task.cpus} \\
             -n \\
             -F 0x900 \\
             -1 /dev/stdout \\
@@ -426,9 +423,8 @@ process LINE_PROBE_SIM {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -@ ${task.cpus} -u -O ${bam} \\
+    samtools collate -u -O ${bam} \\
         | samtools fastq \\
-            -@ ${task.cpus} \\
             -n \\
             -F 0x900 \\
             -1 /dev/stdout \\
