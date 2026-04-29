@@ -30,7 +30,7 @@ process LINE_PROBE_RAW {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -u -O ${bam} \\
+    samtools collate -u -O ${bam} ${prefix}.collate \\
         | samtools fastq \\
             -n \\
             -F 0x900 \\
@@ -161,7 +161,7 @@ process LINE_PROBE_CON {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -u -O ${bam} \\
+    samtools collate -u -O ${bam} ${prefix}.collate \\
         | samtools fastq \\
             -n \\
             -F 0x900 \\
@@ -292,7 +292,7 @@ process LINE_PROBE_DUP {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -u -O ${bam} \\
+    samtools collate -u -O ${bam} ${prefix}.collate \\
         | samtools fastq \\
             -n \\
             -F 0x900 \\
@@ -423,7 +423,7 @@ process LINE_PROBE_SIM {
     """
     BWA_INDEX_PREFIX=\$(find -L ./ -name "*.amb" | sed 's/.amb//')
 
-    samtools collate -u -O ${bam} \\
+    samtools collate -u -O ${bam} ${prefix}.collate \\
         | samtools fastq \\
             -n \\
             -F 0x900 \\
