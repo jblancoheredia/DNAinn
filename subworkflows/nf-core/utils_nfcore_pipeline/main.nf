@@ -133,12 +133,12 @@ def softwareVersionsToYAML(ch_versions) {
 //
 def paramsSummaryMultiqc(summary_params) {
     def summary_section = ''
-    for (group in summary_params.keySet()) {
+    summary_params.keySet().each { group ->
         def group_params = summary_params.get(group)  // This gets the parameters of that particular group
         if (group_params) {
             summary_section += "    <p style=\"font-size:110%\"><b>$group</b></p>\n"
             summary_section += "    <dl class=\"dl-horizontal\">\n"
-            for (param in group_params.keySet()) {
+            group_params.keySet().each { param ->
                 summary_section += "        <dt>$param</dt><dd><samp>${group_params.get(param) ?: '<span style=\"color:#999999;\">N/A</a>'}</samp></dd>\n"
             }
             summary_section += "    </dl>\n"
@@ -286,7 +286,7 @@ def completionEmail(summary_params, email, email_on_fail, plaintext_email, outdi
     }
 
     def summary = [:]
-    for (group in summary_params.keySet()) {
+    summary_params.keySet().each { group ->
         summary << summary_params[group]
     }
 
@@ -394,7 +394,7 @@ def completionSummary(monochrome_logs=true) {
 //
 def imNotification(summary_params, hook_url) {
     def summary = [:]
-    for (group in summary_params.keySet()) {
+    summary_params.keySet().each { group ->
         summary << summary_params[group]
     }
 
