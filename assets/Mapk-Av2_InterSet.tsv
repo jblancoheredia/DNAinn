@@ -1,0 +1,27 @@
+gene_symbol	gene_href	threshold_value	pathway	dataset
+AKT1	/api/1.0/gene/AKT1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+BRAF	/api/1.0/gene/BRAF	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+EGFR	/api/1.0/gene/EGFR	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+FGFR1	/api/1.0/gene/FGFR1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+FGFR2	/api/1.0/gene/FGFR2	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+FGFR3	/api/1.0/gene/FGFR3	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+FGFR4	/api/1.0/gene/FGFR4	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+HRAS	/api/1.0/gene/HRAS	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+KRAS	/api/1.0/gene/KRAS	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+MAP2K1	/api/1.0/gene/MAP2K1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+MAP2K2	/api/1.0/gene/MAP2K2	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+MAPK1	/api/1.0/gene/MAPK1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+MAX	/api/1.0/gene/MAX	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+MYC	/api/1.0/gene/MYC	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+NF1	/api/1.0/gene/NF1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+NRAS	/api/1.0/gene/NRAS	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+NTRK1	/api/1.0/gene/NTRK1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+NTRK2	/api/1.0/gene/NTRK2	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+PDGFRA	/api/1.0/gene/PDGFRA	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+RAC1	/api/1.0/gene/RAC1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+RAF1	/api/1.0/gene/RAF1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+RRAS2	/api/1.0/gene/RRAS2	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+SOS1	/api/1.0/gene/SOS1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+TGFBR1	/api/1.0/gene/TGFBR1	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+TGFBR2	/api/1.0/gene/TGFBR2	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
+TP53	/api/1.0/gene/TP53	1.0	mitogen activated protein kinase signaling pathway	KEGG Pathways
