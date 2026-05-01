@@ -56,7 +56,7 @@ workflow TELOMEREFEATS {
     //
     // MODULE: Run TelomereHunter
     //
-    TELOMEREHUNTER_FULL(ch_bam_dedup, params.normal_bam, params.normal_bai, params.banding)
+    TELOMEREHUNTER_FULL(ch_bam_dedup, params.normal_con_bam, params.normal_con_bai, params.banding)
     ch_versions = ch_versions.mix(TELOMEREHUNTER_FULL.out.versions)
     ch_telhun_tsv = TELOMEREHUNTER_FULL.out.tsv
     ch_telhun_pdf = TELOMEREHUNTER_FULL.out.pdf
