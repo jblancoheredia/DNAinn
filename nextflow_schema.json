@@ -961,7 +961,13 @@
                     "fa_icon": "fas fa-book",
                     "help_text": "Some parts of the pipeline requirement"
                 },
+                "probe_fasta": {
+                    "type": "string"
+                },
                 "bwa_line_probe": {
+                    "type": "string"
+                },
+                "mapk_genes": {
                     "type": "string"
                 }
             }

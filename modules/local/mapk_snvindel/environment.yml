@@ -1,0 +1,6 @@
+name: mapk_snvindel
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11

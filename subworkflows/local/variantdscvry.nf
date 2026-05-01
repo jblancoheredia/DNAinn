@@ -14,6 +14,7 @@ include { VARDICTJAVA                                                           
 include { VCFCALLS2TSV                                                                                                              } from '../../modules/local/vcfcalls2tsv/main'
 include { FGBIO_CLIPBAM                                                                                                             } from '../../modules/local/fgbio/clipbam/main'
 include { GATK4_MUTECT2                                                                                                             } from '../../modules/local/gatk4/mutect2/main' 
+include { MAPK_SNVINDEL                                                                                                             } from '../../modules/local/mapk_snvindel/main'
 include { SNPEFF_SNPEFF                                                                                                             } from '../../modules/nf-core/snpeff/snpeff/main'
 include { BCFTOOLS_MERGE                                                                                                            } from '../../modules/local/bcftools/merge/main' 
 include { ENSEMBLVEP_VEP                                                                                                            } from '../../modules/nf-core/ensemblvep/vep/main'
@@ -194,6 +195,12 @@ workflow VARIANTDSCVRY {
     VCFCALLS2TSV(ch_pre_merge)
     ch_versions = ch_versions.mix(VCFCALLS2TSV.out.versions)
     ch_variants_tsv = VCFCALLS2TSV.out.tsv
+
+    //
+    // MODULE: MapK Pathway Special Module for Diamond Project
+    //
+    MAPK_SNVINDEL(ch_variants_tsv, file(params.mapk_genes))
+    ch_versions = ch_versions.mix(MAPK_SNVINDEL.out.versions)
 
 //    //
 //    // MODULES: Run GetBaseCountsMultiSample
