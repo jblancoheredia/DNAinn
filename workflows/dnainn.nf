@@ -35,34 +35,6 @@ include { validateInputSamplesheet                                              
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                                                            CREATE CUSTOM CHANNELS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*/
-
-ch_fai                                      = Channel.fromPath(params.fai).map                              { it -> [[id:it.Name], it] }.collect()
-ch_bwa                                      = Channel.fromPath(params.bwa).map                              { it -> [[id:it.Name], it] }.collect()
-ch_bwa2                                     = Channel.fromPath(params.bwa2).map                             { it -> [[id:it.Name], it] }.collect()
-ch_dict                                     = Channel.fromPath(params.dict).map                             { it -> [[id:it.Name], it] }.collect()
-ch_fasta                                    = Channel.fromPath(params.fasta).map                            { it -> [[id:it.Name], it] }.collect()
-ch_msi_f                                    = Channel.fromPath(params.msi_list).map                         { it -> [[id:it.Name], it] }.collect()
-ch_targets                                  = Channel.fromPath(params.targets).map                          { it -> [[id:it.Name], it] }.collect()
-ch_intervals                                = Channel.fromPath(params.intervals).map                        { it -> [[id:it.Name], it] }.collect()
-ch_known_sites                              = Channel.fromPath(params.known_sites).map                      { vcf -> def tbi = 
-                                                                                                             file("${params.known_sites_tbi}") 
-                                                                                                             [[id:vcf.Name], vcf, tbi] }.collect()
-ch_targets_bed                              = Channel.fromPath(params.targets_bed).map                      { it -> [[id:it.Name], it] }.collect()
-ch_normal_con_bam                           = Channel.fromPath(params.normal_con_bam).map                   { it -> [[id:it.Name], it] }.collect()
-ch_normal_con_bai                           = Channel.fromPath(params.normal_con_bai).map                   { it -> [[id:it.Name], it] }.collect()
-ch_bwa_dragen_hg38                          = Channel.fromPath(params.bwa_dragen_hg38).map                  { it -> [[id:it.Name], it] }.collect()
-ch_cnvkit_reference                         = Channel.fromPath(params.cnvkit_reference).map                 { it -> [[id:it.Name], it] }.collect()
-ch_intervals_gunzip                         = Channel.fromPath(params.intervals_bed_gunzip).map             { it -> [[id:it.Name], it] }.collect()
-ch_cnvkit_antitarget                        = Channel.fromPath(params.cnvkit_antitarget).map                { it -> [[id:it.Name], it] }.collect()
-ch_gatk_interval_list                       = Channel.fromPath(params.gatk_interval_list).map               { it -> [[id:it.Name], it] }.collect()
-ch_intervals_gunzip_index                   = Channel.fromPath(params.intervals_bed_gunzip_index).map       { it -> [[id:it.Name], it] }.collect()
-
-
-/*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                                               RUN MAIN WORKFLOW
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
@@ -73,6 +45,32 @@ workflow DNAINN {
     ch_samplesheet
 
     main:
+
+    /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                                CREATE CUSTOM CHANNELS
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    */
+    ch_fai                                      = Channel.fromPath(params.fai).map                              { it -> [[id:it.Name], it] }.collect()
+    ch_bwa                                      = Channel.fromPath(params.bwa).map                              { it -> [[id:it.Name], it] }.collect()
+    ch_bwa2                                     = Channel.fromPath(params.bwa2).map                             { it -> [[id:it.Name], it] }.collect()
+    ch_dict                                     = Channel.fromPath(params.dict).map                             { it -> [[id:it.Name], it] }.collect()
+    ch_fasta                                    = Channel.fromPath(params.fasta).map                            { it -> [[id:it.Name], it] }.collect()
+    ch_msi_f                                    = Channel.fromPath(params.msi_list).map                         { it -> [[id:it.Name], it] }.collect()
+    ch_targets                                  = Channel.fromPath(params.targets).map                          { it -> [[id:it.Name], it] }.collect()
+    ch_intervals                                = Channel.fromPath(params.intervals).map                        { it -> [[id:it.Name], it] }.collect()
+    ch_known_sites                              = Channel.fromPath(params.known_sites).map                      { vcf -> def tbi =
+                                                                                                                file("${params.known_sites_tbi}")
+                                                                                                                [[id:vcf.Name], vcf, tbi] }.collect()
+    ch_targets_bed                              = Channel.fromPath(params.targets_bed).map                      { it -> [[id:it.Name], it] }.collect()
+    ch_normal_con_bam                           = Channel.fromPath(params.normal_con_bam).map                   { it -> [[id:it.Name], it] }.collect()
+    ch_normal_con_bai                           = Channel.fromPath(params.normal_con_bai).map                   { it -> [[id:it.Name], it] }.collect()
+    ch_bwa_dragen_hg38                          = Channel.fromPath(params.bwa_dragen_hg38).map                  { it -> [[id:it.Name], it] }.collect()
+    ch_cnvkit_reference                         = Channel.fromPath(params.cnvkit_reference).map                 { it -> [[id:it.Name], it] }.collect()
+    ch_intervals_gunzip                         = Channel.fromPath(params.intervals_bed_gunzip).map             { it -> [[id:it.Name], it] }.collect()
+    ch_cnvkit_antitarget                        = Channel.fromPath(params.cnvkit_antitarget).map                { it -> [[id:it.Name], it] }.collect()
+    ch_gatk_interval_list                       = Channel.fromPath(params.gatk_interval_list).map               { it -> [[id:it.Name], it] }.collect()
+    ch_intervals_gunzip_index                   = Channel.fromPath(params.intervals_bed_gunzip_index).map       { it -> [[id:it.Name], it] }.collect()
 
     //
     // SUBWORKFLOW: PRE processing
