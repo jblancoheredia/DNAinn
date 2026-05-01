@@ -45,6 +45,7 @@ workflow DNAINN {
     ch_samplesheet
 
     main:
+    def enabled = { value -> (value instanceof Boolean) ? value : value?.toString()?.toBoolean() }
 
     /*
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,7 +83,7 @@ workflow DNAINN {
     ch_versions					= PREPROCESSING.out.versions
     ch_multiqc_files			= PREPROCESSING.out.multiqc_files
 
-    if (params.run_umiprocessing) {
+    if (enabled(params.run_umiprocessing)) {
         
         //
         // SUBWORKFLOW: UMI processing
@@ -212,7 +213,7 @@ workflow DNAINN {
         }
         .set { ch_bam_dedup_pairs }
 
-    if (params.run_copynumberalt) {
+    if (enabled(params.run_copynumberalt)) {
 
         //
         // SUBWORKFLOW: Run copy number workflow (optional)
@@ -240,7 +241,7 @@ workflow DNAINN {
         ch_bcf_mpileup = Channel.empty()
     }
 
-    if (params.run_variantdscvry) {
+    if (enabled(params.run_variantdscvry)) {
 
         //
         // SUBWORKFLOW: Run variant discovery (optional)
@@ -263,7 +264,7 @@ workflow DNAINN {
         ch_variants = Channel.empty()
     }
 
-    if (params.run_telomerefeats) {
+    if (enabled(params.run_telomerefeats)) {
 
         //
         // SUBWORKFLOW: Run extract telomeric features (optional)
@@ -281,7 +282,7 @@ workflow DNAINN {
         ch_telhun = Channel.empty()
     }
 
-    if (params.run_immunoncology) {
+    if (enabled(params.run_immunoncology)) {
 
         //
         // SUBWORKFLOW: Run immunoncology analysis (optional)
@@ -298,7 +299,7 @@ workflow DNAINN {
         ch_immuonco = Channel.empty()
     }
 
-    if (params.run_strctrlvarnts) {
+    if (enabled(params.run_strctrlvarnts)) {
 
     //
     // SUBWORKFLOW: Run structural variants discovery

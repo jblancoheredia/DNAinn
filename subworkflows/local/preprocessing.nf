@@ -29,6 +29,7 @@ workflow PREPROCESSING {
     ch_reports          = Channel.empty()
     ch_versions         = Channel.empty()
     ch_multiqc_files    = Channel.empty()
+    def enabled = { value -> (value instanceof Boolean) ? value : value?.toString()?.toBoolean() }
 
     //
     // Create channel from input file provided through params.input
@@ -91,7 +92,7 @@ workflow PREPROCESSING {
             min_count
         }
 
-    if (params.run_downsamplings) {
+    if (enabled(params.run_downsamplings)) {
 
         if (params.downsampling_total_reads) {
 
