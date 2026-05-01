@@ -70,7 +70,9 @@ def workflowCitation() {
     // Using a loop to handle multiple DOIs
     // Removing `https://doi.org/` to handle pipelines using DOIs vs DOI resolvers
     // Removing ` ` since the manifest.doi is a string and not a proper list
-    for (String doi_ref: manifest_doi) temp_doi_ref += "  https://doi.org/${doi_ref.replace('https://doi.org/', '').replace(' ', '')}\n"
+    manifest_doi.each { doi_ref ->
+        temp_doi_ref += "  https://doi.org/${doi_ref.replace('https://doi.org/', '').replace(' ', '')}\n"
+    }
     return "If you use ${workflow.manifest.name} for your analysis please cite:\n\n" +
         "* The pipeline\n" +
         temp_doi_ref + "\n" +
