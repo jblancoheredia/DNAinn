@@ -2,9 +2,6 @@
 // Subworkflow with utility functions specific to the nf-core pipeline template
 //
 
-import org.yaml.snakeyaml.Yaml
-import nextflow.extension.FilesEx
-
 /*
 ========================================================================================
     SUBWORKFLOW DEFINITION
@@ -104,7 +101,7 @@ def getWorkflowVersion() {
 // Get software versions for pipeline
 //
 def processVersionsFromYAML(yaml_file) {
-    Yaml yaml = new Yaml()
+    def yaml = new org.yaml.snakeyaml.Yaml()
     versions = yaml.load(yaml_file).collectEntries { k, v -> [ k.tokenize(':')[-1], v ] }
     return yaml.dumpAsMap(versions).trim()
 }
@@ -366,13 +363,13 @@ def completionEmail(summary_params, email, email_on_fail, plaintext_email, outdi
     // Write summary e-mail HTML to a file
     def output_hf = new File(workflow.launchDir.toString(), ".pipeline_report.html")
     output_hf.withWriter { w -> w << email_html }
-    FilesEx.copyTo(output_hf.toPath(), "${outdir}/pipeline_info/pipeline_report.html");
+    nextflow.extension.FilesEx.copyTo(output_hf.toPath(), "${outdir}/pipeline_info/pipeline_report.html");
     output_hf.delete()
 
     // Write summary e-mail TXT to a file
     def output_tf = new File(workflow.launchDir.toString(), ".pipeline_report.txt")
     output_tf.withWriter { w -> w << email_txt }
-    FilesEx.copyTo(output_tf.toPath(), "${outdir}/pipeline_info/pipeline_report.txt");
+    nextflow.extension.FilesEx.copyTo(output_tf.toPath(), "${outdir}/pipeline_info/pipeline_report.txt");
     output_tf.delete()
 }
 
