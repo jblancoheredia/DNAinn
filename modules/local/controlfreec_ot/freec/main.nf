@@ -40,27 +40,31 @@ process CONTROLFREEC_OT_FREEC {
 
     script:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def degree                     = task.ext.args?["general"]?["degree"]                       ? "degree = ${task.ext.args["general"]["degree"]}"                                              : ""
-    def intercept                  = task.ext.args?["general"]?["intercept"]                    ? "intercept = ${task.ext.args["general"]["intercept"]}"                                        : ""
-    def mincnalength               = task.ext.args?["general"]?["mincnalength"]                 ? "minCNAlength = ${task.ext.args["general"]["mincnalength"]}"                                  : ""
-    def minmappabilityperwindow    = task.ext.args?["general"]?["minmappabilityperwindow"]      ? "minMappabilityPerWindow = ${task.ext.args["general"]["minmappabilityperwindow"]}"            : ""
-    def minexpectedgc              = task.ext.args?["general"]?["minexpectedgc"]                ? "minExpectedGC = ${task.ext.args["general"]["minexpectedgc"]}"                                : ""
-    def maxexpectedgc              = task.ext.args?["general"]?["maxexpectedgc"]                ? "maxExpectedGC = ${task.ext.args["general"]["maxexpectedgc"]}"                                : ""
-    def ploidy                     = task.ext.args?["general"]?["ploidy"]                       ? "ploidy = ${task.ext.args["general"]["ploidy"]}"                                              : ""
-    def sex                        = task.ext.args?["general"]?["sex"]                          ? "sex = ${task.ext.args["general"]["sex"]}"                                                    : ""
-    def step                       = task.ext.args?["general"]?["step"]                         ? "step = ${task.ext.args["general"]["step"]}"                                                  : ""
-    def telocentromeric            = task.ext.args?["general"]?["telocentromeric"]              ? "telocentromeric = ${task.ext.args["general"]["telocentromeric"]} "                           : ""
-    def uniquematch                = task.ext.args?["general"]?["uniquematch"]                  ? "uniqueMatch = ${task.ext.args["general"]["uniquematch"]}"                                    : ""
-    def window                     = task.ext.args?["general"]?["window"]                       ? "window = ${task.ext.args["general"]["window"]}"                                              : ""
+    def args_cfg                   = task.ext.args ?: [:]
+    def general_cfg                = args_cfg.general ?: [:]
+    def sample_cfg                 = args_cfg.sample ?: [:]
+    def baf_cfg                    = args_cfg.BAF ?: [:]
+    def degree                     = general_cfg.degree                    ? "degree = ${general_cfg.degree}"                                          : ""
+    def intercept                  = general_cfg.intercept                 ? "intercept = ${general_cfg.intercept}"                                    : ""
+    def mincnalength               = general_cfg.mincnalength              ? "minCNAlength = ${general_cfg.mincnalength}"                              : ""
+    def minmappabilityperwindow    = general_cfg.minmappabilityperwindow   ? "minMappabilityPerWindow = ${general_cfg.minmappabilityperwindow}"        : ""
+    def minexpectedgc              = general_cfg.minexpectedgc             ? "minExpectedGC = ${general_cfg.minexpectedgc}"                            : ""
+    def maxexpectedgc              = general_cfg.maxexpectedgc             ? "maxExpectedGC = ${general_cfg.maxexpectedgc}"                            : ""
+    def ploidy                     = general_cfg.ploidy                    ? "ploidy = ${general_cfg.ploidy}"                                          : ""
+    def sex                        = general_cfg.sex                       ? "sex = ${general_cfg.sex}"                                                : ""
+    def step                       = general_cfg.step                      ? "step = ${general_cfg.step}"                                              : ""
+    def telocentromeric            = general_cfg.telocentromeric           ? "telocentromeric = ${general_cfg.telocentromeric} "                       : ""
+    def uniquematch                = general_cfg.uniquematch               ? "uniqueMatch = ${general_cfg.uniquematch}"                                : ""
+    def window                     = general_cfg.window                    ? "window = ${general_cfg.window}"                                          : ""
     def matefile_tumor             = mpileup_tumor                                              ? "mateFile = \${PWD}/${mpileup_tumor}"                                                         : ""
-    def inputformat_tumor          = task.ext.args?["sample"]?["inputformat"]                   ? "inputFormat = ${task.ext.args["sample"]["inputformat"]}"                                     : ""
-    def mateorientation_tumor      = task.ext.args?["sample"]?["mateorientation"]               ? "mateOrientation = ${task.ext.args["sample"]["mateorientation"]}"                             : ""
+    def inputformat_tumor          = sample_cfg.inputformat                   ? "inputFormat = ${sample_cfg.inputformat}"                                 : ""
+    def mateorientation_tumor      = sample_cfg.mateorientation               ? "mateOrientation = ${sample_cfg.mateorientation}"                         : ""
     def fastafile                  = fasta                                                      ? "fastaFile = \${PWD}/${fasta}"                                                                : ""
-    def minimalcoverageperposition = task.ext.args?["BAF"]?["minimalcoverageperposition"]       ? "minimalCoveragePerPosition = ${task.ext.args["BAF"]["minimalcoverageperposition"]}"          : ""
-    def minimalqualityperposition  = task.ext.args?["BAF"]?["minimalqualityperposition"]        ? "minimalQualityPerPosition = ${task.ext.args["BAF"]["minimalqualityperposition"]}"            : ""
-    def shiftinquality             = task.ext.args?["BAF"]?["shiftinquality"]                   ? "shiftInQuality = ${task.ext.args["BAF"]["shiftinquality"]}"                                  : ""
+    def minimalcoverageperposition = baf_cfg.minimalcoverageperposition       ? "minimalCoveragePerPosition = ${baf_cfg.minimalcoverageperposition}"      : ""
+    def minimalqualityperposition  = baf_cfg.minimalqualityperposition        ? "minimalQualityPerPosition = ${baf_cfg.minimalqualityperposition}"        : ""
+    def shiftinquality             = baf_cfg.shiftinquality                   ? "shiftInQuality = ${baf_cfg.shiftinquality}"                              : ""
     def snpfile                    = known_snps                                                 ? "SNPfile = \${PWD}/${known_snps}"                                                             : ""
-    def target_bed                 = target_bed                                                 ? "captureRegions = ${target_bed}"                                                              : ""
+    def capture_regions            = target_bed                                                 ? "captureRegions = ${target_bed}"                                                              : ""
     def VERSION                    = '11.6'
     """
     cat <<-EOF > config.txt
@@ -112,7 +116,7 @@ ${shiftinquality}
 ${snpfile}
 
 [target]
-${target_bed}
+${capture_regions}
 EOF
 
     mkdir -p chrs/
