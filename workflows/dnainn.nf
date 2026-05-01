@@ -45,7 +45,6 @@ workflow DNAINN {
     ch_samplesheet
 
     main:
-    def enabled = { value -> (value instanceof Boolean) ? value : value?.toString()?.toBoolean() }
 
     /*
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +82,7 @@ workflow DNAINN {
     ch_versions					= PREPROCESSING.out.versions
     ch_multiqc_files			= PREPROCESSING.out.multiqc_files
 
-    if (enabled(params.run_umiprocessing)) {
+    if ((params.run_umiprocessing instanceof Boolean ? params.run_umiprocessing : params.run_umiprocessing?.toString()?.toBoolean())) {
         
         //
         // SUBWORKFLOW: UMI processing
@@ -213,7 +212,7 @@ workflow DNAINN {
         }
         .set { ch_bam_dedup_pairs }
 
-    if (enabled(params.run_copynumberalt)) {
+    if ((params.run_copynumberalt instanceof Boolean ? params.run_copynumberalt : params.run_copynumberalt?.toString()?.toBoolean())) {
 
         //
         // SUBWORKFLOW: Run copy number workflow (optional)
@@ -241,7 +240,7 @@ workflow DNAINN {
         ch_bcf_mpileup = Channel.empty()
     }
 
-    if (enabled(params.run_variantdscvry)) {
+    if ((params.run_variantdscvry instanceof Boolean ? params.run_variantdscvry : params.run_variantdscvry?.toString()?.toBoolean())) {
 
         //
         // SUBWORKFLOW: Run variant discovery (optional)
@@ -264,7 +263,7 @@ workflow DNAINN {
         ch_variants = Channel.empty()
     }
 
-    if (enabled(params.run_telomerefeats)) {
+    if ((params.run_telomerefeats instanceof Boolean ? params.run_telomerefeats : params.run_telomerefeats?.toString()?.toBoolean())) {
 
         //
         // SUBWORKFLOW: Run extract telomeric features (optional)
@@ -282,7 +281,7 @@ workflow DNAINN {
         ch_telhun = Channel.empty()
     }
 
-    if (enabled(params.run_immunoncology)) {
+    if ((params.run_immunoncology instanceof Boolean ? params.run_immunoncology : params.run_immunoncology?.toString()?.toBoolean())) {
 
         //
         // SUBWORKFLOW: Run immunoncology analysis (optional)
@@ -299,7 +298,7 @@ workflow DNAINN {
         ch_immuonco = Channel.empty()
     }
 
-    if (enabled(params.run_strctrlvarnts)) {
+    if ((params.run_strctrlvarnts instanceof Boolean ? params.run_strctrlvarnts : params.run_strctrlvarnts?.toString()?.toBoolean())) {
 
     //
     // SUBWORKFLOW: Run structural variants discovery

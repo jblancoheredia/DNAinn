@@ -103,7 +103,6 @@ workflow UMIPROCESSING {
     main:
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
-    def enabled = { value -> (value instanceof Boolean) ? value : value?.toString()?.toBoolean() }
 
     //
     // MODULE: FastP
@@ -202,7 +201,7 @@ workflow UMIPROCESSING {
     PICARD_COLLECTMULTIPLEMETRICS_RAW(ch_bam_fcu_stix, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_RAW.out.versions.first())
 
-    if (enabled(params.run_homopolymeric)) {
+    if ((params.run_homopolymeric instanceof Boolean ? params.run_homopolymeric : params.run_homopolymeric?.toString()?.toBoolean())) {
 
         //
         // MODULE: Run BAMCUT to split by Chunks
@@ -388,7 +387,7 @@ workflow UMIPROCESSING {
     ch_bam_sim_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_simplex
     ch_bam_con_stix = SAMTOOLS_SORT_INDEX_CON.out.bam_consensus
 
-    if (enabled(params.run_homopolymeric)) {
+    if ((params.run_homopolymeric instanceof Boolean ? params.run_homopolymeric : params.run_homopolymeric?.toString()?.toBoolean())) {
 
         //
         // MODULE: Run BAMCUT to split by Chromosome
