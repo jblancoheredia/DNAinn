@@ -32,7 +32,7 @@ process MAPK_SNVINDEL {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        mapk_snvindel: \$(mapk_snvindel.py --version | sed 's/^mapk_snvindel //')
+        mapk_snvindel: \$(python3 ${moduleDir}/resources/usr/bin/mapk_snvindel.py --version | sed 's/^mapk_snvindel //')
     END_VERSIONS
     """
 }
