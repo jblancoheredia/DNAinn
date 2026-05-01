@@ -9,7 +9,7 @@ process HLAIMGT {
 
     input:
     tuple val(meta), path(bam)
-    tuple val(meta), path(bai)
+    tuple val(meta1), path(bai)
     path(bwa2)
 
     output:

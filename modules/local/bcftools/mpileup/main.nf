@@ -11,7 +11,7 @@ process BCFTOOLS_MPILEUP {
     tuple val(meta),  path(bam), path(bai)
     tuple val(meta1), path(fai)
     tuple val(meta2), path(fasta)
-    tuple val(meta3), path(intervals)
+    tuple val(meta3), path(regions)
 
     output:
     tuple val(meta), path("*vcf.gz")     , emit: vcf
@@ -26,13 +26,13 @@ process BCFTOOLS_MPILEUP {
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def intervals = intervals ? "--regions-file ${intervals}" : ""
+    def interval_arg = regions ? "--regions-file ${regions}" : ""
     """
     echo "${meta.id}" > sample_name.list
 
     bcftools \\
         mpileup \\
-        ${intervals} \\
+        ${interval_arg} \\
         ${args} \\
         ${fasta} \\
         ${bam} | \\

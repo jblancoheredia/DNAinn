@@ -8,7 +8,7 @@ process SAMTOOLS_MPILEUP {
         'quay.io/biocontainers/samtools:1.21--h50ea8bc_0' }"
     input:
     tuple val(meta),  path(bam), path(bai)
-    tuple val(meta1), path(intervals)
+    tuple val(meta1), path(region_bed)
     path  fasta
 
     output:
@@ -22,13 +22,13 @@ process SAMTOOLS_MPILEUP {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def intervals = intervals ? "-l ${intervals}" : ""
+    def interval_arg = region_bed ? "-l ${region_bed}" : ""
     """
     samtools mpileup \\
         --fasta-ref $fasta \\
         --output ${prefix}.pileup \\
         $args \\
-        $intervals \\
+        $interval_arg \\
         $bam
 
     bgzip ${prefix}.pileup

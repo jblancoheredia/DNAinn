@@ -23,12 +23,12 @@ process CONTROLFREEC_OT_MAKEGRAPH2 {
     script:
     def args = task.ext.args ?: ""
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def baf = baf ?: ""
+    def baf_arg = baf ?: ""
     def VERSION = '11.6' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     export R_USER_CACHE_DIR=\$(pwd)
 
-    cat \$(which makeGraph2.0.R) | R --slave --args ${args} ${ratio} ${baf}
+    cat \$(which makeGraph2.0.R) | R --slave --args ${args} ${ratio} ${baf_arg}
 
     mv ${prefix}_BAF.txt.png ${prefix}_BAF.png
     mv ${prefix}_ratio.txt.log2.png ${prefix}_ratio.log2.png

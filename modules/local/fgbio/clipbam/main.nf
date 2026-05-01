@@ -10,7 +10,7 @@ process FGBIO_CLIPBAM {
     input:
     tuple val(meta),  path(bam), path(bai), path(nbam), path(nbai)
     tuple val(meta1), path(fasta)
-    tuple val(meta1), path(fai)
+    tuple val(meta2), path(fai)
 
     output:
     tuple val(meta), path("*.t.clipped.bam"), path("*.t.clipped.bai"), path("*.n.clipped.bam"), path("*.n.clipped.bai"), emit: bam

@@ -31,7 +31,7 @@ workflow UTILS_NFCORE_PIPELINE {
 //  Warn if a -profile or Nextflow config has not been provided to run the pipeline
 //
 def checkConfigProvided() {
-    valid_config = true
+    def valid_config = true
     if (workflow.profile == 'standard' && workflow.configFiles.size() <= 1) {
         log.warn "[$workflow.manifest.name] You are attempting to run the pipeline without any custom configuration!\n\n" +
             "This will be dependent on your local compute environment but can be achieved via one or more of the following:\n" +
@@ -102,7 +102,7 @@ def getWorkflowVersion() {
 //
 def processVersionsFromYAML(yaml_file) {
     def yaml = new org.yaml.snakeyaml.Yaml()
-    versions = yaml.load(yaml_file).collectEntries { k, v -> [ k.tokenize(':')[-1], v ] }
+    def versions = yaml.load(yaml_file).collectEntries { k, v -> [ k.tokenize(':')[-1], v ] }
     return yaml.dumpAsMap(versions).trim()
 }
 
@@ -346,7 +346,7 @@ def completionEmail(summary_params, email, email_on_fail, plaintext_email, outdi
     Map colors = logColours(monochrome_logs)
     if (email_address) {
         try {
-            if (plaintext_email) { throw GroovyException('Send plaintext e-mail, not HTML') }
+            if (plaintext_email) { throw new RuntimeException('Send plaintext e-mail, not HTML') }
             // Try to send HTML e-mail using sendmail
             def sendmail_tf = new File(workflow.launchDir.toString(), ".sendmail_tmp.html")
             sendmail_tf.withWriter { w -> w << sendmail_html }

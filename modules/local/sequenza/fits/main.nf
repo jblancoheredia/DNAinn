@@ -69,6 +69,7 @@ process SEQUENZA_FITS {
     """
     stub:
     def prefix = task.ext.prefix ?: "${meta.patient}"
+    def VERSION = '3.0.0'
     """
     touch ${prefix}.tsv
     touch ${prefix}.pdf

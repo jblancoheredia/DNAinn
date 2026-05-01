@@ -17,7 +17,7 @@ process OPTITYPE {
 
     script:
     def args  = task.ext.args   ?: ''
-    prefix    = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.id}"
     """
 
     echo "${task.process}:
