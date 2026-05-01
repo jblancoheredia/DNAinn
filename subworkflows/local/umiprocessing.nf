@@ -146,11 +146,11 @@ workflow UMIPROCESSING {
     ch_bam_fcu_indx = SAMTOOLS_SORT_INDEX_RAW.out.bai
     ch_bam_fcu_stix = SAMTOOLS_SORT_INDEX_RAW.out.bam_bai
 
-    //
-    // Module: Run LINE probe alignment and counting
-    //
-    LINE_PROBE_RAW(ch_bam_fcu_stix, params.probe_fasta, params.bwa_line_probe)
-    ch_versions = ch_versions.mix(LINE_PROBE_RAW.out.versions.first())
+//    //
+//    // Module: Run LINE probe alignment and counting
+//    //
+//    LINE_PROBE_RAW(ch_bam_fcu_stix, params.probe_fasta, params.bwa_line_probe)
+//    ch_versions = ch_versions.mix(LINE_PROBE_RAW.out.versions.first())
 
     //
     // MODULE: Run SAMtools Stats
@@ -790,23 +790,23 @@ workflow UMIPROCESSING {
     PICARD_COLLECTMULTIPLEMETRICS_SIM(ch_bam_sim_stix, ch_fasta, ch_fai)
     ch_versions = ch_versions.mix(PICARD_COLLECTMULTIPLEMETRICS_SIM.out.versions.first())
 
-    //
-    // Module: Run LINE probe alignment and counting
-    //
-    LINE_PROBE_CON(ch_bam_con_stix, params.probe_fasta, params.bwa_line_probe)
-    ch_versions = ch_versions.mix(LINE_PROBE_CON.out.versions.first())
-
-    //
-    // Module: Run LINE probe alignment and counting
-    //
-    LINE_PROBE_DUP(ch_bam_dup_stix, params.probe_fasta, params.bwa_line_probe)
-    ch_versions = ch_versions.mix(LINE_PROBE_DUP.out.versions.first())
-
-    //
-    // Module: Run LINE probe alignment and counting
-    //
-    LINE_PROBE_SIM(ch_bam_sim_stix, params.probe_fasta, params.bwa_line_probe)
-    ch_versions = ch_versions.mix(LINE_PROBE_SIM.out.versions.first())
+//    //
+//    // Module: Run LINE probe alignment and counting
+//    //
+//    LINE_PROBE_CON(ch_bam_con_stix, params.probe_fasta, params.bwa_line_probe)
+//    ch_versions = ch_versions.mix(LINE_PROBE_CON.out.versions.first())
+//
+//    //
+//    // Module: Run LINE probe alignment and counting
+//    //
+//    LINE_PROBE_DUP(ch_bam_dup_stix, params.probe_fasta, params.bwa_line_probe)
+//    ch_versions = ch_versions.mix(LINE_PROBE_DUP.out.versions.first())
+//
+//    //
+//    // Module: Run LINE probe alignment and counting
+//    //
+//    LINE_PROBE_SIM(ch_bam_sim_stix, params.probe_fasta, params.bwa_line_probe)
+//    ch_versions = ch_versions.mix(LINE_PROBE_SIM.out.versions.first())
 
     // Combine BAM fils by meta data
 	ch_umi_metrics_in = ch_bam_con_stix
