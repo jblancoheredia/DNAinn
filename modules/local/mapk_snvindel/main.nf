@@ -24,7 +24,7 @@ process MAPK_SNVINDEL {
     prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    mapk_snvindel.py \\
+    python3 ${moduleDir}/resources/usr/bin/mapk_snvindel.py \\
         --sample-id "${meta.id}" \\
         --variants-tsv ${variants_tsv} \\
         --mapk-genes ${mapk_genes_tsv} \\
