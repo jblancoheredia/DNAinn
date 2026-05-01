@@ -98,7 +98,7 @@ workflow IMMUNONCOLOGY {
     //
     ARCASHLA_EXTRACT(ch_chr6_bam)
     ch_versions = ch_versions.mix(ARCASHLA_EXTRACT.out.versions)
-    ch_arcashla = ARCASHLA_EXTRACT.out.
+    ch_arcashla = ARCASHLA_EXTRACT.out.extracted_reads_fastq
 
     //
     // Collate and save software versions
