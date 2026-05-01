@@ -331,6 +331,12 @@ workflow UMIPROCESSING {
     ch_versions = ch_versions.mix(FGBIO_COLLECTDUPLEXSEQMETRICS.out.versions.first())
 
     //
+    // MODULE: Run Preseq LCExtrap
+    //
+    PRESEQ_LCEXTRAP(ch_grouped_family_sizes)
+    ch_versions = ch_versions.mix(PRESEQ_LCEXTRAP.out.versions.first())
+
+    //
     // MODULE: Run fgbio CallDuplexConsensusReads
     //
     FGBIO_CALLDUPLEXCONSENSUSREADS(ch_bam_grouped, params.call_min_reads, params.call_min_baseq)
@@ -841,12 +847,6 @@ workflow UMIPROCESSING {
     //
     PRESEQ_CCURVE(ch_con_family_sizes)
     ch_versions = ch_versions.mix(PRESEQ_CCURVE.out.versions.first())
-
-    //
-    // MODULE: Run Preseq LCExtrap
-    //
-    PRESEQ_LCEXTRAP(ch_grouped_family_sizes)
-    ch_versions = ch_versions.mix(PRESEQ_LCEXTRAP.out.versions.first())
 
     //
     // MODULE: Extract FastQ reads from BAM
