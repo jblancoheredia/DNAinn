@@ -4,8 +4,8 @@ process MAPK_SNVINDEL {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://python:3.11-slim' :
-        'python:3.11-slim' }"
+        'docker://blancojmskcc/vcfcalls2tsv:2.0.0':
+        'blancojmskcc/vcfcalls2tsv:2.0.0' }"
 
     input:
     tuple val(meta), path(variants_tsv)
