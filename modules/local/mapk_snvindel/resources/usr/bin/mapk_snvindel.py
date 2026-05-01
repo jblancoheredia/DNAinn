@@ -25,7 +25,7 @@ VERSION = "0.1.0"
 
 GENE_COLUMN_ALIASES = [
     "gene_symbol", "gene", "Gene", "GENE", "SYMBOL", "Hugo_Symbol", "HUGO_SYMBOL",
-    "gene_name", "Gene.refGene", "Gene_Name", "symbol"
+    "gene_name", "Gene.refGene", "Gene_Name", "symbol", "ANN_SYMBOL"
 ]
 SAMPLE_COLUMN_ALIASES = [
     "sample", "Sample", "SAMPLE", "sample_id", "Sample_ID", "tumor_sample", "Tumor_Sample_Barcode",
@@ -33,11 +33,11 @@ SAMPLE_COLUMN_ALIASES = [
 ]
 CONSEQUENCE_COLUMN_ALIASES = [
     "consequence", "Consequence", "effect", "Effect", "variant_classification",
-    "Variant_Classification", "Func.refGene", "ExonicFunc.refGene", "BIOTYPE"
+    "Variant_Classification", "Func.refGene", "ExonicFunc.refGene", "BIOTYPE", "ANN_CONSEQUENCE"
 ]
 PROTEIN_COLUMN_ALIASES = [
     "protein_change", "Protein_Change", "HGVSp", "hgvsp", "HGVSp_Short",
-    "AAChange", "AAChange.refGene", "amino_acid_change", "Protein_position"
+    "AAChange", "AAChange.refGene", "amino_acid_change", "Protein_position", "ANN_HGVSP"
 ]
 VAF_COLUMN_ALIASES = [
     "vaf", "VAF", "tumor_vaf", "Tumor_VAF", "AF", "allele_fraction", "Allele_Fraction",
@@ -50,7 +50,7 @@ REF_COLUMN_ALIASES = ["ref", "REF", "Reference_Allele", "Reference", "ReferenceA
 ALT_COLUMN_ALIASES = ["alt", "ALT", "Tumor_Seq_Allele2", "Alternate_Allele", "Alternate", "Allele"]
 CHROM_COLUMN_ALIASES = ["chrom", "chr", "CHROM", "Chromosome", "chromosome"]
 POS_COLUMN_ALIASES = ["pos", "POS", "start", "Start_Position", "position", "Position"]
-CALLER_COLUMN_ALIASES = ["caller", "Caller", "variant_caller", "Variant_Caller"]
+CALLER_COLUMN_ALIASES = ["caller", "Caller", "variant_caller", "Variant_Caller", "SUPP_VEC"]
 
 # Cancer-relevant MAPK hotspot pattern, intentionally conservative.
 HOTSPOT_PATTERNS = {
