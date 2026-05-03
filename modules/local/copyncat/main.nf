@@ -3,16 +3,14 @@ process COPYNCAT {
     label 'process_medium'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/copyncat_dnainn:1.0.0':
-        'blancojmskcc/copyncat_dnainn:1.0.0' }"
+        'docker://blancojmskcc/copyncat_dnainn:2.0.0':
+        'blancojmskcc/copyncat_dnainn:2.0.0' }"
 
     input:
     tuple val(meta), \
         path(cnvkit_call), \
         path(cnvkit_cns), \
         path(cnvkit_vcf), \
-        path(controlfreec_cnv), \
-        path(controlfreec_config), \
         path(sequenza_segments), \
         path(sequenza_confints), \
         path(sequenza_alternative), \
@@ -41,8 +39,6 @@ process COPYNCAT {
         --cnvkit-call ${cnvkit_call} \\
         --cnvkit-cns ${cnvkit_cns} \\
         --cnvkit-vcf ${cnvkit_vcf} \\
-        --controlfreec-cnv ${controlfreec_cnv} \\
-        --controlfreec-config ${controlfreec_config} \\
         --sequenza-segments ${sequenza_segments} \\
         --sequenza-confints ${sequenza_confints} \\
         --sequenza-alternative ${sequenza_alternative} \\
