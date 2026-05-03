@@ -193,8 +193,6 @@ workflow COPYNUMBERALT {
 //    ch_copyncat_input = ch_cnvkit_call
 //        .join(ch_cnvkit_cns)
 //        .join(ch_cnvkit_vcf)
-//        .join(ch_cfot_cnvs)
-//        .join(ch_cfot_config)
 //        .join(ch_sequenza_segments)
 //        .join(ch_sequenza_confints)
 //        .join(ch_sequenza_alternative)
