@@ -36,16 +36,16 @@ process COPYNCAT {
 
     CopyNcat \\
         --sample ${prefix} \\
-        --cnvkit-call ${cnvkit_call} \\
         --cnvkit-cns ${cnvkit_cns} \\
-        --cnvkit-vcf ${cnvkit_vcf} \\
-        --sequenza-segments ${sequenza_segments} \\
-        --sequenza-confints ${sequenza_confints} \\
-        --sequenza-alternative ${sequenza_alternative} \\
-        --oncocnv-profile ${oncocnv_profile} \\
+        --cnvkit-vcf ${cnvkit_vcf}  \\
+        --cnvkit-call ${cnvkit_call} \\
+        --out-tsv ${prefix}_CNV_MERGED.tsv    \\
+        --oncocnv-profile ${oncocnv_profile}   \\
         --facets-vcf ${facets_vcf_decompressed} \\
-        --out-tsv ${prefix}_CNV_MERGED.tsv \\
+        --sequenza-segments ${sequenza_segments} \\
+        --sequenza-confints ${sequenza_confints}  \\
         --out-summary ${prefix}_CNV_PLOIDY_PURITY.tsv \\
+        --sequenza-alternative ${sequenza_alternative} \\
         $args
 
     cat <<-END_VERSIONS > versions.yml
