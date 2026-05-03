@@ -45,7 +45,8 @@ process COPYNCAT {
         --oncocnv-profile ${oncocnv_profile} \\
         --facets-vcf ${facets_vcf_decompressed} \\
         --out-tsv ${prefix}_CNV_MERGED.tsv \\
-        --out-summary ${prefix}_CNV_PLOIDY_PURITY.tsv
+        --out-summary ${prefix}_CNV_PLOIDY_PURITY.tsv \\
+        $args
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
