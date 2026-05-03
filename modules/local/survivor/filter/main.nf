@@ -91,7 +91,17 @@ process SURVIVOR_FILTER {
     grep -v \"#\" ${prefix}_SURVOR_SV_UNF.vcf | grep \"CHR2=Y\" >> ${prefix}_SURVOR_SV_FIL.vcf || true
 
     if [ -s ${prefix}_allowlist_svs.vcf ]; then
-        grep -v -f <(grep -v \"#\" ${prefix}_SURVOR_SV_FIL.vcf | cut -f1-8) ${prefix}_allowlist_svs.vcf >> ${prefix}_SURVOR_SV_FIL.vcf || true
+        grep -v '^#' ${prefix}_SURVOR_SV_FIL.vcf | cut -f1-8 | sort -u > ${prefix}_allowlist_dedup_keys.txt
+        awk -F'\\t' '
+        FNR==NR {
+            seen[\$0]=1
+            next
+        }
+        {
+            key=sprintf("%s\\t%s\\t%s\\t%s\\t%s\\t%s\\t%s\\t%s", \$1, \$2, \$3, \$4, \$5, \$6, \$7, \$8)
+            if (!(key in seen)) print
+        }' ${prefix}_allowlist_dedup_keys.txt ${prefix}_allowlist_svs.vcf >> ${prefix}_SURVOR_SV_FIL.vcf || true
+        rm -f ${prefix}_allowlist_dedup_keys.txt
     fi
 
     SVRVOR2TSV \\
