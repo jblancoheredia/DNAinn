@@ -328,14 +328,17 @@ workflow DNAINN {
     }
 
     // Build MAPK_SIG_PATH input
-    ch_mapl_sig_path_input = ch_variants
+    ch_mapk_sig_path_input = ch_variants
         .join(ch_cnv_tsv)
         .join(ch_sv_tsv)
 
     //
     // MODULE: MapK Pathway Special Module for Diamond Project
     //
-    MAPK_SIG_PATH(ch_mapl_sig_path_input, file(params.mapk_genes))
+    MAPK_SIG_PATH(ch_mapk_sig_path_input, file(params.mapk_genes))
+    ch_mapk_alterations = MAPK_SIG_PATH.out.alterations
+    ch_mapk_gene_summary = MAPK_SIG_PATH.out.gene_summary
+    ch_mapk_sample_summary = MAPK_SIG_PATH.out.sample_summary
     ch_versions = ch_versions.mix(MAPK_SIG_PATH.out.versions)
 
     //
