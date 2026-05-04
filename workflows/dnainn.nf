@@ -13,6 +13,7 @@ include { paramsSummaryMap                                                      
 */
 
 include { MULTIQC                                                                       } from '../modules/nf-core/multiqc/main'
+include { MAPK_SIG_PATH                                                                 } from '../modules/local/mapk_sig_path/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -233,11 +234,13 @@ workflow DNAINN {
         )
 //        ch_versions = ch_versions.mix(COPYNUMBERALT.out.versions)
         ch_multiqc_files = ch_multiqc_files.mix(COPYNUMBERALT.out.multiqc_files)
-        ch_sam_mpileup = COPYNUMBERALT.out.sam_mpileup
-        ch_bcf_mpileup = COPYNUMBERALT.out.bcf_mpileup
+        ch_sam_mpileup   = COPYNUMBERALT.out.sam_mpileup
+        ch_bcf_mpileup   = COPYNUMBERALT.out.bcf_mpileup
+        ch_cnv_tsv       = COPYNUMBERALT.out.cnv_tsv
     } else {
-        ch_sam_mpileup = Channel.empty()
-        ch_bcf_mpileup = Channel.empty()
+        ch_sam_mpileup   = Channel.empty()
+        ch_bcf_mpileup   = Channel.empty()
+        ch_cnv_tsv       = Channel.empty()
     }
 
     if ((params.run_variantdscvry instanceof Boolean ? params.run_variantdscvry : params.run_variantdscvry?.toString()?.toBoolean())) {
@@ -319,9 +322,21 @@ workflow DNAINN {
         ch_intervals_gunzip_index
     )
     ch_versions = ch_versions.mix(STRCTRLVARNTS.out.versions)
+    ch_sv_tsv = STRCTRLVARNTS.out.sv_tsv
     } else {
-        ch_sv_annotated = Channel.empty()
+        ch_sv_tsv = Channel.empty()
     }
+
+    // Build MAPK_SIG_PATH input
+    ch_mapl_sig_path_input = ch_variants
+        .join(ch_cnv_tsv)
+        .join(ch_sv_tsv)
+
+    //
+    // MODULE: MapK Pathway Special Module for Diamond Project
+    //
+    MAPK_SIG_PATH(ch_mapl_sig_path_input, file(params.mapk_genes))
+    ch_versions = ch_versions.mix(MAPK_SIG_PATH.out.versions)
 
     //
     // Collate and save software versions

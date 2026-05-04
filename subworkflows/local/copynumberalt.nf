@@ -20,12 +20,7 @@ include { SAMTOOLS_MPILEUP                                                      
 include { CNVKIT_REFERENCE                                                                                                          } from '../../modules/nf-core/cnvkit/reference/main'
 include { CNVKIT_ANTITARGET                                                                                                         } from '../../modules/nf-core/cnvkit/antitarget/main'
 include { CNVKIT_GENEMETRICS                                                                                                        } from '../../modules/nf-core/cnvkit/genemetrics/main'
-include { CONTROLFREEC_OT_FREEC                                                                                                     } from '../../modules/local/controlfreec_ot/freec/main'
 include { SEQUENZAUTILS_BAM2SEQZ                                                                                                    } from '../../modules/local/sequenzautils/bam2seqz/main'
-include { CONTROLFREEC_OT_FREEC2BED                                                                                                 } from '../../modules/local/controlfreec_ot/freec2bed/main' 
-include { CONTROLFREEC_OT_MAKEGRAPH2                                                                                                } from '../../modules/local/controlfreec_ot/makegraph2/main'
-include { CONTROLFREEC_OT_FREEC2CIRCOS                                                                                              } from '../../modules/local/controlfreec_ot/freec2circos/main'
-include { CONTROLFREEC_OT_ASSESSSIGNIFICANCE                                                                                        } from '../../modules/local/controlfreec_ot/assesssignificance/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,6 +164,7 @@ workflow COPYNUMBERALT {
     // MODULE: Run CopyNcat (merge CNV calls from CNVkit, Sequenza, OncoCNV, FACETS)
     //
     COPYNCAT(ch_copyncat_input)
+    ch_cnv_tsv = COPYNCAT.out.tsv
     ch_versions = ch_versions.mix(COPYNCAT.out.versions)
 
 //    //
@@ -181,6 +177,7 @@ workflow COPYNUMBERALT {
     emit:
 
 //    versions            = ch_col_vers
+    cnv_tsv             = ch_cnv_tsv
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files

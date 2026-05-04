@@ -352,7 +352,7 @@ workflow STRCTRLVARNTS {
         .set { ch_collated_versions }
 
     emit:
-
+    sv_tsv          = ch_annotated_ann
     multiqc_files   = ch_multiqc_files 
     versions        = ch_collated_versions
 

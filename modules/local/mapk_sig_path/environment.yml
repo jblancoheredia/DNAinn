@@ -1,6 +1,6 @@
-name: mapk_snvindel
+name: mapk_sig_path
 channels:
   - conda-forge
   - bioconda
 dependencies:
-  - python=3.11
+  - python>=3.8

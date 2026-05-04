@@ -1,4 +1,4 @@
-process MAPK_SNVINDEL {
+process MAPK_SIG_PATH {
     tag "$meta.id"
     label 'process_low'
 
@@ -8,13 +8,13 @@ process MAPK_SNVINDEL {
         'blancojmskcc/vcfcalls2tsv:2.0.0' }"
 
     input:
-    tuple val(meta), path(variants_tsv)
+    tuple val(meta), path(variants_tsv), path(cnv_tsv), path(sv_tsv)
     path mapk_genes_tsv
 
     output:
-    tuple val(meta), path("${prefix}.mapk_snvindel.alterations.tsv")   , emit: alterations
-    tuple val(meta), path("${prefix}.mapk_snvindel.gene_summary.tsv")  , emit: gene_summary
-    tuple val(meta), path("${prefix}.mapk_snvindel.sample_summary.tsv"), emit: sample_summary
+    tuple val(meta), path("${prefix}.mapk_sig_path.alterations.tsv")   , emit: alterations
+    tuple val(meta), path("${prefix}.mapk_sig_path.gene_summary.tsv")  , emit: gene_summary
+    tuple val(meta), path("${prefix}.mapk_sig_path.sample_summary.tsv"), emit: sample_summary
     path "versions.yml"                                                , emit: versions
 
     when:
@@ -24,15 +24,17 @@ process MAPK_SNVINDEL {
     prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    python3 ${moduleDir}/resources/usr/bin/mapk_snvindel.py \\
+    python3 ${moduleDir}/resources/usr/bin/mapk_sig_path.py \\
+        --sv-tsv ${sv_tsv} \\
+        --cnv-tsv ${cnv_tsv} \\
+        --out-prefix ${prefix} \\
         --sample-id "${meta.id}" \\
-        --variants-tsv ${variants_tsv} \\
         --mapk-genes ${mapk_genes_tsv} \\
-        --out-prefix ${prefix}
+        --variants-tsv ${variants_tsv}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        mapk_snvindel: \$(python3 ${moduleDir}/resources/usr/bin/mapk_snvindel.py --version | sed 's/^mapk_snvindel //')
+        mapk_sig_path: \$(python3 ${moduleDir}/resources/usr/bin/mapk_sig_path.py --version | sed 's/^mapk_sig_path //')
     END_VERSIONS
     """
 }

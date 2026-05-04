@@ -1,0 +1,48 @@
+name: mapk_sig_path
+description: Filter and summarize MAPK signaling pathway SNV/InDel, CNV, and SV alterations for a restricted gene set.
+keywords:
+  - MAPK
+  - SNV
+  - indel
+  - CNV
+  - SV
+  - pathway
+input:
+  - meta:
+      type: map
+      description: Sample metadata map, usually containing id.
+  - variants_tsv:
+      type: file
+      description: SNV/InDel TSV, e.g. output from VCFCALLS2TSV.
+      pattern: "*.tsv"
+  - cnv_tsv:
+      type: file
+      description: CNV merged TSV, e.g. DMND*_CNV_MERGED.tsv.
+      pattern: "*.tsv"
+  - sv_tsv:
+      type: file
+      description: SV annotation TSV, e.g. DMND*_SOMTIC_SV_ANN.tsv.
+      pattern: "*.tsv"
+  - mapk_genes_tsv:
+      type: file
+      description: MAPK restricted gene-set TSV with gene_symbol/gene column.
+      pattern: "*.tsv"
+output:
+  - alterations:
+      type: file
+      description: Unified MAPK alteration-level TSV.
+      pattern: "*.mapk_sig_path.alterations.tsv"
+  - sample_summary:
+      type: file
+      description: Sample-level MAPK alteration summary.
+      pattern: "*.mapk_sig_path.sample_summary.tsv"
+  - gene_summary:
+      type: file
+      description: Gene-level MAPK alteration summary.
+      pattern: "*.mapk_sig_path.gene_summary.tsv"
+  - versions:
+      type: file
+      description: Software versions file.
+      pattern: "versions.yml"
+authors:
+  - "local"
