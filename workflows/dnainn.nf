@@ -327,33 +327,41 @@ workflow DNAINN {
         ch_sv_tsv = Channel.empty()
     }
 
-    // Normalize each channel to a shared key = meta.id
-    ch_variants_by_id = ch_variants.map { meta, variants_tsv ->
-        tuple(meta.id, meta, variants_tsv)
-    }   
-    ch_cnv_by_id = ch_cnv_tsv.map { meta, cnv_tsv ->
-        tuple(meta.id, cnv_tsv)
-    }   
-    ch_sv_by_id = ch_sv_tsv.map { meta, sv_tsv ->
-        tuple(meta.id, sv_tsv)
-    }   
+    if ((params.run_mapksigpathwy instanceof Boolean ? params.run_mapksigpathwy : params.run_mapksigpathwy?.toString()?.toBoolean())) {
 
-    // Build MAPK_SIG_PATH input
-    ch_mapk_sig_path_input = ch_variants_by_id
-        .join(ch_cnv_by_id, by: 0)
-        .join(ch_sv_by_id, by: 0)
-        .map { id, meta, variants_tsv, cnv_tsv, sv_tsv ->
-            tuple(meta, variants_tsv, cnv_tsv, sv_tsv)
-        }
+        // Normalize each channel to a shared key = meta.id
+        ch_variants_by_id = ch_variants.map { meta, variants_tsv ->
+            tuple(meta.id, meta, variants_tsv)
+        }   
+        ch_cnv_by_id = ch_cnv_tsv.map { meta, cnv_tsv ->
+            tuple(meta.id, cnv_tsv)
+        }   
+        ch_sv_by_id = ch_sv_tsv.map { meta, sv_tsv ->
+            tuple(meta.id, sv_tsv)
+        }   
+    
+        // Build MAPK_SIG_PATH input
+        ch_mapk_sig_path_input = ch_variants_by_id
+            .join(ch_cnv_by_id, by: 0)
+            .join(ch_sv_by_id, by: 0)
+            .map { id, meta, variants_tsv, cnv_tsv, sv_tsv ->
+                tuple(meta, variants_tsv, cnv_tsv, sv_tsv)
+            }
+    
+        //
+        // MODULE: MapK Pathway Special Module for Diamond Project
+        //
+        MAPK_SIG_PATH(ch_mapk_sig_path_input, file(params.mapk_genes))
+        ch_mapk_alterations = MAPK_SIG_PATH.out.alterations
+        ch_mapk_gene_summary = MAPK_SIG_PATH.out.gene_summary
+        ch_mapk_sample_summary = MAPK_SIG_PATH.out.sample_summary
+        ch_versions = ch_versions.mix(MAPK_SIG_PATH.out.versions)
 
-    //
-    // MODULE: MapK Pathway Special Module for Diamond Project
-    //
-    MAPK_SIG_PATH(ch_mapk_sig_path_input, file(params.mapk_genes))
-    ch_mapk_alterations = MAPK_SIG_PATH.out.alterations
-    ch_mapk_gene_summary = MAPK_SIG_PATH.out.gene_summary
-    ch_mapk_sample_summary = MAPK_SIG_PATH.out.sample_summary
-    ch_versions = ch_versions.mix(MAPK_SIG_PATH.out.versions)
+    } else {
+        ch_mapk_alterations    = Channel.empty()
+        ch_mapk_gene_summary   = Channel.empty()
+        ch_mapk_sample_summary = Channel.empty()
+    }
 
     //
     // Collate and save software versions
