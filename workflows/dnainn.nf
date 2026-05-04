@@ -327,10 +327,24 @@ workflow DNAINN {
         ch_sv_tsv = Channel.empty()
     }
 
+    // Normalize each channel to a shared key = meta.id
+    ch_variants_by_id = ch_variants.map { meta, variants_tsv ->
+        tuple(meta.id, meta, variants_tsv)
+    }   
+    ch_cnv_by_id = ch_cnv_tsv.map { meta, cnv_tsv ->
+        tuple(meta.id, cnv_tsv)
+    }   
+    ch_sv_by_id = ch_sv_tsv.map { meta, sv_tsv ->
+        tuple(meta.id, sv_tsv)
+    }   
+
     // Build MAPK_SIG_PATH input
-    ch_mapk_sig_path_input = ch_variants
-        .join(ch_cnv_tsv)
-        .join(ch_sv_tsv)
+    ch_mapk_sig_path_input = ch_variants_by_id
+        .join(ch_cnv_by_id, by: 0)
+        .join(ch_sv_by_id, by: 0)
+        .map { id, meta, variants_tsv, cnv_tsv, sv_tsv ->
+            tuple(meta, variants_tsv, cnv_tsv, sv_tsv)
+        }
 
     //
     // MODULE: MapK Pathway Special Module for Diamond Project
