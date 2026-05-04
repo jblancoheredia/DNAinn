@@ -186,6 +186,12 @@
                     "description": "To run or not this step",
                     "fa_icon": "fas fa-book",
                     "help_text": "Controls the subworkflows to be run"
+                },
+                "run_mapksigpathwy": {
+                    "type": "boolean",
+                    "description": "To run or not this step",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Controls the subworkflows to be run"
                 }
             }
         },
