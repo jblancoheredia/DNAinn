@@ -44,7 +44,7 @@ process LINE_PROBE_RAW {
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
-        \$BWA_INDEX_PREFIX \\
+        "\${BWA_INDEX_PREFIX}" \\
         ${prefix}.R1.fastq \\
         ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.raw.bam
@@ -182,7 +182,7 @@ process LINE_PROBE_CON {
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
-        \$BWA_INDEX_PREFIX \\
+        "\${BWA_INDEX_PREFIX}" \\
         ${prefix}.R1.fastq \\
         ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.con.bam
@@ -320,7 +320,7 @@ process LINE_PROBE_DUP {
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
-        \$BWA_INDEX_PREFIX \\
+        "\${BWA_INDEX_PREFIX}" \\
         ${prefix}.R1.fastq \\
         ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.dup.bam
@@ -458,7 +458,7 @@ process LINE_PROBE_SIM {
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
-        \$BWA_INDEX_PREFIX \\
+        "\${BWA_INDEX_PREFIX}" \\
         ${prefix}.R1.fastq \\
         ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.sim.bam
