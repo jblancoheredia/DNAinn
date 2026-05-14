@@ -23,7 +23,7 @@ process LINE_PROBE_RAW {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: '-B 3 -K 100000000 -Y -M'
+    def args = task.ext.args ?: '-Y -M'
     def prefix = task.ext.prefix ?: "${meta.id}"
     def fasta_name = probe_fasta.getName()
 
@@ -161,7 +161,7 @@ process LINE_PROBE_CON {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: '-B 3 -K 100000000 -Y -M'
+    def args = task.ext.args ?: '-Y -M'
     def prefix = task.ext.prefix ?: "${meta.id}"
     def fasta_name = probe_fasta.getName()
 
@@ -299,7 +299,7 @@ process LINE_PROBE_DUP {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: '-B 3 -K 100000000 -Y -M'
+    def args = task.ext.args ?: '-Y -M'
     def prefix = task.ext.prefix ?: "${meta.id}"
     def fasta_name = probe_fasta.getName()
 
@@ -437,7 +437,7 @@ process LINE_PROBE_SIM {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: '-B 3 -K 100000000 -Y -M'
+    def args = task.ext.args ?: '-Y -M'
     def prefix = task.ext.prefix ?: "${meta.id}"
     def fasta_name = probe_fasta.getName()
 
