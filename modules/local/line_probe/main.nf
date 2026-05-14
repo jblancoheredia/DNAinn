@@ -34,12 +34,19 @@ process LINE_PROBE_RAW {
         | samtools fastq \\
             -n \\
             -F 0x900 \\
-            -1 /dev/stdout \\
-            -2 /dev/stdout \\
+            -1 ${prefix}.R1.fastq \\
+            -2 ${prefix}.R2.fastq \\
             -0 /dev/null \\
             -s /dev/null \\
-            - \\
-        | bwa mem -p -t ${task.cpus} ${args} -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
+            -
+
+    bwa mem \\
+        -t ${task.cpus} \\
+        ${args} \\
+        -R ${meta.read_group} \\
+        \$BWA_INDEX_PREFIX \\
+        ${prefix}.R1.fastq \\
+        ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.raw.bam
 
     samtools index ${prefix}.line_probe.raw.bam
@@ -165,12 +172,19 @@ process LINE_PROBE_CON {
         | samtools fastq \\
             -n \\
             -F 0x900 \\
-            -1 /dev/stdout \\
-            -2 /dev/stdout \\
+            -1 ${prefix}.R1.fastq \\
+            -2 ${prefix}.R2.fastq \\
             -0 /dev/null \\
             -s /dev/null \\
-            - \\
-        | bwa mem -p -t ${task.cpus} ${args} -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
+            -
+
+    bwa mem \\
+        -t ${task.cpus} \\
+        ${args} \\
+        -R ${meta.read_group} \\
+        \$BWA_INDEX_PREFIX \\
+        ${prefix}.R1.fastq \\
+        ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.con.bam
 
     samtools index ${prefix}.line_probe.con.bam
@@ -296,12 +310,19 @@ process LINE_PROBE_DUP {
         | samtools fastq \\
             -n \\
             -F 0x900 \\
-            -1 /dev/stdout \\
-            -2 /dev/stdout \\
+            -1 ${prefix}.R1.fastq \\
+            -2 ${prefix}.R2.fastq \\
             -0 /dev/null \\
             -s /dev/null \\
-            - \\
-        | bwa mem -p -t ${task.cpus} ${args} -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
+            -
+
+    bwa mem \\
+        -t ${task.cpus} \\
+        ${args} \\
+        -R ${meta.read_group} \\
+        \$BWA_INDEX_PREFIX \\
+        ${prefix}.R1.fastq \\
+        ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.dup.bam
 
     samtools index ${prefix}.line_probe.dup.bam
@@ -427,12 +448,19 @@ process LINE_PROBE_SIM {
         | samtools fastq \\
             -n \\
             -F 0x900 \\
-            -1 /dev/stdout \\
-            -2 /dev/stdout \\
+            -1 ${prefix}.R1.fastq \\
+            -2 ${prefix}.R2.fastq \\
             -0 /dev/null \\
             -s /dev/null \\
-            - \\
-        | bwa mem -p -t ${task.cpus} ${args} -R ${meta.read_group} \$BWA_INDEX_PREFIX - \\
+            -
+
+    bwa mem \\
+        -t ${task.cpus} \\
+        ${args} \\
+        -R ${meta.read_group} \\
+        \$BWA_INDEX_PREFIX \\
+        ${prefix}.R1.fastq \\
+        ${prefix}.R2.fastq \\
         | samtools sort -@ ${task.cpus} -o ${prefix}.line_probe.sim.bam
 
     samtools index ${prefix}.line_probe.sim.bam
