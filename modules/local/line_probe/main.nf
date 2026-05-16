@@ -93,8 +93,8 @@ process LINE_PROBE_RAW {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 
@@ -109,8 +109,8 @@ process LINE_PROBE_RAW {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 }
@@ -210,8 +210,8 @@ process LINE_PROBE_CON {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 
@@ -226,8 +226,8 @@ process LINE_PROBE_CON {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 }
@@ -327,8 +327,8 @@ process LINE_PROBE_DUP {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 
@@ -343,8 +343,8 @@ process LINE_PROBE_DUP {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 }
@@ -444,8 +444,8 @@ process LINE_PROBE_SIM {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 
@@ -460,8 +460,8 @@ process LINE_PROBE_SIM {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bwa: \$(bwa 2>&1 | tail -n 1)
-        samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
+        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
     END_VERSIONS
     """
 }
