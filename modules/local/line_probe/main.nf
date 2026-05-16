@@ -54,22 +54,19 @@ process LINE_PROBE_RAW {
 
     samtools depth -aa -r LP:1-120 ${prefix}.line_probe.raw.bam > ${prefix}.line_probe.depth.raw.tsv
 
-    PROBE_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname=="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.raw.bam)
+    PROBE_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.raw.bam \\
+        | awk '\$3=="LP" && \$7=="LP"' | wc -l)
 
-    INSERT_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.raw.bam)
+    INSERT_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.raw.bam \\
+        | awk '\$3!="LP" && \$7=="LP"' | wc -l)
 
     printf "sample\tbam_type\tcategory\tread_count\n" > ${prefix}.line_probe.counts.raw.tsv
     printf "${prefix}\traw\tprobe\t\${PROBE_COUNT}\n"    >> ${prefix}.line_probe.counts.raw.tsv
     printf "${prefix}\traw\tinsertion\t\${INSERT_COUNT}\n" >> ${prefix}.line_probe.counts.raw.tsv
 
-    samtools view -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        -b ${prefix}.line_probe.raw.bam \\
-        -o ${prefix}.insertion_reads.bam
+    samtools view -h -F 2304 ${prefix}.line_probe.raw.bam \\
+        | awk '\$1~/^@/ || (\$3!="LP" && \$7=="LP")' \\
+        | samtools view -bS - -o ${prefix}.insertion_reads.bam
 
     samtools index ${prefix}.insertion_reads.bam
 
@@ -174,22 +171,19 @@ process LINE_PROBE_CON {
 
     samtools depth -aa -r LP:1-120 ${prefix}.line_probe.con.bam > ${prefix}.line_probe.depth.con.tsv
 
-    PROBE_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname=="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.con.bam)
+    PROBE_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.con.bam \\
+        | awk '\$3=="LP" && \$7=="LP"' | wc -l)
 
-    INSERT_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.con.bam)
+    INSERT_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.con.bam \\
+        | awk '\$3!="LP" && \$7=="LP"' | wc -l)
 
     printf "sample\tbam_type\tcategory\tread_count\n" > ${prefix}.line_probe.counts.con.tsv
     printf "${prefix}\tcon\tprobe\t\${PROBE_COUNT}\n"    >> ${prefix}.line_probe.counts.con.tsv
     printf "${prefix}\tcon\tinsertion\t\${INSERT_COUNT}\n" >> ${prefix}.line_probe.counts.con.tsv
 
-    samtools view -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        -b ${prefix}.line_probe.con.bam \\
-        -o ${prefix}.insertion_reads.bam
+    samtools view -h -F 2304 ${prefix}.line_probe.con.bam \\
+        | awk '\$1~/^@/ || (\$3!="LP" && \$7=="LP")' \\
+        | samtools view -bS - -o ${prefix}.insertion_reads.bam
 
     samtools index ${prefix}.insertion_reads.bam
 
@@ -294,22 +288,19 @@ process LINE_PROBE_DUP {
 
     samtools depth -aa -r LP:1-120 ${prefix}.line_probe.dup.bam > ${prefix}.line_probe.depth.dup.tsv
 
-    PROBE_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname=="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.dup.bam)
+    PROBE_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.dup.bam \\
+        | awk '\$3=="LP" && \$7=="LP"' | wc -l)
 
-    INSERT_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.dup.bam)
+    INSERT_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.dup.bam \\
+        | awk '\$3!="LP" && \$7=="LP"' | wc -l)
 
     printf "sample\tbam_type\tcategory\tread_count\n" > ${prefix}.line_probe.counts.dup.tsv
     printf "${prefix}\tdup\tprobe\t\${PROBE_COUNT}\n"    >> ${prefix}.line_probe.counts.dup.tsv
     printf "${prefix}\tdup\tinsertion\t\${INSERT_COUNT}\n" >> ${prefix}.line_probe.counts.dup.tsv
 
-    samtools view -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        -b ${prefix}.line_probe.dup.bam \\
-        -o ${prefix}.insertion_reads.bam
+    samtools view -h -F 2304 ${prefix}.line_probe.dup.bam \\
+        | awk '\$1~/^@/ || (\$3!="LP" && \$7=="LP")' \\
+        | samtools view -bS - -o ${prefix}.insertion_reads.bam
 
     samtools index ${prefix}.insertion_reads.bam
 
@@ -414,22 +405,19 @@ process LINE_PROBE_SIM {
 
     samtools depth -aa -r LP:1-120 ${prefix}.line_probe.sim.bam > ${prefix}.line_probe.depth.sim.tsv
 
-    PROBE_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname=="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.sim.bam)
+    PROBE_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.sim.bam \\
+        | awk '\$3=="LP" && \$7=="LP"' | wc -l)
 
-    INSERT_COUNT=\$(samtools view -c -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        ${prefix}.line_probe.sim.bam)
+    INSERT_COUNT=\$(samtools view -F 2304 ${prefix}.line_probe.sim.bam \\
+        | awk '\$3!="LP" && \$7=="LP"' | wc -l)
 
     printf "sample\tbam_type\tcategory\tread_count\n" > ${prefix}.line_probe.counts.sim.tsv
     printf "${prefix}\tsim\tprobe\t\${PROBE_COUNT}\n"    >> ${prefix}.line_probe.counts.sim.tsv
     printf "${prefix}\tsim\tinsertion\t\${INSERT_COUNT}\n" >> ${prefix}.line_probe.counts.sim.tsv
 
-    samtools view -F 2304 \\
-        -e 'rname!="LP" && rnext=="LP"' \\
-        -b ${prefix}.line_probe.sim.bam \\
-        -o ${prefix}.insertion_reads.bam
+    samtools view -h -F 2304 ${prefix}.line_probe.sim.bam \\
+        | awk '\$1~/^@/ || (\$3!="LP" && \$7=="LP")' \\
+        | samtools view -bS - -o ${prefix}.insertion_reads.bam
 
     samtools index ${prefix}.insertion_reads.bam
 
