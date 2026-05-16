@@ -52,7 +52,7 @@ process LINE_PROBE_RAW {
 
     samtools index ${prefix}.line_probe.raw.bam
 
-    samtools depth -aa -H -r LP:1-120 ${prefix}.line_probe.raw.bam > ${prefix}.line_probe.depth.raw.tsv
+    samtools depth -aa -r LP:1-120 ${prefix}.line_probe.raw.bam > ${prefix}.line_probe.depth.raw.tsv
 
     PROBE_COUNT=\$(samtools view -c -F 2304 \\
         -e 'rname=="LP" && rnext=="LP"' \\
@@ -172,7 +172,7 @@ process LINE_PROBE_CON {
 
     samtools index ${prefix}.line_probe.con.bam
 
-    samtools depth -aa -H -r LP:1-120 ${prefix}.line_probe.con.bam > ${prefix}.line_probe.depth.con.tsv
+    samtools depth -aa -r LP:1-120 ${prefix}.line_probe.con.bam > ${prefix}.line_probe.depth.con.tsv
 
     PROBE_COUNT=\$(samtools view -c -F 2304 \\
         -e 'rname=="LP" && rnext=="LP"' \\
@@ -292,7 +292,7 @@ process LINE_PROBE_DUP {
 
     samtools index ${prefix}.line_probe.dup.bam
 
-    samtools depth -aa -H -r LP:1-120 ${prefix}.line_probe.dup.bam > ${prefix}.line_probe.depth.dup.tsv
+    samtools depth -aa -r LP:1-120 ${prefix}.line_probe.dup.bam > ${prefix}.line_probe.depth.dup.tsv
 
     PROBE_COUNT=\$(samtools view -c -F 2304 \\
         -e 'rname=="LP" && rnext=="LP"' \\
@@ -412,7 +412,7 @@ process LINE_PROBE_SIM {
 
     samtools index ${prefix}.line_probe.sim.bam
 
-    samtools depth -aa -H -r LP:1-120 ${prefix}.line_probe.sim.bam > ${prefix}.line_probe.depth.sim.tsv
+    samtools depth -aa -r LP:1-120 ${prefix}.line_probe.sim.bam > ${prefix}.line_probe.depth.sim.tsv
 
     PROBE_COUNT=\$(samtools view -c -F 2304 \\
         -e 'rname=="LP" && rnext=="LP"' \\
