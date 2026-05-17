@@ -91,11 +91,11 @@ process LINE_PROBE_RAW {
 
     rm -f ${prefix}.insertion_reads.bam ${prefix}.insertion_reads.bam.bai ${prefix}.insertion_sites.bed
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 
     stub:
@@ -107,11 +107,11 @@ process LINE_PROBE_RAW {
     touch ${prefix}.line_probe.counts.raw.tsv
     touch ${prefix}.line_probe.insertion.depth.raw.tsv
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 }
 
@@ -208,11 +208,11 @@ process LINE_PROBE_CON {
 
     rm -f ${prefix}.insertion_reads.bam ${prefix}.insertion_reads.bam.bai ${prefix}.insertion_sites.bed
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 
     stub:
@@ -224,11 +224,11 @@ process LINE_PROBE_CON {
     touch ${prefix}.line_probe.counts.con.tsv
     touch ${prefix}.line_probe.insertion.depth.con.tsv
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 }
 
@@ -325,11 +325,11 @@ process LINE_PROBE_DUP {
 
     rm -f ${prefix}.insertion_reads.bam ${prefix}.insertion_reads.bam.bai ${prefix}.insertion_sites.bed
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 
     stub:
@@ -341,11 +341,11 @@ process LINE_PROBE_DUP {
     touch ${prefix}.line_probe.counts.dup.tsv
     touch ${prefix}.line_probe.insertion.depth.dup.tsv
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 }
 
@@ -442,11 +442,11 @@ process LINE_PROBE_SIM {
 
     rm -f ${prefix}.insertion_reads.bam ${prefix}.insertion_reads.bam.bai ${prefix}.insertion_sites.bed
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 
     stub:
@@ -458,10 +458,10 @@ process LINE_PROBE_SIM {
     touch ${prefix}.line_probe.counts.sim.tsv
     touch ${prefix}.line_probe.insertion.depth.sim.tsv
 
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        samtools: \$(samtools --version | head -1 | sed 's/samtools //')
-        bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
-    END_VERSIONS
+    cat <<END_VERSIONS > versions.yml
+"${task.process}":
+    samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bwa: \$(bwa 2>&1 | grep Version | sed 's/Version: //')
+END_VERSIONS
     """
 }
