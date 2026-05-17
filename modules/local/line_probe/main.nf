@@ -2,10 +2,10 @@ process LINE_PROBE_RAW {
     tag "$meta.id"
     label 'process_high'
 
-    conda "${moduleDir}/environment.yml"
+    conda "bioconda::fgbio=2.4.0 bioconda::bwa-mem2=2.2.1 bioconda::samtools=1.9"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' :
-        'quay.io/biocontainers/mulled-v2-fe8faa35dbf6dc65a0f7f5d4ea12e31a79f73e40:03dc1d2818d9de56938078b8b78b82d967c1f820-0' }"
+        'docker://blancojmskcc/umi_aligner:1.0.0' :
+        'blancojmskcc/umi_aligner:1.0.0' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -24,7 +24,7 @@ process LINE_PROBE_RAW {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: '-Y -M'
+    def args = task.ext.args ?: '-B 3 -K 10000000 -a -Y -M'
     def prefix = task.ext.prefix ?: "${meta.id}"
     def fasta_name = probe_fasta.getName()
 
@@ -41,7 +41,7 @@ process LINE_PROBE_RAW {
             -s /dev/null \\
             -
 
-    bwa mem \\
+    bwa-mem2 mem \\
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
