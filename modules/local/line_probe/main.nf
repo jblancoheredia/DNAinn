@@ -141,7 +141,7 @@ process LINE_PROBE_CON {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: '-Y -M'
+    def args = task.ext.args ?: '-B 3 -K 10000000 -a -Y -M'
     def prefix = task.ext.prefix ?: "${meta.id}"
     def fasta_name = probe_fasta.getName()
 
@@ -158,7 +158,7 @@ process LINE_PROBE_CON {
             -s /dev/null \\
             -
 
-    bwa mem \\
+    bwa-mem2 mem \\
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
@@ -258,7 +258,7 @@ process LINE_PROBE_DUP {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: '-Y -M'
+    def args = task.ext.args ?: '-B 3 -K 10000000 -a -Y -M'
     def prefix = task.ext.prefix ?: "${meta.id}"
     def fasta_name = probe_fasta.getName()
 
@@ -275,7 +275,7 @@ process LINE_PROBE_DUP {
             -s /dev/null \\
             -
 
-    bwa mem \\
+    bwa-mem2 mem \\
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
@@ -392,7 +392,7 @@ process LINE_PROBE_SIM {
             -s /dev/null \\
             -
 
-    bwa mem \\
+    bwa-mem2 mem \\
         -t ${task.cpus} \\
         ${args} \\
         -R ${meta.read_group} \\
