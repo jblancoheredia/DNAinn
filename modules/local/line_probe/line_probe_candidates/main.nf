@@ -2,10 +2,10 @@ process LINE_PROBE_CANDIDATES_RAW {
     tag "$meta.id"
     label 'process_medium'
 
-    conda "bioconda::samtools=1.9"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/umi_aligner:1.0.0' :
-        'blancojmskcc/umi_aligner:1.0.0' }"
+    conda "${moduleDir}/environment.yml"
+    container "${ workflow.containerEngine == 'singularity' ?
+        'docker://community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' :
+        'community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -28,6 +28,7 @@ process LINE_PROBE_CANDIDATES_RAW {
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 
@@ -39,6 +40,7 @@ END_VERSIONS
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 }
@@ -47,10 +49,10 @@ process LINE_PROBE_CANDIDATES_CON {
     tag "$meta.id"
     label 'process_medium'
 
-    conda "bioconda::samtools=1.9"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/umi_aligner:1.0.0' :
-        'blancojmskcc/umi_aligner:1.0.0' }"
+    conda "${moduleDir}/environment.yml"
+    container "${ workflow.containerEngine == 'singularity' ?
+        'docker://community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' :
+        'community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -73,6 +75,7 @@ process LINE_PROBE_CANDIDATES_CON {
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 
@@ -84,6 +87,7 @@ END_VERSIONS
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 }
@@ -92,10 +96,10 @@ process LINE_PROBE_CANDIDATES_DUP {
     tag "$meta.id"
     label 'process_medium'
 
-    conda "bioconda::samtools=1.9"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/umi_aligner:1.0.0' :
-        'blancojmskcc/umi_aligner:1.0.0' }"
+    conda "${moduleDir}/environment.yml"
+    container "${ workflow.containerEngine == 'singularity' ?
+        'docker://community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' :
+        'community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -118,6 +122,7 @@ process LINE_PROBE_CANDIDATES_DUP {
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 
@@ -129,6 +134,7 @@ END_VERSIONS
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 }
@@ -137,10 +143,10 @@ process LINE_PROBE_CANDIDATES_SIM {
     tag "$meta.id"
     label 'process_medium'
 
-    conda "bioconda::samtools=1.9"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/umi_aligner:1.0.0' :
-        'blancojmskcc/umi_aligner:1.0.0' }"
+    conda "${moduleDir}/environment.yml"
+    container "${ workflow.containerEngine == 'singularity' ?
+        'docker://community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' :
+        'community.wave.seqera.io/library/bedtools_samtools:a2e619e7b9f7645b' }"
 
     input:
     tuple val(meta), path(bam), path(bai)
@@ -163,6 +169,7 @@ process LINE_PROBE_CANDIDATES_SIM {
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 
@@ -174,6 +181,7 @@ END_VERSIONS
     cat <<END_VERSIONS > versions.yml
 "${task.process}":
     samtools: \$(samtools --version | head -1 | sed 's/samtools //')
+    bedtools: \$(bedtools --version | sed 's/bedtools v//')
 END_VERSIONS
     """
 }
