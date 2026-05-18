@@ -973,6 +973,12 @@
                     "fa_icon": "fas fa-book",
                     "help_text": "Some parts of the pipeline requirement"
                 },
+                "line_annot": {
+                    "type": "string",
+                    "description": "Default LINE_probe annotation file location",
+                    "fa_icon": "fas fa-book",
+                    "help_text": "Default LINE_probe annotation file location in the current local machine"
+                },
                 "probe_fasta": {
                     "type": "string"
                 },

@@ -30,10 +30,18 @@ include { REPEATSEQ_CON                                                         
 include { REPEATSEQ_RAW                                                                                                             } from '../../modules/local/repeatseq/main' // <- In Beta
 include { REPEATSEQ_SIM                                                                                                             } from '../../modules/local/repeatseq/main' // <- In Beta
 include { FILTER_CONTIGS                                                                                                            } from '../../modules/local/filter_contigs/main' // <- In use
-include { LINE_PROBE_DUP                                                                                                            } from '../../modules/local/line_probe/main'
-include { LINE_PROBE_CON                                                                                                            } from '../../modules/local/line_probe/main'
-include { LINE_PROBE_RAW                                                                                                            } from '../../modules/local/line_probe/main'
-include { LINE_PROBE_SIM                                                                                                            } from '../../modules/local/line_probe/main'
+include { LINE_PROBE_ALIGN_DUP                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
+include { LINE_PROBE_ALIGN_CON                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
+include { LINE_PROBE_ALIGN_RAW                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
+include { LINE_PROBE_ALIGN_SIM                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
+include { LINE_PROBE_CANDIDATES_DUP                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
+include { LINE_PROBE_CANDIDATES_CON                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
+include { LINE_PROBE_CANDIDATES_RAW                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
+include { LINE_PROBE_CANDIDATES_SIM                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
+include { LINE_PROBE_QC_DUP                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
+include { LINE_PROBE_QC_CON                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
+include { LINE_PROBE_QC_RAW                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
+include { LINE_PROBE_QC_SIM                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
 include { MERGE_REPS_DUP                                                                                                            } from '../../modules/local/merge_reps/main' // <- In Beta
 include { MERGE_REPS_CON                                                                                                            } from '../../modules/local/merge_reps/main' // <- In Beta
 include { MERGE_REPS_RAW                                                                                                            } from '../../modules/local/merge_reps/main' // <- In Beta
@@ -793,29 +801,51 @@ workflow UMIPROCESSING {
 
     if ((params.run_lineprobespik instanceof Boolean ? params.run_lineprobespik : params.run_lineprobespik?.toString()?.toBoolean())) {
 
-        //
-        // Module: Run LINE probe alignment and counting
-        //
-        LINE_PROBE_RAW(ch_bam_fcu_stix, params.probe_fasta, params.bwa_line_probe)
-        ch_versions = ch_versions.mix(LINE_PROBE_RAW.out.versions.first())
+        ch_line_annot = channel.value(file(params.line_annot, checkIfExists: true))
 
         //
-        // Module: Run LINE probe alignment and counting
+        // Module: LINE probe — align, QC, candidates (Raw)
         //
-        LINE_PROBE_CON(ch_bam_con_stix, params.probe_fasta, params.bwa_line_probe)
-        ch_versions = ch_versions.mix(LINE_PROBE_CON.out.versions.first())
+        LINE_PROBE_ALIGN_RAW(ch_bam_fcu_stix, params.probe_fasta, params.bwa_line_probe)
+        ch_line_probe_raw = LINE_PROBE_ALIGN_RAW.out.bam.join(LINE_PROBE_ALIGN_RAW.out.bai, by: [0])
+        LINE_PROBE_QC_RAW(ch_line_probe_raw)
+        LINE_PROBE_CANDIDATES_RAW(ch_line_probe_raw, ch_line_annot)
+        ch_versions = ch_versions.mix(LINE_PROBE_ALIGN_RAW.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_QC_RAW.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_CANDIDATES_RAW.out.versions.first())
 
         //
-        // Module: Run LINE probe alignment and counting
+        // Module: LINE probe — align, QC, candidates (Consensus)
         //
-        LINE_PROBE_DUP(ch_bam_dup_stix, params.probe_fasta, params.bwa_line_probe)
-        ch_versions = ch_versions.mix(LINE_PROBE_DUP.out.versions.first())
+        LINE_PROBE_ALIGN_CON(ch_bam_con_stix, params.probe_fasta, params.bwa_line_probe)
+        ch_line_probe_con = LINE_PROBE_ALIGN_CON.out.bam.join(LINE_PROBE_ALIGN_CON.out.bai, by: [0])
+        LINE_PROBE_QC_CON(ch_line_probe_con)
+        LINE_PROBE_CANDIDATES_CON(ch_line_probe_con, ch_line_annot)
+        ch_versions = ch_versions.mix(LINE_PROBE_ALIGN_CON.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_QC_CON.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_CANDIDATES_CON.out.versions.first())
 
         //
-        // Module: Run LINE probe alignment and counting
+        // Module: LINE probe — align, QC, candidates (Duplex)
         //
-        LINE_PROBE_SIM(ch_bam_sim_stix, params.probe_fasta, params.bwa_line_probe)
-        ch_versions = ch_versions.mix(LINE_PROBE_SIM.out.versions.first())
+        LINE_PROBE_ALIGN_DUP(ch_bam_dup_stix, params.probe_fasta, params.bwa_line_probe)
+        ch_line_probe_dup = LINE_PROBE_ALIGN_DUP.out.bam.join(LINE_PROBE_ALIGN_DUP.out.bai, by: [0])
+        LINE_PROBE_QC_DUP(ch_line_probe_dup)
+        LINE_PROBE_CANDIDATES_DUP(ch_line_probe_dup, ch_line_annot)
+        ch_versions = ch_versions.mix(LINE_PROBE_ALIGN_DUP.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_QC_DUP.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_CANDIDATES_DUP.out.versions.first())
+
+        //
+        // Module: LINE probe — align, QC, candidates (Simplex)
+        //
+        LINE_PROBE_ALIGN_SIM(ch_bam_sim_stix, params.probe_fasta, params.bwa_line_probe)
+        ch_line_probe_sim = LINE_PROBE_ALIGN_SIM.out.bam.join(LINE_PROBE_ALIGN_SIM.out.bai, by: [0])
+        LINE_PROBE_QC_SIM(ch_line_probe_sim)
+        LINE_PROBE_CANDIDATES_SIM(ch_line_probe_sim, ch_line_annot)
+        ch_versions = ch_versions.mix(LINE_PROBE_ALIGN_SIM.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_QC_SIM.out.versions.first())
+        ch_versions = ch_versions.mix(LINE_PROBE_CANDIDATES_SIM.out.versions.first())
 
     }
 
