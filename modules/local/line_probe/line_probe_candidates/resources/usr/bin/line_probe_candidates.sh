@@ -142,7 +142,7 @@ while IFS=$'\t' read -r cid chr pos n n_lp n_hg38 n_sec n_sup n_sa mean_mapq max
         printf "%d", l1_pts + read_pts + split_pts + mapq_pts + depth_pts
     }')
 
-    printf '%s\n' \
+    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
         "${PREFIX}" "${BAM_LAYER}" "cluster_${cid}" "${chr}" "${pos}" "${n}" "${n_lp}" "${n_hg38}" \
         "${n_sec}" "${n_sup}" "${n_sa}" "${mean_mapq}" "${max_mapq}" \
         "${anchor_mean_depth}" "${anchor_max_depth}" "${l1_name}" "${l1_dist}" "${l1_strand_out}" "${score}" \
