@@ -30,18 +30,6 @@ include { REPEATSEQ_CON                                                         
 include { REPEATSEQ_RAW                                                                                                             } from '../../modules/local/repeatseq/main' // <- In Beta
 include { REPEATSEQ_SIM                                                                                                             } from '../../modules/local/repeatseq/main' // <- In Beta
 include { FILTER_CONTIGS                                                                                                            } from '../../modules/local/filter_contigs/main' // <- In use
-include { LINE_PROBE_ALIGN_DUP                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
-include { LINE_PROBE_ALIGN_CON                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
-include { LINE_PROBE_ALIGN_RAW                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
-include { LINE_PROBE_ALIGN_SIM                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
-include { LINE_PROBE_CANDIDATES_DUP                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
-include { LINE_PROBE_CANDIDATES_CON                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
-include { LINE_PROBE_CANDIDATES_RAW                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
-include { LINE_PROBE_CANDIDATES_SIM                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
-include { LINE_PROBE_QC_DUP                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
-include { LINE_PROBE_QC_CON                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
-include { LINE_PROBE_QC_RAW                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
-include { LINE_PROBE_QC_SIM                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
 include { MERGE_REPS_DUP                                                                                                            } from '../../modules/local/merge_reps/main' // <- In Beta
 include { MERGE_REPS_CON                                                                                                            } from '../../modules/local/merge_reps/main' // <- In Beta
 include { MERGE_REPS_RAW                                                                                                            } from '../../modules/local/merge_reps/main' // <- In Beta
@@ -55,6 +43,10 @@ include { MSISENSORPRO_CON                                                      
 include { MSISENSORPRO_RAW                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
 include { MSISENSORPRO_SIM                                                                                                          } from '../../modules/local/msisensorpro/pro/main' // <- In use
 include { FGBIO_CORRECTUMIS                                                                                                         } from '../../modules/local/fgbio/correctumis/main' // <- New in use
+include { LINE_PROBE_QC_DUP                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
+include { LINE_PROBE_QC_CON                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
+include { LINE_PROBE_QC_RAW                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
+include { LINE_PROBE_QC_SIM                                                                                                         } from '../../modules/local/line_probe/line_probe_qc/main'
 include { SAMTOOLS_STATS_CON                                                                                                        } from '../../modules/local/samtools/stats/main'
 include { SAMTOOLS_STATS_DUP                                                                                                        } from '../../modules/local/samtools/stats/main'
 include { SAMTOOLS_STATS_RAW                                                                                                        } from '../../modules/local/samtools/stats/main'
@@ -64,6 +56,10 @@ include { COLLECTHSMETRICS_CON                                                  
 include { COLLECTHSMETRICS_DUP                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
 include { COLLECTHSMETRICS_RAW                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
 include { COLLECTHSMETRICS_SIM                                                                                                      } from '../../modules/local/picard/collecthsmetrics/main' // <- In use
+include { LINE_PROBE_ALIGN_DUP                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
+include { LINE_PROBE_ALIGN_CON                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
+include { LINE_PROBE_ALIGN_RAW                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
+include { LINE_PROBE_ALIGN_SIM                                                                                                      } from '../../modules/local/line_probe/line_probe_align/main'
 include { FGBIO_GROUPREADSBYUMI                                                                                                     } from '../../modules/local/fgbio/groupreadsbyumi/main' // <- In use
 include { SAMTOOLS_COLLATEFASTQ                                                                                                     } from '../../modules/nf-core/samtools/collatefastq/main' // <- In use
 include { SAMTOOLS_SORT_INDEX_CON                                                                                                   } from '../../modules/local/samtools/sort_index/main' // <- In use
@@ -72,6 +68,10 @@ include { SURVIVOR_SCAN_READS_CON                                               
 include { SURVIVOR_SCAN_READS_DUP                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
 include { SURVIVOR_SCAN_READS_RAW                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
 include { SURVIVOR_SCAN_READS_SIM                                                                                                   } from '../../modules/local/survivor/scanreads/main' // <- In use
+include { LINE_PROBE_CANDIDATES_DUP                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
+include { LINE_PROBE_CANDIDATES_CON                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
+include { LINE_PROBE_CANDIDATES_RAW                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
+include { LINE_PROBE_CANDIDATES_SIM                                                                                                 } from '../../modules/local/line_probe/line_probe_candidates/main'
 include { FGBIO_FILTERCONSENSUSREADS                                                                                                } from '../../modules/local/fgbio/filterconsensusreads/main' // <- New in use
 include { FGBIO_COLLECTDUPLEXSEQMETRICS                                                                                             } from '../../modules/local/fgbio/collectduplexseqmetrics/main' // <- In use
 include { FGBIO_CALLDUPLEXCONSENSUSREADS                                                                                            } from '../../modules/nf-core/fgbio/callduplexconsensusreads/main' // <- In use
