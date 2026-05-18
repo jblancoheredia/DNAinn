@@ -81,7 +81,11 @@ awk -v OFS='\t' '{
     print "cluster_" $1, $2, $3 - 1, $3
 }' "${PREFIX}.clusters.tsv" > "${PREFIX}.clusters.bed"
 
-bedtools closest -a "${PREFIX}.clusters.bed" -b "$LINE_ANNOT" -d -t first -k 1 > "${PREFIX}.l1_closest.tsv"
+LINE_ANNOT_SORTED="${PREFIX}.line_l1.sorted.bed"
+bedtools sort -i "$LINE_ANNOT" > "$LINE_ANNOT_SORTED"
+bedtools sort -i "${PREFIX}.clusters.bed" > "${PREFIX}.clusters.sorted.bed"
+
+bedtools closest -a "${PREFIX}.clusters.sorted.bed" -b "$LINE_ANNOT_SORTED" -d -t first -k 1 > "${PREFIX}.l1_closest.tsv"
 
 printf '%s\n' \
     'sample	bam_layer	cluster_id	chr	pos	n_discordant_reads	n_lp_alignment	n_hg38_mate_on_lp	n_secondary	n_supplementary	n_sa_tag	mean_mapq	max_mapq	anchor_mean_depth	anchor_max_depth	nearest_l1_name	nearest_l1_dist_bp	nearest_l1_strand	candidate_score' \
@@ -137,4 +141,5 @@ done
 exec 3<&-
 exec 4<&-
 
-rm -f "${PREFIX}.discordant_reads.tsv" "${PREFIX}.clusters.tsv" "${PREFIX}.clusters.bed" "${PREFIX}.l1_closest.tsv"
+rm -f "${PREFIX}.discordant_reads.tsv" "${PREFIX}.clusters.tsv" "${PREFIX}.clusters.bed" \
+    "${PREFIX}.clusters.sorted.bed" "${PREFIX}.line_l1.sorted.bed" "${PREFIX}.l1_closest.tsv"
