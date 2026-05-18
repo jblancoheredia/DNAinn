@@ -30,7 +30,7 @@ samtools view -F 4 "$BAM" | awk -v OFS='\t' '
         lp_align = 0
         hg38_mate = 1
     }
-    if (chr == "*" || pos < 1) next
+    if (chr == "*" || chr == "LP" || pos < 1) next
     sec = (int($2 / 256) % 2 == 1) ? 1 : 0
     sup = (int($2 / 2048) % 2 == 1) ? 1 : 0
     sa = ($0 ~ /SA:Z:/) ? 1 : 0
@@ -70,7 +70,7 @@ BEGIN { cid = 0 }
 END { if (cid > 0) emit() }
 ' > "${PREFIX}.clusters.tsv"
 
-awk -v OFS='\t' '{ print "cluster_" $1, $2, $3 - 1, $3 }' "${PREFIX}.clusters.tsv" > "${PREFIX}.clusters.bed"
+awk -v OFS='\t' '{ print $2, $3 - 1, $3, "cluster_" $1 }' "${PREFIX}.clusters.tsv" > "${PREFIX}.clusters.bed"
 
 LINE_ANNOT_SORTED="${PREFIX}.line_l1.sorted.bed"
 bedtools sort -i "$LINE_ANNOT" > "$LINE_ANNOT_SORTED"
@@ -84,14 +84,24 @@ bedtools closest \
     -k 1 \
     > "${PREFIX}.l1_closest.tsv"
 
+n_clusters=$(wc -l < "${PREFIX}.clusters.tsv" | tr -d ' ')
+n_closest=$(wc -l < "${PREFIX}.l1_closest.tsv" | tr -d ' ')
+if [[ "$n_clusters" -ne "$n_closest" ]]; then
+    echo "ERROR: cluster count (${n_clusters}) != bedtools closest lines (${n_closest})" >&2
+    exit 1
+fi
+
 printf '%s\n' "$HEADER" > "$OUT"
 
 exec 3< "${PREFIX}.clusters.tsv"
 exec 4< "${PREFIX}.l1_closest.tsv"
 while IFS=$'\t' read -r cid chr pos n n_lp n_hg38 n_sec n_sup n_sa mean_mapq max_mapq <&3; do
-    IFS=$'\t' read -r _cname _bchr _bstart _bend l1_chr l1_start l1_end l1_name _l1_score l1_strand l1_dist <&4
+    if ! IFS=$'\t' read -r _bchr _bstart _bend _cname l1_chr l1_start l1_end l1_name _l1_score l1_strand l1_dist <&4; then
+        echo "ERROR: missing bedtools closest line for cluster ${cid}" >&2
+        exit 1
+    fi
 
-    if [[ -z "${l1_dist:-}" || "$l1_dist" == "." || "$l1_dist" == "-1" ]]; then
+    if [[ -z "${l1_dist:-}" || "$l1_dist" == "." || "$l1_dist" == "-1" || "${l1_dist%%.*}" -gt "${L1_MAX_DIST}" ]]; then
         l1_name="."
         l1_dist="."
         l1_strand_out="."
