@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Cluster lp_hg38_discordant anchors (150 bp), annotate nearest L1 with bedtools (500 bp), score.
+# Per-read discordant anchors: label by BED overlap (not_in_bed / ambiguous / L1 name).
 # Usage: line_probe_candidates.sh <bam> <line_l1.bed> <prefix> <bam_layer> <suffix>
 set -euo pipefail
 
@@ -9,11 +9,9 @@ PREFIX="$3"
 BAM_LAYER="$4"
 SUFFIX="$5"
 
-L1_MAX_DIST=500
-CLUSTER_DIST=150
 OUT="${PREFIX}.line_probe.candidates.${SUFFIX}.tsv"
 
-HEADER='sample	bam_layer	cluster_id	chr	pos	n_discordant_reads	n_lp_alignment	n_hg38_mate_on_lp	n_secondary	n_supplementary	n_sa_tag	mean_mapq	max_mapq	anchor_mean_depth	anchor_max_depth	nearest_l1_name	nearest_l1_dist_bp	nearest_l1_strand	candidate_score'
+HEADER='sample	bam_layer	read_id	chr	pos	n_discordant_reads	n_lp_alignment	n_hg38_mate_on_lp	n_secondary	n_supplementary	n_sa_tag	mean_mapq	max_mapq	anchor_mean_depth	anchor_max_depth	nearest_l1_name	n_l1_overlaps	nearest_l1_strand	candidate_score'
 
 samtools view -F 4 "$BAM" | awk -v OFS='\t' '
 {
@@ -42,72 +40,61 @@ if [[ ! -s "${PREFIX}.discordant_reads.tsv" ]]; then
     exit 0
 fi
 
-sort -k2,2V -k3,3n "${PREFIX}.discordant_reads.tsv" | awk -v OFS='\t' -v cluster_dist="${CLUSTER_DIST}" '
-function emit() {
-    mean_mapq = (n > 0) ? sum_mapq / n : 0
-    print cid, c_chr, c_pos, n, n_lp, n_hg38, n_sec, n_sup, n_sa, mean_mapq, max_mapq
-}
-BEGIN { cid = 0 }
-{
-    chr = $2; pos = $3; mapq = $4; lp = $5; hg38 = $6; sec = $7; sup = $8; sa = $9
-    if (cid == 0 || chr != c_chr || pos - c_pos > cluster_dist) {
-        if (cid > 0) emit()
-        cid++
-        c_chr = chr
-        c_pos = pos
-        n = 0; n_lp = 0; n_hg38 = 0; n_sec = 0; n_sup = 0; n_sa = 0
-        sum_mapq = 0; max_mapq = 0
-    }
-    n++
-    n_lp += lp
-    n_hg38 += hg38
-    n_sec += sec
-    n_sup += sup
-    n_sa += sa
-    sum_mapq += mapq
-    if (mapq > max_mapq) max_mapq = mapq
-}
-END { if (cid > 0) emit() }
-' > "${PREFIX}.clusters.tsv"
-
-awk -v OFS='\t' '{ print $2, $3 - 1, $3, "cluster_" $1 }' "${PREFIX}.clusters.tsv" > "${PREFIX}.clusters.bed"
+awk -v OFS='\t' '{ print $2, $3 - 1, $3, $1 }' "${PREFIX}.discordant_reads.tsv" > "${PREFIX}.anchors.bed"
 
 LINE_ANNOT_SORTED="${PREFIX}.line_l1.sorted.bed"
 bedtools sort -i "$LINE_ANNOT" > "$LINE_ANNOT_SORTED"
-bedtools sort -i "${PREFIX}.clusters.bed" > "${PREFIX}.clusters.sorted.bed"
+bedtools sort -i "${PREFIX}.anchors.bed" > "${PREFIX}.anchors.sorted.bed"
 
-bedtools closest \
-    -a "${PREFIX}.clusters.sorted.bed" \
+bedtools intersect \
+    -a "${PREFIX}.anchors.sorted.bed" \
     -b "$LINE_ANNOT_SORTED" \
-    -d \
-    -t first \
-    -k 1 \
-    > "${PREFIX}.l1_closest.tsv"
+    -wa -wb \
+    > "${PREFIX}.l1_overlaps.tsv" || true
 
-n_clusters=$(wc -l < "${PREFIX}.clusters.tsv" | tr -d ' ')
-n_closest=$(wc -l < "${PREFIX}.l1_closest.tsv" | tr -d ' ')
-if [[ "$n_clusters" -ne "$n_closest" ]]; then
-    echo "ERROR: cluster count (${n_clusters}) != bedtools closest lines (${n_closest})" >&2
-    exit 1
-fi
+# read_id -> label (not_in_bed | ambiguous | single L1 name); n_overlaps; strand
+awk -F'\t' -v OFS='\t' '
+{
+    rid = $4
+    l1 = $8
+    strand = $10
+    key = rid SUBSEP l1
+    if (key in seen) next
+    seen[key] = 1
+    n_ov[rid]++
+    if (n_names[rid] == 0) {
+        only[rid] = l1
+        only_strand[rid] = strand
+    } else if (only[rid] != l1) {
+        only[rid] = ""
+        only_strand[rid] = "."
+    }
+    n_names[rid]++
+}
+END {
+    for (rid in n_ov) {
+        if (only[rid] == "") label = "ambiguous"
+        else label = only[rid]
+        print rid, label, n_ov[rid], only_strand[rid]
+    }
+}
+' "${PREFIX}.l1_overlaps.tsv" > "${PREFIX}.read_labels.tsv"
 
 printf '%s\n' "$HEADER" > "$OUT"
 
-exec 3< "${PREFIX}.clusters.tsv"
-exec 4< "${PREFIX}.l1_closest.tsv"
-while IFS=$'\t' read -r cid chr pos n n_lp n_hg38 n_sec n_sup n_sa mean_mapq max_mapq <&3; do
-    if ! IFS=$'\t' read -r _bchr _bstart _bend _cname l1_chr l1_start l1_end l1_name _l1_score l1_strand l1_dist <&4; then
-        echo "ERROR: missing bedtools closest line for cluster ${cid}" >&2
-        exit 1
-    fi
+declare -A READ_L1_NAME READ_N_OVERLAPS READ_L1_STRAND
+if [[ -s "${PREFIX}.read_labels.tsv" ]]; then
+    while IFS=$'\t' read -r rid lab nov st; do
+        READ_L1_NAME["$rid"]="$lab"
+        READ_N_OVERLAPS["$rid"]="$nov"
+        READ_L1_STRAND["$rid"]="$st"
+    done < "${PREFIX}.read_labels.tsv"
+fi
 
-    if [[ -z "${l1_dist:-}" || "$l1_dist" == "." || "$l1_dist" == "-1" || "${l1_dist%%.*}" -gt "${L1_MAX_DIST}" ]]; then
-        l1_name="."
-        l1_dist="."
-        l1_strand_out="."
-    else
-        l1_strand_out="$l1_strand"
-    fi
+while IFS=$'\t' read -r read_id chr pos mapq lp hg38 sec sup sa; do
+    l1_name="${READ_L1_NAME[$read_id]:-not_in_bed}"
+    n_overlaps="${READ_N_OVERLAPS[$read_id]:-0}"
+    l1_strand="${READ_L1_STRAND[$read_id]:-.}"
 
     region_start=$((pos - 100))
     [[ $region_start -lt 0 ]] && region_start=0
@@ -123,19 +110,13 @@ while IFS=$'\t' read -r cid chr pos n n_lp n_hg38 n_sec n_sup n_sa mean_mapq max
     anchor_mean_depth=$(echo "$depth_stats" | cut -f1)
     anchor_max_depth=$(echo "$depth_stats" | cut -f2)
 
-    score=$(awk -v dist="${l1_dist:-999999}" -v n="$n" -v n_sa="$n_sa" -v n_sup="$n_sup" \
-        -v mean_mapq="$mean_mapq" -v max_depth="$anchor_max_depth" \
-        -v l1_max="${L1_MAX_DIST}" 'BEGIN {
-        if (dist == "." || dist == "") {
-            l1_pts = 0
-        } else if (dist + 0 <= l1_max) {
-            l1_pts = int(40 * (1 - (dist + 0) / l1_max))
-        } else {
-            l1_pts = 0
-        }
-        read_pts = (n >= 10) ? 30 : int(n * 3)
+    score=$(awk -v label="$l1_name" -v n_sa="$sa" -v n_sup="$sup" \
+        -v mapq="$mapq" -v max_depth="$anchor_max_depth" 'BEGIN {
+        if (label != "not_in_bed" && label != "ambiguous") l1_pts = 40
+        else l1_pts = 0
+        read_pts = 3
         split_pts = (n_sa > 0 || n_sup > 0) ? 15 : 0
-        mapq_pts = int(mean_mapq * 15 / 60)
+        mapq_pts = int(mapq * 15 / 60)
         if (mapq_pts > 15) mapq_pts = 15
         depth_pts = int(max_depth)
         if (depth_pts > 15) depth_pts = 15
@@ -143,13 +124,11 @@ while IFS=$'\t' read -r cid chr pos n n_lp n_hg38 n_sec n_sup n_sa mean_mapq max
     }')
 
     printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
-        "${PREFIX}" "${BAM_LAYER}" "cluster_${cid}" "${chr}" "${pos}" "${n}" "${n_lp}" "${n_hg38}" \
-        "${n_sec}" "${n_sup}" "${n_sa}" "${mean_mapq}" "${max_mapq}" \
-        "${anchor_mean_depth}" "${anchor_max_depth}" "${l1_name}" "${l1_dist}" "${l1_strand_out}" "${score}" \
+        "${PREFIX}" "${BAM_LAYER}" "${read_id}" "${chr}" "${pos}" "1" "${lp}" "${hg38}" \
+        "${sec}" "${sup}" "${sa}" "${mapq}" "${mapq}" \
+        "${anchor_mean_depth}" "${anchor_max_depth}" "${l1_name}" "${n_overlaps}" "${l1_strand}" "${score}" \
         >> "$OUT"
-done
-exec 3<&-
-exec 4<&-
+done < "${PREFIX}.discordant_reads.tsv"
 
-rm -f "${PREFIX}.discordant_reads.tsv" "${PREFIX}.clusters.tsv" "${PREFIX}.clusters.bed" \
-    "${PREFIX}.clusters.sorted.bed" "${PREFIX}.line_l1.sorted.bed" "${PREFIX}.l1_closest.tsv"
+rm -f "${PREFIX}.discordant_reads.tsv" "${PREFIX}.anchors.bed" "${PREFIX}.anchors.sorted.bed" \
+    "${PREFIX}.line_l1.sorted.bed" "${PREFIX}.l1_overlaps.tsv" "${PREFIX}.read_labels.tsv"
