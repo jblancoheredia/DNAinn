@@ -12,8 +12,8 @@ process LINE_PROBE_CANDIDATES_RAW {
     path line_annot
 
     output:
-    tuple val(meta), path("*.line_probe.candidates.raw.tsv"), emit: candidates
     path "versions.yml"                                     , emit: versions
+    tuple val(meta), path("*.line_probe.candidates.raw.tsv"), emit: candidates
 
     when:
     task.ext.when == null || task.ext.when
@@ -59,8 +59,8 @@ process LINE_PROBE_CANDIDATES_CON {
     path line_annot
 
     output:
-    tuple val(meta), path("*.line_probe.candidates.con.tsv"), emit: candidates
     path "versions.yml"                                     , emit: versions
+    tuple val(meta), path("*.line_probe.candidates.con.tsv"), emit: candidates
 
     when:
     task.ext.when == null || task.ext.when
@@ -106,8 +106,8 @@ process LINE_PROBE_CANDIDATES_DUP {
     path line_annot
 
     output:
-    tuple val(meta), path("*.line_probe.candidates.dup.tsv"), emit: candidates
     path "versions.yml"                                     , emit: versions
+    tuple val(meta), path("*.line_probe.candidates.dup.tsv"), emit: candidates
 
     when:
     task.ext.when == null || task.ext.when
@@ -153,8 +153,8 @@ process LINE_PROBE_CANDIDATES_SIM {
     path line_annot
 
     output:
-    tuple val(meta), path("*.line_probe.candidates.sim.tsv"), emit: candidates
     path "versions.yml"                                     , emit: versions
+    tuple val(meta), path("*.line_probe.candidates.sim.tsv"), emit: candidates
 
     when:
     task.ext.when == null || task.ext.when
