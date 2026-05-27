@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Per-read discordant anchors: label by BED overlap (not_in_bed / ambiguous / L1 name).
+# Discordant anchors: overlap-label reads, then group by exact anchor+label (chr,pos,label).
 # Usage: line_probe_candidates.sh <bam> <line_l1.bed> <prefix> <bam_layer> <suffix>
 set -euo pipefail
 
@@ -13,7 +13,7 @@ OUT="${PREFIX}.line_probe.candidates.${SUFFIX}.tsv"
 
 HEADER='sample	bam_layer	read_id	chr	pos	n_discordant_reads	n_lp_alignment	n_hg38_mate_on_lp	n_secondary	n_supplementary	n_sa_tag	mean_mapq	max_mapq	anchor_mean_depth	anchor_max_depth	nearest_l1_name	n_l1_overlaps	nearest_l1_strand	candidate_score'
 
-samtools view -F 4 "$BAM" | awk -v OFS='\t' '
+samtools view -F 4 "$BAM" | awk -v OFS='	' '
 {
     disc = ($3 != "LP" && $7 == "LP") || ($3 == "LP" && $7 != "LP" && $7 != "=" && $7 != "*")
     if (!disc) next
@@ -36,24 +36,21 @@ samtools view -F 4 "$BAM" | awk -v OFS='\t' '
 }' > "${PREFIX}.discordant_reads.tsv"
 
 if [[ ! -s "${PREFIX}.discordant_reads.tsv" ]]; then
-    printf '%s\n' "$HEADER" > "$OUT"
+    printf '%s
+' "$HEADER" > "$OUT"
     exit 0
 fi
 
-awk -v OFS='\t' '{ print $2, $3 - 1, $3, $1 }' "${PREFIX}.discordant_reads.tsv" > "${PREFIX}.anchors.bed"
+awk -v OFS='	' '{ print $2, $3 - 1, $3, $1 }' "${PREFIX}.discordant_reads.tsv" > "${PREFIX}.anchors.bed"
 
 LINE_ANNOT_SORTED="${PREFIX}.line_l1.sorted.bed"
 bedtools sort -i "$LINE_ANNOT" > "$LINE_ANNOT_SORTED"
 bedtools sort -i "${PREFIX}.anchors.bed" > "${PREFIX}.anchors.sorted.bed"
 
-bedtools intersect \
-    -a "${PREFIX}.anchors.sorted.bed" \
-    -b "$LINE_ANNOT_SORTED" \
-    -wa -wb \
-    > "${PREFIX}.l1_overlaps.tsv" || true
+bedtools intersect     -a "${PREFIX}.anchors.sorted.bed"     -b "$LINE_ANNOT_SORTED"     -wa -wb     > "${PREFIX}.l1_overlaps.tsv" || true
 
 # read_id -> label (not_in_bed | ambiguous | single L1 name); n_overlaps; strand
-awk -F'\t' -v OFS='\t' '
+awk -F'	' -v OFS='	' '
 {
     rid = $4
     l1 = $8
@@ -80,22 +77,51 @@ END {
 }
 ' "${PREFIX}.l1_overlaps.tsv" > "${PREFIX}.read_labels.tsv"
 
-printf '%s\n' "$HEADER" > "$OUT"
+# Group by exact anchor+label: chr, pos, nearest_l1_name
+awk -F'	' -v OFS='	' '
+BEGIN {
+    while ((getline < labels_file) > 0) {
+        rid = $1
+        label[rid] = $2
+        nov[rid] = $3
+        strand[rid] = $4
+    }
+    close(labels_file)
+}
+{
+    rid = $1; chr = $2; pos = $3; mapq = $4; lp = $5; hg38 = $6; sec = $7; sup = $8; sa = $9
+    lab = (rid in label) ? label[rid] : "not_in_bed"
+    n_ov = (rid in nov) ? nov[rid] : 0
+    st = (rid in strand) ? strand[rid] : "."
 
-declare -A READ_L1_NAME READ_N_OVERLAPS READ_L1_STRAND
-if [[ -s "${PREFIX}.read_labels.tsv" ]]; then
-    while IFS=$'\t' read -r rid lab nov st; do
-        READ_L1_NAME["$rid"]="$lab"
-        READ_N_OVERLAPS["$rid"]="$nov"
-        READ_L1_STRAND["$rid"]="$st"
-    done < "${PREFIX}.read_labels.tsv"
-fi
+    key = chr SUBSEP pos SUBSEP lab
+    n[key]++
+    n_lp[key] += lp
+    n_hg38[key] += hg38
+    n_sec[key] += sec
+    n_sup[key] += sup
+    n_sa[key] += sa
+    sum_mapq[key] += mapq
+    if (!(key in max_mapq) || mapq > max_mapq[key]) max_mapq[key] = mapq
+    if (!(key in max_ov) || n_ov > max_ov[key]) max_ov[key] = n_ov
+    if (!(key in strand_out) || strand_out[key] == ".") strand_out[key] = st
+    if (lab == "ambiguous" || lab == "not_in_bed") strand_out[key] = "."
+}
+END {
+    for (k in n) {
+        split(k, a, SUBSEP)
+        chr = a[1]; pos = a[2]; lab = a[3]
+        mean_mapq = (n[k] > 0) ? (sum_mapq[k] / n[k]) : 0
+        event_id = chr ":" pos ":" lab
+        print event_id, chr, pos, n[k], n_lp[k], n_hg38[k], n_sec[k], n_sup[k], n_sa[k], mean_mapq, max_mapq[k], max_ov[k], strand_out[k], lab
+    }
+}
+' labels_file="${PREFIX}.read_labels.tsv" "${PREFIX}.discordant_reads.tsv" > "${PREFIX}.grouped.tsv"
 
-while IFS=$'\t' read -r read_id chr pos mapq lp hg38 sec sup sa; do
-    l1_name="${READ_L1_NAME[$read_id]:-not_in_bed}"
-    n_overlaps="${READ_N_OVERLAPS[$read_id]:-0}"
-    l1_strand="${READ_L1_STRAND[$read_id]:-.}"
+printf '%s
+' "$HEADER" > "$OUT"
 
+while IFS=$'	' read -r event_id chr pos n n_lp n_hg38 n_sec n_sup n_sa mean_mapq max_mapq n_overlaps l1_strand l1_name; do
     region_start=$((pos - 100))
     [[ $region_start -lt 0 ]] && region_start=0
     region_end=$((pos + 100))
@@ -103,32 +129,27 @@ while IFS=$'\t' read -r read_id chr pos mapq lp hg38 sec sup sa; do
     depth_stats=$(samtools depth -aa -r "${chr}:${region_start}-${region_end}" "$BAM" | awk '
         { s += $3; if ($3 > m) m = $3; c++ }
         END {
-            if (c == 0) print "0\t0"
-            else printf "%.2f\t%d", s / c, m
+            if (c == 0) print "0	0"
+            else printf "%.2f	%d", s / c, m
         }
     ')
     anchor_mean_depth=$(echo "$depth_stats" | cut -f1)
     anchor_max_depth=$(echo "$depth_stats" | cut -f2)
 
-    score=$(awk -v label="$l1_name" -v n_sa="$sa" -v n_sup="$sup" \
-        -v mapq="$mapq" -v max_depth="$anchor_max_depth" 'BEGIN {
+    score=$(awk -v label="$l1_name" -v n="$n" -v n_sa="$n_sa" -v n_sup="$n_sup"         -v mean_mapq="$mean_mapq" -v max_depth="$anchor_max_depth" 'BEGIN {
         if (label != "not_in_bed" && label != "ambiguous") l1_pts = 40
         else l1_pts = 0
-        read_pts = 3
+        read_pts = (n >= 10) ? 30 : int(n * 3)
         split_pts = (n_sa > 0 || n_sup > 0) ? 15 : 0
-        mapq_pts = int(mapq * 15 / 60)
+        mapq_pts = int(mean_mapq * 15 / 60)
         if (mapq_pts > 15) mapq_pts = 15
         depth_pts = int(max_depth)
         if (depth_pts > 15) depth_pts = 15
         printf "%d", l1_pts + read_pts + split_pts + mapq_pts + depth_pts
     }')
 
-    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
-        "${PREFIX}" "${BAM_LAYER}" "${read_id}" "${chr}" "${pos}" "1" "${lp}" "${hg38}" \
-        "${sec}" "${sup}" "${sa}" "${mapq}" "${mapq}" \
-        "${anchor_mean_depth}" "${anchor_max_depth}" "${l1_name}" "${n_overlaps}" "${l1_strand}" "${score}" \
-        >> "$OUT"
-done < "${PREFIX}.discordant_reads.tsv"
+    printf '%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s	%s
+'         "${PREFIX}" "${BAM_LAYER}" "${event_id}" "${chr}" "${pos}" "${n}" "${n_lp}" "${n_hg38}"         "${n_sec}" "${n_sup}" "${n_sa}" "${mean_mapq}" "${max_mapq}"         "${anchor_mean_depth}" "${anchor_max_depth}" "${l1_name}" "${n_overlaps}" "${l1_strand}" "${score}"         >> "$OUT"
+done < "${PREFIX}.grouped.tsv"
 
-rm -f "${PREFIX}.discordant_reads.tsv" "${PREFIX}.anchors.bed" "${PREFIX}.anchors.sorted.bed" \
-    "${PREFIX}.line_l1.sorted.bed" "${PREFIX}.l1_overlaps.tsv" "${PREFIX}.read_labels.tsv"
+rm -f "${PREFIX}.discordant_reads.tsv" "${PREFIX}.anchors.bed" "${PREFIX}.anchors.sorted.bed"     "${PREFIX}.line_l1.sorted.bed" "${PREFIX}.l1_overlaps.tsv" "${PREFIX}.read_labels.tsv" "${PREFIX}.grouped.tsv"
