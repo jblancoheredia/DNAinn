@@ -78,7 +78,7 @@ END {
 ' "${PREFIX}.l1_overlaps.tsv" > "${PREFIX}.read_labels.tsv"
 
 # Group by exact anchor+label: chr, pos, nearest_l1_name
-awk -F'	' -v OFS='	' '
+awk -F'	' -v OFS='	' -v labels_file="${PREFIX}.read_labels.tsv" '
 BEGIN {
     while ((getline < labels_file) > 0) {
         rid = $1
@@ -116,7 +116,7 @@ END {
         print event_id, chr, pos, n[k], n_lp[k], n_hg38[k], n_sec[k], n_sup[k], n_sa[k], mean_mapq, max_mapq[k], max_ov[k], strand_out[k], lab
     }
 }
-' labels_file="${PREFIX}.read_labels.tsv" "${PREFIX}.discordant_reads.tsv" > "${PREFIX}.grouped.tsv"
+' "${PREFIX}.discordant_reads.tsv" > "${PREFIX}.grouped.tsv"
 
 printf '%s
 ' "$HEADER" > "$OUT"
