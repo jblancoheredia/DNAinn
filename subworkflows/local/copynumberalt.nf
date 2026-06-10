@@ -56,14 +56,14 @@ workflow COPYNUMBERALT {
     ch_versions = Channel.empty()
     ch_multiqc_files = Channel.empty()
 
-//    //
-//    // MODULE: Run OncoCNV
-//    //
-//    ONCOCNV(ch_bam_pairs, ch_fasta, ch_targets_bed, ch_fai)
-//    ch_versions = ch_versions.mix(ONCOCNV.out.versions.first())
-//    ch_oncocnv_png      = ONCOCNV.out.png
-//    ch_oncocnv_profile  = ONCOCNV.out.profile
-//    ch_oncocnv_summary  = ONCOCNV.out.summary
+    //
+    // MODULE: Run OncoCNV
+    //
+    ONCOCNV(ch_bam_pairs, ch_fasta, ch_targets_bed, ch_fai)
+    ch_versions = ch_versions.mix(ONCOCNV.out.versions.first())
+    ch_oncocnv_png      = ONCOCNV.out.png
+    ch_oncocnv_profile  = ONCOCNV.out.profile
+    ch_oncocnv_summary  = ONCOCNV.out.summary
 
     //
     // MODULE: Run BCFtools Mpileup
@@ -151,28 +151,28 @@ workflow COPYNUMBERALT {
     ch_sequenza_alternative = SEQUENZA_FITS.out.alt_solutions
 
 
-//    // Build CopyNcat input
-//    ch_copyncat_input = ch_cnvkit_call
-//        .join(ch_cnvkit_cns)
-//        .join(ch_cnvkit_vcf)
-//        .join(ch_sequenza_segments)
-//        .join(ch_sequenza_confints)
-//        .join(ch_sequenza_alternative)
-//        .join(ch_oncocnv_profile)
-//        .join(ch_facets_vcf)
-//    //
-//    // MODULE: Run CopyNcat (merge CNV calls from CNVkit, Sequenza, OncoCNV, FACETS)
-//    //
-//    COPYNCAT(ch_copyncat_input)
-//    ch_cnv_tsv = COPYNCAT.out.tsv
-//    ch_versions = ch_versions.mix(COPYNCAT.out.versions)
+    // Build CopyNcat input
+    ch_copyncat_input = ch_cnvkit_call
+        .join(ch_cnvkit_cns)
+        .join(ch_cnvkit_vcf)
+        .join(ch_sequenza_segments)
+        .join(ch_sequenza_confints)
+        .join(ch_sequenza_alternative)
+        .join(ch_oncocnv_profile)
+        .join(ch_facets_vcf)
+    //
+    // MODULE: Run CopyNcat (merge CNV calls from CNVkit, Sequenza, OncoCNV, FACETS)
+    //
+    COPYNCAT(ch_copyncat_input)
+    ch_cnv_tsv = COPYNCAT.out.tsv
+    ch_versions = ch_versions.mix(COPYNCAT.out.versions)
 
-//    //
-//    // Collate and save software versions
-//    //
-//    softwareVersionsToYAML(ch_versions)
-//        .collectFile(storeDir: "${params.outdir}/pipeline_info", name: 'software_versions.yml', sort: true, newLine: true)
-//        .set { ch_col_vers }
+    //
+    // Collate and save software versions
+    //
+    softwareVersionsToYAML(ch_versions)
+        .collectFile(storeDir: "${params.outdir}/pipeline_info", name: 'software_versions.yml', sort: true, newLine: true)
+        .set { ch_col_vers }
 
     emit:
 
@@ -181,8 +181,8 @@ workflow COPYNUMBERALT {
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files
-//    copyncat_tsv        = COPYNCAT.out.tsv
-//    copyncat_summary    = COPYNCAT.out.summary
+    copyncat_tsv        = COPYNCAT.out.tsv
+    copyncat_summary    = COPYNCAT.out.summary
 
 }
 
