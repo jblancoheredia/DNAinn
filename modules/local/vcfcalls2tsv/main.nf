@@ -28,11 +28,11 @@ process VCFCALLS2TSV {
     """
 
     VCF2TSV \\
-        ${prefix}.freebayes.ann.vcf  \\
-        ${prefix}.lofreq.somatic_final.snvs.ann.vcf \\
-        ${prefix}.lofreq.somatic_final.indels.ann.vcf \\
-        ${prefix}.mutect2.filtered.ann.vcf \\
-        ${prefix}.vardict.ann.vcf \\
+        ${prefix}.freebayes.vcf.gz \\
+        ${prefix}.lofreq.somatic_final.snvs.vcf.gz \\
+        ${prefix}.lofreq.somatic_final.indels.vcf.gz \\
+        ${prefix}.mutect2.filtered.vcf.gz \\
+        ${prefix}.vardict.vcf.gz \\
         --output ${prefix}.merged_variants.tsv
 
     TIERSnMERGE \\
