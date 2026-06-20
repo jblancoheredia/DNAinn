@@ -177,7 +177,7 @@ workflow COPYNUMBERALT {
     emit:
 
 //    versions            = ch_col_vers
-//    cnv_tsv             = ch_cnv_tsv
+    cnv_tsv             = ch_cnv_tsv
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files
