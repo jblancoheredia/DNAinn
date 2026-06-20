@@ -236,7 +236,7 @@ workflow DNAINN {
         ch_multiqc_files = ch_multiqc_files.mix(COPYNUMBERALT.out.multiqc_files)
         ch_sam_mpileup   = COPYNUMBERALT.out.sam_mpileup
         ch_bcf_mpileup   = COPYNUMBERALT.out.bcf_mpileup
-        ch_cnv_tsv       = COPYNUMBERALT.out.cnv_tsv
+//        ch_cnv_tsv       = COPYNUMBERALT.out.cnv_tsv
     } else {
         ch_sam_mpileup   = Channel.empty()
         ch_bcf_mpileup   = Channel.empty()
