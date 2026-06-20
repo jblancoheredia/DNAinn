@@ -82,25 +82,25 @@ workflow COPYNUMBERALT {
     ch_sam_mpileup = SAMTOOLS_MPILEUP.out.pup
     ch_sam_mpileup_tbi = SAMTOOLS_MPILEUP.out.tbi
   
-    //
-    // MODULE: Run CNVkit AntiTarget Module just once per panel
-    //
-    CNVKIT_ANTITARGET(ch_targets_bed)
-    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
-    ch_antitargets = CNVKIT_ANTITARGET.out.bed
-
-    //
-    // MODULE: Run CNVkit Reference Module just once per panel
-    //
-    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_antitargets)
-    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
-    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
+//    //
+//    // MODULE: Run CNVkit AntiTarget Module just once per panel
+//    //
+//    CNVKIT_ANTITARGET(ch_targets_bed)
+//    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
+//    ch_cnvkit_antitarget = CNVKIT_ANTITARGET.out.bed
+//
+//    //
+//    // MODULE: Run CNVkit Reference Module just once per panel
+//    //
+//    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_cnvkit_antitarget)
+//    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
+//    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
 
     //
     // MODULE: Run CNVKIT Batch
     //
     generate_pon = false
-    CNVKIT_BATCH(ch_bam_pairs, ch_fasta, ch_fai, ch_antitargets, ch_cnvkit_reference, generate_pon)
+    CNVKIT_BATCH(ch_bam_pairs, ch_fasta, ch_fai, ch_cnvkit_antitarget, ch_cnvkit_reference, generate_pon)
     ch_versions = ch_versions.mix(CNVKIT_BATCH.out.versions.first())
     ch_cnvkit_cns = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2]]}
     ch_cnvkit_call = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[1]]}
