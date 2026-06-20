@@ -82,50 +82,50 @@ workflow COPYNUMBERALT {
     ch_sam_mpileup = SAMTOOLS_MPILEUP.out.pup
     ch_sam_mpileup_tbi = SAMTOOLS_MPILEUP.out.tbi
   
-//    //
-//    // MODULE: Run CNVkit AntiTarget Module just once per panel
-//    //
-//    CNVKIT_ANTITARGET(ch_targets_bed)
-//    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
-//    ch_antitargets = CNVKIT_ANTITARGET.out.bed
+    //
+    // MODULE: Run CNVkit AntiTarget Module just once per panel
+    //
+    CNVKIT_ANTITARGET(ch_targets_bed)
+    ch_versions = ch_versions.mix(CNVKIT_ANTITARGET.out.versions)
+    ch_antitargets = CNVKIT_ANTITARGET.out.bed
+
+    //
+    // MODULE: Run CNVkit Reference Module just once per panel
+    //
+    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_cnvkit_antitarget)
+    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
+    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
 
 //    //
-//    // MODULE: Run CNVkit Reference Module just once per panel
+//    // MODULE: Run CNVKIT Batch
 //    //
-//    CNVKIT_REFERENCE(ch_fasta, ch_targets_bed, ch_cnvkit_antitarget)
-//    ch_versions = ch_versions.mix(CNVKIT_REFERENCE.out.versions)
-//    ch_cnvkit_reference = CNVKIT_REFERENCE.out.cnn
-
-    //
-    // MODULE: Run CNVKIT Batch
-    //
-    generate_pon = false
-    CNVKIT_BATCH(ch_bam_pairs, ch_fasta, ch_fai, ch_cnvkit_antitarget, ch_cnvkit_reference, generate_pon)
-    ch_versions = ch_versions.mix(CNVKIT_BATCH.out.versions.first())
-    ch_cnvkit_cns = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2]]}
-    ch_cnvkit_call = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[1]]}
-    ch_cnvkit_call_input = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2], []]}
-
-    //
-    // MODULE: Run CNVkit Call
-    //
-    CNVKIT_CALL(ch_cnvkit_call_input)
-    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions)
-
-    //
-    // MODULE: Run CNVkit Export
-    //
-    CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
-    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions)
-    ch_cnvkit_vcf = CNVKIT_EXPORT.out.output
-
-    //
-    // MODULE: Run CNVkit GeneMetrics
-    //
-    ch_genemetrics_input = CNVKIT_BATCH.out.cnr.join(CNVKIT_BATCH.out.cns).map{ meta, cnr, cns -> [meta, cnr, cns[2]]}
-    CNVKIT_GENEMETRICS(ch_genemetrics_input)
-    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions)
-    ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
+//    generate_pon = false
+//    CNVKIT_BATCH(ch_bam_pairs, ch_fasta, ch_fai, ch_cnvkit_antitarget, ch_cnvkit_reference, generate_pon)
+//    ch_versions = ch_versions.mix(CNVKIT_BATCH.out.versions.first())
+//    ch_cnvkit_cns = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2]]}
+//    ch_cnvkit_call = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[1]]}
+//    ch_cnvkit_call_input = CNVKIT_BATCH.out.cns.map{ meta, cns -> [meta, cns[2], []]}
+//
+//    //
+//    // MODULE: Run CNVkit Call
+//    //
+//    CNVKIT_CALL(ch_cnvkit_call_input)
+//    ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions)
+//
+//    //
+//    // MODULE: Run CNVkit Export
+//    //
+//    CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
+//    ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions)
+//    ch_cnvkit_vcf = CNVKIT_EXPORT.out.output
+//
+//    //
+//    // MODULE: Run CNVkit GeneMetrics
+//    //
+//    ch_genemetrics_input = CNVKIT_BATCH.out.cnr.join(CNVKIT_BATCH.out.cns).map{ meta, cnr, cns -> [meta, cnr, cns[2]]}
+//    CNVKIT_GENEMETRICS(ch_genemetrics_input)
+//    ch_versions = ch_versions.mix(CNVKIT_GENEMETRICS.out.versions)
+//    ch_multiqc_files = ch_multiqc_files.mix(CNVKIT_GENEMETRICS.out.tsv)
 
     //
     // MODULE: Run FACETS 
@@ -151,21 +151,21 @@ workflow COPYNUMBERALT {
     ch_sequenza_alternative = SEQUENZA_FITS.out.alt_solutions
 
 
-    // Build CopyNcat input
-    ch_copyncat_input = ch_cnvkit_call
-        .join(ch_cnvkit_cns)
-        .join(ch_cnvkit_vcf)
-        .join(ch_sequenza_segments)
-        .join(ch_sequenza_confints)
-        .join(ch_sequenza_alternative)
-        .join(ch_oncocnv_profile)
-        .join(ch_facets_vcf)
-    //
-    // MODULE: Run CopyNcat (merge CNV calls from CNVkit, Sequenza, OncoCNV, FACETS)
-    //
-    COPYNCAT(ch_copyncat_input)
-    ch_cnv_tsv = COPYNCAT.out.tsv
-    ch_versions = ch_versions.mix(COPYNCAT.out.versions)
+//    // Build CopyNcat input
+//    ch_copyncat_input = ch_cnvkit_call
+//        .join(ch_cnvkit_cns)
+//        .join(ch_cnvkit_vcf)
+//        .join(ch_sequenza_segments)
+//        .join(ch_sequenza_confints)
+//        .join(ch_sequenza_alternative)
+//        .join(ch_oncocnv_profile)
+//        .join(ch_facets_vcf)
+//    //
+//    // MODULE: Run CopyNcat (merge CNV calls from CNVkit, Sequenza, OncoCNV, FACETS)
+//    //
+//    COPYNCAT(ch_copyncat_input)
+//    ch_cnv_tsv = COPYNCAT.out.tsv
+//    ch_versions = ch_versions.mix(COPYNCAT.out.versions)
 
     //
     // Collate and save software versions
@@ -177,12 +177,12 @@ workflow COPYNUMBERALT {
     emit:
 
 //    versions            = ch_col_vers
-    cnv_tsv             = ch_cnv_tsv
+//    cnv_tsv             = ch_cnv_tsv
     sam_mpileup         = ch_sam_mpileup
     bcf_mpileup         = ch_bcf_mpileup
     multiqc_files       = ch_multiqc_files
-    copyncat_tsv        = COPYNCAT.out.tsv
-    copyncat_summary    = COPYNCAT.out.summary
+//    copyncat_tsv        = COPYNCAT.out.tsv
+//    copyncat_summary    = COPYNCAT.out.summary
 
 }
 
