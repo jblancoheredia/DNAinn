@@ -110,12 +110,13 @@ workflow COPYNUMBERALT {
     // MODULE: Run CNVkit Call
     //
     CNVKIT_CALL(ch_cnvkit_call_input)
+    ch_cnvkit_expt_input = CNVKIT_CALL.out.cns
     ch_versions = ch_versions.mix(CNVKIT_CALL.out.versions)
 
     //
     // MODULE: Run CNVkit Export
     //
-    CNVKIT_EXPORT(CNVKIT_CALL.out.cns)
+    CNVKIT_EXPORT(ch_cnvkit_expt_input)
     ch_versions = ch_versions.mix(CNVKIT_EXPORT.out.versions)
     ch_cnvkit_vcf = CNVKIT_EXPORT.out.output
 
