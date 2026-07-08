@@ -102,7 +102,10 @@ def getWorkflowVersion() {
 //
 def processVersionsFromYAML(yaml_file) {
     def yaml = new org.yaml.snakeyaml.Yaml()
-    def versions = yaml.load(yaml_file).collectEntries { k, v -> [ k.tokenize(':')[-1], v ] }
+    // Strip non-printable/control characters (e.g. stray ANSI escapes or NUL bytes leaked from a
+    // tool's version output) that otherwise make SnakeYAML abort with "special characters are not allowed".
+    def yaml_text = file(yaml_file).text.replaceAll('[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F]', '')
+    def versions = yaml.load(yaml_text).collectEntries { k, v -> [ k.tokenize(':')[-1], v ] }
     return yaml.dumpAsMap(versions).trim()
 }
 
