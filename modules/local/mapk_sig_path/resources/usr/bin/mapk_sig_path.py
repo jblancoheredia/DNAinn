@@ -20,11 +20,12 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 
 GENE_COLUMN_ALIASES = [
     "gene_symbol", "gene", "Gene", "GENE", "SYMBOL", "Hugo_Symbol", "HUGO_SYMBOL",
-    "gene_name", "Gene.refGene", "Gene_Name", "symbol", "ANN_SYMBOL"
+    "gene_name", "Gene.refGene", "Gene_Name", "symbol", "ANN_SYMBOL",
+    "VEP_SYMBOL", "SNPEFF_GENE_NAME"
 ]
 SAMPLE_COLUMN_ALIASES = [
     "sample", "Sample", "SAMPLE", "sample_id", "Sample_ID", "tumor_sample", "Tumor_Sample_Barcode",
@@ -32,11 +33,13 @@ SAMPLE_COLUMN_ALIASES = [
 ]
 CONSEQUENCE_COLUMN_ALIASES = [
     "consequence", "Consequence", "effect", "Effect", "variant_classification",
-    "Variant_Classification", "Func.refGene", "ExonicFunc.refGene", "BIOTYPE", "ANN_CONSEQUENCE"
+    "Variant_Classification", "Func.refGene", "ExonicFunc.refGene", "BIOTYPE", "ANN_CONSEQUENCE",
+    "VEP_CONSEQUENCE", "SNPEFF_ANNOTATION"
 ]
 PROTEIN_COLUMN_ALIASES = [
     "protein_change", "Protein_Change", "HGVSp", "hgvsp", "HGVSp_Short",
-    "AAChange", "AAChange.refGene", "amino_acid_change", "Protein_position", "ANN_HGVSP"
+    "AAChange", "AAChange.refGene", "amino_acid_change", "Protein_position", "ANN_HGVSP",
+    "VEP_HGVSP", "SNPEFF_HGVS_P"
 ]
 VAF_COLUMN_ALIASES = [
     "vaf", "VAF", "tumor_vaf", "Tumor_VAF", "AF", "allele_fraction", "Allele_Fraction",
