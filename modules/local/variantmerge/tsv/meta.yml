@@ -1,0 +1,34 @@
+name: variantmerge_tsv
+description: Merge annotated per-caller VCFs (FreeBayes, LoFreq SNV, LoFreq indels, Mutect2, VarDict) into a single unified variant TSV.
+keywords:
+  - vcf
+  - merge
+  - variant
+  - snv
+  - indel
+  - tsv
+input:
+  - meta:
+      type: map
+      description: Sample metadata map, usually containing id.
+  - vcfs:
+      type: file
+      description: |
+        Exactly 5 annotated VCF(.gz) files in caller order:
+        freebayes, lofreq_snvs, lofreq_indels, mutect2, vardict.
+      pattern: "*.vcf.gz"
+  - tbis:
+      type: file
+      description: Tabix indexes matching the input VCFs.
+      pattern: "*.tbi"
+output:
+  - tsv:
+      type: file
+      description: Unified merged variant table with SUPP_VEC and per-caller columns.
+      pattern: "*.merged_variants.tsv"
+  - versions:
+      type: file
+      description: Software versions file.
+      pattern: "versions.yml"
+authors:
+  - "local"

@@ -13,7 +13,7 @@ input:
       description: Sample metadata map, usually containing id.
   - variants_tsv:
       type: file
-      description: SNV/InDel TSV, e.g. output from VCFCALLS2TSV.
+      description: SNV/InDel TSV, e.g. output from VARIANTMERGE_TSV.
       pattern: "*.tsv"
   - cnv_tsv:
       type: file

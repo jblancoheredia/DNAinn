@@ -11,7 +11,9 @@
 include { LOFREQ                                                                                                                    } from '../../modules/local/lofreq/main'
 include { FREEBAYES                                                                                                                 } from '../../modules/local/freebayes/main'
 include { VARDICTJAVA                                                                                                               } from '../../modules/local/vardictjava/main'  
-include { VCFCALLS2TSV                                                                                                              } from '../../modules/local/vcfcalls2tsv/main'
+include { VARIANTMERGE_TSV                                                                                                          } from '../../modules/local/variantmerge/tsv/main'
+include { VARIANTMERGE_TIER                                                                                                         } from '../../modules/local/variantmerge/tier/main'
+include { VARIANTMERGE_MAF                                                                                                          } from '../../modules/local/variantmerge/maf/main'
 include { FGBIO_CLIPBAM                                                                                                             } from '../../modules/local/fgbio/clipbam/main'
 include { GATK4_MUTECT2                                                                                                             } from '../../modules/local/gatk4/mutect2/main' 
 include { SNPEFF_SNPEFF                                                                                                             } from '../../modules/nf-core/snpeff/snpeff/main'
@@ -189,11 +191,28 @@ workflow VARIANTDSCVRY {
         .set { ch_pre_merge }
 
     //
-    // MODULE: From the Callers VCF files produce a single TSV 
+    // MODULE: From the Callers VCF files produce a single merged TSV
     //
-    VCFCALLS2TSV(ch_pre_merge)
-    ch_versions = ch_versions.mix(VCFCALLS2TSV.out.versions)
-    ch_variants_tsv = VCFCALLS2TSV.out.tsv
+    VARIANTMERGE_TSV(ch_pre_merge)
+    ch_versions = ch_versions.mix(VARIANTMERGE_TSV.out.versions)
+    ch_variants_tsv = VARIANTMERGE_TSV.out.tsv
+
+    //
+    // MODULE: Tier the merged calls into HIGH_CONFIDENCE / REVIEW / LIKELY_NOISE
+    //
+    VARIANTMERGE_TIER(ch_variants_tsv)
+    ch_versions = ch_versions.mix(VARIANTMERGE_TIER.out.versions)
+    ch_tiered_tsv = VARIANTMERGE_TIER.out.tiered_tsv
+    ch_high_confidence_tsv = VARIANTMERGE_TIER.out.high_confidence_tsv
+    ch_review_tsv = VARIANTMERGE_TIER.out.review_tsv
+    ch_likely_noise_tsv = VARIANTMERGE_TIER.out.likely_noise_tsv
+
+    //
+    // MODULE: Convert the high-confidence table into a clinical MAF-like TSV
+    //
+    VARIANTMERGE_MAF(ch_high_confidence_tsv)
+    ch_versions = ch_versions.mix(VARIANTMERGE_MAF.out.versions)
+    ch_clinical_maf_tsv = VARIANTMERGE_MAF.out.clinical_maf_tsv
 
 //    //
 //    // MODULES: Run GetBaseCountsMultiSample
@@ -210,8 +229,13 @@ workflow VARIANTDSCVRY {
 
     emit:
 
-    versions        = ch_collated_versions
-    variants        = ch_variants_tsv
+    versions         = ch_collated_versions
+    variants         = ch_variants_tsv
+    tiered           = ch_tiered_tsv
+    high_confidence  = ch_high_confidence_tsv
+    review           = ch_review_tsv
+    likely_noise     = ch_likely_noise_tsv
+    clinical_maf     = ch_clinical_maf_tsv
 //    multiqc_files   = ch_multiqc_files 
 
 }

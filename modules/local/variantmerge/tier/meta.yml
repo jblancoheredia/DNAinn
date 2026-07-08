@@ -1,0 +1,39 @@
+name: variantmerge_tier
+description: Tier merged cfDNA caller calls into HIGH_CONFIDENCE / REVIEW / LIKELY_NOISE using noise, artifact, and clinical evidence flags.
+keywords:
+  - tier
+  - noise
+  - filter
+  - cfdna
+  - clinical
+input:
+  - meta:
+      type: map
+      description: Sample metadata map, usually containing id.
+  - merged_tsv:
+      type: file
+      description: Unified merged variant TSV from VARIANTMERGE_TSV.
+      pattern: "*.merged_variants.tsv"
+output:
+  - tiered_tsv:
+      type: file
+      description: Full input table annotated with tier/flag columns.
+      pattern: "*.merged_variants.tiered.tsv"
+  - high_confidence_tsv:
+      type: file
+      description: HIGH_CONFIDENCE rows only.
+      pattern: "*.merged_variants.high_confidence.tsv"
+  - review_tsv:
+      type: file
+      description: HIGH_CONFIDENCE and REVIEW rows.
+      pattern: "*.merged_variants.review.tsv"
+  - likely_noise_tsv:
+      type: file
+      description: LIKELY_NOISE rows only.
+      pattern: "*.merged_variants.likely_noise.tsv"
+  - versions:
+      type: file
+      description: Software versions file.
+      pattern: "versions.yml"
+authors:
+  - "local"
