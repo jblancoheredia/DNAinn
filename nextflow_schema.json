@@ -987,6 +987,9 @@
                 },
                 "mapk_genes": {
                     "type": "string"
+                },
+                "hotspots": {
+                    "type": "string"
                 }
             }
         },
