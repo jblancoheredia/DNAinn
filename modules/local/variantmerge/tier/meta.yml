@@ -1,11 +1,13 @@
 name: variantmerge_tier
-description: Tier merged cfDNA caller calls into HIGH_CONFIDENCE / REVIEW / LIKELY_NOISE using noise, artifact, and clinical evidence flags.
+description: Tier merged cfDNA caller calls using hotspot, germline, and noise evidence into HIGH_CONFIDENCE / SINGLE_CALLER / REVIEW / LIKELY_NOISE.
 keywords:
   - tier
   - noise
   - filter
   - cfdna
   - clinical
+  - hotspot
+  - germline
 input:
   - meta:
       type: map
@@ -14,10 +16,14 @@ input:
       type: file
       description: Unified merged variant TSV from VARIANTMERGE_TSV.
       pattern: "*.merged_variants.tsv"
+  - hotspots:
+      type: file
+      description: hg38 hotspot list (MAF-style tab-delimited) from params.hotspots.
+      pattern: "*.tsv"
 output:
   - tiered_tsv:
       type: file
-      description: Full input table annotated with tier/flag columns.
+      description: Full input table annotated with tier, germline, and hotspot columns.
       pattern: "*.merged_variants.tiered.tsv"
   - high_confidence_tsv:
       type: file
@@ -25,8 +31,12 @@ output:
       pattern: "*.merged_variants.high_confidence.tsv"
   - review_tsv:
       type: file
-      description: HIGH_CONFIDENCE and REVIEW rows.
+      description: REVIEW rows only.
       pattern: "*.merged_variants.review.tsv"
+  - single_caller_tsv:
+      type: file
+      description: SINGLE_CALLER rows only.
+      pattern: "*.merged_variants.single_caller.tsv"
   - likely_noise_tsv:
       type: file
       description: LIKELY_NOISE rows only.

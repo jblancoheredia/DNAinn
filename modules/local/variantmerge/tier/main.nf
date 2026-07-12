@@ -4,18 +4,20 @@ process VARIANTMERGE_TIER {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/vcfcalls2tsv:2.1.0':
-        'blancojmskcc/vcfcalls2tsv:2.1.0' }"
+        'docker://blancojmskcc/vcfcalls2tsv:2.2.0':
+        'blancojmskcc/vcfcalls2tsv:2.2.0' }"
 
     input:
     tuple val(meta), path(merged_tsv)
+    path hotspots
 
     output:
-    tuple val(meta), path("*.merged_variants.tiered.tsv")         , emit: tiered_tsv
-    tuple val(meta), path("*.merged_variants.high_confidence.tsv"), emit: high_confidence_tsv
-    tuple val(meta), path("*.merged_variants.review.tsv")         , emit: review_tsv
-    tuple val(meta), path("*.merged_variants.likely_noise.tsv")   , emit: likely_noise_tsv
-    path "versions.yml"                                           , emit: versions
+    tuple val(meta), path("*.merged_variants.tiered.tsv")          , emit: tiered_tsv
+    tuple val(meta), path("*.merged_variants.high_confidence.tsv") , emit: high_confidence_tsv
+    tuple val(meta), path("*.merged_variants.review.tsv")          , emit: review_tsv
+    tuple val(meta), path("*.merged_variants.single_caller.tsv")   , emit: single_caller_tsv
+    tuple val(meta), path("*.merged_variants.likely_noise.tsv")     , emit: likely_noise_tsv
+    path "versions.yml"                                            , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -26,9 +28,11 @@ process VARIANTMERGE_TIER {
     """
     TIERSnMERGE \\
         ${merged_tsv} \\
+        --hotspots ${hotspots} \\
         --output ${prefix}.merged_variants.tiered.tsv \\
         --high-confidence-output ${prefix}.merged_variants.high_confidence.tsv \\
         --review-output ${prefix}.merged_variants.review.tsv \\
+        --single-caller-output ${prefix}.merged_variants.single_caller.tsv \\
         --noise-output ${prefix}.merged_variants.likely_noise.tsv \\
         ${args}
 
@@ -44,6 +48,7 @@ process VARIANTMERGE_TIER {
     touch ${prefix}.merged_variants.tiered.tsv
     touch ${prefix}.merged_variants.high_confidence.tsv
     touch ${prefix}.merged_variants.review.tsv
+    touch ${prefix}.merged_variants.single_caller.tsv
     touch ${prefix}.merged_variants.likely_noise.tsv
 
     cat <<-END_VERSIONS > versions.yml

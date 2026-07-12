@@ -1,5 +1,5 @@
 name: variantmerge_maf
-description: Convert the high-confidence variant table into a polished clinical-team MAF-like TSV.
+description: Convert a tiered variant table into a polished clinical-team MAF-like TSV.
 keywords:
   - maf
   - clinical
@@ -9,15 +9,15 @@ input:
   - meta:
       type: map
       description: Sample metadata map, usually containing id.
-  - high_confidence_tsv:
+  - tier_tsv:
       type: file
-      description: HIGH_CONFIDENCE TSV from VARIANTMERGE_TIER.
-      pattern: "*.merged_variants.high_confidence.tsv"
+      description: Tiered variant TSV from VARIANTMERGE_TIER (high_confidence, review, or single_caller).
+      pattern: "*.merged_variants.*.tsv"
 output:
   - clinical_maf_tsv:
       type: file
       description: Polished clinical MAF-like variant table.
-      pattern: "*.high_confidence.clinical_maf.tsv"
+      pattern: "*.clinical_maf.tsv"
   - versions:
       type: file
       description: Software versions file.

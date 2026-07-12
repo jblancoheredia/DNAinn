@@ -13,7 +13,9 @@ include { FREEBAYES                                                             
 include { VARDICTJAVA                                                                                                               } from '../../modules/local/vardictjava/main'  
 include { VARIANTMERGE_TSV                                                                                                          } from '../../modules/local/variantmerge/tsv/main'
 include { VARIANTMERGE_TIER                                                                                                         } from '../../modules/local/variantmerge/tier/main'
-include { VARIANTMERGE_MAF                                                                                                          } from '../../modules/local/variantmerge/maf/main'
+include { VARIANTMERGE_MAF as VARIANTMERGE_MAF_HC                                                                                    } from '../../modules/local/variantmerge/maf/main'
+include { VARIANTMERGE_MAF as VARIANTMERGE_MAF_REVIEW                                                                               } from '../../modules/local/variantmerge/maf/main'
+include { VARIANTMERGE_MAF as VARIANTMERGE_MAF_SINGLE                                                                               } from '../../modules/local/variantmerge/maf/main'
 include { FGBIO_CLIPBAM                                                                                                             } from '../../modules/local/fgbio/clipbam/main'
 include { GATK4_MUTECT2                                                                                                             } from '../../modules/local/gatk4/mutect2/main' 
 include { SNPEFF_SNPEFF                                                                                                             } from '../../modules/nf-core/snpeff/snpeff/main'
@@ -198,21 +200,30 @@ workflow VARIANTDSCVRY {
     ch_variants_tsv = VARIANTMERGE_TSV.out.tsv
 
     //
-    // MODULE: Tier the merged calls into HIGH_CONFIDENCE / REVIEW / LIKELY_NOISE
+    // MODULE: Tier the merged calls into HIGH_CONFIDENCE / SINGLE_CALLER / REVIEW / LIKELY_NOISE
     //
-    VARIANTMERGE_TIER(ch_variants_tsv)
+    VARIANTMERGE_TIER(ch_variants_tsv, file(params.hotspots))
     ch_versions = ch_versions.mix(VARIANTMERGE_TIER.out.versions)
     ch_tiered_tsv = VARIANTMERGE_TIER.out.tiered_tsv
     ch_high_confidence_tsv = VARIANTMERGE_TIER.out.high_confidence_tsv
     ch_review_tsv = VARIANTMERGE_TIER.out.review_tsv
+    ch_single_caller_tsv = VARIANTMERGE_TIER.out.single_caller_tsv
     ch_likely_noise_tsv = VARIANTMERGE_TIER.out.likely_noise_tsv
 
     //
-    // MODULE: Convert the high-confidence table into a clinical MAF-like TSV
+    // MODULE: Convert tiered tables into clinical MAF-like TSVs
     //
-    VARIANTMERGE_MAF(ch_high_confidence_tsv)
-    ch_versions = ch_versions.mix(VARIANTMERGE_MAF.out.versions)
-    ch_clinical_maf_tsv = VARIANTMERGE_MAF.out.clinical_maf_tsv
+    VARIANTMERGE_MAF_HC(ch_high_confidence_tsv)
+    ch_versions = ch_versions.mix(VARIANTMERGE_MAF_HC.out.versions)
+    ch_clinical_maf_tsv = VARIANTMERGE_MAF_HC.out.clinical_maf_tsv
+
+    VARIANTMERGE_MAF_REVIEW(ch_review_tsv)
+    ch_versions = ch_versions.mix(VARIANTMERGE_MAF_REVIEW.out.versions)
+    ch_review_clinical_maf_tsv = VARIANTMERGE_MAF_REVIEW.out.clinical_maf_tsv
+
+    VARIANTMERGE_MAF_SINGLE(ch_single_caller_tsv)
+    ch_versions = ch_versions.mix(VARIANTMERGE_MAF_SINGLE.out.versions)
+    ch_single_caller_clinical_maf_tsv = VARIANTMERGE_MAF_SINGLE.out.clinical_maf_tsv
 
 //    //
 //    // MODULES: Run GetBaseCountsMultiSample
@@ -229,13 +240,16 @@ workflow VARIANTDSCVRY {
 
     emit:
 
-    versions         = ch_collated_versions
-    variants         = ch_variants_tsv
-    tiered           = ch_tiered_tsv
-    high_confidence  = ch_high_confidence_tsv
-    review           = ch_review_tsv
-    likely_noise     = ch_likely_noise_tsv
-    clinical_maf     = ch_clinical_maf_tsv
+    versions                  = ch_collated_versions
+    variants                  = ch_variants_tsv
+    tiered                    = ch_tiered_tsv
+    high_confidence           = ch_high_confidence_tsv
+    review                    = ch_review_tsv
+    single_caller             = ch_single_caller_tsv
+    likely_noise              = ch_likely_noise_tsv
+    clinical_maf              = ch_clinical_maf_tsv
+    review_clinical_maf       = ch_review_clinical_maf_tsv
+    single_caller_clinical_maf = ch_single_caller_clinical_maf_tsv
 //    multiqc_files   = ch_multiqc_files 
 
 }

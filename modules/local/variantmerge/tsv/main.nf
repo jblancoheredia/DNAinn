@@ -4,8 +4,8 @@ process VARIANTMERGE_TSV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://blancojmskcc/vcfcalls2tsv:2.1.0':
-        'blancojmskcc/vcfcalls2tsv:2.1.0' }"
+        'docker://blancojmskcc/vcfcalls2tsv:2.2.0':
+        'blancojmskcc/vcfcalls2tsv:2.2.0' }"
 
     input:
     tuple val(meta), path(vcfs), path(tbis)
