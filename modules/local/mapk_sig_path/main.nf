@@ -22,6 +22,7 @@ process MAPK_SIG_PATH {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
+    def args = task.ext.args ?: '--exclude-noise'
 
     """
     python3 ${moduleDir}/resources/usr/bin/mapk_sig_path.py \\
@@ -30,7 +31,21 @@ process MAPK_SIG_PATH {
         --out-prefix ${prefix} \\
         --sample-id "${meta.id}" \\
         --mapk-genes ${mapk_genes_tsv} \\
-        --variants-tsv ${variants_tsv}
+        --variants-tsv ${variants_tsv} \\
+        ${args}
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        mapk_sig_path: \$(python3 ${moduleDir}/resources/usr/bin/mapk_sig_path.py --version | sed 's/^mapk_sig_path //')
+    END_VERSIONS
+    """
+
+    stub:
+    prefix = task.ext.prefix ?: "${meta.id}"
+    """
+    touch ${prefix}.mapk_sig_path.alterations.tsv
+    touch ${prefix}.mapk_sig_path.gene_summary.tsv
+    touch ${prefix}.mapk_sig_path.sample_summary.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

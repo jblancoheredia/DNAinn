@@ -20,7 +20,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
-VERSION = "0.2.1"
+VERSION = "0.3.0"
 
 GENE_COLUMN_ALIASES = [
     "gene_symbol", "gene", "Gene", "GENE", "SYMBOL", "Hugo_Symbol", "HUGO_SYMBOL",
@@ -53,7 +53,13 @@ REF_COLUMN_ALIASES = ["ref", "REF", "Reference_Allele", "Reference", "ReferenceA
 ALT_COLUMN_ALIASES = ["alt", "ALT", "Tumor_Seq_Allele2", "Alternate_Allele", "Alternate", "Allele"]
 CHROM_COLUMN_ALIASES = ["chrom", "chr", "CHROM", "Chromosome", "chromosome"]
 POS_COLUMN_ALIASES = ["pos", "POS", "start", "Start_Position", "position", "Position"]
-CALLER_COLUMN_ALIASES = ["caller", "Caller", "variant_caller", "Variant_Caller", "SUPP_VEC"]
+CALLER_COLUMN_ALIASES = ["caller", "Caller", "variant_caller", "Variant_Caller", "SUPP_VEC", "CALLERS", "EFFECTIVE_CALLERS"]
+NOISE_TIER_COLUMN_ALIASES = ["NOISE_TIER", "noise_tier"]
+GERMLINE_COLUMN_ALIASES = ["GERMLINE", "germline"]
+GERMLINE_INFO_COLUMN_ALIASES = ["GERMLINE_INFO", "germline_info"]
+HOTSPOT_COLUMN_ALIASES = ["HOTSPOT", "hotspot"]
+HOTSPOT_INFO_COLUMN_ALIASES = ["HOTSPOT_INFO", "hotspot_info"]
+HOTSPOT_IDS_COLUMN_ALIASES = ["HOTSPOT_IDS", "hotspot_ids"]
 
 # CNV aliases matching DMND*_CNV_MERGED.tsv, while staying flexible.
 CNV_GENE_COLUMN_ALIASES = ["gene", "Gene", "GENE", "gene_symbol", "ANN_SYMBOL"]
@@ -84,8 +90,8 @@ SV_POS1_COLUMN_ALIASES = ["pos1", "POS", "start1"]
 SV_CHR2_COLUMN_ALIASES = ["chr2", "CHR2", "chrom2"]
 SV_POS2_COLUMN_ALIASES = ["pos2", "END", "end2"]
 
-# Cancer-relevant MAPK hotspot pattern, intentionally conservative.
-HOTSPOT_PATTERNS = {
+# Cancer-relevant MAPK residue patterns (pathway-specific; distinct from tier HOTSPOT list).
+MAPK_HOTSPOT_PATTERNS = {
     "KRAS": [r"G12", r"G13", r"Q61", r"A146"],
     "NRAS": [r"G12", r"G13", r"Q61"],
     "HRAS": [r"G12", r"G13", r"Q61"],
@@ -139,20 +145,26 @@ ALTERATION_COLUMNS = [
     "sample", "alteration_type", "gene", "partner_gene", "event_class", "confidence", "detail",
     "chrom", "start", "end", "ref", "alt", "consequence", "protein_change",
     "vaf", "alt_depth", "depth", "cnv_call", "copy_number", "log2", "svtype", "site1", "site2",
-    "caller", "filter", "support", "pathway", "dataset", "note",
+    "caller", "filter", "support", "noise_tier", "germline", "germline_info",
+    "hotspot", "hotspot_info", "hotspot_ids",
+    "pathway", "dataset", "note",
 ]
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Filter and summarize MAPK SNV/InDel, CNV, and SV calls in a restricted gene set.")
     parser.add_argument("--sample-id", required=True, help="Sample ID used if an input table lacks a sample column.")
-    parser.add_argument("--variants-tsv", "--snvindel-tsv", dest="variants_tsv", required=True, type=Path, help="Input SNV/InDel variant TSV.")
+    parser.add_argument("--variants-tsv", "--snvindel-tsv", dest="variants_tsv", required=True, type=Path,
+                        help="Tiered SNV/InDel TSV from VARIANTMERGE_TIER (e.g. *.merged_variants.tiered.tsv).")
     parser.add_argument("--cnv-tsv", default=None, type=Path, help="Optional CNV TSV, e.g. DMND*_CNV_MERGED.tsv.")
     parser.add_argument("--sv-tsv", default=None, type=Path, help="Optional SV annotation TSV, e.g. DMND*_SOMTIC_SV_ANN.tsv.")
     parser.add_argument("--mapk-genes", required=True, type=Path, help="MAPK gene-set TSV with gene_symbol or gene column.")
     parser.add_argument("--out-prefix", required=True, help="Output prefix.")
     parser.add_argument("--min-vaf", type=float, default=None, help="Optional minimum VAF filter for SNV/InDel rows.")
+    parser.add_argument("--max-vaf", type=float, default=None, help="Optional maximum VAF filter for SNV/InDel rows.")
     parser.add_argument("--min-depth", type=float, default=None, help="Optional minimum depth filter for SNV/InDel rows.")
+    parser.add_argument("--exclude-noise", action=argparse.BooleanOptionalAction, default=True,
+                        help="Exclude SNV/InDel rows with NOISE_TIER=LIKELY_NOISE (default: true).")
     parser.add_argument("--include-neutral-cnv", action="store_true", help="Emit NEUTRAL CNV rows. Default: exclude them.")
     parser.add_argument("--version", action="version", version=f"mapk_sig_path {VERSION}")
     return parser.parse_args()
@@ -163,6 +175,8 @@ def valid_optional_path(path: Optional[Path]) -> bool:
         return False
     text = str(path).strip()
     if text == "" or text.lower() in {"null", "none", "na", "."}:
+        return False
+    if path.name.endswith(".placeholder") or "mapk_no_" in path.name:
         return False
     return path.exists() and path.is_file()
 
@@ -258,16 +272,32 @@ def infer_variant_type(row: Dict[str, str], ref_col: Optional[str], alt_col: Opt
     return "SNV/InDel"
 
 
-def is_hotspot(gene: str, protein_change: str) -> bool:
+def is_mapk_hotspot(gene: str, protein_change: str) -> bool:
     protein_change = protein_change or ""
-    patterns = HOTSPOT_PATTERNS.get(gene, [])
+    patterns = MAPK_HOTSPOT_PATTERNS.get(gene, [])
     return any(re.search(pattern, protein_change, flags=re.IGNORECASE) for pattern in patterns)
+
+
+def tier_field(row: Dict[str, str], col: Optional[str]) -> str:
+    if not col:
+        return ""
+    value = row.get(col, "")
+    if value in (None, "", "."):
+        return ""
+    return str(value)
+
+
+def append_note(note: str, extra: str) -> str:
+    extra = (extra or "").strip()
+    if not extra:
+        return note
+    return f"{note}; {extra}" if note else extra
 
 
 def classify_snvindel_event(gene: str, consequence: str, protein_change: str) -> Tuple[str, str, str, str]:
     text = f"{consequence} {protein_change}".lower()
 
-    if is_hotspot(gene, protein_change):
+    if is_mapk_hotspot(gene, protein_change):
         return "known_mapk_hotspot", "high", "hotspot", "Known recurrent MAPK/cancer hotspot pattern"
 
     if any(term in text for term in LOF_TERMS):
@@ -362,9 +392,19 @@ def parse_snvindel_rows(args: argparse.Namespace, gene_info: Dict[str, Dict[str,
     pos_col = find_col(columns, POS_COLUMN_ALIASES)
     caller_col = find_col(columns, CALLER_COLUMN_ALIASES)
     filter_col = find_col(columns, ["FILTER", "filter"])
+    noise_tier_col = find_col(columns, NOISE_TIER_COLUMN_ALIASES)
+    germline_col = find_col(columns, GERMLINE_COLUMN_ALIASES)
+    germline_info_col = find_col(columns, GERMLINE_INFO_COLUMN_ALIASES)
+    hotspot_col = find_col(columns, HOTSPOT_COLUMN_ALIASES)
+    hotspot_info_col = find_col(columns, HOTSPOT_INFO_COLUMN_ALIASES)
+    hotspot_ids_col = find_col(columns, HOTSPOT_IDS_COLUMN_ALIASES)
 
     alteration_rows: List[Dict[str, str]] = []
     for row in rows:
+        if args.exclude_noise and noise_tier_col:
+            if (row.get(noise_tier_col, "") or "").strip().upper() == "LIKELY_NOISE":
+                continue
+
         genes = expand_gene_field(row.get(gene_col, ""))
         hits = [g for g in genes if g in mapk_genes]
         if not hits:
@@ -375,6 +415,8 @@ def parse_snvindel_rows(args: argparse.Namespace, gene_info: Dict[str, Dict[str,
 
         if args.min_vaf is not None and vaf is not None and vaf < args.min_vaf:
             continue
+        if args.max_vaf is not None and vaf is not None and vaf > args.max_vaf:
+            continue
         if args.min_depth is not None and depth is not None and depth < args.min_depth:
             continue
 
@@ -382,9 +424,14 @@ def parse_snvindel_rows(args: argparse.Namespace, gene_info: Dict[str, Dict[str,
         consequence = row.get(consequence_col, "") if consequence_col else ""
         protein_change = row.get(protein_col, "") if protein_col else ""
         variant_type = infer_variant_type(row, ref_col, alt_col, consequence)
+        tier_hotspot = tier_field(row, hotspot_col)
+        tier_hotspot_info = tier_field(row, hotspot_info_col)
+        tier_hotspot_ids = tier_field(row, hotspot_ids_col)
 
         for gene in hits:
             event_class, confidence, detail, note = classify_snvindel_event(gene, consequence, protein_change)
+            if tier_hotspot == "Likely Hotspot" and event_class != "known_mapk_hotspot":
+                note = append_note(note, f"clinical hotspot list match ({tier_hotspot_info or tier_hotspot_ids or 'tier HOTSPOT'})")
             info = gene_info.get(gene, {})
             out = empty_alteration_row()
             out.update({
@@ -407,6 +454,12 @@ def parse_snvindel_rows(args: argparse.Namespace, gene_info: Dict[str, Dict[str,
                 "depth": "" if depth is None else str(depth),
                 "caller": row.get(caller_col, "") if caller_col else "",
                 "filter": row.get(filter_col, "") if filter_col else "",
+                "noise_tier": tier_field(row, noise_tier_col),
+                "germline": tier_field(row, germline_col),
+                "germline_info": tier_field(row, germline_info_col),
+                "hotspot": tier_hotspot,
+                "hotspot_info": tier_hotspot_info,
+                "hotspot_ids": tier_hotspot_ids,
                 "pathway": info.get("pathway", "MAPK signaling pathway"),
                 "dataset": info.get("dataset", "custom_MAPK_gene_set"),
                 "note": note,

@@ -13,15 +13,15 @@ input:
       description: Sample metadata map, usually containing id.
   - variants_tsv:
       type: file
-      description: SNV/InDel TSV, e.g. output from VARIANTMERGE_TSV.
-      pattern: "*.tsv"
+      description: Tiered SNV/InDel TSV from VARIANTMERGE_TIER (e.g. *.merged_variants.tiered.tsv).
+      pattern: "*.merged_variants.tiered.tsv"
   - cnv_tsv:
       type: file
-      description: CNV merged TSV, e.g. DMND*_CNV_MERGED.tsv.
+      description: Optional CNV TSV, e.g. DMND*_CNV_MERGED.tsv. Placeholder when CNV subworkflow is off.
       pattern: "*.tsv"
   - sv_tsv:
       type: file
-      description: SV annotation TSV, e.g. DMND*_SOMTIC_SV_ANN.tsv.
+      description: Optional SV annotation TSV, e.g. DMND*_SOMTIC_SV_ANN.tsv. Placeholder when SV subworkflow is off.
       pattern: "*.tsv"
   - mapk_genes_tsv:
       type: file
@@ -30,7 +30,7 @@ input:
 output:
   - alterations:
       type: file
-      description: Unified MAPK alteration-level TSV.
+      description: Unified MAPK alteration-level TSV with tier/germline/hotspot annotations for SNV/InDel rows.
       pattern: "*.mapk_sig_path.alterations.tsv"
   - sample_summary:
       type: file

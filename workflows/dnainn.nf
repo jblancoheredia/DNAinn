@@ -260,10 +260,12 @@ workflow DNAINN {
             ch_gatk_interval_list
         )
         ch_variants = VARIANTDSCVRY.out.variants
+        ch_variants_tiered = VARIANTDSCVRY.out.tiered
         ch_versions = ch_versions.mix(VARIANTDSCVRY.out.versions)
 //    ch_multiqc_files = ch_multiqc_files.mix(VARIANTDSCVRY.out.multiqc_files)
     } else {
         ch_variants = Channel.empty()
+        ch_variants_tiered = Channel.empty()
     }
 
     if ((params.run_telomerefeats instanceof Boolean ? params.run_telomerefeats : params.run_telomerefeats?.toString()?.toBoolean())) {
@@ -329,23 +331,26 @@ workflow DNAINN {
 
     if ((params.run_mapksigpathwy instanceof Boolean ? params.run_mapksigpathwy : params.run_mapksigpathwy?.toString()?.toBoolean())) {
 
+        ch_mapk_absent_cnv = file("${projectDir}/assets/mapk_no_cnv.placeholder")
+        ch_mapk_absent_sv  = file("${projectDir}/assets/mapk_no_sv.placeholder")
+
         // Normalize each channel to a shared key = meta.id
-        ch_variants_by_id = ch_variants.map { meta, variants_tsv ->
+        ch_variants_by_id = ch_variants_tiered.map { meta, variants_tsv ->
             tuple(meta.id, meta, variants_tsv)
-        }   
+        }
         ch_cnv_by_id = ch_cnv_tsv.map { meta, cnv_tsv ->
             tuple(meta.id, cnv_tsv)
-        }   
+        }
         ch_sv_by_id = ch_sv_tsv.map { meta, sv_tsv ->
             tuple(meta.id, sv_tsv)
-        }   
-    
-        // Build MAPK_SIG_PATH input
+        }
+
+        // SNV/tiered required; CNV and SV optional (remainder join + placeholder files)
         ch_mapk_sig_path_input = ch_variants_by_id
-            .join(ch_cnv_by_id, by: 0)
-            .join(ch_sv_by_id, by: 0)
+            .join(ch_cnv_by_id, by: 0, remainder: true)
+            .join(ch_sv_by_id, by: 0, remainder: true)
             .map { id, meta, variants_tsv, cnv_tsv, sv_tsv ->
-                tuple(meta, variants_tsv, cnv_tsv, sv_tsv)
+                tuple(meta, variants_tsv, cnv_tsv ?: ch_mapk_absent_cnv, sv_tsv ?: ch_mapk_absent_sv)
             }
     
         //
