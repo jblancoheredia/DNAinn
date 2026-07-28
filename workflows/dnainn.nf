@@ -132,6 +132,7 @@ workflow DNAINN {
         ch_bam_bai_dedup            = DEDUPANDRECAL.out.bam_dedup
         ch_bam_finalized			= DEDUPANDRECAL.out.bam_final
         ch_reads_finalized			= DEDUPANDRECAL.out.reads_final
+        ch_bam_duplex               = Channel.empty()
 
     }
 
@@ -213,6 +214,52 @@ workflow DNAINN {
         }
         .set { ch_bam_dedup_pairs }
 
+    //
+    // Duplex tumour/normal pairs for variant discovery only (UMI path)
+    //
+    if ((params.run_umiprocessing instanceof Boolean ? params.run_umiprocessing : params.run_umiprocessing?.toString()?.toBoolean())) {
+        def control_normal_dup_bam = file(params.normal_dup_bam)
+        def control_normal_dup_bai = file(params.normal_dup_bai)
+
+        ch_bam_duplex
+            .map { meta, bam, bai -> [meta.patient, meta, bam, bai] }
+            .groupTuple(by: 0)
+            .map { patient, meta_list, bam_list, bai_list ->
+                def samples = []
+                meta_list.eachWithIndex { meta, i ->
+                    samples << [meta, bam_list[i], bai_list[i]]
+                }
+
+                def tumour = samples.find { it[0].sample_type == 'tumour' }
+                def normal = samples.find { it[0].sample_type == 'normal' }
+
+                if (tumour && normal) {
+                    return [tumour, normal]
+                } else if (tumour && tumour[0].matched_normal == 0) {
+                    return [tumour, null]
+                } else {
+                    return null
+                }
+            }
+            .filter { it != null }
+            .map { tumour, normal ->
+                def meta_t = tumour[0]
+                def bam_t  = tumour[1]
+                def bai_t  = tumour[2]
+
+                if (normal) {
+                    def bam_n = normal[1]
+                    def bai_n = normal[2]
+                    return [meta_t, bam_t, bai_t, bam_n, bai_n]
+                } else {
+                    return [meta_t, bam_t, bai_t, control_normal_dup_bam, control_normal_dup_bai]
+                }
+            }
+            .set { ch_vd_bam_pairs }
+    } else {
+        ch_vd_bam_pairs = ch_bam_pairs
+    }
+
     if ((params.run_copynumberalt instanceof Boolean ? params.run_copynumberalt : params.run_copynumberalt?.toString()?.toBoolean())) {
 
         //
@@ -254,9 +301,8 @@ workflow DNAINN {
             ch_fasta,
             ch_targets,
             ch_intervals,
-            ch_bam_pairs,
+            ch_vd_bam_pairs,
             ch_known_sites,
-            ch_bam_finalized,
             ch_gatk_interval_list
         )
         ch_variants = VARIANTDSCVRY.out.variants

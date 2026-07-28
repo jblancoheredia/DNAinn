@@ -52,7 +52,6 @@ workflow VARIANTDSCVRY {
     ch_intervals
     ch_bam_pairs
     ch_known_sites
-    ch_consensus_bam
     ch_gatk_interval_list
 
     main:
