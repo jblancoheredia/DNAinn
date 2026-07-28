@@ -17,10 +17,10 @@ process COLLECTHSMETRICS {
     val(library)
 
     output:
-    tuple val(meta), path("*.HSmetricss_MQ00.txt")         , emit: hsmetrics00
-    tuple val(meta), path("*.HSmetricss_MQ20.txt")         , emit: hsmetrics20
-    tuple val(meta), path("*.target_${library}s_MQ00.covg"), emit: coverage00
-    tuple val(meta), path("*.target_${library}s_MQ20.covg"), emit: coverage20
+    tuple val(meta), path("*.HSmetrics_MQ00.txt")         , emit: hsmetrics00
+    tuple val(meta), path("*.HSmetrics_MQ20.txt")         , emit: hsmetrics20
+    tuple val(meta), path("*.target_${library}_MQ00.covg"), emit: coverage00
+    tuple val(meta), path("*.target_${library}_MQ20.covg"), emit: coverage20
     path "versions.yml"                                    , emit: versions
 
     when:
@@ -67,7 +67,7 @@ process COLLECTHSMETRICS {
         --TARGET_INTERVALS $target_interval_list \\
         --INPUT $bam \\
         --OUTPUT ${prefix}.HSmetrics_MQ20.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.target_${library}s_MQ20.covg
+        --PER_TARGET_COVERAGE ${prefix}.target_${library}_MQ20.covg
 
     picard \\
         -Xmx${avail_mem}M \\
@@ -79,7 +79,7 @@ process COLLECTHSMETRICS {
         --INPUT $bam \\
         --MINIMUM_MAPPING_QUALITY 0 \\
         --OUTPUT ${prefix}.HSmetrics_MQ00.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.target_${library}s_MQ00.covg
+        --PER_TARGET_COVERAGE ${prefix}.target_${library}_MQ00.covg
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -121,10 +121,10 @@ process COLLECTHSMETRICS_CON {
     val(library)
 
     output:
-    tuple val(meta), path("*.con.HSmetricss_MQ00.txt")         , emit: hsmetrics00
-    tuple val(meta), path("*.con.HSmetricss_MQ20.txt")         , emit: hsmetrics20
-    tuple val(meta), path("*.con.target_${library}s_MQ00.covg"), emit: coverage00
-    tuple val(meta), path("*.con.target_${library}s_MQ20.covg"), emit: coverage20
+    tuple val(meta), path("*.con.HSmetrics_MQ00.txt")         , emit: hsmetrics00
+    tuple val(meta), path("*.con.HSmetrics_MQ20.txt")         , emit: hsmetrics20
+    tuple val(meta), path("*.con.target_${library}_MQ00.covg"), emit: coverage00
+    tuple val(meta), path("*.con.target_${library}_MQ20.covg"), emit: coverage20
     path "versions.yml"                                        , emit: versions
 
     when:
@@ -171,7 +171,7 @@ process COLLECTHSMETRICS_CON {
         --TARGET_INTERVALS $target_interval_list \\
         --INPUT $bam \\
         --OUTPUT ${prefix}.con.HSmetrics_MQ20.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.con.target_${library}s_MQ20.covg
+        --PER_TARGET_COVERAGE ${prefix}.con.target_${library}_MQ20.covg
 
     picard \\
         -Xmx${avail_mem}M \\
@@ -183,7 +183,7 @@ process COLLECTHSMETRICS_CON {
         --INPUT $bam \\
         --MINIMUM_MAPPING_QUALITY 0 \\
         --OUTPUT ${prefix}.con.HSmetrics_MQ00.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.con.target_${library}s_MQ00.covg
+        --PER_TARGET_COVERAGE ${prefix}.con.target_${library}_MQ00.covg
 
 
     cat <<-END_VERSIONS > versions.yml
@@ -226,10 +226,10 @@ process COLLECTHSMETRICS_RAW {
     val(library)
 
     output:
-    tuple val(meta), path("*.raw.HSmetricss_MQ00.txt")         , emit: hsmetrics00
-    tuple val(meta), path("*.raw.HSmetricss_MQ20.txt")         , emit: hsmetrics20
-    tuple val(meta), path("*.raw.target_${library}s_MQ00.covg"), emit: coverage00
-    tuple val(meta), path("*.raw.target_${library}s_MQ20.covg"), emit: coverage20
+    tuple val(meta), path("*.raw.HSmetrics_MQ00.txt")         , emit: hsmetrics00
+    tuple val(meta), path("*.raw.HSmetrics_MQ20.txt")         , emit: hsmetrics20
+    tuple val(meta), path("*.raw.target_${library}_MQ00.covg"), emit: coverage00
+    tuple val(meta), path("*.raw.target_${library}_MQ20.covg"), emit: coverage20
     path "versions.yml"                                        , emit: versions
 
     when:
@@ -276,7 +276,7 @@ process COLLECTHSMETRICS_RAW {
         --TARGET_INTERVALS $target_interval_list \\
         --INPUT $bam \\
         --OUTPUT ${prefix}.raw.HSmetrics_MQ20.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.raw.target_${library}s_MQ20.covg
+        --PER_TARGET_COVERAGE ${prefix}.raw.target_${library}_MQ20.covg
 
     picard \\
         -Xmx${avail_mem}M \\
@@ -288,7 +288,7 @@ process COLLECTHSMETRICS_RAW {
         --INPUT $bam \\
         --MINIMUM_MAPPING_QUALITY 0 \\
         --OUTPUT ${prefix}.raw.HSmetrics_MQ00.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.raw.target_${library}s_MQ00.covg
+        --PER_TARGET_COVERAGE ${prefix}.raw.target_${library}_MQ00.covg
 
 
     cat <<-END_VERSIONS > versions.yml
@@ -331,10 +331,10 @@ process COLLECTHSMETRICS_DUP {
     val(library)
 
     output:
-    tuple val(meta), path("*.dup.HSmetricss_MQ00.txt")         , emit: hsmetrics00
-    tuple val(meta), path("*.dup.HSmetricss_MQ20.txt")         , emit: hsmetrics20
-    tuple val(meta), path("*.dup.target_${library}s_MQ00.covg"), emit: coverage00
-    tuple val(meta), path("*.dup.target_${library}s_MQ20.covg"), emit: coverage20
+    tuple val(meta), path("*.dup.HSmetrics_MQ00.txt")         , emit: hsmetrics00
+    tuple val(meta), path("*.dup.HSmetrics_MQ20.txt")         , emit: hsmetrics20
+    tuple val(meta), path("*.dup.target_${library}_MQ00.covg"), emit: coverage00
+    tuple val(meta), path("*.dup.target_${library}_MQ20.covg"), emit: coverage20
     path "versions.yml"                                        , emit: versions
 
     when:
@@ -381,7 +381,7 @@ process COLLECTHSMETRICS_DUP {
         --TARGET_INTERVALS $target_interval_list \\
         --INPUT $bam \\
         --OUTPUT ${prefix}.dup.HSmetrics_MQ20.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.dup.target_${library}s_MQ20.covg
+        --PER_TARGET_COVERAGE ${prefix}.dup.target_${library}_MQ20.covg
 
     picard \\
         -Xmx${avail_mem}M \\
@@ -393,7 +393,7 @@ process COLLECTHSMETRICS_DUP {
         --INPUT $bam \\
         --MINIMUM_MAPPING_QUALITY 0 \\
         --OUTPUT ${prefix}.dup.HSmetrics_MQ00.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.dup.target_${library}s_MQ00.covg
+        --PER_TARGET_COVERAGE ${prefix}.dup.target_${library}_MQ00.covg
 
 
     cat <<-END_VERSIONS > versions.yml
@@ -436,10 +436,10 @@ process COLLECTHSMETRICS_SIM {
     val(library)
 
     output:
-    tuple val(meta), path("*.sim.HSmetricss_MQ00.txt")         , emit: hsmetrics00
-    tuple val(meta), path("*.sim.HSmetricss_MQ20.txt")         , emit: hsmetrics20
-    tuple val(meta), path("*.sim.target_${library}s_MQ00.covg"), emit: coverage00
-    tuple val(meta), path("*.sim.target_${library}s_MQ20.covg"), emit: coverage20
+    tuple val(meta), path("*.sim.HSmetrics_MQ00.txt")         , emit: hsmetrics00
+    tuple val(meta), path("*.sim.HSmetrics_MQ20.txt")         , emit: hsmetrics20
+    tuple val(meta), path("*.sim.target_${library}_MQ00.covg"), emit: coverage00
+    tuple val(meta), path("*.sim.target_${library}_MQ20.covg"), emit: coverage20
     path "versions.yml"                                        , emit: versions
 
     when:
@@ -485,7 +485,7 @@ process COLLECTHSMETRICS_SIM {
         --TARGET_INTERVALS $target_interval_list \\
         --INPUT $bam \\
         --OUTPUT ${prefix}.sim.HSmetrics_MQ20.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.sim.target_${library}s_MQ20.covg
+        --PER_TARGET_COVERAGE ${prefix}.sim.target_${library}_MQ20.covg
 
     picard \\
         -Xmx${avail_mem}M \\
@@ -497,7 +497,7 @@ process COLLECTHSMETRICS_SIM {
         --INPUT $bam \\
         --MINIMUM_MAPPING_QUALITY 0 \\
         --OUTPUT ${prefix}.sim.HSmetrics_MQ00.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.sim.target_${library}s_MQ00.covg
+        --PER_TARGET_COVERAGE ${prefix}.sim.target_${library}_MQ00.covg
 
 
     cat <<-END_VERSIONS > versions.yml
@@ -540,10 +540,10 @@ process COLLECTHSMETRICS_DR {
     val(library)
 
     output:
-    tuple val(meta), path("*.dr.HSmetricss_MQ00.txt")         , emit: hsmetrics00
-    tuple val(meta), path("*.dr.HSmetricss_MQ20.txt")         , emit: hsmetrics20
-    tuple val(meta), path("*.dr.target_${library}s_MQ00.covg"), emit: coverage00
-    tuple val(meta), path("*.dr.target_${library}s_MQ20.covg"), emit: coverage20
+    tuple val(meta), path("*.dr.HSmetrics_MQ00.txt")         , emit: hsmetrics00
+    tuple val(meta), path("*.dr.HSmetrics_MQ20.txt")         , emit: hsmetrics20
+    tuple val(meta), path("*.dr.target_${library}_MQ00.covg"), emit: coverage00
+    tuple val(meta), path("*.dr.target_${library}_MQ20.covg"), emit: coverage20
     path "versions.yml"                                        , emit: versions
 
     when:
@@ -589,7 +589,7 @@ process COLLECTHSMETRICS_DR {
         --TARGET_INTERVALS $target_interval_list \\
         --INPUT $bam \\
         --OUTPUT ${prefix}.dr.HSmetrics_MQ20.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.dr.target_${library}s_MQ20.covg
+        --PER_TARGET_COVERAGE ${prefix}.dr.target_${library}_MQ20.covg
 
     picard \\
         -Xmx${avail_mem}M \\
@@ -601,7 +601,7 @@ process COLLECTHSMETRICS_DR {
         --INPUT $bam \\
         --MINIMUM_MAPPING_QUALITY 0 \\
         --OUTPUT ${prefix}.dr.HSmetrics_MQ00.txt \\
-        --PER_TARGET_COVERAGE ${prefix}.dr.target_${library}s_MQ00.covg
+        --PER_TARGET_COVERAGE ${prefix}.dr.target_${library}_MQ00.covg
 
 
     cat <<-END_VERSIONS > versions.yml
