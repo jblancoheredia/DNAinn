@@ -137,8 +137,6 @@ workflow DEDUPANDRECAL {
     //
     COLLECTHSMETRICS(ch_bam_bai_raw, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS.out.versions.first())
-    ch_coverage_raw  = COLLECTHSMETRICS.out.coverage
-    ch_hsmetrics_raw = COLLECTHSMETRICS.out.hsmetrics
 
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics
@@ -320,8 +318,6 @@ workflow DEDUPANDRECAL {
     //
     COLLECTHSMETRICS_DR(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_DR.out.versions.first())
-    ch_coverage_con  = COLLECTHSMETRICS_DR.out.coverage
-    ch_hsmetrics_con = COLLECTHSMETRICS_DR.out.hsmetrics
 
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics

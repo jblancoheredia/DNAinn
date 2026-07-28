@@ -194,8 +194,6 @@ workflow UMIPROCESSING {
     //
     COLLECTHSMETRICS_RAW(ch_bam_fcu_stix, ch_fasta, ch_fai, ch_dict, params.hsmetrics_baits, params.hsmetrics_trgts, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_RAW.out.versions.first())
-    ch_coverage_raw  = COLLECTHSMETRICS_RAW.out.coverage
-    ch_hsmetrics_raw = COLLECTHSMETRICS_RAW.out.hsmetrics
 
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics
@@ -761,24 +759,18 @@ workflow UMIPROCESSING {
     //
     COLLECTHSMETRICS_CON(ch_bam_con_stix, ch_fasta, ch_fai, ch_dict, params.hsmetrics_baits, params.hsmetrics_trgts, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_CON.out.versions.first())
-    ch_coverage_con  = COLLECTHSMETRICS_CON.out.coverage
-    ch_hsmetrics_con = COLLECTHSMETRICS_CON.out.hsmetrics
 
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
     //
     COLLECTHSMETRICS_DUP(ch_bam_dup_stix, ch_fasta, ch_fai, ch_dict, params.hsmetrics_baits, params.hsmetrics_trgts, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_DUP.out.versions.first())
-    ch_coverage_con  = COLLECTHSMETRICS_DUP.out.coverage
-    ch_hsmetrics_con = COLLECTHSMETRICS_DUP.out.hsmetrics
 
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
     //
     COLLECTHSMETRICS_SIM(ch_bam_sim_stix, ch_fasta, ch_fai, ch_dict, params.hsmetrics_baits, params.hsmetrics_trgts, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_SIM.out.versions.first())
-    ch_coverage_con  = COLLECTHSMETRICS_SIM.out.coverage
-    ch_hsmetrics_con = COLLECTHSMETRICS_SIM.out.hsmetrics
 
     //
     // MODULE: Run Picard Tool CollectMultipleMetrics
