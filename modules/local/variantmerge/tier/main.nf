@@ -23,10 +23,10 @@ process VARIANTMERGE_TIER {
     task.ext.when == null || task.ext.when
 
     script:
-    def args = task.ext.args ?: ''
+    def args = task.ext.args ?: '--vaf-somatic-max 0.39'
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    TIERSnMERGE \\
+    python3 ${moduleDir}/bin/tier_merged_calls.py \\
         ${merged_tsv} \\
         --hotspots ${hotspots} \\
         --output ${prefix}.merged_variants.tiered.tsv \\
@@ -38,7 +38,7 @@ process VARIANTMERGE_TIER {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        tier_merged_calls: \$(echo \$(TIERSnMERGE -v 2>&1 | grep "tier_merged_calls.py" | sed 's/^tier_merged_calls.py //'))
+        tier_merged_calls: \$(python3 ${moduleDir}/bin/tier_merged_calls.py -v 2>&1 | awk '{print \$NF}')
     END_VERSIONS
     """
 
@@ -53,7 +53,7 @@ process VARIANTMERGE_TIER {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        tier_merged_calls: \$(echo \$(TIERSnMERGE -v 2>&1 | grep "tier_merged_calls.py" | sed 's/^tier_merged_calls.py //'))
+        tier_merged_calls: \$(python3 ${moduleDir}/bin/tier_merged_calls.py -v 2>&1 | awk '{print \$NF}')
     END_VERSIONS
     """
 }

@@ -1,5 +1,5 @@
 name: mapk_sig_path
-description: Filter and summarize MAPK signaling pathway SNV/InDel, CNV, and SV alterations for a restricted gene set.
+description: Filter and summarize MAPK signaling pathway SNV/InDel, CNV, and SV alterations for a restricted gene set. When CNV is available, audit HIGH_CONFIDENCE SNVs and rescue REVIEW / SINGLE_CALLER SNVs with VAF+CNV justification.
 keywords:
   - MAPK
   - SNV

@@ -21,14 +21,14 @@ process VARIANTMERGE_TSV {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    VCF2TSV \\
+    python3 ${moduleDir}/bin/vcfcalls2tsv.py \\
         ${vcfs} \\
         --output ${prefix}.merged_variants.tsv \\
         ${args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        vcfcalls2tsv: \$(echo \$(VCF2TSV -v 2>&1 | grep "vcfcalls2tsv.py" | sed 's/^vcfcalls2tsv.py //'))
+        vcfcalls2tsv: \$(python3 ${moduleDir}/bin/vcfcalls2tsv.py -v 2>&1 | awk '{print \$NF}')
     END_VERSIONS
     """
 
@@ -39,7 +39,7 @@ process VARIANTMERGE_TSV {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        vcfcalls2tsv: \$(echo \$(VCF2TSV -v 2>&1 | grep "vcfcalls2tsv.py" | sed 's/^vcfcalls2tsv.py //'))
+        vcfcalls2tsv: \$(python3 ${moduleDir}/bin/vcfcalls2tsv.py -v 2>&1 | awk '{print \$NF}')
     END_VERSIONS
     """
 }

@@ -25,7 +25,7 @@ process MAPK_SIG_PATH {
     def args = task.ext.args ?: '--exclude-noise'
 
     """
-    python3 ${moduleDir}/resources/usr/bin/mapk_sig_path.py \\
+    python3 ${moduleDir}/bin/mapk_sig_path.py \\
         --sv-tsv ${sv_tsv} \\
         --cnv-tsv ${cnv_tsv} \\
         --out-prefix ${prefix} \\
@@ -36,7 +36,7 @@ process MAPK_SIG_PATH {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        mapk_sig_path: \$(python3 ${moduleDir}/resources/usr/bin/mapk_sig_path.py --version | sed 's/^mapk_sig_path //')
+        mapk_sig_path: \$(python3 ${moduleDir}/bin/mapk_sig_path.py --version | sed 's/^mapk_sig_path //')
     END_VERSIONS
     """
 
@@ -49,7 +49,7 @@ process MAPK_SIG_PATH {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        mapk_sig_path: \$(python3 ${moduleDir}/resources/usr/bin/mapk_sig_path.py --version | sed 's/^mapk_sig_path //')
+        mapk_sig_path: \$(python3 ${moduleDir}/bin/mapk_sig_path.py --version | sed 's/^mapk_sig_path //')
     END_VERSIONS
     """
 }

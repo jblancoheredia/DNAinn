@@ -1,5 +1,5 @@
 name: variantmerge_tier
-description: Tier merged cfDNA caller calls using hotspot, germline, and noise evidence into HIGH_CONFIDENCE / SINGLE_CALLER / REVIEW / LIKELY_NOISE.
+description: Tier merged cfDNA caller calls using hotspot, germline, VAF-bin, and noise evidence into HIGH_CONFIDENCE / SINGLE_CALLER / REVIEW / LIKELY_NOISE.
 keywords:
   - tier
   - noise

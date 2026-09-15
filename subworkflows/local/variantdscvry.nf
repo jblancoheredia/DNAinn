@@ -199,30 +199,38 @@ workflow VARIANTDSCVRY {
     ch_variants_tsv = VARIANTMERGE_TSV.out.tsv
 
     //
-    // MODULE: Tier the merged calls into HIGH_CONFIDENCE / SINGLE_CALLER / REVIEW / LIKELY_NOISE
+    // MAPK-only: hotspot tiering + clinical MAF tables. Off unless run_mapksigpathwy.
     //
-    VARIANTMERGE_TIER(ch_variants_tsv, file(params.hotspots))
-    ch_versions = ch_versions.mix(VARIANTMERGE_TIER.out.versions)
-    ch_tiered_tsv = VARIANTMERGE_TIER.out.tiered_tsv
-    ch_high_confidence_tsv = VARIANTMERGE_TIER.out.high_confidence_tsv
-    ch_review_tsv = VARIANTMERGE_TIER.out.review_tsv
-    ch_single_caller_tsv = VARIANTMERGE_TIER.out.single_caller_tsv
-    ch_likely_noise_tsv = VARIANTMERGE_TIER.out.likely_noise_tsv
+    if ((params.run_mapksigpathwy instanceof Boolean ? params.run_mapksigpathwy : params.run_mapksigpathwy?.toString()?.toBoolean())) {
+        VARIANTMERGE_TIER(ch_variants_tsv, file(params.hotspots))
+        ch_versions = ch_versions.mix(VARIANTMERGE_TIER.out.versions)
+        ch_tiered_tsv = VARIANTMERGE_TIER.out.tiered_tsv
+        ch_high_confidence_tsv = VARIANTMERGE_TIER.out.high_confidence_tsv
+        ch_review_tsv = VARIANTMERGE_TIER.out.review_tsv
+        ch_single_caller_tsv = VARIANTMERGE_TIER.out.single_caller_tsv
+        ch_likely_noise_tsv = VARIANTMERGE_TIER.out.likely_noise_tsv
 
-    //
-    // MODULE: Convert tiered tables into clinical MAF-like TSVs
-    //
-    VARIANTMERGE_MAF_HC(ch_high_confidence_tsv)
-    ch_versions = ch_versions.mix(VARIANTMERGE_MAF_HC.out.versions)
-    ch_clinical_maf_tsv = VARIANTMERGE_MAF_HC.out.clinical_maf_tsv
+        VARIANTMERGE_MAF_HC(ch_high_confidence_tsv)
+        ch_versions = ch_versions.mix(VARIANTMERGE_MAF_HC.out.versions)
+        ch_clinical_maf_tsv = VARIANTMERGE_MAF_HC.out.clinical_maf_tsv
 
-    VARIANTMERGE_MAF_REVIEW(ch_review_tsv)
-    ch_versions = ch_versions.mix(VARIANTMERGE_MAF_REVIEW.out.versions)
-    ch_review_clinical_maf_tsv = VARIANTMERGE_MAF_REVIEW.out.clinical_maf_tsv
+        VARIANTMERGE_MAF_REVIEW(ch_review_tsv)
+        ch_versions = ch_versions.mix(VARIANTMERGE_MAF_REVIEW.out.versions)
+        ch_review_clinical_maf_tsv = VARIANTMERGE_MAF_REVIEW.out.clinical_maf_tsv
 
-    VARIANTMERGE_MAF_SINGLE(ch_single_caller_tsv)
-    ch_versions = ch_versions.mix(VARIANTMERGE_MAF_SINGLE.out.versions)
-    ch_single_caller_clinical_maf_tsv = VARIANTMERGE_MAF_SINGLE.out.clinical_maf_tsv
+        VARIANTMERGE_MAF_SINGLE(ch_single_caller_tsv)
+        ch_versions = ch_versions.mix(VARIANTMERGE_MAF_SINGLE.out.versions)
+        ch_single_caller_clinical_maf_tsv = VARIANTMERGE_MAF_SINGLE.out.clinical_maf_tsv
+    } else {
+        ch_tiered_tsv = Channel.empty()
+        ch_high_confidence_tsv = Channel.empty()
+        ch_review_tsv = Channel.empty()
+        ch_single_caller_tsv = Channel.empty()
+        ch_likely_noise_tsv = Channel.empty()
+        ch_clinical_maf_tsv = Channel.empty()
+        ch_review_clinical_maf_tsv = Channel.empty()
+        ch_single_caller_clinical_maf_tsv = Channel.empty()
+    }
 
 //    //
 //    // MODULES: Run GetBaseCountsMultiSample

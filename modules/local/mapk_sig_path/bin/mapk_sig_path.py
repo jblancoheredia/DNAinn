@@ -8,6 +8,9 @@ Purpose:
   - Support SNV/InDel, CNV, and SV records.
   - Ignore/drop the SV `fusion` column by design.
   - Emit alteration-level, sample-level, and gene-level TSVs.
+  - When a real CNV TSV is present, audit HC SNV/InDels and rescue
+    REVIEW / SINGLE_CALLER rows with VAF+CNV justification. Does not
+    rewrite clinical tier files.
 """
 
 from __future__ import annotations
@@ -20,7 +23,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
-VERSION = "0.3.0"
+VERSION = "0.4.0"
 
 GENE_COLUMN_ALIASES = [
     "gene_symbol", "gene", "Gene", "GENE", "SYMBOL", "Hugo_Symbol", "HUGO_SYMBOL",
@@ -146,9 +149,19 @@ ALTERATION_COLUMNS = [
     "chrom", "start", "end", "ref", "alt", "consequence", "protein_change",
     "vaf", "alt_depth", "depth", "cnv_call", "copy_number", "log2", "svtype", "site1", "site2",
     "caller", "filter", "support", "noise_tier", "germline", "germline_info",
-    "hotspot", "hotspot_info", "hotspot_ids",
+    "hotspot", "hotspot_info", "hotspot_ids", "vaf_bin",
+    "pathway_adjudication", "cn_gene_call", "cn_copy_number", "cn_justification",
     "pathway", "dataset", "note",
 ]
+
+CONFIDENCE_RANK = {"high": 3, "possible": 2, "uncertain": 1, "low": 0, "": -1}
+VAF_BIN_RE = re.compile(r"VAF_BIN=([A-Z0-9_]+)")
+SUSPICIOUS_VAF_BINS = {"HET_GERMLINE_LIKE", "ATYPICAL_DIPLOID", "HOM_GERMLINE_LIKE"}
+CN_AMP_MIN_DEFAULT = 2.5
+CN_LOSS_MAX_DEFAULT = 1.5
+SINGLE_CALLER_RESCUE_LABEL = (
+    "This variant was single-caller rescued due to VAF + CNV analysis"
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -166,6 +179,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--exclude-noise", action=argparse.BooleanOptionalAction, default=True,
                         help="Exclude SNV/InDel rows with NOISE_TIER=LIKELY_NOISE (default: true).")
     parser.add_argument("--include-neutral-cnv", action="store_true", help="Emit NEUTRAL CNV rows. Default: exclude them.")
+    parser.add_argument("--cn-audit-hc", action=argparse.BooleanOptionalAction, default=True,
+                        help="When CNV is available, double-check HIGH_CONFIDENCE SNV/InDels (default: true).")
+    parser.add_argument("--cn-rescue-review", action=argparse.BooleanOptionalAction, default=True,
+                        help="When CNV is available, rescue REVIEW SNV/InDels with CN justification (default: true).")
+    parser.add_argument("--cn-rescue-single-caller", action=argparse.BooleanOptionalAction, default=True,
+                        help="When CNV is available, rescue SINGLE_CALLER SNV/InDels that look somatic (default: true).")
+    parser.add_argument("--cn-amp-min", type=float, default=CN_AMP_MIN_DEFAULT,
+                        help=f"Copy-number floor treated as gain/amp (default: {CN_AMP_MIN_DEFAULT}).")
+    parser.add_argument("--cn-loss-max", type=float, default=CN_LOSS_MAX_DEFAULT,
+                        help=f"Copy-number ceiling treated as loss (default: {CN_LOSS_MAX_DEFAULT}).")
     parser.add_argument("--version", action="version", version=f"mapk_sig_path {VERSION}")
     return parser.parse_args()
 
@@ -292,6 +315,27 @@ def append_note(note: str, extra: str) -> str:
     if not extra:
         return note
     return f"{note}; {extra}" if note else extra
+
+
+def parse_vaf_bin(germline_info: str) -> str:
+    match = VAF_BIN_RE.search(germline_info or "")
+    return match.group(1) if match else ""
+
+
+def is_likely_germline_label(germline: str) -> bool:
+    return (germline or "").strip().lower() == "likely germline"
+
+
+def confidence_at_least(current: str, target: str) -> str:
+    if CONFIDENCE_RANK.get(target, -1) > CONFIDENCE_RANK.get(current, -1):
+        return target
+    return current
+
+
+def confidence_at_most(current: str, target: str) -> str:
+    if CONFIDENCE_RANK.get(target, 99) < CONFIDENCE_RANK.get(current, 99):
+        return target
+    return current
 
 
 def classify_snvindel_event(gene: str, consequence: str, protein_change: str) -> Tuple[str, str, str, str]:
@@ -460,12 +504,279 @@ def parse_snvindel_rows(args: argparse.Namespace, gene_info: Dict[str, Dict[str,
                 "hotspot": tier_hotspot,
                 "hotspot_info": tier_hotspot_info,
                 "hotspot_ids": tier_hotspot_ids,
+                "vaf_bin": parse_vaf_bin(tier_field(row, germline_info_col)),
+                "pathway_adjudication": "NA",
+                "cn_gene_call": "",
+                "cn_copy_number": "",
+                "cn_justification": "",
                 "pathway": info.get("pathway", "MAPK signaling pathway"),
                 "dataset": info.get("dataset", "custom_MAPK_gene_set"),
                 "note": note,
             })
             alteration_rows.append(out)
     return alteration_rows
+
+
+def cn_state(call: str, copy_number: str, amp_min: float, loss_max: float) -> str:
+    normalized = (call or "").strip().upper()
+    cn_val = to_float(copy_number)
+    if normalized in HOMDEL_CNV_CALLS:
+        return "homdel"
+    if normalized in AMP_CNV_CALLS:
+        return "amp"
+    if normalized in LOSS_CNV_CALLS:
+        return "loss"
+    if normalized in GAIN_CNV_CALLS:
+        return "gain"
+    if cn_val is not None:
+        if cn_val <= 0.5:
+            return "homdel"
+        if cn_val <= loss_max:
+            return "loss"
+        if cn_val >= max(amp_min, 4.0):
+            return "amp"
+        if cn_val >= amp_min:
+            return "gain"
+        return "diploid"
+    if normalized in NEUTRAL_CNV_CALLS:
+        return "diploid"
+    if normalized:
+        return "other"
+    return "missing"
+
+
+def cn_severity(state: str, copy_number: str) -> float:
+    rank = {"homdel": 50.0, "amp": 45.0, "loss": 30.0, "gain": 25.0, "other": 5.0, "diploid": 1.0, "missing": 0.0}
+    score = rank.get(state, 0.0)
+    cn_val = to_float(copy_number)
+    if cn_val is not None:
+        score += abs(cn_val - 2.0)
+    return score
+
+
+def amp_like(state: str) -> bool:
+    return state in {"amp", "gain"}
+
+
+def loss_like(state: str) -> bool:
+    return state in {"loss", "homdel"}
+
+
+def load_gene_cn_index(args: argparse.Namespace) -> Dict[Tuple[str, str], Dict[str, str]]:
+    """Gene-level CN lookup including diploid/neutral rows, for SNV adjudication only."""
+    if not valid_optional_path(args.cnv_tsv):
+        return {}
+
+    columns, rows = read_tsv(args.cnv_tsv)
+    gene_col = find_col(columns, CNV_GENE_COLUMN_ALIASES)
+    if gene_col is None:
+        raise ValueError(
+            "Could not find a gene column in CNV TSV. "
+            f"Supported aliases: {', '.join(CNV_GENE_COLUMN_ALIASES)}. "
+            f"Observed columns: {', '.join(columns)}"
+        )
+
+    sample_col = find_col(columns, CNV_SAMPLE_COLUMN_ALIASES)
+    call_col = find_col(columns, CNV_CALL_COLUMN_ALIASES)
+    cn_col = find_col(columns, CNV_CN_COLUMN_ALIASES)
+    log2_col = find_col(columns, CNV_LOG2_COLUMN_ALIASES)
+    tool_col = find_col(columns, CNV_TOOL_COLUMN_ALIASES)
+
+    best: Dict[Tuple[str, str], Dict[str, str]] = {}
+    best_score: Dict[Tuple[str, str], float] = {}
+
+    for row in rows:
+        genes = expand_gene_field(row.get(gene_col, ""))
+        if not genes:
+            continue
+        sample = row.get(sample_col, args.sample_id) if sample_col else args.sample_id
+        call = row.get(call_col, "") if call_col else ""
+        cn = row.get(cn_col, "") if cn_col else ""
+        log2 = row.get(log2_col, "") if log2_col else ""
+        caller = row.get(tool_col, "") if tool_col else ""
+        state = cn_state(call, cn, args.cn_amp_min, args.cn_loss_max)
+        score = cn_severity(state, cn)
+        for gene in genes:
+            key = (str(sample), gene)
+            if score >= best_score.get(key, -1.0):
+                best_score[key] = score
+                best[key] = {
+                    "sample": str(sample),
+                    "gene": gene,
+                    "call": call,
+                    "copy_number": cn,
+                    "log2": log2,
+                    "caller": caller,
+                    "state": state,
+                }
+    return best
+
+
+def lookup_gene_cn(
+    cn_index: Dict[Tuple[str, str], Dict[str, str]],
+    sample: str,
+    gene: str,
+) -> Optional[Dict[str, str]]:
+    hit = cn_index.get((sample, gene))
+    if hit:
+        return hit
+    matches = [item for (samp, g), item in cn_index.items() if g == gene]
+    if len(matches) == 1:
+        return matches[0]
+    return None
+
+
+def format_cn_justification(parts: List[str]) -> str:
+    return "; ".join(p for p in parts if p)
+
+
+def somatic_cn_rescue_mechanism(row: Dict[str, str], state: str, vaf_bin: str) -> Optional[str]:
+    gene = row.get("gene", "")
+    event_class = row.get("event_class", "")
+    hotspot = row.get("hotspot", "")
+    oncogene = gene in ONCOGENE_LIKE or event_class == "known_mapk_hotspot" or hotspot == "Likely Hotspot"
+    tsg_lof = gene in TUMOR_SUPPRESSOR_OR_NEGATIVE_REGULATOR and event_class == "loss_of_function"
+
+    if oncogene and amp_like(state):
+        if vaf_bin in SUSPICIOUS_VAF_BINS or vaf_bin in {"SOMATIC_LEANING", "", "UNKNOWN"}:
+            return "AMPLIFIED_ALLELE"
+    if tsg_lof and loss_like(state):
+        if vaf_bin in SUSPICIOUS_VAF_BINS or vaf_bin in {"SOMATIC_LEANING", "", "UNKNOWN"}:
+            return "CN_LOSS_BIALLELIC_SOMATIC_PATTERN"
+    return None
+
+
+def audit_hc_row(row: Dict[str, str], state: str, vaf_bin: str) -> Tuple[str, str, str]:
+    germline_likely = is_likely_germline_label(row.get("germline", ""))
+    gene = row.get("gene", "")
+    tsg_lof = gene in TUMOR_SUPPRESSOR_OR_NEGATIVE_REGULATOR and row.get("event_class") == "loss_of_function"
+
+    if germline_likely and state == "diploid":
+        return "HC_CN_CHALLENGED", "CN_DIPLOID_PLUS_GERMLINE_EVIDENCE", "uncertain"
+    if vaf_bin in SUSPICIOUS_VAF_BINS and state == "diploid" and not (tsg_lof and loss_like(state)):
+        return "HC_CN_CHALLENGED", "CN_DIPLOID_HIGH_VAF_UNRESOLVED", "uncertain"
+    if tsg_lof and vaf_bin == "HOM_GERMLINE_LIKE" and state == "diploid":
+        return "HC_CN_CHALLENGED", "CN_DIPLOID_HOM_LIKE_GERMLINE_OR_LOH_UNRESOLVED", "uncertain"
+    if tsg_lof and loss_like(state):
+        return "HC_CN_CONFIRMED", "CN_LOSS_BIALLELIC_SOMATIC_PATTERN", ""
+    if amp_like(state):
+        return "HC_CN_CONFIRMED", "CN_AMP_VAF_CONSISTENT_SOMATIC", ""
+    if vaf_bin in {"SOMATIC_LEANING", "", "UNKNOWN"} and not germline_likely:
+        return "HC_CN_CONFIRMED", "CN_CONSISTENT_WITH_SOMATIC_LEANING_VAF", ""
+    if germline_likely:
+        return "HC_CN_CHALLENGED", "GERMLINE_EVIDENCE_NOT_RESCUED_BY_CN", "uncertain"
+    return "HC_CN_CONFIRMED", "CN_PRESENT_NO_CONTRADICTION", ""
+
+
+def adjudicate_snv_rows(
+    args: argparse.Namespace,
+    snv_rows: List[Dict[str, str]],
+    cn_index: Dict[Tuple[str, str], Dict[str, str]],
+) -> None:
+    cnv_available = bool(cn_index)
+    for row in snv_rows:
+        if row.get("alteration_type") not in {"SNV", "InDel", "SNV/InDel"}:
+            continue
+        vaf_bin = row.get("vaf_bin") or parse_vaf_bin(row.get("germline_info", ""))
+        row["vaf_bin"] = vaf_bin
+        if not cnv_available:
+            row["pathway_adjudication"] = "NA"
+            continue
+
+        cn_hit = lookup_gene_cn(cn_index, row.get("sample", args.sample_id), row.get("gene", ""))
+        if not cn_hit or cn_hit.get("state") == "missing":
+            row["pathway_adjudication"] = "NA"
+            row["cn_justification"] = "NO_GENE_CN"
+            continue
+
+        state = cn_hit["state"]
+        row["cn_gene_call"] = cn_hit.get("call", "")
+        row["cn_copy_number"] = cn_hit.get("copy_number", "")
+        justification = [
+            f"CN_STATE={state}",
+            f"CN_CALL={cn_hit.get('call', '') or 'NA'}",
+            f"CN={cn_hit.get('copy_number', '') or 'NA'}",
+            f"VAF_BIN={vaf_bin or 'UNKNOWN'}",
+        ]
+        tier = (row.get("noise_tier") or "").strip().upper()
+
+        if tier == "HIGH_CONFIDENCE" and args.cn_audit_hc:
+            adjudication, mechanism, new_conf = audit_hc_row(row, state, vaf_bin)
+            justification.append(f"MECHANISM={mechanism}")
+            row["pathway_adjudication"] = adjudication
+            row["cn_justification"] = format_cn_justification(justification)
+            if adjudication == "HC_CN_CHALLENGED" and new_conf:
+                row["confidence"] = confidence_at_most(row.get("confidence", ""), new_conf)
+                row["note"] = append_note(row.get("note", ""), f"HC CN audit challenged ({mechanism})")
+            elif adjudication == "HC_CN_CONFIRMED":
+                row["note"] = append_note(row.get("note", ""), f"HC CN audit confirmed ({mechanism})")
+            continue
+
+        if tier == "REVIEW" and args.cn_rescue_review:
+            mechanism = somatic_cn_rescue_mechanism(row, state, vaf_bin)
+            if mechanism and vaf_bin in SUSPICIOUS_VAF_BINS:
+                row["pathway_adjudication"] = "REVIEW_CN_RESCUED"
+                justification.append(f"MECHANISM={mechanism}")
+                row["cn_justification"] = format_cn_justification(justification)
+                target = "high" if row.get("event_class") == "known_mapk_hotspot" else "possible"
+                row["confidence"] = confidence_at_least(row.get("confidence", ""), target)
+                row["note"] = append_note(
+                    row.get("note", ""),
+                    f"REVIEW variant rescued by VAF+CNV analysis: {mechanism}",
+                )
+            else:
+                row["pathway_adjudication"] = "REVIEW_UNRESOLVED"
+                justification.append("MECHANISM=NO_SUPPORTIVE_CN")
+                row["cn_justification"] = format_cn_justification(justification)
+            continue
+
+        if tier == "SINGLE_CALLER":
+            if args.cn_rescue_single_caller:
+                germline_likely = is_likely_germline_label(row.get("germline", ""))
+                mechanism = somatic_cn_rescue_mechanism(row, state, vaf_bin)
+                somatic_leaning = vaf_bin in {"SOMATIC_LEANING", "", "UNKNOWN"} and not germline_likely
+                if germline_likely and state == "diploid":
+                    row["pathway_adjudication"] = "SINGLE_CALLER_UNRESOLVED"
+                    justification.append("MECHANISM=CN_DIPLOID_PLUS_GERMLINE_EVIDENCE")
+                    row["cn_justification"] = format_cn_justification(justification)
+                elif mechanism or (somatic_leaning and (amp_like(state) or state == "diploid" or loss_like(state))):
+                    if not mechanism:
+                        if amp_like(state):
+                            mechanism = "AMPLIFIED_ALLELE"
+                        elif loss_like(state):
+                            mechanism = "CN_LOSS_BIALLELIC_SOMATIC_PATTERN"
+                        else:
+                            mechanism = "CN_CONSISTENT_WITH_SOMATIC_LEANING_VAF"
+                    row["pathway_adjudication"] = "SINGLE_CALLER_CN_RESCUED"
+                    justification.append(f"MECHANISM={mechanism}")
+                    row["cn_justification"] = format_cn_justification(justification)
+                    target = "high" if row.get("event_class") == "known_mapk_hotspot" else "possible"
+                    row["confidence"] = confidence_at_least(row.get("confidence", ""), target)
+                    row["note"] = append_note(
+                        row.get("note", ""),
+                        f"{SINGLE_CALLER_RESCUE_LABEL}: {mechanism}",
+                    )
+                else:
+                    row["pathway_adjudication"] = "SINGLE_CALLER_UNRESOLVED"
+                    justification.append("MECHANISM=NO_SUPPORTIVE_CN")
+                    row["cn_justification"] = format_cn_justification(justification)
+            elif args.cn_audit_hc:
+                adjudication, mechanism, new_conf = audit_hc_row(row, state, vaf_bin)
+                adjudication = adjudication.replace("HC_", "SINGLE_CALLER_")
+                if adjudication == "SINGLE_CALLER_CN_CHALLENGED":
+                    adjudication = "SINGLE_CALLER_UNRESOLVED"
+                row["pathway_adjudication"] = adjudication
+                justification.append(f"MECHANISM={mechanism}")
+                row["cn_justification"] = format_cn_justification(justification)
+                if "CHALLENGED" in adjudication or adjudication == "SINGLE_CALLER_UNRESOLVED":
+                    if new_conf:
+                        row["confidence"] = confidence_at_most(row.get("confidence", ""), new_conf)
+            else:
+                row["pathway_adjudication"] = "NA"
+            continue
+
+        row["pathway_adjudication"] = "NA"
+        row["cn_justification"] = format_cn_justification(justification)
 
 
 def parse_cnv_rows(args: argparse.Namespace, gene_info: Dict[str, Dict[str, str]]) -> List[Dict[str, str]]:
@@ -725,6 +1036,9 @@ def summarize(alteration_rows: List[Dict[str, str]], sample_id: str, out_prefix:
         n_possible = sum(1 for e in events if e["confidence"] == "possible")
         n_uncertain = sum(1 for e in events if e["confidence"] == "uncertain")
         n_low = sum(1 for e in events if e["confidence"] == "low")
+        n_hc_cn_challenged = sum(1 for e in events if e.get("pathway_adjudication") == "HC_CN_CHALLENGED")
+        n_review_cn_rescued = sum(1 for e in events if e.get("pathway_adjudication") == "REVIEW_CN_RESCUED")
+        n_single_caller_cn_rescued = sum(1 for e in events if e.get("pathway_adjudication") == "SINGLE_CALLER_CN_RESCUED")
         genes_hit = sorted({e["gene"] for e in events})
         alteration_counts = Counter(e["alteration_type"] for e in events)
 
@@ -765,6 +1079,9 @@ def summarize(alteration_rows: List[Dict[str, str]], sample_id: str, out_prefix:
             "n_possible": str(n_possible),
             "n_uncertain": str(n_uncertain),
             "n_low": str(n_low),
+            "n_hc_cn_challenged": str(n_hc_cn_challenged),
+            "n_review_cn_rescued": str(n_review_cn_rescued),
+            "n_single_caller_cn_rescued": str(n_single_caller_cn_rescued),
             "mapk_status": status,
             "top_candidate": best,
             "genes_hit": ",".join(genes_hit),
@@ -772,7 +1089,9 @@ def summarize(alteration_rows: List[Dict[str, str]], sample_id: str, out_prefix:
 
     sample_summary_columns = [
         "sample", "n_mapk_events", "n_mapk_genes_hit", "n_snvindel_events", "n_cnv_events", "n_sv_events",
-        "n_high_confidence", "n_possible", "n_uncertain", "n_low", "mapk_status", "top_candidate", "genes_hit"
+        "n_high_confidence", "n_possible", "n_uncertain", "n_low",
+        "n_hc_cn_challenged", "n_review_cn_rescued", "n_single_caller_cn_rescued",
+        "mapk_status", "top_candidate", "genes_hit"
     ]
     write_tsv(Path(f"{out_prefix}.mapk_sig_path.sample_summary.tsv"), sample_summary_rows, sample_summary_columns)
 
@@ -814,7 +1133,9 @@ def main() -> int:
         raise ValueError(f"No genes found in {args.mapk_genes}")
 
     alteration_rows: List[Dict[str, str]] = []
-    alteration_rows.extend(parse_snvindel_rows(args, gene_info))
+    snv_rows = parse_snvindel_rows(args, gene_info)
+    adjudicate_snv_rows(args, snv_rows, load_gene_cn_index(args))
+    alteration_rows.extend(snv_rows)
     alteration_rows.extend(parse_cnv_rows(args, gene_info))
     alteration_rows.extend(parse_sv_rows(args, gene_info))
 

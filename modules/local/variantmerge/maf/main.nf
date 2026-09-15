@@ -22,14 +22,14 @@ process VARIANTMERGE_MAF {
     def prefix = task.ext.prefix ?: "${meta.id}"
     def maf_label = task.ext.maf_label ?: 'high_confidence'
     """
-    HC2MAF \\
+    python3 ${moduleDir}/bin/high_confidence_to_clinical_maf.py \\
         ${tier_tsv} \\
         --output ${prefix}.${maf_label}.clinical_maf.tsv \\
         ${args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        high_confidence_to_clinical_maf: \$(echo \$(HC2MAF -v 2>&1 | grep "high_confidence_to_clinical_maf.py" | sed 's/^high_confidence_to_clinical_maf.py //'))
+        high_confidence_to_clinical_maf: \$(python3 ${moduleDir}/bin/high_confidence_to_clinical_maf.py -v 2>&1 | awk '{print \$NF}')
     END_VERSIONS
     """
 
@@ -41,7 +41,7 @@ process VARIANTMERGE_MAF {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        high_confidence_to_clinical_maf: \$(echo \$(HC2MAF -v 2>&1 | grep "high_confidence_to_clinical_maf.py" | sed 's/^high_confidence_to_clinical_maf.py //'))
+        high_confidence_to_clinical_maf: \$(python3 ${moduleDir}/bin/high_confidence_to_clinical_maf.py -v 2>&1 | awk '{print \$NF}')
     END_VERSIONS
     """
 }
