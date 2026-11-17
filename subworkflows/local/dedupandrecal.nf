@@ -134,8 +134,11 @@ workflow DEDUPANDRECAL {
 
     //
     // MODULE: Run Picard's Collect HS Metrics for raw BAM files
+    // Target intervals are the prebuilt interval list. trgt.sort.bed stores
+    // strand in column 4, and BedToIntervalList would write that strand into
+    // the per-target coverage name column.
     //
-    COLLECTHSMETRICS(ch_bam_bai_raw, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
+    COLLECTHSMETRICS(ch_bam_bai_raw, ch_fasta, ch_fai, ch_dict, params.baits, params.hsmetrics_trgts, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS.out.versions.first())
 
     //
@@ -315,8 +318,9 @@ workflow DEDUPANDRECAL {
 
     //
     // MODULE: Run Picard's Collect HS Metrics for consensus BAM files
+    // Same target interval list as the raw call, so the coverage name is the gene.
     //
-    COLLECTHSMETRICS_DR(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.baits, params.targets, params.seq_library)
+    COLLECTHSMETRICS_DR(ch_bam_bai_dr, ch_fasta, ch_fai, ch_dict, params.baits, params.hsmetrics_trgts, params.seq_library)
     ch_versions = ch_versions.mix(COLLECTHSMETRICS_DR.out.versions.first())
 
     //
